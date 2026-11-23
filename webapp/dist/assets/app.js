@@ -15,19 +15,19 @@ const controls = {
 const photo = element("photo");
 const photoError = element("photo-error");
 const result = element("comparison-result");
-const regions = new Intl.DisplayNames(["zh-Hant"], { type: "region", fallback: "none" });
-const rounded = new Intl.NumberFormat("zh-Hant", { maximumFractionDigits: 0 });
-const oneDecimal = new Intl.NumberFormat("zh-Hant", { maximumFractionDigits: 1 });
+const regions = new Intl.DisplayNames(["en"], { type: "region", fallback: "none" });
+const rounded = new Intl.NumberFormat("en-US", { maximumFractionDigits: 0 });
+const oneDecimal = new Intl.NumberFormat("en-US", { maximumFractionDigits: 1 });
 const swatches = { zero: "#a43929", fine: "#096c59" };
 const originalIndex = new Map(examples.map((example, index) => [example.id, index + 1]));
-const modelLabels = { sft: "微調 6,000 張", sft_2000: "微調 2,000 張" };
+const modelLabels = { sft: "6,000-Image QLoRA", sft_2000: "2,000-Image QLoRA" };
 let matches = [];
 let selected = null;
 let extent = null;
 let synchronizing = false;
 
 function country(code) {
-  if (!code) return "未提供";
+  if (!code) return "Not provided";
   return /^[A-Z]{2}$/.test(code) ? regions.of(code) || code : code;
 }
 
@@ -48,10 +48,10 @@ function createMap(side) {
     scrollWheelZoom: false,
   }).setView([20, 0], 1);
   const zoom = L.control.zoom({
-    zoomInTitle: "放大",
-    zoomOutTitle: "縮小",
+    zoomInTitle: "Zoom in",
+    zoomOutTitle: "Zoom out",
   }).addTo(map);
-  zoom.getContainer().setAttribute("aria-label", "地圖縮放");
+  zoom.getContainer().setAttribute("aria-label", "Map zoom");
   map.attributionControl.setPrefix(false);
   map.attributionControl.addAttribution("Natural Earth");
   map.createPane("country-outlines");
@@ -151,17 +151,17 @@ function plot(side, example, guess) {
       dashArray: "5 5",
       interactive: false,
     }).addTo(marks);
-    putMarker(marks, displayPoint, guess.point, side, "預測", guess.country);
+    putMarker(marks, displayPoint, guess.point, side, "Prediction", guess.country);
   }
-  putMarker(marks, example.point, example.point, "truth", "真值", example.country);
+  putMarker(marks, example.point, example.point, "truth", "Ground Truth", example.country);
 }
 
 function updateSummary(side, model) {
   const summary = metrics[model];
   const items = [
-    `國家正確 ${summary.country_correct}/${summary.n}`,
-    `25 km 內 ${summary.within_25km}/${summary.n}`,
-    `中位誤差 ${kilometres(summary.median_km)}`,
+    `Country ${summary.country_correct}/${summary.n}`,
+    `≤ 25 km ${summary.within_25km}/${summary.n}`,
+    `Median ${kilometres(summary.median_km)}`,
   ];
   element("metrics-" + side).replaceChildren(...items.map(item => {
     const span = document.createElement("span");
@@ -171,7 +171,7 @@ function updateSummary(side, model) {
 }
 
 function predictionDetails(side, guess) {
-  element("country-" + side).textContent = guess ? "猜測 " + country(guess.country) : "—";
+  element("country-" + side).textContent = guess ? "Guess: " + country(guess.country) : "—";
   element("distance-" + side).textContent = guess?.distance == null
     ? "—"
     : oneDecimal.format(guess.distance) + " km";
@@ -216,26 +216,26 @@ function showSelected() {
   photo.hidden = !selected;
   if (!selected) {
     element("truth").textContent = "—";
-    result.textContent = "沒有符合的照片";
+    result.textContent = "No matching photos";
     extent = null;
     return;
   }
 
   photo.src = selected.photo;
-  photo.alt = `第 ${originalIndex.get(selected.id)} 張評估街景照片`;
+  photo.alt = `Evaluation street-view photo #${originalIndex.get(selected.id)}`;
   element("truth").textContent = country(selected.country);
   if (zero.distance == null || fine.distance == null) {
-    const missing = [zero.distance == null ? "Zero-shot" : "", fine.distance == null ? "微調" : ""]
-      .filter(Boolean).join("、");
-    result.textContent = missing + " 缺少可用座標";
+    const missing = [zero.distance == null ? "Zero-shot" : "", fine.distance == null ? "Fine-tuned" : ""]
+      .filter(Boolean).join(", ");
+    result.textContent = missing + " missing valid coordinates";
   } else {
     const change = fine.distance - zero.distance;
     if (Math.abs(change) < 0.1) {
-      result.textContent = "這張照片的兩個預測誤差相近";
+      result.textContent = "Both predictions have nearly identical error";
     } else {
       const improved = change < 0;
       result.dataset.tone = improved ? "better" : "worse";
-      result.textContent = `這張照片微調後更${improved ? "近" : "遠"} ${kilometres(Math.abs(change))}`;
+      result.textContent = `Fine-tuned is ${kilometres(Math.abs(change))} ${improved ? "closer" : "farther"}`;
     }
   }
 
@@ -259,10 +259,10 @@ function refreshPicker() {
     return filter === "better" ? zero - fine >= 0.1 : fine - zero >= 0.1;
   });
   const options = matches.map(example => {
-    const label = `第 ${originalIndex.get(example.id)} / ${examples.length} 張`;
+    const label = `Photo ${originalIndex.get(example.id)} / ${examples.length}`;
     return new Option(label, example.id);
   });
-  controls.picture.replaceChildren(...(options.length ? options : [new Option("沒有符合的照片", "")]));
+  controls.picture.replaceChildren(...(options.length ? options : [new Option("No matching photos", "")]));
   controls.picture.disabled = !options.length;
   if (matches.includes(selected)) controls.picture.value = selected.id;
   showSelected();

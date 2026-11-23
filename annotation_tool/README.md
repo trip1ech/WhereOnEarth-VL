@@ -1,26 +1,24 @@
-# 街景標註
+# Blind Road Center-Line Annotator (`annotation_tool`)
 
-這個本機工具用於標註可見的道路中央線。它直接讀取專案既有 ZIP 內與模型相同的 JPEG，資料集提供固定亂序。畫面隱藏國家、GPS、拍攝者與模型預測。
+A lightweight local web tool for blind annotation of visible road center-line markings. It streams the exact 512 px JPEGs directly from the project's local ZIP archives in a fixed shuffled order, hiding country, GPS coordinates, photographer attribution, and model predictions.
 
-## 啟動
+## Launch
 
-在 Finder 雙擊 `開啟街景標註.command`，或從任何目錄執行：
+On macOS, double-click [`launch_annotator.command`](launch_annotator.command) in Finder, or run from the repo root:
 
 ```sh
-python3 "/Volumes/PortableSSD/Codex/GeoGuessr-Recognition/annotation_tool/server.py"
+python3 annotation_tool/server.py
 ```
 
-用瀏覽器開啟 <http://127.0.0.1:8766/>。終端機前景啟動時，按 `Control+C` 可以停止。
+Then open <http://127.0.0.1:8766/> in your browser. Press `Control+C` to stop.
 
-## 標註
+## Keyboard Shortcuts & Label Definitions
 
-- `1` 單線，包括一條實線或虛線。
-- `2` 雙線，包括同一位置兩條並排的線，實線和虛線皆可。
-- `3` 無中央線，適用於能看清楚雙向道路的中央，且確實沒有標線。
-- `4` 看不清／不適用，包括遮擋、模糊、找不到道路、單行道，或畫面中不同路段互相衝突而無法判斷。
-- 只數分隔對向車流的中央線。路肩線與同向車道線略過。左右方向鍵可瀏覽，「下一張未標註」可跳過目前照片。
-- 選完一項會先儲存，再前往下一張未標註的照片。要更正時回到原圖，選新標籤或清除即可。
+- `1` **Single line** — one solid or dashed line separating opposing traffic.
+- `2` **Double line** — two parallel lines side by side (solid and/or dashed).
+- `3` **No center line** — the center of a two-way road is clearly visible with no markings.
+- `4` **Unclear / N/A** — occluded, blurred, no road visible, one-way street, or conflicting road segments.
+- Count only lines separating opposing traffic; ignore edge lines and same-direction lane dividers.
+- Use `←` / `→` arrow keys to browse and **Next unlabeled** to jump ahead. Selecting a label saves immediately and advances to the next unlabeled photo.
 
-標註即時寫入同一顆 SSD 的 `data/roadmark_annotations/labels.json`。同一瀏覽器重新開啟可接著看上次的照片。初次開啟會從第一批 40 張開始，標完可切換至第二批補標 30 張。第一批是固定亂序訓練集的前 40 張。第二批先看過縮圖，優先選中央線較容易辨識的照片，並加入同國的單線與雙線候選。兩批皆與完整訓練集共用同一份人工標註，照片的候選類別不會顯示。未見拍攝者的 66 張也可切換標註，匯出中保留 `dataset` 以便維持資料切分。
-
-「匯出 JSONL」會從瀏覽器下載一份副本，每行含影像 ID、資料集、影像 SHA‑256、標籤與儲存時間。 `single`、`double`、`none`、`unclear` 分別對應以上四個按鈕。
+Annotations are atomically saved to [`data/roadmark_annotations/labels.json`](../data/roadmark_annotations/labels.json). The tool starts on **Batch 1 (40)** (first 40 shuffled training images), switches to **Batch 2 (30)** (30 enriched follow-up candidates), and also supports labeling the full training set or the 66-image unseen-creator holdout. **Export JSONL** downloads a copy containing image ID, dataset split, SHA-256, label (`single`, `double`, `none`, `unclear`), and timestamp.

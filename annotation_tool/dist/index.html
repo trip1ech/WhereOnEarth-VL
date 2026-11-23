@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="zh-Hant">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>街景標註 · GeoGuessr Recognition</title>
+  <title>Road-Marking Annotator · WhereOnEarth-VL</title>
   <link href="/app.css" rel="stylesheet">
   <script src="/app.js" defer></script>
 </head>
@@ -11,53 +11,53 @@
   <main class="workspace">
     <header class="header">
       <div>
-        <p class="project">GeoGuessr Recognition</p>
-        <h1>街景標註</h1>
+        <p class="project">WhereOnEarth-VL</p>
+        <h1>Road-Marking Annotator</h1>
       </div>
       <div class="header-actions">
-        <label for="dataset">資料集</label>
+        <label for="dataset">Dataset</label>
         <select id="dataset" disabled></select>
-        <a class="export" id="export" aria-disabled="true">匯出 JSONL</a>
+        <a class="export" id="export" aria-disabled="true">Export JSONL</a>
       </div>
     </header>
 
     <div class="layout">
-      <section class="photo-card" aria-label="待標註照片">
+      <section class="photo-card" aria-label="Photo to annotate">
         <div class="photo-header">
-          <span id="sample">載入中</span>
-          <span class="image-size">模型輸入 · 長邊 512 px</span>
+          <span id="sample">Loading</span>
+          <span class="image-size">Model input · 512 px max edge</span>
         </div>
         <div class="viewer" id="viewer"></div>
-        <nav class="navigation" aria-label="瀏覽照片">
-          <button id="previous" type="button" disabled>上一張</button>
-          <button id="next-unlabeled" type="button" disabled>下一張未標註</button>
-          <button id="next" type="button" disabled>下一張</button>
+        <nav class="navigation" aria-label="Browse photos">
+          <button id="previous" type="button" disabled>Previous</button>
+          <button id="next-unlabeled" type="button" disabled>Next unlabeled</button>
+          <button id="next" type="button" disabled>Next</button>
         </nav>
       </section>
 
       <aside class="label-panel">
         <section aria-labelledby="question">
-          <h2 id="question">道路中央有幾條線？</h2>
-          <p class="instructions">只數分隔對向車流的中央標線。實線和虛線都算，路肩線和同向車道線略過。</p>
+          <h2 id="question">How many center lines divide opposing traffic?</h2>
+          <p class="instructions">Count only center markings dividing opposing lanes. Solid and dashed lines both count; ignore shoulder/edge lines and same-direction lane lines.</p>
           <div class="options">
             <button class="label" data-label="single" type="button" aria-pressed="false" disabled>
-              <kbd>1</kbd><span><strong>單線</strong><small>一條實線或虛線</small></span>
+              <kbd>1</kbd><span><strong>Single line</strong><small>One solid or dashed line</small></span>
             </button>
             <button class="label" data-label="double" type="button" aria-pressed="false" disabled>
-              <kbd>2</kbd><span><strong>雙線</strong><small>同一處有兩條並排的線</small></span>
+              <kbd>2</kbd><span><strong>Double line</strong><small>Two parallel lines side by side</small></span>
             </button>
             <button class="label" data-label="none" type="button" aria-pressed="false" disabled>
-              <kbd>3</kbd><span><strong>無中央線</strong><small>道路中央清楚可見，沒有標線</small></span>
+              <kbd>3</kbd><span><strong>No center line</strong><small>Road center clearly visible with no markings</small></span>
             </button>
             <button class="label" data-label="unclear" type="button" aria-pressed="false" disabled>
-              <kbd>4</kbd><span><strong>看不清／不適用</strong><small>遮擋、模糊、無道路，或無法判定</small></span>
+              <kbd>4</kbd><span><strong>Unclear / N/A</strong><small>Occluded, blurry, no road, or ambiguous</small></span>
             </button>
           </div>
-          <button id="clear" type="button" class="quiet" disabled>清除這張的標註</button>
+          <button id="clear" type="button" class="quiet" disabled>Clear label</button>
         </section>
         <footer class="progress-area">
-          <progress id="progress" value="0" max="1" aria-label="標註進度"></progress>
-          <p id="count">已標註 0 張</p>
+          <progress id="progress" value="0" max="1" aria-label="Annotation progress"></progress>
+          <p id="count">Labeled 0</p>
           <p id="class-counts"></p>
           <p id="status" role="status" aria-live="polite"></p>
         </footer>

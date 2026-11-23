@@ -1,40 +1,44 @@
-# Qwen3-VL 中央標線特徵試驗
+# Qwen3-VL Road Center-Line Feature Probe
 
-2026 年 11 月 21 日。這次測試凍結的影像特徵能否用線性分類器辨識單線、雙線，以及同一個 Qwen3-VL 模型掛上先前的定位 LoRA 後，如何回答同一題。
+**Date:** 2026-11-21. This experiment tested whether frozen visual representations in `Qwen3-VL-2B` can linearly separate single vs. double road center lines, and how the base model vs. the 6k localization LoRA answer the same binary visual question directly.
 
-## 資料與設定
+## Data & Setup
 
-- 人工標註 70 張。二分類使用 23 張單線與 20 張雙線，排除 16 張無線與 11 張不確定。標註樣本包含一批刻意補足雙線的照片，因此比例與分數都限於這個樣本。
-- 43 張照片有 43 個不同的拍攝者名稱。將拍攝者分為五折，在各折測試其餘四折擬合的分類器。同國對照組有 11 對單線、雙線，涵蓋 8 國。每國以地理距離做不重複配對，每輪將一整個國家留給測試。配對距離中位數 281 km，範圍 30–1,561 km。
-- 使用原本定位微調的模型版本、影像輸入與 4-bit NF4 設定。以相同的正規化、邏輯斯迴歸與超參數比較主 merger 前後的特徵，均以 2×2 空間分區池化。另測試全圖平均、保留四個 patch 位置的 ViT 特徵及各層 DeepStack 輸出。地理資料僅用於切分、配對及國家標籤控制組。影像特徵均由同一個凍結模型提取。
-- 問答讓模型從單線、雙線二選一，在每張照片上交換 A/B 的順序，再平均兩次的雙線相對分數。43 張照片均出現在 6,000 張定位 LoRA 的訓練資料中。標線標籤只用於這次評估及線性分類器，定位 LoRA 的跨國泛化須用新照片另驗。
+- **Blind human labels:** 70 annotated images; binary classification used **23 single-line** and **20 double-line** images (excluding 16 no-line and 11 unclear). Because the second annotation batch specifically enriched double-line examples, proportions and scores reflect this diagnostic sample.
+- **Splits:**
+  - *43-image creator-disjoint 5-fold CV:* 43 distinct photographers partitioned into 5 creator-disjoint folds.
+  - *22-image same-country paired leave-one-country-out:* 11 geographically matched single/double pairs spanning 8 countries (median within-pair distance 281 km, range 30–1,561 km), holding out an entire country per fold.
+- **Probes & QA:** Using the exact same 4-bit NF4 `Qwen3-VL-2B` backbone and 512 px image preprocessing, we compared logistic regression probes (2×2 spatial pooling + identical standardization/hyperparameters) before vs. after the main vision-language projector, plus global-average / 4-patch ViT features and multi-layer DeepStack outputs. All vision features came from the frozen base encoder. For direct QA, we presented a binary single-vs-double choice, **swapped A/B option order on every image**, and averaged the two log-odds scores.
+- **Scope note:** All 43 images came from the 6,000-image localization LoRA training pool (the center-line labels themselves were never used in training). Cross-country generalization of the localization LoRA must still be measured on unseen-creator holdouts.
 
-## 結果
+## Results
 
-平衡準確率是單線、雙線各自答對比例的平均。最後一欄計算同國配對裡，真正的雙線照片得到較高雙線分數的次數。
+Balanced accuracy equally averages single-line and double-line recall. The final column counts how many of the 11 same-country pairs assigned a higher double-line score to the true double-line photo.
 
-| 讀出方式 | 43 張、拍攝者分開 | 22 張、整國留出 | 同國配對排序 |
+| Readout Method | 43 Images (Creator 5-Fold) | 22 Images (Leave-One-Country-Out) | Same-Country Pair Ranking |
 |---|---:|---:|---:|
-| 已知國家標籤 | 56.1%（24/43） | 50.0%（11/22） | 11 對全同分 |
-| 縮小的全圖 RGB | 51.1%（22/43） | 50.0%（11/22） | 8/11 |
-| ViT 主 merger 前 | 49.2%（21/43） | 54.5%（12/22） | 5/11 |
-| ViT 保留 patch 位置 | 57.9%（25/43） | 59.1%（13/22） | 8/11 |
-| 主 projector 後 | 43.6%（19/43） | 50.0%（11/22） | 9/11 |
-| 主 projector 加 DeepStack | 41.4%（18/43） | 54.5%（12/22） | 9/11 |
-| 原版 Qwen 問答 | 54.0%（22/43） | 63.6%（14/22） | 10/11 |
-| 6,000 張定位 LoRA 問答 | 62.7%（26/43） | 72.7%（16/22） | 10/11 |
+| Known country label only | 56.1% (24/43) | 50.0% (11/22) | 11 ties |
+| Downsampled full-image RGB | 51.1% (22/43) | 50.0% (11/22) | 8 / 11 |
+| ViT pre-merger (2×2 pooled) | 49.2% (21/43) | 54.5% (12/22) | 5 / 11 |
+| ViT preserving patch positions | 57.9% (25/43) | 59.1% (13/22) | 8 / 11 |
+| Post-main projector | 43.6% (19/43) | 50.0% (11/22) | 9 / 11 |
+| Main projector + DeepStack | 41.4% (18/43) | 54.5% (12/22) | 9 / 11 |
+| Base Qwen3-VL direct QA | 54.0% (22/43) | 63.6% (14/22) | 10 / 11 |
+| 6k localization LoRA direct QA | 62.7% (26/43) | 72.7% (16/22) | 10 / 11 |
 
-- 主 projector 前後的線性分類器，在 43 張中有 6 張由錯變對、8 張由對變錯。在 22 張中則是 3 張由錯變對、4 張由對變錯。整國留出時，合併 DeepStack 的分類分數等於主 merger 前，主 projector 的同國排序分數也比主 merger 前高。這批結果不足以支持 projector 丟失了標線訊號。
-- 問答多答對的 4 張都是單線，兩版在全部 43 張皆答對 19/20 張雙線。掛上 LoRA 後，43 張圖的平均雙線分數全部下降，中位數變動 −0.96 logit 單位。兩版在同國配對都排對 10/11。全樣本 AUROC 為 0.878 → 0.900，22 張子集為 0.917 → 0.926，這批樣本上最明顯的變化是原本偏向選雙線的程度下降。
-- 作答依賴選項順序。交換後仍答同一類的照片，原版是 29/43，掛上 LoRA 是 16/43。把雙線放在 A 時，原版選雙線 41/43，LoRA 選 43/43。這限制了把二選一分數解讀為穩定辨識能力。
-- 抽看四張。臺灣與波蘭的單虛線照片掛上 LoRA 後答對。愛爾蘭的一組中，雙線是清楚的實線加虛線，但兩版給單線照片更高的雙線分數。兩張照片的場景、路況與視角均有差異。同國配對可以控制國別，仍保留這些可被模型利用的差異。
+- **No evidence of projector signal loss:** Moving from pre- to post-projector changed 6 wrong→right and 8 right→wrong on 43 images (3 wrong→right, 4 right→wrong on 22 images), while same-country pair ranking *improved* from 5/11 to 9/11.
+- **LoRA mainly calibrated the double-line prior:** Both base and 6k LoRA got 19/20 double-line images right, with the 4 extra QA wins from LoRA all on single-line images (mean double-line logit shifted by median `−0.96`). AUROC rose `0.878 → 0.900` on all 43 images and `0.917 → 0.926` on the 22-image subset.
+- **Strong A/B option-order bias:** Swapping A/B order kept the same answer on only `29/43` (base) and `16/43` (6k LoRA) images. When "double line" was option A, base chose double `41/43` times and LoRA `43/43` times — limiting raw binary accuracy interpretation.
+- **Qualitative spot check:** Single dashed lines in Taiwan and Poland flipped from wrong to right with LoRA, while an Irish solid+dashed double line still scored lower than its paired single-line photo due to broader scene/lighting differences.
 
-## 判斷
+## Verdict & Reproduction
 
-70 張標註足以做一次診斷。現在沒有足夠的證據決定解凍 ViT 或 projector。線性 probe 測到的是指定特徵彙整方式下的讀出效果。整圖 Qwen 問答顯示一些區分能力，但同國排序的優勢也可能部分來自場景、道路或攝影條件，尤其是縮小的 RGB 都能排對 8/11。若要追究模型是否真的使用中央線，優先在新作者的照片上比較原圖、遮中央線以及等面積遮住無標線的鄰近路面。固定問句與順序交換，查看單線和雙線的分數差是否只在遮中央線時明顯減弱。
+These 70 annotations do **not** justify unfreezing the ViT or projector yet (see the follow-up crop diagnosis in [`../roadmark_crop_probe/README.md`](../roadmark_crop_probe/README.md)).
 
-## 重現
+Recompute [`analysis.json`](analysis.json) and [`out_of_fold.csv`](out_of_fold.csv) from local cached features (`roadmark-features.zip`) via:
 
-在專案根目錄執行 `python -B scripts/analyze_roadmark_probe.py` 便能用快取重新產生 `analysis.json` 和 `out_of_fold.csv`。`labels.jsonl` 鎖定本次標註與來源，`roadmark-features.zip` 包含凍結特徵、兩次問答的分數與 GPU 擷取設定。重新抽特徵前可用 `python -B scripts/prepare_roadmark_probe.py` 建立輸入包，以 `split -b 4m -a 2 results/roadmark_probe/inference-input.zip results/roadmark_probe/transfer/part-` 切分，再執行 `bash results/roadmark_probe/transfer/run.sh`。
+```sh
+python3 -B scripts/analyze_roadmark_probe.py
+```
 
-首次抽取使用 Colab Tesla T4。下載完成後終止該工作階段，Colab 核對為 0 個執行中的工作階段、0.00 compute units/hr。
+Feature extraction used a Colab Tesla T4 runtime (terminated immediately after downloading results; 0.00 compute units/hr).

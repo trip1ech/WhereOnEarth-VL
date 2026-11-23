@@ -15,7 +15,7 @@ const clear = element("clear");
 const exportLink = element("export");
 const buttons = [...document.querySelectorAll(".label")];
 const keyLabels = { 1: "single", 2: "double", 3: "none", 4: "unclear" };
-const labelNames = { single: "單線", double: "雙線", none: "無中央線", unclear: "看不清／不適用" };
+const labelNames = { single: "Single line", double: "Double line", none: "No center line", unclear: "Unclear / N/A" };
 
 const resumes = new Map();
 const resumeKey = "roadmark-annotation-view-with-followup";
@@ -77,10 +77,10 @@ function updateControls() {
   }
   const marked = Object.values(tallies).reduce((sum, total) => sum + total, 0);
   const destination = findUnlabeled(index);
-  count.textContent = `已標註 ${marked.toLocaleString("zh-Hant")} / ${current.ids.length.toLocaleString("zh-Hant")} 張`;
-  classCounts.textContent = `單線 ${tallies.single} · 雙線 ${tallies.double}`;
+  count.textContent = `Labeled ${marked.toLocaleString("en-US")} / ${current.ids.length.toLocaleString("en-US")}`;
+  classCounts.textContent = `Single ${tallies.single} · Double ${tallies.double}`;
   if ((current.key === "pilot" || current.key === "followup") && marked === current.ids.length) {
-    classCounts.textContent += " · 本批完成";
+    classCounts.textContent += " · Batch complete";
   }
   progress.max = current.ids.length;
   progress.value = marked;
@@ -106,11 +106,11 @@ function show(indexToShow) {
   try {
     localStorage.setItem(resumeKey, JSON.stringify({ key: current.key, id: current.ids[index] }));
   } catch {
-    // The SSD still holds annotations when browser storage is unavailable.
+    // Disk storage still holds annotations when browser storage is unavailable.
   }
-  sample.textContent = `第 ${(index + 1).toLocaleString("zh-Hant")} / ${current.ids.length.toLocaleString("zh-Hant")} 張`;
+  sample.textContent = `Photo ${(index + 1).toLocaleString("en-US")} / ${current.ids.length.toLocaleString("en-US")}`;
   const image = document.createElement("img");
-  image.alt = "待標註的街景照片";
+  image.alt = "Street-view photo to annotate";
   image.addEventListener("load", () => {
     if (viewer.firstElementChild !== image) return;
     ready = true;
@@ -120,7 +120,7 @@ function show(indexToShow) {
     if (viewer.firstElementChild !== image) return;
     const notice = document.createElement("p");
     notice.className = "photo-error";
-    notice.textContent = "照片載入失敗。請確認 SSD 已連接，再重新整理。";
+    notice.textContent = "Failed to load photo. Ensure the local data archive is accessible and refresh.";
     viewer.replaceChildren(notice);
   });
   viewer.replaceChildren(image);
@@ -140,7 +140,7 @@ async function save(label) {
   const imageId = current.ids[index];
   saving = true;
   updateControls();
-  message("儲存中…");
+  message("Saving…");
   try {
     const response = await fetch("/api/label", {
       method: "POST", headers: { "Content-Type": "application/json" },
@@ -150,15 +150,15 @@ async function save(label) {
     if (!response.ok) throw new Error(result.error);
     if (label === null) {
       delete labels[imageId];
-      message("已清除這張的標註");
+      message("Cleared label");
     } else {
       labels[imageId] = label;
-      message(`已存到 SSD · ${labelNames[label]}`);
+      message(`Saved · ${labelNames[label]}`);
       const destination = findUnlabeled(index);
       if (destination >= 0) show(destination);
     }
   } catch (error) {
-    message(error.message === "Failed to fetch" ? "無法連到本機服務，這次標註尚未確認。" : error.message, true);
+    message(error.message === "Failed to fetch" ? "Unable to reach local server; annotation not confirmed." : error.message, true);
   } finally {
     saving = false;
     updateControls();
@@ -190,16 +190,16 @@ document.addEventListener("keydown", event => {
 async function start() {
   try {
     const response = await fetch("/api/state");
-    if (!response.ok) throw new Error("連線失敗");
+    if (!response.ok) throw new Error("Connection failed");
     ({ datasets, labels } = await response.json());
     const train = datasets.find(dataset => dataset.key === "train");
-    const pilot = { key: "pilot", name: "第一批", ids: train.ids.slice(0, 40) };
-    const followup = { key: "followup", name: "第二批補標", ids: followupIds };
+    const pilot = { key: "pilot", name: "Batch 1", ids: train.ids.slice(0, 40) };
+    const followup = { key: "followup", name: "Batch 2 (Follow-up)", ids: followupIds };
     const pilotComplete = pilot.ids.every(id => labels[id]);
     datasets.unshift(...(pilotComplete ? [followup, pilot] : [pilot, followup]));
-    train.name = "完整訓練集";
+    train.name = "Full Training Set";
     datasetPicker.replaceChildren(...datasets.map(dataset =>
-      new Option(`${dataset.name}（${dataset.ids.length.toLocaleString("zh-Hant")}）`, dataset.key)
+      new Option(`${dataset.name} (${dataset.ids.length.toLocaleString("en-US")})`, dataset.key)
     ));
     let resume;
     try {
@@ -215,8 +215,8 @@ async function start() {
     }
     selectDataset(datasetPicker.value);
   } catch {
-    sample.textContent = "無法載入資料";
-    message("請確認本機服務已啟動、SSD 已連接，再重新整理。", true);
+    sample.textContent = "Unable to load data";
+    message("Ensure the local server is running and data archives are available, then refresh.", true);
   }
 }
 start();

@@ -1,34 +1,42 @@
-# 先讀線索再定位
+# Clue-First Prompting Diagnosis (Pre-Training)
 
-## 攻略與照片檢查
+## 1. Motivation & Visual Audit
 
-Plonk It 建議把語言／字體、方向牌地名、路線編號、道路設施和駕駛方向視為不同線索。地名或路號可以縮小到區域，寫法或語言通常只能排除一些國家。方向牌的目的地也可能離攝影點有一段距離。同一份攻略另外介紹 Google 拍攝車和相機世代的捷徑。這組照片是 OSV‑5M 的未見拍攝者街景，我們把實驗限制在能看見的場景文字。 [Plonk It 初學者攻略](https://www.plonkit.net/beginners-guide)
+In GeoGuessr ([Plonk It Beginner's Guide](https://www.plonkit.net/beginners-guide)), players separate language/script, directional place names, route numbers, road infrastructure, and driving side into distinct clues — noting that directional sign destinations can be far from the camera while script/language narrows the country set. Here we restricted our diagnostic to **visible scene text** on the 66-image unseen-creator holdout (`author_holdout`).
 
-先檢查全部 66 張縮圖，再放大核對可能有字的招牌。第 22 張方向牌寫著 Βόλος／Volos，第 45 張招牌有 BOUAKE。第 24、31、36 張分別有義大利文、中文及韓文商家或道路文字，可以測語言線索。另有小到無法可靠轉錄的牌、車窗貼紙、無字的山路與住宅區。使用既有通過答案疊字審核的 66 張樣本，人工抄錄依影像內容完成，於模型推論前鎖定。五張已核對文字的照片是診斷子集。
+We manually inspected all 66 thumbnails and zoomed into candidate signage before inference, locking human transcripts on **5 clear-sign images** as a diagnostic subset:
+- **#22:** directional sign reading `Βόλος` / `Volos` (Greece)
+- **#45:** roadside sign reading `BOUAKE` (Côte d'Ivoire)
+- **#24, #31, #36:** Italian (`residenti`, `eccetto`), Chinese (`汽车钥匙`), and Korean signage testing script/language cues
 
-[五張已核對招牌](review/verified-signs.jpg) · [前 12 張縮圖](review/overview-1.jpg)
+Remaining photos included unreadable distant signs, windshield stickers, and signless rural/residential roads. All 66 had already passed the GPS-HUD audit.
 
-## 方法
+---
 
-1. **直接定位**。沿用原本 prompt、4-bit Qwen3‑VL‑2B 和 6,000 張定位 LoRA，重跑 66 張。
-2. **先由模型讀字再定位**。同一模型先從整圖輸出最多三段可讀文字，再把整圖和抄錄一起交給原定位模型。抄不出或 JSON 無效時沿用直接定位。
-3. **加入人工核對文字**。五張有已核對字詞的照片，用相同的定位 prompt 提供原圖加人工抄錄。另用相同的讀字 prompt 放大這五張的文字區域，再把讀到的字和整圖交給定位模型。手工裁切用於定位瓶頸。
+## 2. Method
 
-Prompt 只改推論時可用的文字，ViT、projector、LM 權重保持固定。定位使用國家正確數、25／200 km 命中及中位定位誤差，同時統計逐張變好、變差。主結果是全部 66 張，人工抄錄組只與直接定位及自動抄錄組在相同五張上比較。照片來自同一資料平台，樣本區域與路型不均，這次的兩張地名案例可用來理解失敗原因。
+All three inference conditions reused the fixed `Qwen3-VL-2B` (4-bit NF4) + `6k QLoRA` localization adapter (ViT, projector, and LM weights unchanged):
+1. **Direct localization:** Original localization prompt on all 66 full images.
+2. **Model OCR → localize:** Prompt the same model to extract up to three readable text snippets from the full image, then pass both the full image and extracted text to the localization prompt (falling back to direct prediction when OCR is empty or invalid JSON).
+3. **Human transcript / zoomed OCR (5-image subset):** Feed human-verified transcripts alongside the full image, and separately run the OCR prompt on manually zoomed sign crops before feeding those crop transcripts back into localization.
 
-## 重現
+Recompute [`analysis.json`](analysis.json) and [`predictions.csv`](predictions.csv) with `python3 -B scripts/analyze_clue_first.py` (image hashes locked in [`inputs.json`](inputs.json); raw outputs archived locally in `clue-first-results.zip`).
 
-推論前的 review/verified.json 保留了圖片序號、可目視確認的文字與裁切範圍。inputs.json 鎖定所有影像的 SHA‑256。原始輸出和模型設定在 clue-first-results.zip。用 python -B scripts/analyze_clue_first.py 重算 analysis.json 和 predictions.csv。
+---
 
-## 推論結果
+## 3. Results
 
-| 方法 | 國家正確 | 200 km 內 | 25 km 內 | 中位誤差 |
+| Method (66 Unseen-Creator Holdout Images) | Country Acc. | ≤ 200 km | ≤ 25 km | Median Error |
 |---|---:|---:|---:|---:|
-| 直接定位 | 33/66 | 14/66 | 1/66 | 600.3 km |
-| 加模型抄錄 | 30/66 | 11/66 | 1/66 | 615.7 km |
+| Direct localization | **33 / 66** | **14 / 66** | 1 / 66 | **600.3 km** |
+| With model-transcribed scene text | 30 / 66 | 11 / 66 | 1 / 66 | 615.7 km |
 
-66 筆直接定位完全重現先前的逐張預測。模型抄錄有 24 張能解析成非空的文字、21 張列出空陣列，另有 21 張格式不符。24 張有傳入模型抄錄的照片中，以誤差變動超過 1 km 計，8 張變近、13 張變遠、3 張幾乎相同。模型在衣索比亞山路補寫了 `Saray`，國家從答對改成土庫曼。第 47 張住宅區也出現無法在圖上核對的 `Hauptstraße`，國別從丹麥變成德國。
+- Direct localization reproduced previous per-image predictions identically.
+- Model OCR produced **24** parseable non-empty outputs, **21** empty arrays, and **21** invalid formats. Across the 24 non-empty cases (> 1 km change threshold), **8** improved, **13** worsened, and **3** were unchanged.
+- **Hallucination drove regressions:** On a signless Ethiopian mountain road, the model invented `"Saray"` and flipped a correct Ethiopia guess to Turkmenistan. On image #47 (Denmark), it fabricated `"Hauptstraße"` and flipped Denmark to Germany.
+- **5-image human-transcript subset:** Country hits remained `4/5`, while median error improved from `455 km → 370 km` (2 better, 2 worse, 1 unchanged):
+  - *Volos (Greece):* directional sign destination pushed error from `47 km → 250 km`.
+  - *BOUAKE (Côte d'Ivoire):* full-image OCR misread `BOUAKA` while zoomed crop fixed it to `BOUAKÉ`, yet even with exact text the 2B model still guessed Senegal.
+  - *Chinese storefront (`汽车钥匙`):* already transcribed from the full image; providing that single verified cue cut error from `455 km → 59 km`.
 
-五張人工抄錄組保持 4/5 國家命中，定位中位誤差由直接的 455 km 變成 370 km，逐張則是兩張改善、兩張退步、一張幾乎相同。Volos 是方向牌目的地，給正確文字後由 47 km 變成 250 km。BOUAKE 原圖被抄成 BOUAKA，放大後讀出 BOUAKÉ，但提供人工抄錄或放大版抄錄仍把國別猜成塞內加爾。中文店招「汽车钥匙」在原圖已能抄出，單獨使用這個人工核對詞讓誤差從 455 km 降到 59 km。情況各異，主要可驗證的訓練目標是改善抄錄、有效輸出和缺乏線索時的留空行為。
-
-T4 完成後已終止。後續 LM 訓練與評估放在同一專案的 results/clue_first_training。
+These findings directly motivated the continued LM LoRA training for faithful transcription and empty-text abstention in [`results/clue_first_training/README.md`](../clue_first_training/README.md). Colab T4 runtime was terminated upon completion.

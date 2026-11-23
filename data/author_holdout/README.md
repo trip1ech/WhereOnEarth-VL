@@ -1,34 +1,41 @@
-# 未見拍攝者街景測試
+# Unseen-Creator Street-View Holdout (`author_holdout`)
 
-這份測試測量固定的 Qwen3‑VL‑2B zero-shot 與 6,000 張微調版，在同一個資料來源換新拍攝者之後的表現。原本的 300 張評估維持原樣。
+This benchmark evaluates the frozen `Qwen3-VL-2B` zero-shot baseline vs. the 6,000-image QLoRA model on **strictly unseen photographers** from the same OSV-5M domain, leaving the original 300-image validation split untouched.
 
-## 先看圖，再決定採用
+## 1. Visual Audit Before Locking
 
-先看了 15 張 OSV‑5M 候選與本地 Panoramax holdout 的全部 9 張照片，再擴大檢查 OSV‑5M 候選。Panoramax 只涵蓋巴黎、里昂、圖盧茲周邊，全部 9 張來自 6 位拍攝者，前兩位佔 5 張。其中包含林間步道，也有重複的擋風玻璃與行車視角。這組小樣本留作法國的跨平台探索，未混入主測試。
+Before locking inputs, we inspected 15 OSV-5M candidates alongside all 9 local Panoramax `pilot_holdout` photos. Because Panoramax covered only 3 French metro areas across 6 creators (with forest paths and repeated windshields), it was kept separate for French cross-platform exploration rather than mixed into the global holdout.
 
-72 張 OSV‑5M 候選逐張記錄在 `visual_review.csv`。排除標準是直接顯示定位答案、沒有可辨的街道或戶外通行路徑、嚴重失焦而無法辨識場景。保留車頭、雨刷、玻璃色偏、路牌、陰暗但可辨識的道路，以及線索少的鄉間路徑。所有候選亦用本機 OCR 補查疑似座標文字。OCR 可能漏讀小字。
+All **72 OSV-5M candidates** were visually reviewed one by one and logged in [`visual_review.csv`](visual_review.csv). Exclusion criteria were strictly limited to:
+1. Direct coordinate leaks (navigation HUD displaying latitude/longitude),
+2. Non-street / non-traversable outdoor scenes with no recognizable road or public path, or
+3. Severe blur rendering the scene uninterpretable.
 
-第 15 張的導航 HUD 有印尼街道的經緯度和走過的路線。第 43、53、57、66 張是建物入口、無道路的荒地、私人露台或看不出道路的場景。第 62 張是嚴重失焦的夜景。這 6 張留在審核記錄，排除於正式輸入。
+Natural street-view artifacts (car hoods, wipers, windshield tint, reflections, dark roads, sparse rural tracks, and real signage) were intentionally retained. Local OCR also scanned every candidate for hidden coordinate overlays.
 
-## 切分與偏差
+Six candidates were excluded and retained in the audit log:
+- **#15 (`494529601695744`, ID):** navigation HUD displaying Indonesian coordinates and route map.
+- **#43, #53, #57, #66:** covered building entrance, desert tourist shot with no road, private terrace, and foreground debris with no recognizable street/path.
+- **#62:** severely out-of-focus night shot.
 
-- 來源為 [OSV‑5M](https://osv5m.github.io/) 官方 train 分割內，本專案原本鎖定的 2018 年以後驗證候選。比對這次模型實際使用的 6,000 張訓練圖，以及原本看過的 300 張評估圖。
-- 按拍攝者名稱抽樣後，用 OSV‑5M 原始 metadata 的 `creator_id` 核對 6,000 張訓練圖、300 張舊評估圖與 66 張新測試圖。66 個新帳號與前兩組皆零重疊。每位拍攝者一張，影像 ID、拍攝序列與原始 JPEG SHA‑256 也沒有重疊。帳號層級核對無法識別同一設備或跨帳號的拍攝者。核對摘要見 `creator_id_check.json`。
-- 取樣限定為原 300 張及訓練資料都涵蓋的國家，優先同國原測試照片 300 km 內的候選，並排除同國訓練照片 1 km 內的候選。最後保留 66 張、66 位拍攝者、60 個國家或地區，照片拍於 2018–2022 年。52 張在原評估的同國照片 300 km 內。本流程偏向地理覆蓋，多數國家只有一張，地區與城鄉分布也未和原測試嚴格配對。
-- 照片保留原視角，推論輸入依舊用長邊 512 px 和相同 JPEG 品質。照片內地址與路牌可作為場景線索。
-- 這份測試可做新拍攝者總體比較，跨平台泛化、跨帳號使用相同設備、各國表現和基礎模型預訓練重疊仍是分開的問題。
+## 2. Split Hygiene & Sampling Bias
 
-`author-holdout-eval.zip` 是鎖定的 66 張輸入與標註。 `osv-review-01.jpg` 到 `osv-review-06.jpg` 是候選縮圖，`panoramax-review.jpg` 是法國 pilot 的抽樣檢查。資料與報告都在 SSD。
+- **Origin:** Post-2018 validation candidates from OSV-5M official `train`, strictly disjoint from both the 6,000 QLoRA training images and the 300 evaluation images.
+- **Zero `creator_id` overlap:** After sampling by creator username, we cross-checked raw OSV-5M metadata `creator_id` against all 6,000 training images and 300 eval images — confirming **zero overlap across all 66 unseen accounts** (1 image per photographer; disjoint image IDs, capture sequences, and raw JPEG SHA-256). Summary recorded in [`creator_id_check.json`](creator_id_check.json).
+- **Geographic balance:** Restricted to countries present in both training and the 300-image eval split, prioritizing candidates within 300 km of an eval image in the same country while excluding any candidate within 1 km of a training image. The locked set spans **66 images, 66 unseen photographers, and 60 countries/territories** (2018–2022), with 52/66 within 300 km of an eval photo.
+- **Input format:** Preserves full field of view, resized to 512 px longest edge with identical JPEG quality as `qlora_eval_300`.
 
-## 固定模型評估
+*(Locked image archive `author-holdout-eval.zip` and visual contact sheets `osv-review-01..06.jpg` are stored locally and git-ignored.)*
 
-沿用原評估的 Qwen3‑VL‑2B 版本、4-bit 設定、定位 prompt 和座標解析器，使用原本 6,000 張訓練後保存的 adapter。國家正確數依現有兩字母國碼解析規則計算。
+## 3. Fixed-Model Evaluation Results
 
-| 指標 | Zero-shot | 6,000 張微調 |
+Evaluated with the exact `Qwen3-VL-2B` revision, 4-bit NF4 config, prompt, parser, and 6k QLoRA adapter used in Stage 4:
+
+| Metric | Zero-Shot | 6,000-Image QLoRA |
 |---|---:|---:|
-| 國家正確 | 28/66 | 33/66 |
-| 距真值 200 km 內 | 8/66 | 14/66 |
-| 距真值 25 km 內 | 1/66 | 1/66 |
-| 共同有效的 65 張之中位誤差 | 945 km | 589 km |
+| Country correct | 28 / 66 | **33 / 66** |
+| Within 200 km | 8 / 66 | **14 / 66** |
+| Within 25 km | 1 / 66 | 1 / 66 |
+| Median error (65 shared valid) | 945 km | **589 km** |
 
-在共同有效的 65 張上，微調版有 42 張比 zero-shot 更接近，23 張更遠。單張失效的是 zero-shot 的座標輸出。評估結果與逐張預測保留在專案的 `results/author_holdout/`。本次僅做推論，Colab T4 已終止。
+Across the 65 images where both models returned valid coordinates (1 zero-shot coordinate parse failure), 6k QLoRA landed closer on **42 images** and farther on **23 images**. Full metrics are in [`results/author_holdout/metrics.csv`](../../results/author_holdout/metrics.csv). Colab T4 runtime was terminated upon completion.

@@ -1,73 +1,73 @@
 candidate,id,country,decision,notes
-1,489113365567707,US,include,住宅區街道與電線
-2,764727120884988,BR,include,公路彎道，鏡頭邊緣與儀表台
-3,464476304820312,AU,include,住宅區道路，車頭與低光
-4,237962241451337,MX,include,林邊碎石道路
-5,295487235586077,RU,include,雪地房屋與沿街圍欄
-6,2950924581810518,IN,include,林間公路，有標線、招牌與拍攝車可見部分
-7,1147079779552167,JP,include,隧道，可見車道與護欄
-8,3691897527605021,CA,include,建物外步道，有拍攝者服裝入鏡
-9,294790745594327,ES,include,深色逆光公路，可辨道路
-10,293442282420347,GB,include,雨天住宅區街道，有擋風玻璃污點
-11,3021891311469197,PT,include,林間公路，有車頭邊緣
-12,1034556280409841,TR,include,市區平面路口與標誌
-13,305594951240743,AR,include,街道右側有拍攝遮擋，仍可辨道路
-14,172488994793740,CL,include,街道，有玻璃反光與車頭貼紙
-15,494529601695744,ID,exclude,導航 HUD 顯示經緯度及路線
-16,846094272651580,NO,include,低光街道，有車頭與玻璃色偏
-17,668998831379607,NZ,include,鄉間碎石道路，有車頭與鏡頭遮擋
-18,218775719698365,TH,include,公路，有儀表台
-19,211893897190281,BG,include,城市街道與公寓
-20,2992791674299282,EG,include,市郊公路，有儀表台與玻璃色偏
-21,472933560683535,ET,include,山區土路，有拍攝車車頭
-22,309831067185068,FR,include,道路旁公共步道
-23,470533114018261,GR,include,公路，有右邊緣遮擋與路牌
-24,2547101302258650,IR,include,鄉間公路，有拍攝車
-25,953888611819687,IT,include,住宅區街道與路牌，鏡頭邊有黑角
-26,580491622939421,MG,include,野外可見車轍道路，線索少
-27,185675826709169,MM,include,街道，有車頭與後視鏡
-28,158575053454798,PE,include,住宅與工地間的道路
-29,217489886804893,PK,include,窄巷，有擋風玻璃霧感
-30,545774006616625,SE,include,林間碎石道路
-31,116003954472737,BY,include,鄉間道路，有擋風玻璃年分貼紙
-32,3287267538187519,CN,include,商店和中文招牌
-33,764896447530805,CY,include,街道，有側窗車框與紫色車頭
-34,360270872953286,FI,include,森林道路，有雨刷與車頭
-35,480826559825677,GF,include,鄉間道路，有擋風玻璃反射與白色車頭
-36,247212563851961,GH,include,公路，可見模糊車輛與標線
-37,520458562734779,KR,include,巷道，有韓文招牌
-38,821322645150025,NG,include,泥濘住宅區道路
-39,8636953276322496,NP,include,市區道路，有拍攝摩托車儀表
-40,754839602247324,PL,include,住宅區窄路
-41,317729019823265,SL,include,圍牆間土路
-42,810870836214719,UG,include,市集道路，有拍攝車
-43,941460389988650,VN,exclude,有遮蔽的建築入口，街道和公共步道場景不清楚
-44,215286497344871,ZM,include,公路，有大面積拍攝車車頭
-45,484293909726906,BD,include,鄉間道路，右側有拍攝車框或載具配件
-46,788096422148572,BO,include,都市住宅街道，低角度
-47,284811506679249,CI,include,路邊可見寫有地名的實體招牌
-48,628752751556395,DE,include,公路，擋風玻璃明顯色偏與車頭
-49,213927817328762,DK,include,住宅區街道
-50,1103570836822240,EC,include,碎石道路，擋風玻璃貼紙與儀表台
-51,526065675505659,IE,include,住宅區道路，有儀表台
-52,1930640880449352,KZ,include,山區車轍路，有儀表台和眩光
-53,1424967647865235,MA,exclude,沙漠遊客照，畫面無可辨識道路或步道
-54,230346985565595,MD,include,排隊中的道路，有車頭與招牌
-55,258207150106429,ML,include,鄉間土路，有車窗邊緣
-56,941759176612137,MN,include,雨天公路，有大量玻璃雨滴與車頭
-57,779953709328933,MT,exclude,私人露台，沒有街景視角
-58,164478408862531,MY,include,市區街道，有車內後視鏡與儀表台
-59,703184410550403,MZ,include,草地步道，線索少
-60,203550248262507,PH,include,道路與周邊住宅
-61,1440746926286227,RO,include,低光住宅道路，有車頭
-62,498959231242707,SA,exclude,夜間嚴重失焦，場景結構幾乎不可辨
-63,914655639092075,SN,include,市郊道路轉彎處
-64,1234929926997580,TW,include,林間鋪面步道
-65,775335703170591,TZ,include,住宅區道路，有擋風玻璃反光和儀表台
-66,538882534158723,VU,exclude,前景為屋面或堆積物，無可辨識道路或步道
-67,439339721064451,US,include,住宅區公路路口，遠處有路牌
-68,423366602894787,BR,include,公路，有拍攝車與車窗邊緣
-69,868412567050235,AU,include,市郊住宅道路，有拍攝車
-70,3811902805544775,MX,include,商街側視，左側有拍攝車後視鏡
-71,606749490391404,RU,include,雪地人行道，有明顯色偏
-72,525991088399205,US,include,鄉間公路，有道路標誌與車頭
+1,489113365567707,US,include,Residential street with utility lines
+2,764727120884988,BR,include,Curved highway with lens rim and dashboard visible
+3,464476304820312,AU,include,Residential road in low light with car hood visible
+4,237962241451337,MX,include,Gravel road bordering forest
+5,295487235586077,RU,include,Snowy street with houses and roadside fences
+6,2950924581810518,IN,include,Tree-lined highway with road markings signage and capture vehicle
+7,1147079779552167,JP,include,Tunnel showing lane markings and guardrails
+8,3691897527605021,CA,include,Outdoor walkway beside building with photographer clothing in frame
+9,294790745594327,ES,include,Dark backlit highway with recognizable road
+10,293442282420347,GB,include,Rainy residential street with windshield smudges
+11,3021891311469197,PT,include,Forest highway with edge of car hood
+12,1034556280409841,TR,include,Urban at-grade intersection and road signs
+13,305594951240743,AR,include,Street partially occluded on right side with road clearly visible
+14,172488994793740,CL,include,Street with windshield reflections and hood sticker
+15,494529601695744,ID,exclude,Navigation HUD displays latitude longitude and route
+16,846094272651580,NO,include,Low-light street with car hood and windshield tint
+17,668998831379607,NZ,include,Rural gravel road with car hood and lens occlusion
+18,218775719698365,TH,include,Highway with dashboard visible
+19,211893897190281,BG,include,City street with apartment blocks
+20,2992791674299282,EG,include,Suburban highway with dashboard and windshield tint
+21,472933560683535,ET,include,Mountain dirt road with capture vehicle hood
+22,309831067185068,FR,include,Public footpath alongside road
+23,470533114018261,GR,include,Highway with right-edge occlusion and directional road sign
+24,2547101302258650,IR,include,Rural highway with capture vehicle visible
+25,953888611819687,IT,include,Residential street with road signs and lens vignetting
+26,580491622939421,MG,include,Remote dirt track with wheel ruts and sparse clues
+27,185675826709169,MM,include,Street with car hood and side mirror
+28,158575053454798,PE,include,Road between houses and construction site
+29,217489886804893,PK,include,Narrow alley with hazy windshield
+30,545774006616625,SE,include,Gravel road through forest
+31,116003954472737,BY,include,Country road with windshield inspection sticker
+32,3287267538187519,CN,include,Storefronts with Chinese signage
+33,764896447530805,CY,include,Street with side window frame and purple car hood
+34,360270872953286,FI,include,Forest road with windshield wipers and car hood
+35,480826559825677,GF,include,Rural road with windshield reflection and white car hood
+36,247212563851961,GH,include,Highway with blurred vehicles and lane markings
+37,520458562734779,KR,include,Alleyway with Korean signage
+38,821322645150025,NG,include,Muddy residential road
+39,8636953276322496,NP,include,Urban road with capture motorcycle instrument cluster
+40,754839602247324,PL,include,Narrow residential road
+41,317729019823265,SL,include,Dirt lane between compound walls
+42,810870836214719,UG,include,Market road with capture vehicle visible
+43,941460389988650,VN,exclude,Covered building entrance with unclear street or public path
+44,215286497344871,ZM,include,Highway with large capture vehicle hood
+45,484293909726906,BD,include,Country road with capture vehicle frame on right
+46,788096422148572,BO,include,Urban residential street from low camera angle
+47,284811506679249,CI,include,Roadside sign displaying a place name
+48,628752751556395,DE,include,Highway with noticeable windshield tint and car hood
+49,213927817328762,DK,include,Residential street
+50,1103570836822240,EC,include,Gravel road with windshield sticker and dashboard
+51,526065675505659,IE,include,Residential road with dashboard visible
+52,1930640880449352,KZ,include,Mountain track with dashboard and sun glare
+53,1424967647865235,MA,exclude,Desert tourist photo with no recognizable road or path
+54,230346985565595,MD,include,Queued traffic on road with car hood and signage
+55,258207150106429,ML,include,Rural dirt road with window edge visible
+56,941759176612137,MN,include,Rainy highway with heavy raindrops on windshield and car hood
+57,779953709328933,MT,exclude,Private terrace without street-view perspective
+58,164478408862531,MY,include,City street with rearview mirror and dashboard
+59,703184410550403,MZ,include,Grassy footpath with sparse clues
+60,203550248262507,PH,include,Road with surrounding residential buildings
+61,1440746926286227,RO,include,Low-light residential road with car hood
+62,498959231242707,SA,exclude,Severely out-of-focus night shot with unrecognizable scene structure
+63,914655639092075,SN,include,Curve on suburban road
+64,1234929926997580,TW,include,Paved woodland footpath
+65,775335703170591,TZ,include,Residential road with windshield reflection and dashboard
+66,538882534158723,VU,exclude,Foreground roof or debris with no recognizable road or path
+67,439339721064451,US,include,Suburban highway intersection with distant road signs
+68,423366602894787,BR,include,Highway with capture vehicle and window edge
+69,868412567050235,AU,include,Suburban residential road with capture vehicle
+70,3811902805544775,MX,include,Side view of commercial street with capture vehicle mirror on left
+71,606749490391404,RU,include,Snowy sidewalk with strong color cast
+72,525991088399205,US,include,Rural highway with road signs and car hood

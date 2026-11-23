@@ -17,8 +17,8 @@ DIST = ROOT / "dist"
 LABEL_FILE = PROJECT / "data/roadmark_annotations/labels.json"
 LABELS = {"single", "double", "none", "unclear"}
 DATASETS = (
-    ("train", "訓練集", "data/qlora_since_2018/geoguessr_sft_6000_upload.zip", "train.jsonl"),
-    ("holdout", "未見拍攝者測試集", "data/author_holdout/author-holdout-eval.zip", "eval.jsonl"),
+    ("train", "Training Set", "data/qlora_since_2018/geoguessr_sft_6000_upload.zip", "train.jsonl"),
+    ("holdout", "Unseen-Creator Holdout", "data/author_holdout/author-holdout-eval.zip", "eval.jsonl"),
 )
 STATIC = {
     "/": ("index.html", "text/html; charset=utf-8"),
@@ -108,7 +108,7 @@ class AnnotationHandler(BaseHTTPRequestHandler):
 
     def do_GET(self):
         if not self.local_request():
-            self.send_json({"error": "請從本機網址開啟。"}, 403)
+            self.send_json({"error": "Please open from the local address."}, 403)
             return
         path = urlsplit(self.path).path
         store = self.server.store
@@ -131,16 +131,16 @@ class AnnotationHandler(BaseHTTPRequestHandler):
                     payload = archive.read(photo["member"])
                 self.send_data(payload, "image/jpeg", cache=True)
             else:
-                self.send_json({"error": "找不到資料。"}, 404)
+                self.send_json({"error": "Not found."}, 404)
         except (BadZipFile, FileNotFoundError, KeyError):
-            self.send_json({"error": "無法讀取資料，請確認 SSD 仍連接。"}, 503)
+            self.send_json({"error": "Unable to read data archives; check that local files are accessible."}, 503)
 
     def do_POST(self):
         if not self.local_request():
-            self.send_json({"error": "請從本機網址開啟。"}, 403)
+            self.send_json({"error": "Please open from the local address."}, 403)
             return
         if self.path != "/api/label":
-            self.send_json({"error": "找不到資料。"}, 404)
+            self.send_json({"error": "Not found."}, 404)
             return
         try:
             length = int(self.headers.get("Content-Length", 0))
@@ -153,13 +153,13 @@ class AnnotationHandler(BaseHTTPRequestHandler):
             if label is not None and (not isinstance(label, str) or label not in LABELS):
                 raise ValueError("Invalid label")
         except (KeyError, TypeError, ValueError):
-            self.send_json({"error": "標註格式有誤。"}, 400)
+            self.send_json({"error": "Invalid annotation payload."}, 400)
             return
 
         try:
             self.server.store.save(image_id, label)
         except OSError:
-            self.send_json({"error": "無法寫入 SSD，這次標註未儲存。"}, 503)
+            self.send_json({"error": "Unable to write annotation file; label was not saved."}, 503)
             return
         self.send_json({"image_id": image_id, "label": label})
 

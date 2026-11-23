@@ -1,42 +1,36 @@
-# 街景文字與 LM attention 個案
+# Scene Text & LM Attention Case Studies
 
-選了既有 300 張評估集中的三張街景，分別是加拿大行車記錄器座標、瓜地洛普法語步道牌、巴西葡語店面。三張是依線索種類及既有失誤挑出的個案，適合診斷機制。
+We selected three representative failure/diagnostic images from the 300-image validation set (`qlora_eval_300`): a **Canadian dashcam with GPS coordinates**, a **Guadeloupe French trail sign**, and a **Brazilian Portuguese storefront**.
 
-## 做法
+## 1. Method
 
-- 使用同一個 Qwen3‑VL‑2B，以原版與掛上 6,000 張定位 LoRA 各跑一次。沿用原定位 prompt、4-bit 權重和 greedy decoding。這次改用可讀出權重的 eager attention，逐張推論。定位距離以原評估集座標計算。
-- 每張先跑原圖定位、原圖抄字、放大抄字、原圖加上人工抄錄文字再定位。另把文字區與等面積的鄰近無文字區分別模糊，兩種提示各重跑一次。每個視圖獨立推論。
-- 圖上的權重來自 LM 的第 0、9、18、27 層（從 0 起算），對所有 head 平均。定位圖使用預測數字時的 attention，抄錄圖使用預測字母或數字時的 attention。把留在影像 token 的權重排回空間網格再疊上原圖。每張圖的四個面板共用色階。
-- 圖上 Image 是所有 token attention 中分給影像 token 的比例。Text 是影像內的 attention 分給文字框的比例，跨框的 token 按面積計入。相同大小的控制框提供空間參照。注意力權重是診斷線索，模糊後的答案變化用來檢查行為依賴。
+- Evaluated both **base `Qwen3-VL-2B`** and **`Qwen3-VL-2B` + 6k localization LoRA** (4-bit NF4, greedy decoding, original localization prompt) using eager attention to inspect per-layer attention weights.
+- For each image, we ran: (1) full-image localization, (2) full-image text transcription, (3) zoomed-crop transcription, (4) full-image localization with **human-verified transcript injected**, and (5) **text-region blur** vs. **equal-area nearby control-region blur** for both localization and transcription.
+- Attention heatmaps average all heads across LM layers `0, 9, 18, 27` (0-indexed), projecting image-token attention onto the spatial grid when generating coordinate digits (localization) or letters/digits (transcription). `Image` reports total attention mass on image tokens; `Text` reports the share of image attention falling inside the text bounding box (compared against an equal-area control box).
 
-[加拿大](maps/canada.png) · [瓜地洛普](maps/guadeloupe.png) · [巴西](maps/brazil.png)
+**Attention Heatmaps:** [Canada](maps/canada.png) · [Guadeloupe](maps/guadeloupe.png) · [Brazil](maps/brazil.png)
 
-原始回答及各層 attention 在 text-attention-results.zip，判讀用的座標誤差、答題 token 與區域比例見 diagnosis.json。實驗輸入及權重版本在 cases.json 與下載包的 configuration.json。重新產生圖可在專案目錄執行 python -B scripts/render_text_attention.py。
+Structured metrics, distances, and region attention ratios are stored in [`diagnosis.json`](diagnosis.json) (inputs/references in [`cases.json`](cases.json) and [`references.json`](references.json)). Re-render maps locally from cached attention outputs (`text-attention-results.zip`) via `python3 -B scripts/render_text_attention.py`.
 
-## 觀察結果
+## 2. Observations
 
-| 場景 | 原版整圖定位誤差 | 微調版整圖定位誤差 | 微調版原圖抄字 | 微調版加入正確抄錄後 |
+| Case | Base Full-Image Error | 6k LoRA Full-Image Error | 6k LoRA Full-Image OCR | 6k LoRA + Human Transcript |
 |---|---:|---:|---|---|
-| 加拿大 | 1,507.3 km | 9,690.0 km | 正確抄出 W111.421436 N50.36211 | 經度輸出 +111.421，誤差 8,102.1 km |
-| 瓜地洛普 | 6,586.6 km | 6,023.7 km | 抄出 POINTE DES CHATEAUX 6,2 km，只少重音符號 | 仍定位到歐洲，誤差 6,909.3 km |
-| 巴西 | 495.8 km | 146.1 km | 抄出 Garagem、MAQUINAS de VIDRO、MACANETAS | 國別仍是巴西、誤差 146.1 km |
+| **Canada** | 1,507.3 km | 9,690.0 km | Accurately read `W111.421436 N50.36211` | Emitted `+111.421` (wrong hemisphere!), error **8,102.1 km** |
+| **Guadeloupe** | 6,586.6 km | 6,023.7 km | Read `POINTE DES CHATEAUX 6,2 km` (missing accent only) | Still guessed Europe, error **6,909.3 km** |
+| **Brazil** | 495.8 km | 146.1 km | Read `Garagem`, `MAQUINAS de VIDRO`, `MACANETAS` | Remained Brazil, error **146.1 km** |
 
-### 加拿大
+### Canada (Dashcam GPS Overlay)
+The 6k fine-tuned model transcribed the exact coordinates from the full image, while base Qwen had decimal/last-digit errors on the full image that disappeared when zoomed. Blurring the text region eliminated OCR output for both models; blurring the equal-area control box preserved OCR.
 
-微調版用整張圖就能正確抄出座標，原版的整圖抄錄有小數點與末位錯誤，放大後則能抄對。兩版的指定抄錄在模糊座標後都失去數字，模糊對照區時仍會抄出座標，其中微調版有末位誤差。
+Injecting the exact human transcript dropped base Qwen's coordinate error to **~32 meters** (though it still wrote country `US`). In contrast, the 6k fine-tuned model copied the latitude accurately, **flipped `W` to positive longitude (`+111.421`)**, and wrote country `TM` — exposing hemisphere-sign and country-consistency failures rather than visual illiteracy.
 
-把人工抄錄傳給原版，輸出的座標離資料集真值約 32 公尺，但國家欄仍填 US。微調版抄進正確緯度，卻把 W 輸出成正經度，國家欄仍為 TM。這一例同時暴露了小字辨識、主動採用線索以及方向符號／國家欄一致性等不同問題。微調版在模糊座標後，定位誤差反而降到 1,052 km，等面積控制仍約 9,691 km。這表示局部影像改動影響輸出，單靠這次改動難以判定模型在定位時是否解讀了原始數字。微調版文字框占影像注意力由 4.0% 變成 3.5%，同時整張圖分到的注意力由 6.4% 增至 12.0%。熱圖要連同兩個比例與作答內容一起看。
+### Guadeloupe (French Trail Sign)
+Both models read the place name directly from the full image. During transcription, text-box share of image attention jumped from `2.3% → 14.1%` (base) and `2.4% → 15.3%` (6k LoRA). Blurring the target sign caused models to read other sign fragments, while control blur preserved transcription. Crucially, **even with the exact human transcript provided, both models still guessed metropolitan Europe** — pointing to a world-knowledge / gazetteer lookup gap rather than a vision failure.
 
-### 瓜地洛普
+### Brazil (Portuguese Storefront)
+Both models read the main Portuguese shop words from the full image, allocating roughly a quarter of image attention to the sign during transcription; blurring the sign yielded `UNREADABLE` while control blur preserved transcription. Both models still predicted Brazil even with the sign blurred (language narrows the region, while the sign contains no city/address).
 
-兩版均能從整圖抄出地名。指定抄字時，文字框在影像注意力中的占比從原版 2.3% 提升到 14.1%，微調版從 2.4% 提升到 15.3%。模糊文字後模型改抄牌上其他字，模糊控制區時仍抄出目標。兩版拿到正確抄錄後仍猜在歐洲。對這個例子，辨識已足以提供地名，後面如何由地名找到對應地點更值得查。
+## 3. Implications for ViT Fine-Tuning
 
-### 巴西
-
-兩版可從原圖抄出招牌主要字詞。抄錄時，文字框取得約四分之一的影像注意力；模糊文字後兩版都回覆 UNREADABLE，控制區模糊則保留抄錄能力。兩版在招牌被模糊後仍選巴西。微調版的座標保持相同，原版從里約附近改到聖保羅附近。這張招牌的語言能提供區域線索，文字本身缺少可驗證的城市或地址。
-
-## 對 ViT 微調的意義
-
-這三個個案先維持 ViT 凍結。最直接的證據是微調版在原圖中已能抄對關鍵資訊，加上人工抄錄後依然可能定位失誤。下一輪可在新照片中先分別測抄錄與定位，追蹤兩個層次的錯誤。對可直接解析的 N/W 座標可以測確定性的轉換，帶具名地點的路牌則可測地名候選查詢。這些個案的表現範圍是目前的三張照片。
-
-[查看實際模糊對照](selection/interventions.jpg)。Colab T4 結束下載後已終止，當時沒有執行中的工作階段，消耗速率為 0.00 compute units/hr。
+**Keep the ViT frozen.** The 6k model already transcribed key scene text from full uncropped images yet still failed at geolocalization even when handed exact human transcripts. Future gains on text-bearing scenes should focus on deterministic coordinate parsing (for N/S/E/W strings) and external gazetteer lookup for named places rather than ViT unfreezing. Colab T4 runtime was terminated upon download (0.00 compute units/hr).
