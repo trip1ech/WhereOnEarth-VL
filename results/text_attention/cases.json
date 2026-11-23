@@ -1,0 +1,77 @@
+[
+  {
+    "case": "canada",
+    "image": "images/canada.jpg",
+    "sha256": "d5ffb136c6b491e65555ed9b64aa6fb749647bad3c4bf9177ad2e4f2dac09c33",
+    "text_box": [
+      0.208984375,
+      0.9409722222222222,
+      0.416015625,
+      1.0
+    ],
+    "control_box": [
+      0.208984375,
+      0.8333333333333334,
+      0.416015625,
+      0.8923611111111112
+    ],
+    "crop_box": [
+      0.1875,
+      0.8993055555555556,
+      0.439453125,
+      1.0
+    ],
+    "ocr_target": "in the dashcam coordinate overlay",
+    "transcription": "W111.421436 N50.36211"
+  },
+  {
+    "case": "guadeloupe",
+    "image": "images/guadeloupe.jpg",
+    "sha256": "75229c64de2ec8b2101bfc21f2f9ef15f92b74c9ae895842f0c9d8c60dacb3e6",
+    "text_box": [
+      0.521484375,
+      0.3255208333333333,
+      0.89453125,
+      0.3932291666666667
+    ],
+    "control_box": [
+      0.521484375,
+      0.15885416666666666,
+      0.89453125,
+      0.2265625
+    ],
+    "crop_box": [
+      0.279296875,
+      0.2760416666666667,
+      1.0,
+      0.453125
+    ],
+    "ocr_target": "on the upper yellow hiking sign to the right of the walking symbol",
+    "transcription": "POINTE DES CHÂTEAUX 6,2 km"
+  },
+  {
+    "case": "brazil",
+    "image": "images/brazil.jpg",
+    "sha256": "59c87425ff2457d7883433105bf0cae040ed0ee54dbb51e8116251234a90bab9",
+    "text_box": [
+      0.03515625,
+      0.4409722222222222,
+      0.53515625,
+      0.6041666666666666
+    ],
+    "control_box": [
+      0.03515625,
+      0.6458333333333334,
+      0.53515625,
+      0.8090277777777778
+    ],
+    "crop_box": [
+      0.01953125,
+      0.3993055555555556,
+      0.5703125,
+      0.6319444444444444
+    ],
+    "ocr_target": "on the large painted garage sign on the left",
+    "transcription": "Garagem / MAQUINAS de VIDRO / MAÇANETAS"
+  }
+]

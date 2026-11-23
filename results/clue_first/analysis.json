@@ -1,0 +1,3059 @@
+{
+  "configuration": {
+    "model": "Qwen/Qwen3-VL-2B-Instruct",
+    "revision": "89644892e4d85e24eaac8bacfd4f463576704203",
+    "gpu": "Tesla T4",
+    "manifest_sha256": "d8bb04154ccedc743a33cd40a060db8ae4a9cc5e48f6655683b3fe12e2ecb359",
+    "adapter_sha256": "cae8acb2f31bf9d94ab9ffef612c1f1e76faa1ae27e03603bf4b36736e3126ad",
+    "direct_prompt": "From this street-level image, guess its location anywhere on Earth. Return exactly one JSON object with the two-letter country code first, then the decimal latitude and longitude. Make one best guess. Use exactly these keys: country, latitude, longitude.",
+    "ocr_prompt": "Transcribe up to three short location-relevant strings that are actually visible in this photo: place or street names, route numbers with a visible route sign, addresses on buildings, web domains, or distinctive words on road signs or storefronts. Keep the original alphabet and spelling. Use the clearest text. Omit any unreadable words, generic numbers, license plates, camera overlays and watermarks. Do not guess a language or place. Return only a JSON object with key \"text\" and an array of strings as its value. Use {\"text\":[]} when no relevant text is readable.",
+    "evidence_prompt_template": "\nConsider the following possible transcriptions from the same image, along with the rest of the scene. Treat these as observations and use them only if useful. They may contain reading errors; a sign pointing toward a destination need not be at that destination. Visible text: ",
+    "batch_size": 4,
+    "max_geo_tokens": 40,
+    "max_ocr_tokens": 72,
+    "temperature": "greedy",
+    "n": 66,
+    "verified_text_n": 5,
+    "model_text_n": 24,
+    "crop_text_n": 4
+  },
+  "read_counts": {
+    "invalid": 21,
+    "nonempty": 24,
+    "empty": 21
+  },
+  "history_direct_matches": 66,
+  "metrics": {
+    "all": {
+      "n": 66,
+      "summary": {
+        "direct": {
+          "n": 66,
+          "valid_coordinates": 66,
+          "country_correct": 33,
+          "within_25km": 1,
+          "within_200km": 14,
+          "median_km": 600.3413218125864
+        },
+        "model_text": {
+          "n": 66,
+          "valid_coordinates": 66,
+          "country_correct": 30,
+          "within_25km": 1,
+          "within_200km": 11,
+          "median_km": 615.6838372744463
+        }
+      },
+      "versus_direct": {
+        "model_text": {
+          "valid_in_both": 66,
+          "direct_median_km": 600.3413218125864,
+          "candidate_median_km": 615.6838372744463,
+          "median_per_photo_change_km": 0.0,
+          "closer_by_over_1_km": 8,
+          "farther_by_over_1_km": 13,
+          "within_1_km_change": 45,
+          "country_gained": 1,
+          "country_lost": 4
+        }
+      }
+    },
+    "auto_used": {
+      "n": 24,
+      "summary": {
+        "direct": {
+          "n": 24,
+          "valid_coordinates": 24,
+          "country_correct": 13,
+          "within_25km": 0,
+          "within_200km": 6,
+          "median_km": 572.0491020451345
+        },
+        "model_text": {
+          "n": 24,
+          "valid_coordinates": 24,
+          "country_correct": 10,
+          "within_25km": 0,
+          "within_200km": 3,
+          "median_km": 541.9084358126776
+        }
+      },
+      "versus_direct": {
+        "model_text": {
+          "valid_in_both": 24,
+          "direct_median_km": 572.0491020451345,
+          "candidate_median_km": 541.9084358126776,
+          "median_per_photo_change_km": 28.834890919635143,
+          "closer_by_over_1_km": 8,
+          "farther_by_over_1_km": 13,
+          "within_1_km_change": 3,
+          "country_gained": 1,
+          "country_lost": 4
+        }
+      }
+    },
+    "verified": {
+      "n": 5,
+      "summary": {
+        "direct": {
+          "n": 5,
+          "valid_coordinates": 5,
+          "country_correct": 4,
+          "within_25km": 0,
+          "within_200km": 1,
+          "median_km": 454.56382807373257
+        },
+        "model_text": {
+          "n": 5,
+          "valid_coordinates": 5,
+          "country_correct": 4,
+          "within_25km": 0,
+          "within_200km": 1,
+          "median_km": 250.8866930718932
+        },
+        "verified_text": {
+          "n": 5,
+          "valid_coordinates": 5,
+          "country_correct": 4,
+          "within_25km": 0,
+          "within_200km": 1,
+          "median_km": 369.88162456408645
+        },
+        "crop_text": {
+          "n": 5,
+          "valid_coordinates": 5,
+          "country_correct": 4,
+          "within_25km": 0,
+          "within_200km": 2,
+          "median_km": 320.5009784531301
+        }
+      },
+      "versus_direct": {
+        "model_text": {
+          "valid_in_both": 5,
+          "direct_median_km": 454.56382807373257,
+          "candidate_median_km": 250.8866930718932,
+          "median_per_photo_change_km": -69.61428538123687,
+          "closer_by_over_1_km": 3,
+          "farther_by_over_1_km": 0,
+          "within_1_km_change": 2,
+          "country_gained": 0,
+          "country_lost": 0
+        },
+        "verified_text": {
+          "valid_in_both": 5,
+          "direct_median_km": 454.56382807373257,
+          "candidate_median_km": 369.88162456408645,
+          "median_per_photo_change_km": 0.0,
+          "closer_by_over_1_km": 2,
+          "farther_by_over_1_km": 2,
+          "within_1_km_change": 1,
+          "country_gained": 0,
+          "country_lost": 0
+        },
+        "crop_text": {
+          "valid_in_both": 5,
+          "direct_median_km": 454.56382807373257,
+          "candidate_median_km": 320.5009784531301,
+          "median_per_photo_change_km": 0.0,
+          "closer_by_over_1_km": 2,
+          "farther_by_over_1_km": 1,
+          "within_1_km_change": 2,
+          "country_gained": 0,
+          "country_lost": 0
+        }
+      }
+    },
+    "named_destinations": {
+      "n": 2,
+      "summary": {
+        "direct": {
+          "n": 2,
+          "valid_coordinates": 2,
+          "country_correct": 1,
+          "within_25km": 0,
+          "within_200km": 1,
+          "median_km": 718.05132868032
+        },
+        "model_text": {
+          "n": 2,
+          "valid_coordinates": 2,
+          "country_correct": 1,
+          "within_25km": 0,
+          "within_200km": 1,
+          "median_km": 619.7893751287637
+        },
+        "verified_text": {
+          "n": 2,
+          "valid_coordinates": 2,
+          "country_correct": 1,
+          "within_25km": 0,
+          "within_200km": 0,
+          "median_km": 774.031743196596
+        },
+        "crop_text": {
+          "n": 2,
+          "valid_coordinates": 2,
+          "country_correct": 1,
+          "within_25km": 0,
+          "within_200km": 1,
+          "median_km": 655.6962276963797
+        }
+      },
+      "versus_direct": {
+        "model_text": {
+          "valid_in_both": 2,
+          "direct_median_km": 718.05132868032,
+          "candidate_median_km": 619.7893751287637,
+          "median_per_photo_change_km": -98.2619535515563,
+          "closer_by_over_1_km": 1,
+          "farther_by_over_1_km": 0,
+          "within_1_km_change": 1,
+          "country_gained": 0,
+          "country_lost": 0
+        },
+        "verified_text": {
+          "valid_in_both": 2,
+          "direct_median_km": 718.05132868032,
+          "candidate_median_km": 774.031743196596,
+          "median_per_photo_change_km": 55.98041451627611,
+          "closer_by_over_1_km": 1,
+          "farther_by_over_1_km": 1,
+          "within_1_km_change": 0,
+          "country_gained": 0,
+          "country_lost": 0
+        },
+        "crop_text": {
+          "valid_in_both": 2,
+          "direct_median_km": 718.05132868032,
+          "candidate_median_km": 655.6962276963797,
+          "median_per_photo_change_km": -62.35510098394029,
+          "closer_by_over_1_km": 1,
+          "farther_by_over_1_km": 1,
+          "within_1_km_change": 0,
+          "country_gained": 0,
+          "country_lost": 0
+        }
+      }
+    },
+    "language_only": {
+      "n": 3,
+      "summary": {
+        "direct": {
+          "n": 3,
+          "valid_coordinates": 3,
+          "country_correct": 3,
+          "within_25km": 0,
+          "within_200km": 0,
+          "median_km": 454.56382807373257
+        },
+        "model_text": {
+          "n": 3,
+          "valid_coordinates": 3,
+          "country_correct": 3,
+          "within_25km": 0,
+          "within_200km": 0,
+          "median_km": 250.8866930718932
+        },
+        "verified_text": {
+          "n": 3,
+          "valid_coordinates": 3,
+          "country_correct": 3,
+          "within_25km": 0,
+          "within_200km": 1,
+          "median_km": 369.88162456408645
+        },
+        "crop_text": {
+          "n": 3,
+          "valid_coordinates": 3,
+          "country_correct": 3,
+          "within_25km": 0,
+          "within_200km": 1,
+          "median_km": 320.5009784531301
+        }
+      },
+      "versus_direct": {
+        "model_text": {
+          "valid_in_both": 3,
+          "direct_median_km": 454.56382807373257,
+          "candidate_median_km": 250.8866930718932,
+          "median_per_photo_change_km": -69.61428538123687,
+          "closer_by_over_1_km": 2,
+          "farther_by_over_1_km": 0,
+          "within_1_km_change": 1,
+          "country_gained": 0,
+          "country_lost": 0
+        },
+        "verified_text": {
+          "valid_in_both": 3,
+          "direct_median_km": 454.56382807373257,
+          "candidate_median_km": 369.88162456408645,
+          "median_per_photo_change_km": 0.0,
+          "closer_by_over_1_km": 1,
+          "farther_by_over_1_km": 1,
+          "within_1_km_change": 1,
+          "country_gained": 0,
+          "country_lost": 0
+        },
+        "crop_text": {
+          "valid_in_both": 3,
+          "direct_median_km": 454.56382807373257,
+          "candidate_median_km": 320.5009784531301,
+          "median_per_photo_change_km": 0.0,
+          "closer_by_over_1_km": 1,
+          "farther_by_over_1_km": 0,
+          "within_1_km_change": 2,
+          "country_gained": 0,
+          "country_lost": 0
+        }
+      }
+    }
+  },
+  "rows": [
+    {
+      "ordinal": 1,
+      "id": "489113365567707",
+      "country": "US",
+      "reference": [
+        37.746024866114,
+        -122.17905565437
+      ],
+      "review_kind": "unverified",
+      "verified_strings": [],
+      "read_full": "{\"text\": [\"100\", \"101\", \"102\", \"103\", \"104\", \"105\", \"106\", \"107\", \"108\", \"109\", \"110\", \"111\", \"112\", \"113",
+      "read_status": "invalid",
+      "model_strings": [],
+      "used_model_text": false,
+      "read_crop": null,
+      "crop_strings": null,
+      "direct": {
+        "raw": "{\"country\":\"US\",\"latitude\":34.080,\"longitude\":-118.251}",
+        "country": "US",
+        "guess_country": "US",
+        "guess_coordinates": [
+          34.08,
+          -118.251
+        ],
+        "distance_km": 539.6178395864919
+      },
+      "model_text": {
+        "raw": "{\"country\":\"US\",\"latitude\":34.080,\"longitude\":-118.251}",
+        "country": "US",
+        "guess_country": "US",
+        "guess_coordinates": [
+          34.08,
+          -118.251
+        ],
+        "distance_km": 539.6178395864919
+      },
+      "verified_text": null,
+      "crop_text": null
+    },
+    {
+      "ordinal": 2,
+      "id": "764727120884988",
+      "country": "BR",
+      "reference": [
+        -23.978261731861,
+        -48.834415116483
+      ],
+      "review_kind": "unverified",
+      "verified_strings": [],
+      "read_full": "{\"text\":[\"200\",\"200\",\"200\"]}",
+      "read_status": "nonempty",
+      "model_strings": [
+        "200"
+      ],
+      "used_model_text": true,
+      "read_crop": null,
+      "crop_strings": null,
+      "direct": {
+        "raw": "{\"country\":\"US\",\"latitude\":37.100,\"longitude\":-80.000}",
+        "country": "BR",
+        "guess_country": "US",
+        "guess_coordinates": [
+          37.1,
+          -80.0
+        ],
+        "distance_km": 7534.919629383402
+      },
+      "model_text": {
+        "raw": "{\"country\":\"US\",\"latitude\":37.102,\"longitude\":-80.000}",
+        "country": "BR",
+        "guess_country": "US",
+        "guess_coordinates": [
+          37.102,
+          -80.0
+        ],
+        "distance_km": 7535.110812611565
+      },
+      "verified_text": null,
+      "crop_text": null
+    },
+    {
+      "ordinal": 3,
+      "id": "464476304820312",
+      "country": "AU",
+      "reference": [
+        -26.55704140526,
+        153.08771971358
+      ],
+      "review_kind": "unverified",
+      "verified_strings": [],
+      "read_full": "{\"text\":[\"100\",\"100\",\"100\",\"100\",\"100\",\"100\",\"100\",\"100\",\"100\",\"100\",\"100\",\"100\",\"100\",\"100\",\"100\",\"100\",\"100\",\"1",
+      "read_status": "invalid",
+      "model_strings": [],
+      "used_model_text": false,
+      "read_crop": null,
+      "crop_strings": null,
+      "direct": {
+        "raw": "{\"country\":\"AU\",\"latitude\":-27.454,\"longitude\":151.701}",
+        "country": "AU",
+        "guess_country": "AU",
+        "guess_coordinates": [
+          -27.454,
+          151.701
+        ],
+        "distance_km": 169.76698804207234
+      },
+      "model_text": {
+        "raw": "{\"country\":\"AU\",\"latitude\":-27.454,\"longitude\":151.701}",
+        "country": "AU",
+        "guess_country": "AU",
+        "guess_coordinates": [
+          -27.454,
+          151.701
+        ],
+        "distance_km": 169.76698804207234
+      },
+      "verified_text": null,
+      "crop_text": null
+    },
+    {
+      "ordinal": 4,
+      "id": "237962241451337",
+      "country": "MX",
+      "reference": [
+        18.449784994973,
+        -89.305711731929
+      ],
+      "review_kind": "unverified",
+      "verified_strings": [],
+      "read_full": "{\"text\":[]}",
+      "read_status": "empty",
+      "model_strings": [],
+      "used_model_text": false,
+      "read_crop": null,
+      "crop_strings": null,
+      "direct": {
+        "raw": "{\"country\":\"MX\",\"latitude\":20.952,\"longitude\":-89.700}",
+        "country": "MX",
+        "guess_country": "MX",
+        "guess_coordinates": [
+          20.952,
+          -89.7
+        ],
+        "distance_km": 281.2784001372625
+      },
+      "model_text": {
+        "raw": "{\"country\":\"MX\",\"latitude\":20.952,\"longitude\":-89.700}",
+        "country": "MX",
+        "guess_country": "MX",
+        "guess_coordinates": [
+          20.952,
+          -89.7
+        ],
+        "distance_km": 281.2784001372625
+      },
+      "verified_text": null,
+      "crop_text": null
+    },
+    {
+      "ordinal": 5,
+      "id": "295487235586077",
+      "country": "RU",
+      "reference": [
+        54.769648361809,
+        56.532090896673
+      ],
+      "review_kind": "unverified",
+      "verified_strings": [],
+      "read_full": "{\"text\":[\"Kolosovskaya\"]}\"",
+      "read_status": "invalid",
+      "model_strings": [],
+      "used_model_text": false,
+      "read_crop": null,
+      "crop_strings": null,
+      "direct": {
+        "raw": "{\"country\":\"RU\",\"latitude\":55.291,\"longitude\":30.412}",
+        "country": "RU",
+        "guess_country": "RU",
+        "guess_coordinates": [
+          55.291,
+          30.412
+        ],
+        "distance_km": 1655.8959542901914
+      },
+      "model_text": {
+        "raw": "{\"country\":\"RU\",\"latitude\":55.291,\"longitude\":30.412}",
+        "country": "RU",
+        "guess_country": "RU",
+        "guess_coordinates": [
+          55.291,
+          30.412
+        ],
+        "distance_km": 1655.8959542901914
+      },
+      "verified_text": null,
+      "crop_text": null
+    },
+    {
+      "ordinal": 6,
+      "id": "2950924581810518",
+      "country": "IN",
+      "reference": [
+        9.4507345182,
+        76.870519865645
+      ],
+      "review_kind": "unverified",
+      "verified_strings": [],
+      "read_full": "{\"text\":[\"Sri Lanka\",\"Sri Lanka\",\"Sri Lanka\"]}",
+      "read_status": "nonempty",
+      "model_strings": [
+        "Sri Lanka"
+      ],
+      "used_model_text": true,
+      "read_crop": null,
+      "crop_strings": null,
+      "direct": {
+        "raw": "{\"country\":\"IN\",\"latitude\":12.930,\"longitude\":80.521}",
+        "country": "IN",
+        "guess_country": "IN",
+        "guess_coordinates": [
+          12.93,
+          80.521
+        ],
+        "distance_km": 555.1389111895639
+      },
+      "model_text": {
+        "raw": "{\"country\":\"LK\",\"latitude\":8.000,\"longitude\":79.999}",
+        "country": "IN",
+        "guess_country": "LK",
+        "guess_coordinates": [
+          8.0,
+          79.999
+        ],
+        "distance_km": 379.7956706455491
+      },
+      "verified_text": null,
+      "crop_text": null
+    },
+    {
+      "ordinal": 7,
+      "id": "1147079779552167",
+      "country": "JP",
+      "reference": [
+        44.07390680284661,
+        144.99136389558072
+      ],
+      "review_kind": "unverified",
+      "verified_strings": [],
+      "read_full": "{\"text\":[\"TUNNEL\",\"TUNNEL\",\"TUNNEL\"]}",
+      "read_status": "nonempty",
+      "model_strings": [
+        "TUNNEL"
+      ],
+      "used_model_text": true,
+      "read_crop": null,
+      "crop_strings": null,
+      "direct": {
+        "raw": "{\"country\":\"IT\",\"latitude\":41.952,\"longitude\":12.222}",
+        "country": "JP",
+        "guess_country": "IT",
+        "guess_coordinates": [
+          41.952,
+          12.222
+        ],
+        "distance_km": 9355.416969265272
+      },
+      "model_text": {
+        "raw": "{\"country\":\"IT\",\"latitude\":41.100,\"longitude\":12.251}",
+        "country": "JP",
+        "guess_country": "IT",
+        "guess_coordinates": [
+          41.1,
+          12.251
+        ],
+        "distance_km": 9434.476537866221
+      },
+      "verified_text": null,
+      "crop_text": null
+    },
+    {
+      "ordinal": 8,
+      "id": "3691897527605021",
+      "country": "CA",
+      "reference": [
+        49.19093411702,
+        -123.1396993309
+      ],
+      "review_kind": "unverified",
+      "verified_strings": [],
+      "read_full": "{\"text\":[]}",
+      "read_status": "empty",
+      "model_strings": [],
+      "used_model_text": false,
+      "read_crop": null,
+      "crop_strings": null,
+      "direct": {
+        "raw": "{\"country\":\"US\",\"latitude\":47.622,\"longitude\":-122.352}",
+        "country": "CA",
+        "guess_country": "US",
+        "guess_coordinates": [
+          47.622,
+          -122.352
+        ],
+        "distance_km": 183.8893062467646
+      },
+      "model_text": {
+        "raw": "{\"country\":\"US\",\"latitude\":47.622,\"longitude\":-122.352}",
+        "country": "CA",
+        "guess_country": "US",
+        "guess_coordinates": [
+          47.622,
+          -122.352
+        ],
+        "distance_km": 183.8893062467646
+      },
+      "verified_text": null,
+      "crop_text": null
+    },
+    {
+      "ordinal": 9,
+      "id": "294790745594327",
+      "country": "ES",
+      "reference": [
+        42.855437025095,
+        -3.9134894265485
+      ],
+      "review_kind": "unverified",
+      "verified_strings": [],
+      "read_full": "{\"text\":[]}",
+      "read_status": "empty",
+      "model_strings": [],
+      "used_model_text": false,
+      "read_crop": null,
+      "crop_strings": null,
+      "direct": {
+        "raw": "{\"country\":\"IT\",\"latitude\":42.841,\"longitude\":13.122}",
+        "country": "ES",
+        "guess_country": "IT",
+        "guess_coordinates": [
+          42.841,
+          13.122
+        ],
+        "distance_km": 1386.418454083756
+      },
+      "model_text": {
+        "raw": "{\"country\":\"IT\",\"latitude\":42.841,\"longitude\":13.122}",
+        "country": "ES",
+        "guess_country": "IT",
+        "guess_coordinates": [
+          42.841,
+          13.122
+        ],
+        "distance_km": 1386.418454083756
+      },
+      "verified_text": null,
+      "crop_text": null
+    },
+    {
+      "ordinal": 10,
+      "id": "293442282420347",
+      "country": "GB",
+      "reference": [
+        54.177716090134,
+        -6.3263362435214
+      ],
+      "review_kind": "unverified",
+      "verified_strings": [],
+      "read_full": "{\"text\": [\"Dunbar\", \"Dunbar\", \"Dunbar\", \"Dunbar\", \"Dunbar\", \"Dunbar\", \"Dunbar\", \"Dunbar\", \"Dunbar\", \"Dunbar\", \"Dunbar\", \"Dunbar\", \"Dunbar\", \"Dunbar",
+      "read_status": "invalid",
+      "model_strings": [],
+      "used_model_text": false,
+      "read_crop": null,
+      "crop_strings": null,
+      "direct": {
+        "raw": "{\"country\":\"GB\",\"latitude\":56.100,\"longitude\":-4.020}",
+        "country": "GB",
+        "guess_country": "GB",
+        "guess_coordinates": [
+          56.1,
+          -4.02
+        ],
+        "distance_km": 259.1513993207168
+      },
+      "model_text": {
+        "raw": "{\"country\":\"GB\",\"latitude\":56.100,\"longitude\":-4.020}",
+        "country": "GB",
+        "guess_country": "GB",
+        "guess_coordinates": [
+          56.1,
+          -4.02
+        ],
+        "distance_km": 259.1513993207168
+      },
+      "verified_text": null,
+      "crop_text": null
+    },
+    {
+      "ordinal": 11,
+      "id": "3021891311469197",
+      "country": "PT",
+      "reference": [
+        40.584663904466,
+        -8.4495316067319
+      ],
+      "review_kind": "unverified",
+      "verified_strings": [],
+      "read_full": "{\"text\":[]}",
+      "read_status": "empty",
+      "model_strings": [],
+      "used_model_text": false,
+      "read_crop": null,
+      "crop_strings": null,
+      "direct": {
+        "raw": "{\"country\":\"US\",\"latitude\":34.052,\"longitude\":-118.251}",
+        "country": "PT",
+        "guess_country": "US",
+        "guess_coordinates": [
+          34.052,
+          -118.251
+        ],
+        "distance_km": 9041.021861025722
+      },
+      "model_text": {
+        "raw": "{\"country\":\"US\",\"latitude\":34.052,\"longitude\":-118.251}",
+        "country": "PT",
+        "guess_country": "US",
+        "guess_coordinates": [
+          34.052,
+          -118.251
+        ],
+        "distance_km": 9041.021861025722
+      },
+      "verified_text": null,
+      "crop_text": null
+    },
+    {
+      "ordinal": 12,
+      "id": "1034556280409841",
+      "country": "TR",
+      "reference": [
+        40.832441090524,
+        31.168834134835
+      ],
+      "review_kind": "unverified",
+      "verified_strings": [],
+      "read_full": "{\"text\":[\"P\",\"S\",\"T\",\"T\",\"T\",\"T\",\"T\",\"T\",\"T\",\"T\",\"T\",\"T\",\"T\",\"T\",\"T\",\"T\",\"T\",\"T\",\"T\",\"T\",\"T\",\"T\",\"T\",\"T\",\"T\",\"T\",\"T\",\"T\",\"T\",\"T\",\"T\",\"T\",\"T\",\"T\",\"T",
+      "read_status": "invalid",
+      "model_strings": [],
+      "used_model_text": false,
+      "read_crop": null,
+      "crop_strings": null,
+      "direct": {
+        "raw": "{\"country\":\"TR\",\"latitude\":38.000,\"longitude\":35.150}",
+        "country": "TR",
+        "guess_country": "TR",
+        "guess_coordinates": [
+          38.0,
+          35.15
+        ],
+        "distance_km": 464.8309671848578
+      },
+      "model_text": {
+        "raw": "{\"country\":\"TR\",\"latitude\":38.000,\"longitude\":35.150}",
+        "country": "TR",
+        "guess_country": "TR",
+        "guess_coordinates": [
+          38.0,
+          35.15
+        ],
+        "distance_km": 464.8309671848578
+      },
+      "verified_text": null,
+      "crop_text": null
+    },
+    {
+      "ordinal": 13,
+      "id": "305594951240743",
+      "country": "AR",
+      "reference": [
+        -37.311168149309,
+        -59.156533399063
+      ],
+      "review_kind": "unverified",
+      "verified_strings": [],
+      "read_full": "{\"text\":[\"CALLE 10\"]}\"",
+      "read_status": "invalid",
+      "model_strings": [],
+      "used_model_text": false,
+      "read_crop": null,
+      "crop_strings": null,
+      "direct": {
+        "raw": "{\"country\":\"AR\",\"latitude\":-34.902,\"longitude\":-67.000}",
+        "country": "AR",
+        "guess_country": "AR",
+        "guess_coordinates": [
+          -34.902,
+          -67.0
+        ],
+        "distance_km": 753.5332503473842
+      },
+      "model_text": {
+        "raw": "{\"country\":\"AR\",\"latitude\":-34.902,\"longitude\":-67.000}",
+        "country": "AR",
+        "guess_country": "AR",
+        "guess_coordinates": [
+          -34.902,
+          -67.0
+        ],
+        "distance_km": 753.5332503473842
+      },
+      "verified_text": null,
+      "crop_text": null
+    },
+    {
+      "ordinal": 14,
+      "id": "172488994793740",
+      "country": "CL",
+      "reference": [
+        -33.562891796658,
+        -70.577585435984
+      ],
+      "review_kind": "unverified",
+      "verified_strings": [],
+      "read_full": "{\"text\":[]}",
+      "read_status": "empty",
+      "model_strings": [],
+      "used_model_text": false,
+      "read_crop": null,
+      "crop_strings": null,
+      "direct": {
+        "raw": "{\"country\":\"MX\",\"latitude\":19.452,\"longitude\":-99.154}",
+        "country": "CL",
+        "guess_country": "MX",
+        "guess_coordinates": [
+          19.452,
+          -99.154
+        ],
+        "distance_km": 6628.278315659524
+      },
+      "model_text": {
+        "raw": "{\"country\":\"MX\",\"latitude\":19.452,\"longitude\":-99.154}",
+        "country": "CL",
+        "guess_country": "MX",
+        "guess_coordinates": [
+          19.452,
+          -99.154
+        ],
+        "distance_km": 6628.278315659524
+      },
+      "verified_text": null,
+      "crop_text": null
+    },
+    {
+      "ordinal": 15,
+      "id": "846094272651580",
+      "country": "NO",
+      "reference": [
+        58.940420093243,
+        5.6493509193121
+      ],
+      "review_kind": "unverified",
+      "verified_strings": [],
+      "read_full": "{\"text\":[\"Sjöviken\",\"Sjöviken\",\"Sjöviken\"]}",
+      "read_status": "nonempty",
+      "model_strings": [
+        "Sjöviken"
+      ],
+      "used_model_text": true,
+      "read_crop": null,
+      "crop_strings": null,
+      "direct": {
+        "raw": "{\"country\":\"SE\",\"latitude\":56.941,\"longitude\":14.901}",
+        "country": "NO",
+        "guess_country": "SE",
+        "guess_coordinates": [
+          56.941,
+          14.901
+        ],
+        "distance_km": 588.9592929007051
+      },
+      "model_text": {
+        "raw": "{\"country\":\"SE\",\"latitude\":56.191,\"longitude\":14.901}",
+        "country": "NO",
+        "guess_country": "SE",
+        "guess_coordinates": [
+          56.191,
+          14.901
+        ],
+        "distance_km": 630.0200661950382
+      },
+      "verified_text": null,
+      "crop_text": null
+    },
+    {
+      "ordinal": 16,
+      "id": "668998831379607",
+      "country": "NZ",
+      "reference": [
+        -36.15967000735388,
+        174.53022868533984
+      ],
+      "review_kind": "unverified",
+      "verified_strings": [],
+      "read_full": "{\"text\":[]}",
+      "read_status": "empty",
+      "model_strings": [],
+      "used_model_text": false,
+      "read_crop": null,
+      "crop_strings": null,
+      "direct": {
+        "raw": "{\"country\":\"NZ\",\"latitude\":-41.414,\"longitude\":174.814}",
+        "country": "NZ",
+        "guess_country": "NZ",
+        "guess_coordinates": [
+          -41.414,
+          174.814
+        ],
+        "distance_km": 584.7720610182737
+      },
+      "model_text": {
+        "raw": "{\"country\":\"NZ\",\"latitude\":-41.414,\"longitude\":174.814}",
+        "country": "NZ",
+        "guess_country": "NZ",
+        "guess_coordinates": [
+          -41.414,
+          174.814
+        ],
+        "distance_km": 584.7720610182737
+      },
+      "verified_text": null,
+      "crop_text": null
+    },
+    {
+      "ordinal": 17,
+      "id": "218775719698365",
+      "country": "TH",
+      "reference": [
+        16.475637836238,
+        101.1590420195
+      ],
+      "review_kind": "unverified",
+      "verified_strings": [],
+      "read_full": "{\"text\":[]}",
+      "read_status": "empty",
+      "model_strings": [],
+      "used_model_text": false,
+      "read_crop": null,
+      "crop_strings": null,
+      "direct": {
+        "raw": "{\"country\":\"TH\",\"latitude\":18.781,\"longitude\":100.541}",
+        "country": "TH",
+        "guess_country": "TH",
+        "guess_coordinates": [
+          18.781,
+          100.541
+        ],
+        "distance_km": 264.57834401411975
+      },
+      "model_text": {
+        "raw": "{\"country\":\"TH\",\"latitude\":18.781,\"longitude\":100.541}",
+        "country": "TH",
+        "guess_country": "TH",
+        "guess_coordinates": [
+          18.781,
+          100.541
+        ],
+        "distance_km": 264.57834401411975
+      },
+      "verified_text": null,
+      "crop_text": null
+    },
+    {
+      "ordinal": 18,
+      "id": "211893897190281",
+      "country": "BG",
+      "reference": [
+        43.21449345699,
+        27.915549858511
+      ],
+      "review_kind": "unverified",
+      "verified_strings": [],
+      "read_full": "{\"text\":[\"Sofia\",\"Bulgaria\",\"Sofia\"]}\"",
+      "read_status": "invalid",
+      "model_strings": [],
+      "used_model_text": false,
+      "read_crop": null,
+      "crop_strings": null,
+      "direct": {
+        "raw": "{\"country\":\"RO\",\"latitude\":44.394,\"longitude\":26.191}",
+        "country": "BG",
+        "guess_country": "RO",
+        "guess_coordinates": [
+          44.394,
+          26.191
+        ],
+        "distance_km": 190.66180547095476
+      },
+      "model_text": {
+        "raw": "{\"country\":\"RO\",\"latitude\":44.394,\"longitude\":26.191}",
+        "country": "BG",
+        "guess_country": "RO",
+        "guess_coordinates": [
+          44.394,
+          26.191
+        ],
+        "distance_km": 190.66180547095476
+      },
+      "verified_text": null,
+      "crop_text": null
+    },
+    {
+      "ordinal": 19,
+      "id": "2992791674299282",
+      "country": "EG",
+      "reference": [
+        30.11198544282,
+        31.368656846906
+      ],
+      "review_kind": "unverified",
+      "verified_strings": [],
+      "read_full": "{\"text\": [\"Majid Al-Khawarizmi\", \"Al-Majid\", \"Al-Khawarizmi\", \"Al-Majid\", \"Al-Khawarizmi\", \"Al-Majid\", \"Al-Khawarizmi\", \"Al-Majid\", \"Al-Khawar",
+      "read_status": "invalid",
+      "model_strings": [],
+      "used_model_text": false,
+      "read_crop": null,
+      "crop_strings": null,
+      "direct": {
+        "raw": "{\"country\":\"EG\",\"latitude\":30.041,\"longitude\":31.221}",
+        "country": "EG",
+        "guess_country": "EG",
+        "guess_coordinates": [
+          30.041,
+          31.221
+        ],
+        "distance_km": 16.253361615416146
+      },
+      "model_text": {
+        "raw": "{\"country\":\"EG\",\"latitude\":30.041,\"longitude\":31.221}",
+        "country": "EG",
+        "guess_country": "EG",
+        "guess_coordinates": [
+          30.041,
+          31.221
+        ],
+        "distance_km": 16.253361615416146
+      },
+      "verified_text": null,
+      "crop_text": null
+    },
+    {
+      "ordinal": 20,
+      "id": "472933560683535",
+      "country": "ET",
+      "reference": [
+        11.517758397174,
+        39.000761578452
+      ],
+      "review_kind": "unverified",
+      "verified_strings": [],
+      "read_full": "{\"text\":[\"Saray\",\"Saray\",\"Saray\"]}",
+      "read_status": "nonempty",
+      "model_strings": [
+        "Saray"
+      ],
+      "used_model_text": true,
+      "read_crop": null,
+      "crop_strings": null,
+      "direct": {
+        "raw": "{\"country\":\"ET\",\"latitude\":11.900,\"longitude\":39.240}",
+        "country": "ET",
+        "guess_country": "ET",
+        "guess_coordinates": [
+          11.9,
+          39.24
+        ],
+        "distance_km": 49.85041138302912
+      },
+      "model_text": {
+        "raw": "{\"country\":\"TM\",\"latitude\":39.155,\"longitude\":65.000}",
+        "country": "ET",
+        "guess_country": "TM",
+        "guess_coordinates": [
+          39.155,
+          65.0
+        ],
+        "distance_km": 4003.122342034264
+      },
+      "verified_text": null,
+      "crop_text": null
+    },
+    {
+      "ordinal": 21,
+      "id": "309831067185068",
+      "country": "FR",
+      "reference": [
+        42.779942253282,
+        2.8775981443822
+      ],
+      "review_kind": "unverified",
+      "verified_strings": [],
+      "read_full": "{\"text\": [\"100\", \"101\", \"102\", \"103\", \"104\", \"105\", \"106\", \"107\", \"108\", \"109\", \"110\", \"111\", \"112\", \"113",
+      "read_status": "invalid",
+      "model_strings": [],
+      "used_model_text": false,
+      "read_crop": null,
+      "crop_strings": null,
+      "direct": {
+        "raw": "{\"country\":\"AU\",\"latitude\":-34.954,\"longitude\":144.951}",
+        "country": "FR",
+        "guess_country": "AU",
+        "guess_coordinates": [
+          -34.954,
+          144.951
+        ],
+        "distance_km": 16648.918732497772
+      },
+      "model_text": {
+        "raw": "{\"country\":\"AU\",\"latitude\":-34.954,\"longitude\":144.951}",
+        "country": "FR",
+        "guess_country": "AU",
+        "guess_coordinates": [
+          -34.954,
+          144.951
+        ],
+        "distance_km": 16648.918732497772
+      },
+      "verified_text": null,
+      "crop_text": null
+    },
+    {
+      "ordinal": 22,
+      "id": "470533114018261",
+      "country": "GR",
+      "reference": [
+        39.386236897915,
+        22.791545878593
+      ],
+      "review_kind": "named_destination",
+      "verified_strings": [
+        "Βόλος",
+        "Volos"
+      ],
+      "read_full": "{\"text\":[\"Boskos Vos\"]}\"",
+      "read_status": "invalid",
+      "model_strings": [],
+      "used_model_text": false,
+      "read_crop": "{\"text\":[\"Bolos\",\"Volas\"]}",
+      "crop_strings": [
+        "Bolos",
+        "Volas"
+      ],
+      "direct": {
+        "raw": "{\"country\":\"GR\",\"latitude\":39.811,\"longitude\":22.811}",
+        "country": "GR",
+        "guess_country": "GR",
+        "guess_coordinates": [
+          39.811,
+          22.811
+        ],
+        "distance_km": 47.26096863962531
+      },
+      "model_text": {
+        "raw": "{\"country\":\"GR\",\"latitude\":39.811,\"longitude\":22.811}",
+        "country": "GR",
+        "guess_country": "GR",
+        "guess_coordinates": [
+          39.811,
+          22.811
+        ],
+        "distance_km": 47.26096863962531
+      },
+      "verified_text": {
+        "raw": "{\"country\":\"GR\",\"latitude\":37.141,\"longitude\":23.000}",
+        "country": "GR",
+        "guess_country": "GR",
+        "guess_coordinates": [
+          37.141,
+          23.0
+        ],
+        "distance_km": 250.32152323903856
+      },
+      "crop_text": {
+        "raw": "{\"country\":\"GR\",\"latitude\":39.811,\"longitude\":22.201}",
+        "country": "GR",
+        "guess_country": "GR",
+        "guess_coordinates": [
+          39.811,
+          22.201
+        ],
+        "distance_km": 69.2161129294296
+      }
+    },
+    {
+      "ordinal": 23,
+      "id": "2547101302258650",
+      "country": "IR",
+      "reference": [
+        36.277110689032,
+        49.979106780434
+      ],
+      "review_kind": "unverified",
+      "verified_strings": [],
+      "read_full": "{\"text\":[]}",
+      "read_status": "empty",
+      "model_strings": [],
+      "used_model_text": false,
+      "read_crop": null,
+      "crop_strings": null,
+      "direct": {
+        "raw": "{\"country\":\"AZ\",\"latitude\":40.314,\"longitude\":49.721}",
+        "country": "IR",
+        "guess_country": "AZ",
+        "guess_coordinates": [
+          40.314,
+          49.721
+        ],
+        "distance_km": 449.44634023445656
+      },
+      "model_text": {
+        "raw": "{\"country\":\"AZ\",\"latitude\":40.314,\"longitude\":49.721}",
+        "country": "IR",
+        "guess_country": "AZ",
+        "guess_coordinates": [
+          40.314,
+          49.721
+        ],
+        "distance_km": 449.44634023445656
+      },
+      "verified_text": null,
+      "crop_text": null
+    },
+    {
+      "ordinal": 24,
+      "id": "953888611819687",
+      "country": "IT",
+      "reference": [
+        45.108152884042,
+        7.6151456977398
+      ],
+      "review_kind": "language_only",
+      "verified_strings": [
+        "eccetto",
+        "veicoli dei residenti"
+      ],
+      "read_full": "{\"text\":[\"SANT'ANNA\",\"SANT'ANNA\",\"SANT'ANNA\"]}",
+      "read_status": "nonempty",
+      "model_strings": [
+        "SANT'ANNA"
+      ],
+      "used_model_text": true,
+      "read_crop": "{\"text\":[\"eccezione\",\"velocità\",\"dei\",\"residenti\",\"messi\",\"AMAY\",\"e\",\"cicli\",\"in\"]}\"",
+      "crop_strings": [],
+      "direct": {
+        "raw": "{\"country\":\"IT\",\"latitude\":43.811,\"longitude\":11.222}",
+        "country": "IT",
+        "guess_country": "IT",
+        "guess_coordinates": [
+          43.811,
+          11.222
+        ],
+        "distance_km": 320.5009784531301
+      },
+      "model_text": {
+        "raw": "{\"country\":\"IT\",\"latitude\":43.811,\"longitude\":10.202}",
+        "country": "IT",
+        "guess_country": "IT",
+        "guess_coordinates": [
+          43.811,
+          10.202
+        ],
+        "distance_km": 250.8866930718932
+      },
+      "verified_text": {
+        "raw": "{\"country\":\"IT\",\"latitude\":43.022,\"longitude\":11.222}",
+        "country": "IT",
+        "guess_country": "IT",
+        "guess_coordinates": [
+          43.022,
+          11.222
+        ],
+        "distance_km": 369.88162456408645
+      },
+      "crop_text": {
+        "raw": "{\"country\":\"IT\",\"latitude\":43.811,\"longitude\":11.222}",
+        "country": "IT",
+        "guess_country": "IT",
+        "guess_coordinates": [
+          43.811,
+          11.222
+        ],
+        "distance_km": 320.5009784531301
+      }
+    },
+    {
+      "ordinal": 25,
+      "id": "580491622939421",
+      "country": "MG",
+      "reference": [
+        -24.40613314894024,
+        47.25514562416941
+      ],
+      "review_kind": "unverified",
+      "verified_strings": [],
+      "read_full": "{\"text\":[]}",
+      "read_status": "empty",
+      "model_strings": [],
+      "used_model_text": false,
+      "read_crop": null,
+      "crop_strings": null,
+      "direct": {
+        "raw": "{\"country\":\"PG\",\"latitude\":-11.911,\"longitude\":167.101}",
+        "country": "MG",
+        "guess_country": "PG",
+        "guess_coordinates": [
+          -11.911,
+          167.101
+        ],
+        "distance_km": 12341.215612277365
+      },
+      "model_text": {
+        "raw": "{\"country\":\"PG\",\"latitude\":-11.911,\"longitude\":167.101}",
+        "country": "MG",
+        "guess_country": "PG",
+        "guess_coordinates": [
+          -11.911,
+          167.101
+        ],
+        "distance_km": 12341.215612277365
+      },
+      "verified_text": null,
+      "crop_text": null
+    },
+    {
+      "ordinal": 26,
+      "id": "185675826709169",
+      "country": "MM",
+      "reference": [
+        21.977574791801,
+        96.103488180994
+      ],
+      "review_kind": "unverified",
+      "verified_strings": [],
+      "read_full": "{\"text\":[]}",
+      "read_status": "empty",
+      "model_strings": [],
+      "used_model_text": false,
+      "read_crop": null,
+      "crop_strings": null,
+      "direct": {
+        "raw": "{\"country\":\"TH\",\"latitude\":12.900,\"longitude\":100.550}",
+        "country": "MM",
+        "guess_country": "TH",
+        "guess_coordinates": [
+          12.9,
+          100.55
+        ],
+        "distance_km": 1113.8865294121915
+      },
+      "model_text": {
+        "raw": "{\"country\":\"TH\",\"latitude\":12.900,\"longitude\":100.550}",
+        "country": "MM",
+        "guess_country": "TH",
+        "guess_coordinates": [
+          12.9,
+          100.55
+        ],
+        "distance_km": 1113.8865294121915
+      },
+      "verified_text": null,
+      "crop_text": null
+    },
+    {
+      "ordinal": 27,
+      "id": "158575053454798",
+      "country": "PE",
+      "reference": [
+        -8.086825027676026,
+        -79.05001071206335
+      ],
+      "review_kind": "unverified",
+      "verified_strings": [],
+      "read_full": "{\"text\":[\"Calle 12\",\"Calle 13\",\"Calle 14\",\"Calle 15\",\"Calle 16\",\"Calle 17\",\"Calle 18\",\"Calle 19\",\"Calle 20\",\"Calle 21\",\"Calle 22\",\"Calle ",
+      "read_status": "invalid",
+      "model_strings": [],
+      "used_model_text": false,
+      "read_crop": null,
+      "crop_strings": null,
+      "direct": {
+        "raw": "{\"country\":\"PE\",\"latitude\":-11.941,\"longitude\":-78.902}",
+        "country": "PE",
+        "guess_country": "PE",
+        "guess_coordinates": [
+          -11.941,
+          -78.902
+        ],
+        "distance_km": 428.87152114704105
+      },
+      "model_text": {
+        "raw": "{\"country\":\"PE\",\"latitude\":-11.941,\"longitude\":-78.902}",
+        "country": "PE",
+        "guess_country": "PE",
+        "guess_coordinates": [
+          -11.941,
+          -78.902
+        ],
+        "distance_km": 428.87152114704105
+      },
+      "verified_text": null,
+      "crop_text": null
+    },
+    {
+      "ordinal": 28,
+      "id": "217489886804893",
+      "country": "PK",
+      "reference": [
+        33.67497700817,
+        73.140145694235
+      ],
+      "review_kind": "unverified",
+      "verified_strings": [],
+      "read_full": "{\"text\":[]}",
+      "read_status": "empty",
+      "model_strings": [],
+      "used_model_text": false,
+      "read_crop": null,
+      "crop_strings": null,
+      "direct": {
+        "raw": "{\"country\":\"IN\",\"latitude\":22.024,\"longitude\":80.311}",
+        "country": "PK",
+        "guess_country": "IN",
+        "guess_coordinates": [
+          22.024,
+          80.311
+        ],
+        "distance_km": 1473.8203744961647
+      },
+      "model_text": {
+        "raw": "{\"country\":\"IN\",\"latitude\":22.024,\"longitude\":80.311}",
+        "country": "PK",
+        "guess_country": "IN",
+        "guess_coordinates": [
+          22.024,
+          80.311
+        ],
+        "distance_km": 1473.8203744961647
+      },
+      "verified_text": null,
+      "crop_text": null
+    },
+    {
+      "ordinal": 29,
+      "id": "545774006616625",
+      "country": "SE",
+      "reference": [
+        56.98023730206227,
+        13.946310051076845
+      ],
+      "review_kind": "unverified",
+      "verified_strings": [],
+      "read_full": "{\"text\":[\"Svartjörn\",\"Svartjörn 10\",\"Svartjörn 10\"]}\n\n",
+      "read_status": "nonempty",
+      "model_strings": [
+        "Svartjörn",
+        "Svartjörn 10"
+      ],
+      "used_model_text": true,
+      "read_crop": null,
+      "crop_strings": null,
+      "direct": {
+        "raw": "{\"country\":\"FI\",\"latitude\":60.801,\"longitude\":25.121}",
+        "country": "SE",
+        "guess_country": "FI",
+        "guess_coordinates": [
+          60.801,
+          25.121
+        ],
+        "distance_km": 768.3089657382857
+      },
+      "model_text": {
+        "raw": "{\"country\":\"SE\",\"latitude\":60.000,\"longitude\":18.000}",
+        "country": "SE",
+        "guess_country": "SE",
+        "guess_coordinates": [
+          60.0,
+          18.0
+        ],
+        "distance_km": 410.0207801937265
+      },
+      "verified_text": null,
+      "crop_text": null
+    },
+    {
+      "ordinal": 30,
+      "id": "116003954472737",
+      "country": "BY",
+      "reference": [
+        53.67889827210426,
+        30.388126700605085
+      ],
+      "review_kind": "unverified",
+      "verified_strings": [],
+      "read_full": "{\"text\":[\"5050\"]}",
+      "read_status": "nonempty",
+      "model_strings": [
+        "5050"
+      ],
+      "used_model_text": true,
+      "read_crop": null,
+      "crop_strings": null,
+      "direct": {
+        "raw": "{\"country\":\"BY\",\"latitude\":54.551,\"longitude\":27.101}",
+        "country": "BY",
+        "guess_country": "BY",
+        "guess_coordinates": [
+          54.551,
+          27.101
+        ],
+        "distance_km": 235.1430935528923
+      },
+      "model_text": {
+        "raw": "{\"country\":\"BY\",\"latitude\":51.000,\"longitude\":27.000}",
+        "country": "BY",
+        "guess_country": "BY",
+        "guess_coordinates": [
+          51.0,
+          27.0
+        ],
+        "distance_km": 376.36293699824853
+      },
+      "verified_text": null,
+      "crop_text": null
+    },
+    {
+      "ordinal": 31,
+      "id": "3287267538187519",
+      "country": "CN",
+      "reference": [
+        37.51970745019963,
+        121.38977085805814
+      ],
+      "review_kind": "language_only",
+      "verified_strings": [
+        "汽车钥匙"
+      ],
+      "read_full": "{\"text\":[\"Lllumar\",\"合老堂\",\"汽车钥匙\"]}",
+      "read_status": "nonempty",
+      "model_strings": [
+        "Lllumar",
+        "合老堂",
+        "汽车钥匙"
+      ],
+      "used_model_text": true,
+      "read_crop": "{\"text\":[\"汽车钥匙\",\"开换锁\"]}",
+      "crop_strings": [
+        "汽车钥匙",
+        "开换锁"
+      ],
+      "direct": {
+        "raw": "{\"country\":\"CN\",\"latitude\":39.152,\"longitude\":116.601}",
+        "country": "CN",
+        "guess_country": "CN",
+        "guess_coordinates": [
+          39.152,
+          116.601
+        ],
+        "distance_km": 455.32903964683754
+      },
+      "model_text": {
+        "raw": "{\"country\":\"CN\",\"latitude\":36.151,\"longitude\":119.301}",
+        "country": "CN",
+        "guess_country": "CN",
+        "guess_coordinates": [
+          36.151,
+          119.301
+        ],
+        "distance_km": 240.23577394567303
+      },
+      "verified_text": {
+        "raw": "{\"country\":\"CN\",\"latitude\":38.051,\"longitude\":121.411}",
+        "country": "CN",
+        "guess_country": "CN",
+        "guess_coordinates": [
+          38.051,
+          121.411
+        ],
+        "distance_km": 59.10656643169701
+      },
+      "crop_text": {
+        "raw": "{\"country\":\"CN\",\"latitude\":38.051,\"longitude\":121.411}",
+        "country": "CN",
+        "guess_country": "CN",
+        "guess_coordinates": [
+          38.051,
+          121.411
+        ],
+        "distance_km": 59.10656643169701
+      }
+    },
+    {
+      "ordinal": 32,
+      "id": "764896447530805",
+      "country": "CY",
+      "reference": [
+        35.117873529656,
+        33.286488484668
+      ],
+      "review_kind": "unverified",
+      "verified_strings": [],
+      "read_full": "{\"text\":[\"Kanakia\",\"Kanakia\",\"Kanakia\"]}",
+      "read_status": "nonempty",
+      "model_strings": [
+        "Kanakia"
+      ],
+      "used_model_text": true,
+      "read_crop": null,
+      "crop_strings": null,
+      "direct": {
+        "raw": "{\"country\":\"GR\",\"latitude\":36.801,\"longitude\":25.511}",
+        "country": "CY",
+        "guess_country": "GR",
+        "guess_coordinates": [
+          36.801,
+          25.511
+        ],
+        "distance_km": 724.1839558797384
+      },
+      "model_text": {
+        "raw": "{\"country\":\"GR\",\"latitude\":35.291,\"longitude\":25.000}",
+        "country": "CY",
+        "guess_country": "GR",
+        "guess_coordinates": [
+          35.291,
+          25.0
+        ],
+        "distance_km": 752.9169359218912
+      },
+      "verified_text": null,
+      "crop_text": null
+    },
+    {
+      "ordinal": 33,
+      "id": "360270872953286",
+      "country": "FI",
+      "reference": [
+        62.8106828,
+        24.36031
+      ],
+      "review_kind": "unverified",
+      "verified_strings": [],
+      "read_full": "{\"text\":[\"2000\"]}\"",
+      "read_status": "invalid",
+      "model_strings": [],
+      "used_model_text": false,
+      "read_crop": null,
+      "crop_strings": null,
+      "direct": {
+        "raw": "{\"country\":\"RU\",\"latitude\":64.021,\"longitude\":102.000}",
+        "country": "FI",
+        "guess_country": "RU",
+        "guess_coordinates": [
+          64.021,
+          102.0
+        ],
+        "distance_km": 3624.791913770138
+      },
+      "model_text": {
+        "raw": "{\"country\":\"RU\",\"latitude\":64.021,\"longitude\":102.000}",
+        "country": "FI",
+        "guess_country": "RU",
+        "guess_coordinates": [
+          64.021,
+          102.0
+        ],
+        "distance_km": 3624.791913770138
+      },
+      "verified_text": null,
+      "crop_text": null
+    },
+    {
+      "ordinal": 34,
+      "id": "480826559825677",
+      "country": "GF",
+      "reference": [
+        5.6726420850254,
+        -53.789921142506
+      ],
+      "review_kind": "unverified",
+      "verified_strings": [],
+      "read_full": "{\"text\":[]}",
+      "read_status": "empty",
+      "model_strings": [],
+      "used_model_text": false,
+      "read_crop": null,
+      "crop_strings": null,
+      "direct": {
+        "raw": "{\"country\":\"BR\",\"latitude\":-14.124,\"longitude\":-50.152}",
+        "country": "GF",
+        "guess_country": "BR",
+        "guess_coordinates": [
+          -14.124,
+          -50.152
+        ],
+        "distance_km": 2237.5816769924613
+      },
+      "model_text": {
+        "raw": "{\"country\":\"BR\",\"latitude\":-14.124,\"longitude\":-50.152}",
+        "country": "GF",
+        "guess_country": "BR",
+        "guess_coordinates": [
+          -14.124,
+          -50.152
+        ],
+        "distance_km": 2237.5816769924613
+      },
+      "verified_text": null,
+      "crop_text": null
+    },
+    {
+      "ordinal": 35,
+      "id": "247212563851961",
+      "country": "GH",
+      "reference": [
+        5.1255112467898,
+        -1.2426869616052
+      ],
+      "review_kind": "unverified",
+      "verified_strings": [],
+      "read_full": "{\"text\":[]}",
+      "read_status": "empty",
+      "model_strings": [],
+      "used_model_text": false,
+      "read_crop": null,
+      "crop_strings": null,
+      "direct": {
+        "raw": "{\"country\":\"GB\",\"latitude\":50.124,\"longitude\":-3.234}",
+        "country": "GH",
+        "guess_country": "GB",
+        "guess_coordinates": [
+          50.124,
+          -3.234
+        ],
+        "distance_km": 5007.0841787248055
+      },
+      "model_text": {
+        "raw": "{\"country\":\"GB\",\"latitude\":50.124,\"longitude\":-3.234}",
+        "country": "GH",
+        "guess_country": "GB",
+        "guess_coordinates": [
+          50.124,
+          -3.234
+        ],
+        "distance_km": 5007.0841787248055
+      },
+      "verified_text": null,
+      "crop_text": null
+    },
+    {
+      "ordinal": 36,
+      "id": "520458562734779",
+      "country": "KR",
+      "reference": [
+        33.485331069202,
+        126.48748904004
+      ],
+      "review_kind": "language_only",
+      "verified_strings": [
+        "대아갈비"
+      ],
+      "read_full": "{\"text\":[\"6-4\",\"6-4\",\"6-4\",\"6-4\",\"6-4\",\"6-4\",\"6-4\",\"6-4\",\"6-4\",\"6-4\",\"6-4\",\"6-4\",\"6-4\",\"6-4\",\"6-4\",\"6-4\",\"6-4\",\"6",
+      "read_status": "invalid",
+      "model_strings": [],
+      "used_model_text": false,
+      "read_crop": "{\"text\":[\"대아간비\",\"대아간비\",\"대아간비\"]}",
+      "crop_strings": [
+        "대아간비"
+      ],
+      "direct": {
+        "raw": "{\"country\":\"KR\",\"latitude\":37.552,\"longitude\":127.000}",
+        "country": "KR",
+        "guess_country": "KR",
+        "guess_coordinates": [
+          37.552,
+          127.0
+        ],
+        "distance_km": 454.56382807373257
+      },
+      "model_text": {
+        "raw": "{\"country\":\"KR\",\"latitude\":37.552,\"longitude\":127.000}",
+        "country": "KR",
+        "guess_country": "KR",
+        "guess_coordinates": [
+          37.552,
+          127.0
+        ],
+        "distance_km": 454.56382807373257
+      },
+      "verified_text": {
+        "raw": "{\"country\":\"KR\",\"latitude\":37.552,\"longitude\":127.000}",
+        "country": "KR",
+        "guess_country": "KR",
+        "guess_coordinates": [
+          37.552,
+          127.0
+        ],
+        "distance_km": 454.56382807373257
+      },
+      "crop_text": {
+        "raw": "{\"country\":\"KR\",\"latitude\":37.552,\"longitude\":127.000}",
+        "country": "KR",
+        "guess_country": "KR",
+        "guess_coordinates": [
+          37.552,
+          127.0
+        ],
+        "distance_km": 454.56382807373257
+      }
+    },
+    {
+      "ordinal": 37,
+      "id": "821322645150025",
+      "country": "NG",
+      "reference": [
+        7.2139055041522,
+        5.2176301414923
+      ],
+      "review_kind": "unverified",
+      "verified_strings": [],
+      "read_full": "{\"text\":[\"Nkwo\",\"Nkwo\",\"Nkwo\"]}",
+      "read_status": "nonempty",
+      "model_strings": [
+        "Nkwo"
+      ],
+      "used_model_text": true,
+      "read_crop": null,
+      "crop_strings": null,
+      "direct": {
+        "raw": "{\"country\":\"GH\",\"latitude\":5.881,\"longitude\":-0.155}",
+        "country": "NG",
+        "guess_country": "GH",
+        "guess_coordinates": [
+          5.881,
+          -0.155
+        ],
+        "distance_km": 611.7233507244678
+      },
+      "model_text": {
+        "raw": "{\"country\":\"GH\",\"latitude\":6.300,\"longitude\":-0.150}",
+        "country": "NG",
+        "guess_country": "GH",
+        "guess_coordinates": [
+          6.3,
+          -0.15
+        ],
+        "distance_km": 601.3476083538544
+      },
+      "verified_text": null,
+      "crop_text": null
+    },
+    {
+      "ordinal": 38,
+      "id": "8636953276322496",
+      "country": "NP",
+      "reference": [
+        27.6897012114446,
+        85.33587247047798
+      ],
+      "review_kind": "unverified",
+      "verified_strings": [],
+      "read_full": "{\"text\":[\"N\",\"R\"]}",
+      "read_status": "nonempty",
+      "model_strings": [
+        "N",
+        "R"
+      ],
+      "used_model_text": true,
+      "read_crop": null,
+      "crop_strings": null,
+      "direct": {
+        "raw": "{\"country\":\"NP\",\"latitude\":27.702,\"longitude\":85.791}",
+        "country": "NP",
+        "guess_country": "NP",
+        "guess_coordinates": [
+          27.702,
+          85.791
+        ],
+        "distance_km": 44.83049115045746
+      },
+      "model_text": {
+        "raw": "{\"country\":\"NP\",\"latitude\":27.702,\"longitude\":85.791}",
+        "country": "NP",
+        "guess_country": "NP",
+        "guess_coordinates": [
+          27.702,
+          85.791
+        ],
+        "distance_km": 44.83049115045746
+      },
+      "verified_text": null,
+      "crop_text": null
+    },
+    {
+      "ordinal": 39,
+      "id": "754839602247324",
+      "country": "PL",
+      "reference": [
+        51.82109865655512,
+        20.818155868090976
+      ],
+      "review_kind": "unverified",
+      "verified_strings": [],
+      "read_full": "{\"text\":[\"10\"]}\"",
+      "read_status": "invalid",
+      "model_strings": [],
+      "used_model_text": false,
+      "read_crop": null,
+      "crop_strings": null,
+      "direct": {
+        "raw": "{\"country\":\"PL\",\"latitude\":53.091,\"longitude\":17.102}",
+        "country": "PL",
+        "guess_country": "PL",
+        "guess_coordinates": [
+          53.091,
+          17.102
+        ],
+        "distance_km": 288.6420241952477
+      },
+      "model_text": {
+        "raw": "{\"country\":\"PL\",\"latitude\":53.091,\"longitude\":17.102}",
+        "country": "PL",
+        "guess_country": "PL",
+        "guess_coordinates": [
+          53.091,
+          17.102
+        ],
+        "distance_km": 288.6420241952477
+      },
+      "verified_text": null,
+      "crop_text": null
+    },
+    {
+      "ordinal": 40,
+      "id": "317729019823265",
+      "country": "SL",
+      "reference": [
+        8.31910318,
+        -13.064927964000002
+      ],
+      "review_kind": "unverified",
+      "verified_strings": [],
+      "read_full": "{\"text\":[]}",
+      "read_status": "empty",
+      "model_strings": [],
+      "used_model_text": false,
+      "read_crop": null,
+      "crop_strings": null,
+      "direct": {
+        "raw": "{\"country\":\"TZ\",\"latitude\":-6.999,\"longitude\":37.999}",
+        "country": "SL",
+        "guess_country": "TZ",
+        "guess_coordinates": [
+          -6.999,
+          37.999
+        ],
+        "distance_km": 5911.182025287853
+      },
+      "model_text": {
+        "raw": "{\"country\":\"TZ\",\"latitude\":-6.999,\"longitude\":37.999}",
+        "country": "SL",
+        "guess_country": "TZ",
+        "guess_coordinates": [
+          -6.999,
+          37.999
+        ],
+        "distance_km": 5911.182025287853
+      },
+      "verified_text": null,
+      "crop_text": null
+    },
+    {
+      "ordinal": 41,
+      "id": "810870836214719",
+      "country": "UG",
+      "reference": [
+        0.460915137901325,
+        32.531445862601295
+      ],
+      "review_kind": "unverified",
+      "verified_strings": [],
+      "read_full": "{\"text\":[\"Kabaka\",\"Kabaka\",\"Kabaka\"]}",
+      "read_status": "nonempty",
+      "model_strings": [
+        "Kabaka"
+      ],
+      "used_model_text": true,
+      "read_crop": null,
+      "crop_strings": null,
+      "direct": {
+        "raw": "{\"country\":\"UG\",\"latitude\":0.510,\"longitude\":31.000}",
+        "country": "UG",
+        "guess_country": "UG",
+        "guess_coordinates": [
+          0.51,
+          31.0
+        ],
+        "distance_km": 170.37057625505778
+      },
+      "model_text": {
+        "raw": "{\"country\":\"UG\",\"latitude\":0.300,\"longitude\":31.000}",
+        "country": "UG",
+        "guess_country": "UG",
+        "guess_coordinates": [
+          0.3,
+          31.0
+        ],
+        "distance_km": 171.22291858823607
+      },
+      "verified_text": null,
+      "crop_text": null
+    },
+    {
+      "ordinal": 42,
+      "id": "215286497344871",
+      "country": "ZM",
+      "reference": [
+        -11.768669570827283,
+        31.462311678293176
+      ],
+      "review_kind": "unverified",
+      "verified_strings": [],
+      "read_full": "{\"text\":[]}",
+      "read_status": "empty",
+      "model_strings": [],
+      "used_model_text": false,
+      "read_crop": null,
+      "crop_strings": null,
+      "direct": {
+        "raw": "{\"country\":\"BR\",\"latitude\":-14.124,\"longitude\":-50.152}",
+        "country": "ZM",
+        "guess_country": "BR",
+        "guess_coordinates": [
+          -14.124,
+          -50.152
+        ],
+        "distance_km": 8801.177162915223
+      },
+      "model_text": {
+        "raw": "{\"country\":\"BR\",\"latitude\":-14.124,\"longitude\":-50.152}",
+        "country": "ZM",
+        "guess_country": "BR",
+        "guess_coordinates": [
+          -14.124,
+          -50.152
+        ],
+        "distance_km": 8801.177162915223
+      },
+      "verified_text": null,
+      "crop_text": null
+    },
+    {
+      "ordinal": 43,
+      "id": "484293909726906",
+      "country": "BD",
+      "reference": [
+        24.145574370558386,
+        90.81503140771574
+      ],
+      "review_kind": "unverified",
+      "verified_strings": [],
+      "read_full": "{\"text\":[\"Bhagirathi\",\"Bhagirathi\"]}\"",
+      "read_status": "invalid",
+      "model_strings": [],
+      "used_model_text": false,
+      "read_crop": null,
+      "crop_strings": null,
+      "direct": {
+        "raw": "{\"country\":\"BD\",\"latitude\":24.514,\"longitude\":91.321}",
+        "country": "BD",
+        "guess_country": "BD",
+        "guess_coordinates": [
+          24.514,
+          91.321
+        ],
+        "distance_km": 65.62277022189862
+      },
+      "model_text": {
+        "raw": "{\"country\":\"BD\",\"latitude\":24.514,\"longitude\":91.321}",
+        "country": "BD",
+        "guess_country": "BD",
+        "guess_coordinates": [
+          24.514,
+          91.321
+        ],
+        "distance_km": 65.62277022189862
+      },
+      "verified_text": null,
+      "crop_text": null
+    },
+    {
+      "ordinal": 44,
+      "id": "788096422148572",
+      "country": "BO",
+      "reference": [
+        -16.488006677543478,
+        -68.15042538155053
+      ],
+      "review_kind": "unverified",
+      "verified_strings": [],
+      "read_full": "{\"text\":[\"Calle de la Candelaria\",\"Calle de la Candelaria\",\"Calle de la Candelaria\"]}",
+      "read_status": "nonempty",
+      "model_strings": [
+        "Calle de la Candelaria"
+      ],
+      "used_model_text": true,
+      "read_crop": null,
+      "crop_strings": null,
+      "direct": {
+        "raw": "{\"country\":\"AR\",\"latitude\":-34.800,\"longitude\":-55.850}",
+        "country": "BO",
+        "guess_country": "AR",
+        "guess_coordinates": [
+          -34.8,
+          -55.85
+        ],
+        "distance_km": 2375.577407295632
+      },
+      "model_text": {
+        "raw": "{\"country\":\"ES\",\"latitude\":40.412,\"longitude\":-4.000}",
+        "country": "BO",
+        "guess_country": "ES",
+        "guess_coordinates": [
+          40.412,
+          -4.0
+        ],
+        "distance_km": 9149.102001247616
+      },
+      "verified_text": null,
+      "crop_text": null
+    },
+    {
+      "ordinal": 45,
+      "id": "284811506679249",
+      "country": "CI",
+      "reference": [
+        7.6973682710056,
+        -4.972418360214
+      ],
+      "review_kind": "named_destination",
+      "verified_strings": [
+        "CENTRE DIOCESAIN",
+        "SAINT JOSEPH",
+        "BOUAKE"
+      ],
+      "read_full": "{\"text\":[\"CENTRE DIOCESAIN\",\"SAINT JOSEPH\",\"BOUAKA\"]}",
+      "read_status": "nonempty",
+      "model_strings": [
+        "CENTRE DIOCESAIN",
+        "SAINT JOSEPH",
+        "BOUAKA"
+      ],
+      "used_model_text": true,
+      "read_crop": "{\"text\":[\"CENTRE DIOCESAIN\",\"SAINT JOSEPH\",\"BOUAKÉ\"]}",
+      "crop_strings": [
+        "CENTRE DIOCESAIN",
+        "SAINT JOSEPH",
+        "BOUAKÉ"
+      ],
+      "direct": {
+        "raw": "{\"country\":\"SN\",\"latitude\":14.101,\"longitude\":-15.900}",
+        "country": "CI",
+        "guess_country": "SN",
+        "guess_coordinates": [
+          14.101,
+          -15.9
+        ],
+        "distance_km": 1388.8416887210146
+      },
+      "model_text": {
+        "raw": "{\"country\":\"SN\",\"latitude\":12.101,\"longitude\":-14.900}",
+        "country": "CI",
+        "guess_country": "SN",
+        "guess_coordinates": [
+          12.101,
+          -14.9
+        ],
+        "distance_km": 1192.317781617902
+      },
+      "verified_text": {
+        "raw": "{\"country\":\"SN\",\"latitude\":14.121,\"longitude\":-14.902}",
+        "country": "CI",
+        "guess_country": "SN",
+        "guess_coordinates": [
+          14.121,
+          -14.902
+        ],
+        "distance_km": 1297.7419631541536
+      },
+      "crop_text": {
+        "raw": "{\"country\":\"SN\",\"latitude\":13.111,\"longitude\":-14.912}",
+        "country": "CI",
+        "guess_country": "SN",
+        "guess_coordinates": [
+          13.111,
+          -14.912
+        ],
+        "distance_km": 1242.1763424633298
+      }
+    },
+    {
+      "ordinal": 46,
+      "id": "628752751556395",
+      "country": "DE",
+      "reference": [
+        47.45148551829346,
+        10.272381920399194
+      ],
+      "review_kind": "unverified",
+      "verified_strings": [],
+      "read_full": "{\"text\":[]}",
+      "read_status": "empty",
+      "model_strings": [],
+      "used_model_text": false,
+      "read_crop": null,
+      "crop_strings": null,
+      "direct": {
+        "raw": "{\"country\":\"AT\",\"latitude\":46.891,\"longitude\":14.902}",
+        "country": "DE",
+        "guess_country": "AT",
+        "guess_coordinates": [
+          46.891,
+          14.902
+        ],
+        "distance_km": 355.40920029183496
+      },
+      "model_text": {
+        "raw": "{\"country\":\"AT\",\"latitude\":46.891,\"longitude\":14.902}",
+        "country": "DE",
+        "guess_country": "AT",
+        "guess_coordinates": [
+          46.891,
+          14.902
+        ],
+        "distance_km": 355.40920029183496
+      },
+      "verified_text": null,
+      "crop_text": null
+    },
+    {
+      "ordinal": 47,
+      "id": "213927817328762",
+      "country": "DK",
+      "reference": [
+        56.80999394647625,
+        8.40318376235127
+      ],
+      "review_kind": "unverified",
+      "verified_strings": [],
+      "read_full": "{\"text\":[\"Hauptstraße\",\"Hauptstraße\",\"Hauptstraße\"]}",
+      "read_status": "nonempty",
+      "model_strings": [
+        "Hauptstraße"
+      ],
+      "used_model_text": true,
+      "read_crop": null,
+      "crop_strings": null,
+      "direct": {
+        "raw": "{\"country\":\"DK\",\"latitude\":55.711,\"longitude\":10.102}",
+        "country": "DK",
+        "guess_country": "DK",
+        "guess_coordinates": [
+          55.711,
+          10.102
+        ],
+        "distance_km": 161.05346938546907
+      },
+      "model_text": {
+        "raw": "{\"country\":\"DE\",\"latitude\":53.151,\"longitude\":8.721}",
+        "country": "DK",
+        "guess_country": "DE",
+        "guess_coordinates": [
+          53.151,
+          8.721
+        ],
+        "distance_km": 407.36600896587254
+      },
+      "verified_text": null,
+      "crop_text": null
+    },
+    {
+      "ordinal": 48,
+      "id": "1103570836822240",
+      "country": "EC",
+      "reference": [
+        -0.60828159254955,
+        -76.468460848111
+      ],
+      "review_kind": "unverified",
+      "verified_strings": [],
+      "read_full": "{\"text\":[\"BDH318\"]}",
+      "read_status": "nonempty",
+      "model_strings": [
+        "BDH318"
+      ],
+      "used_model_text": true,
+      "read_crop": null,
+      "crop_strings": null,
+      "direct": {
+        "raw": "{\"country\":\"BR\",\"latitude\":-10.000,\"longitude\":-44.000}",
+        "country": "EC",
+        "guess_country": "BR",
+        "guess_coordinates": [
+          -10.0,
+          -44.0
+        ],
+        "distance_km": 3739.089193315382
+      },
+      "model_text": {
+        "raw": "{\"country\":\"BO\",\"latitude\":-15.991,\"longitude\":-67.921}",
+        "country": "EC",
+        "guess_country": "BO",
+        "guess_coordinates": [
+          -15.991,
+          -67.921
+        ],
+        "distance_km": 1950.527821886937
+      },
+      "verified_text": null,
+      "crop_text": null
+    },
+    {
+      "ordinal": 49,
+      "id": "526065675505659",
+      "country": "IE",
+      "reference": [
+        51.92659683214656,
+        -8.505611573748883
+      ],
+      "review_kind": "unverified",
+      "verified_strings": [],
+      "read_full": "{\"text\":[\"Dunmore\",\"Dunmore\",\"Dunmore\"]}",
+      "read_status": "nonempty",
+      "model_strings": [
+        "Dunmore"
+      ],
+      "used_model_text": true,
+      "read_crop": null,
+      "crop_strings": null,
+      "direct": {
+        "raw": "{\"country\":\"IE\",\"latitude\":53.211,\"longitude\":-8.102}",
+        "country": "IE",
+        "guess_country": "IE",
+        "guess_coordinates": [
+          53.211,
+          -8.102
+        ],
+        "distance_km": 145.40035860111942
+      },
+      "model_text": {
+        "raw": "{\"country\":\"IE\",\"latitude\":53.211,\"longitude\":-6.452}",
+        "country": "IE",
+        "guess_country": "IE",
+        "guess_coordinates": [
+          53.211,
+          -6.452
+        ],
+        "distance_km": 199.13533061523853
+      },
+      "verified_text": null,
+      "crop_text": null
+    },
+    {
+      "ordinal": 50,
+      "id": "1930640880449352",
+      "country": "KZ",
+      "reference": [
+        43.106769229925,
+        76.934832352081
+      ],
+      "review_kind": "unverified",
+      "verified_strings": [],
+      "read_full": "{\"text\":[]}",
+      "read_status": "empty",
+      "model_strings": [],
+      "used_model_text": false,
+      "read_crop": null,
+      "crop_strings": null,
+      "direct": {
+        "raw": "{\"country\":\"RU\",\"latitude\":48.881,\"longitude\":32.152}",
+        "country": "KZ",
+        "guess_country": "RU",
+        "guess_coordinates": [
+          48.881,
+          32.152
+        ],
+        "distance_km": 3466.5519445403593
+      },
+      "model_text": {
+        "raw": "{\"country\":\"RU\",\"latitude\":48.881,\"longitude\":32.152}",
+        "country": "KZ",
+        "guess_country": "RU",
+        "guess_coordinates": [
+          48.881,
+          32.152
+        ],
+        "distance_km": 3466.5519445403593
+      },
+      "verified_text": null,
+      "crop_text": null
+    },
+    {
+      "ordinal": 51,
+      "id": "230346985565595",
+      "country": "MD",
+      "reference": [
+        46.975010661826,
+        28.897208805519
+      ],
+      "review_kind": "unverified",
+      "verified_strings": [],
+      "read_full": "{\"text\":[\"Krasnoyarsk\",\"Krasnoyarskaya\",\"Krasnoyarskaya\",\"Krasnoyarskaya\",\"Krasnoyarskaya\",\"Krasnoyarskaya\",\"Krasnoyarskaya\",\"Krasnoyarskaya\",\"Krasnoyarsk",
+      "read_status": "invalid",
+      "model_strings": [],
+      "used_model_text": false,
+      "read_crop": null,
+      "crop_strings": null,
+      "direct": {
+        "raw": "{\"country\":\"RU\",\"latitude\":55.295,\"longitude\":44.000}",
+        "country": "MD",
+        "guess_country": "RU",
+        "guess_coordinates": [
+          55.295,
+          44.0
+        ],
+        "distance_km": 1396.947428033719
+      },
+      "model_text": {
+        "raw": "{\"country\":\"RU\",\"latitude\":55.295,\"longitude\":44.000}",
+        "country": "MD",
+        "guess_country": "RU",
+        "guess_coordinates": [
+          55.295,
+          44.0
+        ],
+        "distance_km": 1396.947428033719
+      },
+      "verified_text": null,
+      "crop_text": null
+    },
+    {
+      "ordinal": 52,
+      "id": "258207150106429",
+      "country": "ML",
+      "reference": [
+        13.003848850235563,
+        -6.419661062720362
+      ],
+      "review_kind": "unverified",
+      "verified_strings": [],
+      "read_full": "{\"text\":[]}",
+      "read_status": "empty",
+      "model_strings": [],
+      "used_model_text": false,
+      "read_crop": null,
+      "crop_strings": null,
+      "direct": {
+        "raw": "{\"country\":\"ZM\",\"latitude\":-14.999,\"longitude\":29.000}",
+        "country": "ML",
+        "guess_country": "ZM",
+        "guess_coordinates": [
+          -14.999,
+          29.0
+        ],
+        "distance_km": 4989.019419603646
+      },
+      "model_text": {
+        "raw": "{\"country\":\"ZM\",\"latitude\":-14.999,\"longitude\":29.000}",
+        "country": "ML",
+        "guess_country": "ZM",
+        "guess_coordinates": [
+          -14.999,
+          29.0
+        ],
+        "distance_km": 4989.019419603646
+      },
+      "verified_text": null,
+      "crop_text": null
+    },
+    {
+      "ordinal": 53,
+      "id": "941759176612137",
+      "country": "MN",
+      "reference": [
+        47.815839087709,
+        106.75581072646
+      ],
+      "review_kind": "unverified",
+      "verified_strings": [],
+      "read_full": "{\"text\":[]}",
+      "read_status": "empty",
+      "model_strings": [],
+      "used_model_text": false,
+      "read_crop": null,
+      "crop_strings": null,
+      "direct": {
+        "raw": "{\"country\":\"RU\",\"latitude\":54.244,\"longitude\":102.102}",
+        "country": "MN",
+        "guess_country": "RU",
+        "guess_coordinates": [
+          54.244,
+          102.102
+        ],
+        "distance_km": 784.9666304029572
+      },
+      "model_text": {
+        "raw": "{\"country\":\"RU\",\"latitude\":54.244,\"longitude\":102.102}",
+        "country": "MN",
+        "guess_country": "RU",
+        "guess_coordinates": [
+          54.244,
+          102.102
+        ],
+        "distance_km": 784.9666304029572
+      },
+      "verified_text": null,
+      "crop_text": null
+    },
+    {
+      "ordinal": 54,
+      "id": "164478408862531",
+      "country": "MY",
+      "reference": [
+        2.2687566689168,
+        102.21723978119
+      ],
+      "review_kind": "unverified",
+      "verified_strings": [],
+      "read_full": "{\"text\":[\"Kampung\",\"Kampung\",\"Kampung\",\"Kampung\",\"Kampung\",\"Kampung\",\"Kampung\",\"Kampung\",\"Kampung\",\"Kampung\",\"Kampung\",\"Kampung\",\"Kampung\",\"Kampung\",\"Kampung\",\"Kampung\",\"Kampung\",\"K",
+      "read_status": "invalid",
+      "model_strings": [],
+      "used_model_text": false,
+      "read_crop": null,
+      "crop_strings": null,
+      "direct": {
+        "raw": "{\"country\":\"MY\",\"latitude\":3.124,\"longitude\":101.751}",
+        "country": "MY",
+        "guess_country": "MY",
+        "guess_coordinates": [
+          3.124,
+          101.751
+        ],
+        "distance_km": 108.28457326005167
+      },
+      "model_text": {
+        "raw": "{\"country\":\"MY\",\"latitude\":3.124,\"longitude\":101.751}",
+        "country": "MY",
+        "guess_country": "MY",
+        "guess_coordinates": [
+          3.124,
+          101.751
+        ],
+        "distance_km": 108.28457326005167
+      },
+      "verified_text": null,
+      "crop_text": null
+    },
+    {
+      "ordinal": 55,
+      "id": "703184410550403",
+      "country": "MZ",
+      "reference": [
+        -17.48098730000277,
+        36.81681789999811
+      ],
+      "review_kind": "unverified",
+      "verified_strings": [],
+      "read_full": "{\"text\":[]}",
+      "read_status": "empty",
+      "model_strings": [],
+      "used_model_text": false,
+      "read_crop": null,
+      "crop_strings": null,
+      "direct": {
+        "raw": "{\"country\":\"ZM\",\"latitude\":-13.014,\"longitude\":29.021}",
+        "country": "MZ",
+        "guess_country": "ZM",
+        "guess_coordinates": [
+          -13.014,
+          29.021
+        ],
+        "distance_km": 972.4597159259603
+      },
+      "model_text": {
+        "raw": "{\"country\":\"ZM\",\"latitude\":-13.014,\"longitude\":29.021}",
+        "country": "MZ",
+        "guess_country": "ZM",
+        "guess_coordinates": [
+          -13.014,
+          29.021
+        ],
+        "distance_km": 972.4597159259603
+      },
+      "verified_text": null,
+      "crop_text": null
+    },
+    {
+      "ordinal": 56,
+      "id": "203550248262507",
+      "country": "PH",
+      "reference": [
+        10.195734697762,
+        123.29449718746
+      ],
+      "review_kind": "unverified",
+      "verified_strings": [],
+      "read_full": "{\"text\":[\"Panglalag\",\"Panglalag\",\"Panglalag\"]}\"",
+      "read_status": "invalid",
+      "model_strings": [],
+      "used_model_text": false,
+      "read_crop": null,
+      "crop_strings": null,
+      "direct": {
+        "raw": "{\"country\":\"PH\",\"latitude\":10.200,\"longitude\":124.400}",
+        "country": "PH",
+        "guess_country": "PH",
+        "guess_coordinates": [
+          10.2,
+          124.4
+        ],
+        "distance_km": 120.98537669783764
+      },
+      "model_text": {
+        "raw": "{\"country\":\"PH\",\"latitude\":10.200,\"longitude\":124.400}",
+        "country": "PH",
+        "guess_country": "PH",
+        "guess_coordinates": [
+          10.2,
+          124.4
+        ],
+        "distance_km": 120.98537669783764
+      },
+      "verified_text": null,
+      "crop_text": null
+    },
+    {
+      "ordinal": 57,
+      "id": "1440746926286227",
+      "country": "RO",
+      "reference": [
+        45.440155172925,
+        23.369851740166
+      ],
+      "review_kind": "unverified",
+      "verified_strings": [],
+      "read_full": "{\"text\": [\"Vrak\"]}\n\n",
+      "read_status": "nonempty",
+      "model_strings": [
+        "Vrak"
+      ],
+      "used_model_text": true,
+      "read_crop": null,
+      "crop_strings": null,
+      "direct": {
+        "raw": "{\"country\":\"RO\",\"latitude\":45.500,\"longitude\":24.700}",
+        "country": "RO",
+        "guess_country": "RO",
+        "guess_coordinates": [
+          45.5,
+          24.7
+        ],
+        "distance_km": 103.93576490330418
+      },
+      "model_text": {
+        "raw": "{\"country\":\"RS\",\"latitude\":43.901,\"longitude\":20.901}",
+        "country": "RO",
+        "guess_country": "RS",
+        "guess_coordinates": [
+          43.901,
+          20.901
+        ],
+        "distance_km": 259.60401367854143
+      },
+      "verified_text": null,
+      "crop_text": null
+    },
+    {
+      "ordinal": 58,
+      "id": "914655639092075",
+      "country": "SN",
+      "reference": [
+        14.699712323575,
+        -17.450057471705
+      ],
+      "review_kind": "unverified",
+      "verified_strings": [],
+      "read_full": "{\"text\":[\"TOYOTA\"]}",
+      "read_status": "nonempty",
+      "model_strings": [
+        "TOYOTA"
+      ],
+      "used_model_text": true,
+      "read_crop": null,
+      "crop_strings": null,
+      "direct": {
+        "raw": "{\"country\":\"MA\",\"latitude\":33.891,\"longitude\":-1.191}",
+        "country": "SN",
+        "guess_country": "MA",
+        "guess_coordinates": [
+          33.891,
+          -1.191
+        ],
+        "distance_km": 2687.9111301933863
+      },
+      "model_text": {
+        "raw": "{\"country\":\"DZ\",\"latitude\":36.300,\"longitude\":1.300}",
+        "country": "SN",
+        "guess_country": "DZ",
+        "guess_coordinates": [
+          36.3,
+          1.3
+        ],
+        "distance_km": 3038.5891464213883
+      },
+      "verified_text": null,
+      "crop_text": null
+    },
+    {
+      "ordinal": 59,
+      "id": "1234929926997580",
+      "country": "TW",
+      "reference": [
+        25.1523696479217,
+        121.54006602423824
+      ],
+      "review_kind": "unverified",
+      "verified_strings": [],
+      "read_full": "{\"text\":[\"Sao Bao\",\"Sao Bao\",\"Sao Bao\"]}",
+      "read_status": "nonempty",
+      "model_strings": [
+        "Sao Bao"
+      ],
+      "used_model_text": true,
+      "read_crop": null,
+      "crop_strings": null,
+      "direct": {
+        "raw": "{\"country\":\"CN\",\"latitude\":24.881,\"longitude\":110.411}",
+        "country": "TW",
+        "guess_country": "CN",
+        "guess_coordinates": [
+          24.881,
+          110.411
+        ],
+        "distance_km": 1121.4892541116324
+      },
+      "model_text": {
+        "raw": "{\"country\":\"VN\",\"latitude\":16.052,\"longitude\":108.211}",
+        "country": "TW",
+        "guess_country": "VN",
+        "guess_coordinates": [
+          16.052,
+          108.211
+        ],
+        "distance_km": 1715.176443878117
+      },
+      "verified_text": null,
+      "crop_text": null
+    },
+    {
+      "ordinal": 60,
+      "id": "775335703170591",
+      "country": "TZ",
+      "reference": [
+        -4.8559433018036,
+        29.645771590669
+      ],
+      "review_kind": "unverified",
+      "verified_strings": [],
+      "read_full": "{\"text\":[]}",
+      "read_status": "empty",
+      "model_strings": [],
+      "used_model_text": false,
+      "read_crop": null,
+      "crop_strings": null,
+      "direct": {
+        "raw": "{\"country\":\"ZM\",\"latitude\":-14.714,\"longitude\":29.041}",
+        "country": "TZ",
+        "guess_country": "ZM",
+        "guess_coordinates": [
+          -14.714,
+          29.041
+        ],
+        "distance_km": 1098.1633744849642
+      },
+      "model_text": {
+        "raw": "{\"country\":\"ZM\",\"latitude\":-14.714,\"longitude\":29.041}",
+        "country": "TZ",
+        "guess_country": "ZM",
+        "guess_coordinates": [
+          -14.714,
+          29.041
+        ],
+        "distance_km": 1098.1633744849642
+      },
+      "verified_text": null,
+      "crop_text": null
+    },
+    {
+      "ordinal": 61,
+      "id": "439339721064451",
+      "country": "US",
+      "reference": [
+        36.07768109990328,
+        -115.27373024622052
+      ],
+      "review_kind": "unverified",
+      "verified_strings": [],
+      "read_full": "{\"text\":[\"S100\",\"S100\",\"S100\",\"S100\",\"S100\",\"S100\",\"S100\",\"S100\",\"S100\",\"S100\",\"S100\",\"S100\",\"S100\",\"S100",
+      "read_status": "invalid",
+      "model_strings": [],
+      "used_model_text": false,
+      "read_crop": null,
+      "crop_strings": null,
+      "direct": {
+        "raw": "{\"country\":\"US\",\"latitude\":33.452,\"longitude\":-111.654}",
+        "country": "US",
+        "guess_country": "US",
+        "guess_coordinates": [
+          33.452,
+          -111.654
+        ],
+        "distance_km": 441.03662934709234
+      },
+      "model_text": {
+        "raw": "{\"country\":\"US\",\"latitude\":33.452,\"longitude\":-111.654}",
+        "country": "US",
+        "guess_country": "US",
+        "guess_coordinates": [
+          33.452,
+          -111.654
+        ],
+        "distance_km": 441.03662934709234
+      },
+      "verified_text": null,
+      "crop_text": null
+    },
+    {
+      "ordinal": 62,
+      "id": "423366602894787",
+      "country": "BR",
+      "reference": [
+        -21.76394226487109,
+        -47.06977784846283
+      ],
+      "review_kind": "unverified",
+      "verified_strings": [],
+      "read_full": "{\"text\":[\"MOTOMOTR\"]}\"",
+      "read_status": "invalid",
+      "model_strings": [],
+      "used_model_text": false,
+      "read_crop": null,
+      "crop_strings": null,
+      "direct": {
+        "raw": "{\"country\":\"BR\",\"latitude\":-14.999,\"longitude\":-50.000}",
+        "country": "BR",
+        "guess_country": "BR",
+        "guess_coordinates": [
+          -14.999,
+          -50.0
+        ],
+        "distance_km": 813.2055547116245
+      },
+      "model_text": {
+        "raw": "{\"country\":\"BR\",\"latitude\":-14.999,\"longitude\":-50.000}",
+        "country": "BR",
+        "guess_country": "BR",
+        "guess_coordinates": [
+          -14.999,
+          -50.0
+        ],
+        "distance_km": 813.2055547116245
+      },
+      "verified_text": null,
+      "crop_text": null
+    },
+    {
+      "ordinal": 63,
+      "id": "868412567050235",
+      "country": "AU",
+      "reference": [
+        -37.998076635918,
+        145.15191289317
+      ],
+      "review_kind": "unverified",
+      "verified_strings": [],
+      "read_full": "{\"text\":[\"Eucalyptus\",\"Barnes\",\"Barnes\"]}",
+      "read_status": "nonempty",
+      "model_strings": [
+        "Eucalyptus",
+        "Barnes"
+      ],
+      "used_model_text": true,
+      "read_crop": null,
+      "crop_strings": null,
+      "direct": {
+        "raw": "{\"country\":\"AU\",\"latitude\":-34.944,\"longitude\":148.141}",
+        "country": "AU",
+        "guess_country": "AU",
+        "guess_coordinates": [
+          -34.944,
+          148.141
+        ],
+        "distance_km": 432.10510120976863
+      },
+      "model_text": {
+        "raw": "{\"country\":\"AU\",\"latitude\":-34.944,\"longitude\":148.101}",
+        "country": "AU",
+        "guess_country": "AU",
+        "guess_coordinates": [
+          -34.944,
+          148.101
+        ],
+        "distance_km": 429.9036234828846
+      },
+      "verified_text": null,
+      "crop_text": null
+    },
+    {
+      "ordinal": 64,
+      "id": "3811902805544775",
+      "country": "MX",
+      "reference": [
+        25.048463261303,
+        -105.42001005204
+      ],
+      "review_kind": "unverified",
+      "verified_strings": [],
+      "read_full": "{\"text\":[\"Calle 12\",\"Calle 13\",\"Calle 14\",\"Calle 15\",\"Calle 16\",\"Calle 17\",\"Calle 18\",\"Calle 19\",\"Calle 20\",\"Calle 21\",\"Calle 22\",\"Calle ",
+      "read_status": "invalid",
+      "model_strings": [],
+      "used_model_text": false,
+      "read_crop": null,
+      "crop_strings": null,
+      "direct": {
+        "raw": "{\"country\":\"MX\",\"latitude\":19.434,\"longitude\":-99.154}",
+        "country": "MX",
+        "guess_country": "MX",
+        "guess_coordinates": [
+          19.434,
+          -99.154
+        ],
+        "distance_km": 897.2742334421727
+      },
+      "model_text": {
+        "raw": "{\"country\":\"MX\",\"latitude\":19.434,\"longitude\":-99.154}",
+        "country": "MX",
+        "guess_country": "MX",
+        "guess_coordinates": [
+          19.434,
+          -99.154
+        ],
+        "distance_km": 897.2742334421727
+      },
+      "verified_text": null,
+      "crop_text": null
+    },
+    {
+      "ordinal": 65,
+      "id": "606749490391404",
+      "country": "RU",
+      "reference": [
+        68.97659313201972,
+        33.08235354532019
+      ],
+      "review_kind": "unverified",
+      "verified_strings": [],
+      "read_full": "{\"text\":[\"Sokolnicheskaya\",\"Sokolnicheskaya\",\"Sokolnicheskaya\"]}",
+      "read_status": "nonempty",
+      "model_strings": [
+        "Sokolnicheskaya"
+      ],
+      "used_model_text": true,
+      "read_crop": null,
+      "crop_strings": null,
+      "direct": {
+        "raw": "{\"country\":\"RU\",\"latitude\":55.754,\"longitude\":37.652}",
+        "country": "RU",
+        "guess_country": "RU",
+        "guess_coordinates": [
+          55.754,
+          37.652
+        ],
+        "distance_km": 1488.0566228190137
+      },
+      "model_text": {
+        "raw": "{\"country\":\"RU\",\"latitude\":55.052,\"longitude\":37.002}",
+        "country": "RU",
+        "guess_country": "RU",
+        "guess_coordinates": [
+          55.052,
+          37.002
+        ],
+        "distance_km": 1561.0216386201078
+      },
+      "verified_text": null,
+      "crop_text": null
+    },
+    {
+      "ordinal": 66,
+      "id": "525991088399205",
+      "country": "US",
+      "reference": [
+        35.93251590789,
+        -94.383804781702
+      ],
+      "review_kind": "unverified",
+      "verified_strings": [],
+      "read_full": "{\"text\":[\"40\",\"40\"]}",
+      "read_status": "nonempty",
+      "model_strings": [
+        "40"
+      ],
+      "used_model_text": true,
+      "read_crop": null,
+      "crop_strings": null,
+      "direct": {
+        "raw": "{\"country\":\"US\",\"latitude\":40.000,\"longitude\":-94.000}",
+        "country": "US",
+        "guess_country": "US",
+        "guess_coordinates": [
+          40.0,
+          -94.0
+        ],
+        "distance_km": 453.53246147438324
+      },
+      "model_text": {
+        "raw": "{\"country\":\"US\",\"latitude\":40.044,\"longitude\":-96.144}",
+        "country": "US",
+        "guess_country": "US",
+        "guess_coordinates": [
+          40.044,
+          -96.144
+        ],
+        "distance_km": 482.4692632715007
+      },
+      "verified_text": null,
+      "crop_text": null
+    }
+  ]
+}

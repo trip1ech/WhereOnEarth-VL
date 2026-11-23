@@ -1,0 +1,4 @@
+source,n,gallery_within_25,raw_top100_within_25,geo_top10_within_25,top1_within_25,top1_within_200,median_km,mean_world_points
+all,18,2,0,0,0,2,800.5708730750669,2814.3037522960117
+osv5m,9,1,0,0,0,1,714.5593984747181,2536.071692774632
+panoramax,9,1,0,0,0,1,886.5823476754155,3092.535811817391

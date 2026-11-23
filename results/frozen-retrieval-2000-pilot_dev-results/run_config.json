@@ -1,0 +1,13 @@
+{
+  "encoder": "facebook/dinov2-small",
+  "revision": "ed25f3a31f01632728cabb09d1542f84ab7b0056",
+  "raw_k": 100,
+  "geo_k": 10,
+  "merge_km": 5.0,
+  "hit_km": 25.0,
+  "device": "cuda:0",
+  "gallery_n": 2000,
+  "query_n": 18,
+  "gallery_key": "9d08bd67a1674ab0691f642390ecba4f3fc2cefae31be52e9872e9464a090260",
+  "query_key": "829269b96c27738d53cdd817a30ac4a23a442438ed776a604fef144fa33a5c6d"
+}

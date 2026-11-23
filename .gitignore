@@ -1,0 +1,73 @@
+# macOS / external volume metadata
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+
+# Python & Jupyter
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.ipynb_checkpoints/
+.venv/
+venv/
+.mac_arm64_env/
+.pip_staging/
+.hf_cache/
+.plot-cache/
+
+# Large archives, embeddings, model checkpoints, logs & checksums
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.gz
+*.7z
+*.npz
+*.npy
+*.pt
+*.pth
+*.bin
+*.safetensors
+*.ckpt
+*.log
+*.sha256
+
+# Root Colab upload bundles
+/retrieval_2000_upload/
+
+# Datasets & downloaded media (keep only small docs, audit records & manual annotations)
+/data/*
+!/data/author_holdout/
+/data/author_holdout/*
+!/data/author_holdout/README.md
+!/data/author_holdout/visual_review.csv
+!/data/author_holdout/creator_id_check.json
+!/data/official_test_300/
+/data/official_test_300/*
+!/data/official_test_300/hud_audit.json
+!/data/roadmark_annotations/
+/data/roadmark_annotations/*
+!/data/roadmark_annotations/labels.json
+!/data/ranker_preprocessing/
+/data/ranker_preprocessing/*
+!/data/ranker_preprocessing/dataset.json
+!/data/ranker_preprocessing/coverage_curve.json
+!/data/ranker_preprocessing/since_2018/
+/data/ranker_preprocessing/since_2018/*
+!/data/ranker_preprocessing/since_2018/dataset.json
+!/data/ranker_preprocessing/since_2018/coverage_curve.json
+
+# Results: ignore heavy caches, Colab transfer chunks, review folders & compiled binaries
+/results/ranker_preprocessing/
+/results/distribution_audit/.train_parts_*
+/results/**/transfer*/
+/results/**/format_transfer/
+/results/**/review/
+/results/**/selection/
+
+# Webapp generated assets (rebuilt via webapp/build_data.py)
+/webapp/dist/assets/photos/
+/webapp/dist/assets/data.js
+/webapp/dist/assets/basemap.js

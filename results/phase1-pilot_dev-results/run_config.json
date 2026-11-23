@@ -1,0 +1,13 @@
+{
+  "split": "pilot_dev",
+  "limit_per_source": null,
+  "n": 18,
+  "prompt": "Estimate where this street-level photograph was taken from visual evidence. Return exactly one JSON object with decimal-degree coordinates in this format: {\"latitude\": 0.0, \"longitude\": 0.0}. Make your best single guess.",
+  "qwen_model": "Qwen/Qwen3-VL-2B-Instruct",
+  "qwen_revision": "89644892e4d85e24eaac8bacfd4f463576704203",
+  "osv_revision": "71548b90ac4a1aa7c37839841f411a06da82b1a6",
+  "osv_code": "4e6075387ecde4255410785ffb83830c9aa099f6",
+  "torch": "2.14.1+cu130",
+  "gpu": "Tesla T4",
+  "started_utc": "2026-11-18T14:06:43.911124+00:00"
+}

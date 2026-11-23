@@ -1,0 +1,320 @@
+{
+  "training": {
+    "model": "Qwen/Qwen3-VL-2B-Instruct",
+    "revision": "89644892e4d85e24eaac8bacfd4f463576704203",
+    "gpu": "NVIDIA L4",
+    "precision": "torch.bfloat16",
+    "training_manifest_sha256": "13de5a54510ff1b0457584e70a8f95722e0ab082419eb028488e3679c4c82b91",
+    "input_adapter_sha256": "cae8acb2f31bf9d94ab9ffef612c1f1e76faa1ae27e03603bf4b36736e3126ad",
+    "unique_training_images": 104,
+    "counts": {
+      "ocr_evidence": 31,
+      "ocr_empty": 69,
+      "visual": 70,
+      "geo_direct": 54,
+      "geo_visual": 34
+    },
+    "passes": {
+      "ocr_evidence": 3,
+      "ocr_empty": 2,
+      "visual": 2,
+      "geo_direct": 2,
+      "geo_visual": 2
+    },
+    "number_of_examples_seen": 547,
+    "learning_rate": 6e-05,
+    "accumulation": 8,
+    "seed": 52711,
+    "trainable_parameters": 3211264
+  },
+  "steps": 69,
+  "first_logged_loss": 0.9894492626190186,
+  "last_logged_loss": 0.5771052241325378,
+  "mean_first_10_loss": 0.6925810754299164,
+  "mean_last_10_loss": 0.3817733958363533,
+  "geo": {
+    "direct": {
+      "n": 66,
+      "valid_coordinates": 66,
+      "country_correct": 33,
+      "within_25km": 1,
+      "within_200km": 14,
+      "median_km": 600.3413218125864
+    },
+    "before_text": {
+      "n": 66,
+      "valid_coordinates": 66,
+      "country_correct": 30,
+      "within_25km": 1,
+      "within_200km": 11,
+      "median_km": 615.6838372744463
+    },
+    "before_visual": {
+      "n": 66,
+      "valid_coordinates": 66,
+      "country_correct": 33,
+      "within_25km": 1,
+      "within_200km": 14,
+      "median_km": 600.3413218125864
+    },
+    "repaired_text": {
+      "n": 66,
+      "valid_coordinates": 66,
+      "country_correct": 29,
+      "within_25km": 1,
+      "within_200km": 8,
+      "median_km": 665.4023859038361
+    },
+    "repaired_visual": {
+      "n": 66,
+      "valid_coordinates": 66,
+      "country_correct": 31,
+      "within_25km": 1,
+      "within_200km": 12,
+      "median_km": 658.3753143800989
+    },
+    "after_direct": {
+      "n": 66,
+      "valid_coordinates": 65,
+      "country_correct": 30,
+      "within_25km": 2,
+      "within_200km": 10,
+      "median_km": 591.92475876024
+    },
+    "after_text": {
+      "n": 66,
+      "valid_coordinates": 65,
+      "country_correct": 29,
+      "within_25km": 2,
+      "within_200km": 9,
+      "median_km": 591.92475876024
+    },
+    "after_visual": {
+      "n": 66,
+      "valid_coordinates": 64,
+      "country_correct": 29,
+      "within_25km": 1,
+      "within_200km": 10,
+      "median_km": 623.2379083603292
+    },
+    "after_both": {
+      "n": 66,
+      "valid_coordinates": 64,
+      "country_correct": 29,
+      "within_25km": 1,
+      "within_200km": 10,
+      "median_km": 623.2379083603292
+    }
+  },
+  "paired_geo": {
+    "before_text": {
+      "valid_in_both": 66,
+      "direct_median_km": 600.3413218125864,
+      "candidate_median_km": 615.6838372744463,
+      "median_per_photo_change_km": 0.0,
+      "closer_by_over_1_km": 8,
+      "farther_by_over_1_km": 13,
+      "within_1_km_change": 45,
+      "country_gained": 1,
+      "country_lost": 4
+    },
+    "before_visual": {
+      "valid_in_both": 66,
+      "direct_median_km": 600.3413218125864,
+      "candidate_median_km": 600.3413218125864,
+      "median_per_photo_change_km": 0.0,
+      "closer_by_over_1_km": 0,
+      "farther_by_over_1_km": 0,
+      "within_1_km_change": 66,
+      "country_gained": 0,
+      "country_lost": 0
+    },
+    "repaired_text": {
+      "valid_in_both": 66,
+      "direct_median_km": 600.3413218125864,
+      "candidate_median_km": 665.4023859038361,
+      "median_per_photo_change_km": 0.0,
+      "closer_by_over_1_km": 11,
+      "farther_by_over_1_km": 18,
+      "within_1_km_change": 37,
+      "country_gained": 2,
+      "country_lost": 6
+    },
+    "repaired_visual": {
+      "valid_in_both": 66,
+      "direct_median_km": 600.3413218125864,
+      "candidate_median_km": 658.3753143800989,
+      "median_per_photo_change_km": 0.0,
+      "closer_by_over_1_km": 19,
+      "farther_by_over_1_km": 23,
+      "within_1_km_change": 24,
+      "country_gained": 0,
+      "country_lost": 2
+    },
+    "after_direct": {
+      "valid_in_both": 65,
+      "direct_median_km": 588.9592929007051,
+      "candidate_median_km": 591.92475876024,
+      "median_per_photo_change_km": 0.1368956403129573,
+      "closer_by_over_1_km": 23,
+      "farther_by_over_1_km": 29,
+      "within_1_km_change": 13,
+      "country_gained": 1,
+      "country_lost": 4
+    },
+    "after_text": {
+      "valid_in_both": 65,
+      "direct_median_km": 588.9592929007051,
+      "candidate_median_km": 591.92475876024,
+      "median_per_photo_change_km": 0.1368956403129573,
+      "closer_by_over_1_km": 24,
+      "farther_by_over_1_km": 30,
+      "within_1_km_change": 11,
+      "country_gained": 1,
+      "country_lost": 5
+    },
+    "after_visual": {
+      "valid_in_both": 64,
+      "direct_median_km": 586.8656769594894,
+      "candidate_median_km": 623.2379083603292,
+      "median_per_photo_change_km": 0.27819862975789533,
+      "closer_by_over_1_km": 26,
+      "farther_by_over_1_km": 31,
+      "within_1_km_change": 7,
+      "country_gained": 1,
+      "country_lost": 5
+    },
+    "after_both": {
+      "valid_in_both": 64,
+      "direct_median_km": 586.8656769594894,
+      "candidate_median_km": 623.2379083603292,
+      "median_per_photo_change_km": 0.7282963909339628,
+      "closer_by_over_1_km": 25,
+      "farther_by_over_1_km": 32,
+      "within_1_km_change": 7,
+      "country_gained": 1,
+      "country_lost": 5
+    }
+  },
+  "visual_read": {
+    "before": {
+      "n": 29,
+      "parsed": 0,
+      "surface": [
+        0,
+        29
+      ],
+      "centerline": [
+        0,
+        25
+      ],
+      "roadside_exact": 0,
+      "roadside_micro_f1": 0.0
+    },
+    "repaired": {
+      "n": 29,
+      "parsed": 29,
+      "surface": [
+        28,
+        29
+      ],
+      "centerline": [
+        20,
+        25
+      ],
+      "roadside_exact": 7,
+      "roadside_micro_f1": 0.5614035087719298
+    },
+    "after": {
+      "n": 29,
+      "parsed": 29,
+      "surface": [
+        28,
+        29
+      ],
+      "centerline": [
+        21,
+        25
+      ],
+      "roadside_exact": 27,
+      "roadside_micro_f1": 0.9375
+    }
+  },
+  "text_read": {
+    "before": {
+      "read_status": {
+        "invalid": 21,
+        "nonempty": 24,
+        "empty": 21
+      },
+      "no_readable_subset": {
+        "invalid": 5,
+        "nonempty": 5,
+        "empty": 11
+      },
+      "readable_anchor_hit": {
+        "22": false,
+        "24": false,
+        "31": true,
+        "36": false,
+        "45": false
+      },
+      "readable_anchor_total": 1
+    },
+    "repaired": {
+      "read_status": {
+        "invalid": 12,
+        "nonempty": 33,
+        "empty": 21
+      },
+      "no_readable_subset": {
+        "invalid": 3,
+        "nonempty": 7,
+        "empty": 11
+      },
+      "readable_anchor_hit": {
+        "22": false,
+        "24": false,
+        "31": true,
+        "36": false,
+        "45": false
+      },
+      "readable_anchor_total": 1
+    },
+    "after": {
+      "read_status": {
+        "empty": 59,
+        "nonempty": 7
+      },
+      "no_readable_subset": {
+        "empty": 21
+      },
+      "readable_anchor_hit": {
+        "22": false,
+        "24": false,
+        "31": false,
+        "36": false,
+        "45": true
+      },
+      "readable_anchor_total": 1
+    }
+  },
+  "format_control": {
+    "manifest_sha256": "d8bb04154ccedc743a33cd40a060db8ae4a9cc5e48f6655683b3fe12e2ecb359",
+    "adapter_sha256": "cae8acb2f31bf9d94ab9ffef612c1f1e76faa1ae27e03603bf4b36736e3126ad",
+    "road_parsed": 63,
+    "additional_text_cases": 9
+  },
+  "original_and_final_adapter": [
+    "cae8acb2f31bf9d94ab9ffef612c1f1e76faa1ae27e03603bf4b36736e3126ad",
+    "f80608c003f8c8c847364e6b2cc44e9a02ac09178aed9795cb488ad9be27b140"
+  ]
+}
+20 nonempty ['Saray'] empty []
+22 invalid [] nonempty ['Boskos Voskova']
+24 nonempty ["SANT'ANNA"] nonempty ['NO']
+31 nonempty ['Lllumar', '合老堂', '汽车钥匙'] nonempty ['Lllumar']
+36 invalid [] nonempty ['6-4']
+45 nonempty ['CENTRE DIOCESAIN', 'SAINT JOSEPH', 'BOUAKA'] nonempty ['CENTRE DIOCESAIN', 'SAINT JOSEPH', 'BOUAKÉ']
+47 nonempty ['Hauptstraße'] empty []
+66 nonempty ['40'] nonempty ['40']

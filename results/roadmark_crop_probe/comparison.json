@@ -1,0 +1,748 @@
+{
+  "all_author_held_out": {
+    "vit": {
+      "full": {
+        "summary": {
+          "n": 43,
+          "correct": 21,
+          "balanced_accuracy": 0.4923913043478261,
+          "single_correct": 10,
+          "single_n": 23,
+          "double_correct": 11,
+          "double_n": 20,
+          "pair_wins": null,
+          "pair_ties": null
+        },
+        "gained_vs_full": 0,
+        "lost_vs_full": 0,
+        "visually_clearer_count": 33,
+        "visually_clearer_correct": 18
+      },
+      "fixed": {
+        "summary": {
+          "n": 43,
+          "correct": 15,
+          "balanced_accuracy": 0.3456521739130435,
+          "single_correct": 9,
+          "single_n": 23,
+          "double_correct": 6,
+          "double_n": 20,
+          "pair_wins": null,
+          "pair_ties": null
+        },
+        "gained_vs_full": 1,
+        "lost_vs_full": 7,
+        "visually_clearer_count": 33,
+        "visually_clearer_correct": 11
+      },
+      "marked": {
+        "summary": {
+          "n": 43,
+          "correct": 18,
+          "balanced_accuracy": 0.4173913043478261,
+          "single_correct": 10,
+          "single_n": 23,
+          "double_correct": 8,
+          "double_n": 20,
+          "pair_wins": null,
+          "pair_ties": null
+        },
+        "gained_vs_full": 4,
+        "lost_vs_full": 7,
+        "visually_clearer_count": 33,
+        "visually_clearer_correct": 15
+      }
+    },
+    "vit_native": {
+      "full": {
+        "summary": {
+          "n": 43,
+          "correct": 25,
+          "balanced_accuracy": 0.5793478260869566,
+          "single_correct": 14,
+          "single_n": 23,
+          "double_correct": 11,
+          "double_n": 20,
+          "pair_wins": null,
+          "pair_ties": null
+        },
+        "gained_vs_full": 0,
+        "lost_vs_full": 0,
+        "visually_clearer_count": 33,
+        "visually_clearer_correct": 21
+      },
+      "fixed": {
+        "summary": {
+          "n": 43,
+          "correct": 15,
+          "balanced_accuracy": 0.3456521739130435,
+          "single_correct": 9,
+          "single_n": 23,
+          "double_correct": 6,
+          "double_n": 20,
+          "pair_wins": null,
+          "pair_ties": null
+        },
+        "gained_vs_full": 5,
+        "lost_vs_full": 15,
+        "visually_clearer_count": 33,
+        "visually_clearer_correct": 12
+      },
+      "marked": {
+        "summary": {
+          "n": 43,
+          "correct": 23,
+          "balanced_accuracy": 0.5326086956521738,
+          "single_correct": 13,
+          "single_n": 23,
+          "double_correct": 10,
+          "double_n": 20,
+          "pair_wins": null,
+          "pair_ties": null
+        },
+        "gained_vs_full": 12,
+        "lost_vs_full": 14,
+        "visually_clearer_count": 33,
+        "visually_clearer_correct": 17
+      }
+    },
+    "projector": {
+      "full": {
+        "summary": {
+          "n": 43,
+          "correct": 19,
+          "balanced_accuracy": 0.4358695652173913,
+          "single_correct": 12,
+          "single_n": 23,
+          "double_correct": 7,
+          "double_n": 20,
+          "pair_wins": null,
+          "pair_ties": null
+        },
+        "gained_vs_full": 0,
+        "lost_vs_full": 0,
+        "visually_clearer_count": 33,
+        "visually_clearer_correct": 14
+      },
+      "fixed": {
+        "summary": {
+          "n": 43,
+          "correct": 18,
+          "balanced_accuracy": 0.4141304347826087,
+          "single_correct": 11,
+          "single_n": 23,
+          "double_correct": 7,
+          "double_n": 20,
+          "pair_wins": null,
+          "pair_ties": null
+        },
+        "gained_vs_full": 3,
+        "lost_vs_full": 4,
+        "visually_clearer_count": 33,
+        "visually_clearer_correct": 13
+      },
+      "marked": {
+        "summary": {
+          "n": 43,
+          "correct": 28,
+          "balanced_accuracy": 0.6510869565217392,
+          "single_correct": 15,
+          "single_n": 23,
+          "double_correct": 13,
+          "double_n": 20,
+          "pair_wins": null,
+          "pair_ties": null
+        },
+        "gained_vs_full": 12,
+        "lost_vs_full": 3,
+        "visually_clearer_count": 33,
+        "visually_clearer_correct": 21
+      }
+    },
+    "projector_deepstack": {
+      "full": {
+        "summary": {
+          "n": 43,
+          "correct": 18,
+          "balanced_accuracy": 0.4141304347826087,
+          "single_correct": 11,
+          "single_n": 23,
+          "double_correct": 7,
+          "double_n": 20,
+          "pair_wins": null,
+          "pair_ties": null
+        },
+        "gained_vs_full": 0,
+        "lost_vs_full": 0,
+        "visually_clearer_count": 33,
+        "visually_clearer_correct": 13
+      },
+      "fixed": {
+        "summary": {
+          "n": 43,
+          "correct": 21,
+          "balanced_accuracy": 0.47934782608695653,
+          "single_correct": 14,
+          "single_n": 23,
+          "double_correct": 7,
+          "double_n": 20,
+          "pair_wins": null,
+          "pair_ties": null
+        },
+        "gained_vs_full": 5,
+        "lost_vs_full": 2,
+        "visually_clearer_count": 33,
+        "visually_clearer_correct": 15
+      },
+      "marked": {
+        "summary": {
+          "n": 43,
+          "correct": 25,
+          "balanced_accuracy": 0.5826086956521739,
+          "single_correct": 13,
+          "single_n": 23,
+          "double_correct": 12,
+          "double_n": 20,
+          "pair_wins": null,
+          "pair_ties": null
+        },
+        "gained_vs_full": 9,
+        "lost_vs_full": 2,
+        "visually_clearer_count": 33,
+        "visually_clearer_correct": 18
+      }
+    },
+    "rgb_full": {
+      "full": {
+        "summary": {
+          "n": 43,
+          "correct": 22,
+          "balanced_accuracy": 0.5108695652173914,
+          "single_correct": 12,
+          "single_n": 23,
+          "double_correct": 10,
+          "double_n": 20,
+          "pair_wins": null,
+          "pair_ties": null
+        },
+        "gained_vs_full": 0,
+        "lost_vs_full": 0,
+        "visually_clearer_count": 33,
+        "visually_clearer_correct": 17
+      },
+      "fixed": {
+        "summary": {
+          "n": 43,
+          "correct": 22,
+          "balanced_accuracy": 0.5108695652173914,
+          "single_correct": 12,
+          "single_n": 23,
+          "double_correct": 10,
+          "double_n": 20,
+          "pair_wins": null,
+          "pair_ties": null
+        },
+        "gained_vs_full": 7,
+        "lost_vs_full": 7,
+        "visually_clearer_count": 33,
+        "visually_clearer_correct": 15
+      },
+      "marked": {
+        "summary": {
+          "n": 43,
+          "correct": 18,
+          "balanced_accuracy": 0.4141304347826087,
+          "single_correct": 11,
+          "single_n": 23,
+          "double_correct": 7,
+          "double_n": 20,
+          "pair_wins": null,
+          "pair_ties": null
+        },
+        "gained_vs_full": 5,
+        "lost_vs_full": 9,
+        "visually_clearer_count": 33,
+        "visually_clearer_correct": 12
+      }
+    },
+    "lm_base": {
+      "full": {
+        "summary": {
+          "n": 43,
+          "correct": 22,
+          "balanced_accuracy": 0.5402173913043478,
+          "single_correct": 3,
+          "single_n": 23,
+          "double_correct": 19,
+          "double_n": 20,
+          "pair_wins": null,
+          "pair_ties": null
+        },
+        "gained_vs_full": 0,
+        "lost_vs_full": 0,
+        "visually_clearer_count": 33,
+        "visually_clearer_correct": 21
+      },
+      "fixed": {
+        "summary": {
+          "n": 43,
+          "correct": 24,
+          "balanced_accuracy": 0.5836956521739131,
+          "single_correct": 5,
+          "single_n": 23,
+          "double_correct": 19,
+          "double_n": 20,
+          "pair_wins": null,
+          "pair_ties": null
+        },
+        "gained_vs_full": 2,
+        "lost_vs_full": 0,
+        "visually_clearer_count": 33,
+        "visually_clearer_correct": 23
+      },
+      "marked": {
+        "summary": {
+          "n": 43,
+          "correct": 30,
+          "balanced_accuracy": 0.717391304347826,
+          "single_correct": 10,
+          "single_n": 23,
+          "double_correct": 20,
+          "double_n": 20,
+          "pair_wins": null,
+          "pair_ties": null
+        },
+        "gained_vs_full": 8,
+        "lost_vs_full": 0,
+        "visually_clearer_count": 33,
+        "visually_clearer_correct": 28
+      }
+    },
+    "lm_sft": {
+      "full": {
+        "summary": {
+          "n": 43,
+          "correct": 26,
+          "balanced_accuracy": 0.6271739130434782,
+          "single_correct": 7,
+          "single_n": 23,
+          "double_correct": 19,
+          "double_n": 20,
+          "pair_wins": null,
+          "pair_ties": null
+        },
+        "gained_vs_full": 0,
+        "lost_vs_full": 0,
+        "visually_clearer_count": 33,
+        "visually_clearer_correct": 24
+      },
+      "fixed": {
+        "summary": {
+          "n": 43,
+          "correct": 25,
+          "balanced_accuracy": 0.6021739130434782,
+          "single_correct": 7,
+          "single_n": 23,
+          "double_correct": 18,
+          "double_n": 20,
+          "pair_wins": null,
+          "pair_ties": null
+        },
+        "gained_vs_full": 2,
+        "lost_vs_full": 3,
+        "visually_clearer_count": 33,
+        "visually_clearer_correct": 22
+      },
+      "marked": {
+        "summary": {
+          "n": 43,
+          "correct": 33,
+          "balanced_accuracy": 0.7826086956521738,
+          "single_correct": 13,
+          "single_n": 23,
+          "double_correct": 20,
+          "double_n": 20,
+          "pair_wins": null,
+          "pair_ties": null
+        },
+        "gained_vs_full": 7,
+        "lost_vs_full": 0,
+        "visually_clearer_count": 33,
+        "visually_clearer_correct": 29
+      }
+    }
+  },
+  "matched_country_held_out": {
+    "vit": {
+      "full": {
+        "summary": {
+          "n": 22,
+          "correct": 12,
+          "balanced_accuracy": 0.5454545454545454,
+          "single_correct": 6,
+          "single_n": 11,
+          "double_correct": 6,
+          "double_n": 11,
+          "pair_wins": 5,
+          "pair_ties": 0
+        },
+        "gained_vs_full": 0,
+        "lost_vs_full": 0,
+        "visually_clearer_count": 21,
+        "visually_clearer_correct": 12
+      },
+      "fixed": {
+        "summary": {
+          "n": 22,
+          "correct": 11,
+          "balanced_accuracy": 0.5,
+          "single_correct": 5,
+          "single_n": 11,
+          "double_correct": 6,
+          "double_n": 11,
+          "pair_wins": 5,
+          "pair_ties": 0
+        },
+        "gained_vs_full": 4,
+        "lost_vs_full": 5,
+        "visually_clearer_count": 21,
+        "visually_clearer_correct": 11
+      },
+      "marked": {
+        "summary": {
+          "n": 22,
+          "correct": 11,
+          "balanced_accuracy": 0.5,
+          "single_correct": 6,
+          "single_n": 11,
+          "double_correct": 5,
+          "double_n": 11,
+          "pair_wins": 5,
+          "pair_ties": 0
+        },
+        "gained_vs_full": 4,
+        "lost_vs_full": 5,
+        "visually_clearer_count": 21,
+        "visually_clearer_correct": 11
+      }
+    },
+    "vit_native": {
+      "full": {
+        "summary": {
+          "n": 22,
+          "correct": 13,
+          "balanced_accuracy": 0.5909090909090908,
+          "single_correct": 7,
+          "single_n": 11,
+          "double_correct": 6,
+          "double_n": 11,
+          "pair_wins": 8,
+          "pair_ties": 0
+        },
+        "gained_vs_full": 0,
+        "lost_vs_full": 0,
+        "visually_clearer_count": 21,
+        "visually_clearer_correct": 13
+      },
+      "fixed": {
+        "summary": {
+          "n": 22,
+          "correct": 11,
+          "balanced_accuracy": 0.5,
+          "single_correct": 5,
+          "single_n": 11,
+          "double_correct": 6,
+          "double_n": 11,
+          "pair_wins": 5,
+          "pair_ties": 0
+        },
+        "gained_vs_full": 3,
+        "lost_vs_full": 5,
+        "visually_clearer_count": 21,
+        "visually_clearer_correct": 11
+      },
+      "marked": {
+        "summary": {
+          "n": 22,
+          "correct": 12,
+          "balanced_accuracy": 0.5454545454545454,
+          "single_correct": 7,
+          "single_n": 11,
+          "double_correct": 5,
+          "double_n": 11,
+          "pair_wins": 6,
+          "pair_ties": 0
+        },
+        "gained_vs_full": 4,
+        "lost_vs_full": 5,
+        "visually_clearer_count": 21,
+        "visually_clearer_correct": 12
+      }
+    },
+    "projector": {
+      "full": {
+        "summary": {
+          "n": 22,
+          "correct": 11,
+          "balanced_accuracy": 0.5,
+          "single_correct": 6,
+          "single_n": 11,
+          "double_correct": 5,
+          "double_n": 11,
+          "pair_wins": 9,
+          "pair_ties": 0
+        },
+        "gained_vs_full": 0,
+        "lost_vs_full": 0,
+        "visually_clearer_count": 21,
+        "visually_clearer_correct": 11
+      },
+      "fixed": {
+        "summary": {
+          "n": 22,
+          "correct": 12,
+          "balanced_accuracy": 0.5454545454545454,
+          "single_correct": 6,
+          "single_n": 11,
+          "double_correct": 6,
+          "double_n": 11,
+          "pair_wins": 6,
+          "pair_ties": 0
+        },
+        "gained_vs_full": 4,
+        "lost_vs_full": 3,
+        "visually_clearer_count": 21,
+        "visually_clearer_correct": 12
+      },
+      "marked": {
+        "summary": {
+          "n": 22,
+          "correct": 16,
+          "balanced_accuracy": 0.7272727272727273,
+          "single_correct": 8,
+          "single_n": 11,
+          "double_correct": 8,
+          "double_n": 11,
+          "pair_wins": 9,
+          "pair_ties": 0
+        },
+        "gained_vs_full": 7,
+        "lost_vs_full": 2,
+        "visually_clearer_count": 21,
+        "visually_clearer_correct": 16
+      }
+    },
+    "projector_deepstack": {
+      "full": {
+        "summary": {
+          "n": 22,
+          "correct": 12,
+          "balanced_accuracy": 0.5454545454545454,
+          "single_correct": 5,
+          "single_n": 11,
+          "double_correct": 7,
+          "double_n": 11,
+          "pair_wins": 9,
+          "pair_ties": 0
+        },
+        "gained_vs_full": 0,
+        "lost_vs_full": 0,
+        "visually_clearer_count": 21,
+        "visually_clearer_correct": 12
+      },
+      "fixed": {
+        "summary": {
+          "n": 22,
+          "correct": 14,
+          "balanced_accuracy": 0.6363636363636364,
+          "single_correct": 6,
+          "single_n": 11,
+          "double_correct": 8,
+          "double_n": 11,
+          "pair_wins": 7,
+          "pair_ties": 0
+        },
+        "gained_vs_full": 4,
+        "lost_vs_full": 2,
+        "visually_clearer_count": 21,
+        "visually_clearer_correct": 14
+      },
+      "marked": {
+        "summary": {
+          "n": 22,
+          "correct": 18,
+          "balanced_accuracy": 0.8181818181818182,
+          "single_correct": 9,
+          "single_n": 11,
+          "double_correct": 9,
+          "double_n": 11,
+          "pair_wins": 11,
+          "pair_ties": 0
+        },
+        "gained_vs_full": 7,
+        "lost_vs_full": 1,
+        "visually_clearer_count": 21,
+        "visually_clearer_correct": 17
+      }
+    },
+    "rgb_full": {
+      "full": {
+        "summary": {
+          "n": 22,
+          "correct": 11,
+          "balanced_accuracy": 0.5,
+          "single_correct": 7,
+          "single_n": 11,
+          "double_correct": 4,
+          "double_n": 11,
+          "pair_wins": 8,
+          "pair_ties": 0
+        },
+        "gained_vs_full": 0,
+        "lost_vs_full": 0,
+        "visually_clearer_count": 21,
+        "visually_clearer_correct": 11
+      },
+      "fixed": {
+        "summary": {
+          "n": 22,
+          "correct": 10,
+          "balanced_accuracy": 0.45454545454545453,
+          "single_correct": 5,
+          "single_n": 11,
+          "double_correct": 5,
+          "double_n": 11,
+          "pair_wins": 6,
+          "pair_ties": 0
+        },
+        "gained_vs_full": 4,
+        "lost_vs_full": 5,
+        "visually_clearer_count": 21,
+        "visually_clearer_correct": 9
+      },
+      "marked": {
+        "summary": {
+          "n": 22,
+          "correct": 10,
+          "balanced_accuracy": 0.45454545454545453,
+          "single_correct": 5,
+          "single_n": 11,
+          "double_correct": 5,
+          "double_n": 11,
+          "pair_wins": 6,
+          "pair_ties": 0
+        },
+        "gained_vs_full": 5,
+        "lost_vs_full": 6,
+        "visually_clearer_count": 21,
+        "visually_clearer_correct": 9
+      }
+    },
+    "lm_base": {
+      "full": {
+        "summary": {
+          "n": 22,
+          "correct": 14,
+          "balanced_accuracy": 0.6363636363636364,
+          "single_correct": 3,
+          "single_n": 11,
+          "double_correct": 11,
+          "double_n": 11,
+          "pair_wins": 10,
+          "pair_ties": 0
+        },
+        "gained_vs_full": 0,
+        "lost_vs_full": 0,
+        "visually_clearer_count": 21,
+        "visually_clearer_correct": 14
+      },
+      "fixed": {
+        "summary": {
+          "n": 22,
+          "correct": 16,
+          "balanced_accuracy": 0.7272727272727273,
+          "single_correct": 5,
+          "single_n": 11,
+          "double_correct": 11,
+          "double_n": 11,
+          "pair_wins": 9,
+          "pair_ties": 0
+        },
+        "gained_vs_full": 2,
+        "lost_vs_full": 0,
+        "visually_clearer_count": 21,
+        "visually_clearer_correct": 16
+      },
+      "marked": {
+        "summary": {
+          "n": 22,
+          "correct": 18,
+          "balanced_accuracy": 0.8181818181818181,
+          "single_correct": 7,
+          "single_n": 11,
+          "double_correct": 11,
+          "double_n": 11,
+          "pair_wins": 11,
+          "pair_ties": 0
+        },
+        "gained_vs_full": 4,
+        "lost_vs_full": 0,
+        "visually_clearer_count": 21,
+        "visually_clearer_correct": 18
+      }
+    },
+    "lm_sft": {
+      "full": {
+        "summary": {
+          "n": 22,
+          "correct": 16,
+          "balanced_accuracy": 0.7272727272727273,
+          "single_correct": 5,
+          "single_n": 11,
+          "double_correct": 11,
+          "double_n": 11,
+          "pair_wins": 10,
+          "pair_ties": 0
+        },
+        "gained_vs_full": 0,
+        "lost_vs_full": 0,
+        "visually_clearer_count": 21,
+        "visually_clearer_correct": 16
+      },
+      "fixed": {
+        "summary": {
+          "n": 22,
+          "correct": 15,
+          "balanced_accuracy": 0.6818181818181818,
+          "single_correct": 5,
+          "single_n": 11,
+          "double_correct": 10,
+          "double_n": 11,
+          "pair_wins": 10,
+          "pair_ties": 0
+        },
+        "gained_vs_full": 1,
+        "lost_vs_full": 2,
+        "visually_clearer_count": 21,
+        "visually_clearer_correct": 15
+      },
+      "marked": {
+        "summary": {
+          "n": 22,
+          "correct": 19,
+          "balanced_accuracy": 0.8636363636363636,
+          "single_correct": 8,
+          "single_n": 11,
+          "double_correct": 11,
+          "double_n": 11,
+          "pair_wins": 11,
+          "pair_ties": 0
+        },
+        "gained_vs_full": 3,
+        "lost_vs_full": 0,
+        "visually_clearer_count": 21,
+        "visually_clearer_correct": 19
+      }
+    }
+  }
+}

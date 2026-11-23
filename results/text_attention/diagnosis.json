@@ -1,0 +1,784 @@
+{
+  "configuration": {
+    "model": "Qwen/Qwen3-VL-2B-Instruct",
+    "revision": "89644892e4d85e24eaac8bacfd4f463576704203",
+    "gpu": "Tesla T4",
+    "case_sha256": "249f58cebc6189c18a6174576e4018a92bb65cfcf876aa563c27d5ee8c358379",
+    "attention_backend": "eager",
+    "adapter_sha256": "cae8acb2f31bf9d94ab9ffef612c1f1e76faa1ae27e03603bf4b36736e3126ad",
+    "layers_zero_based": [
+      0,
+      9,
+      18,
+      27
+    ],
+    "views": [
+      [
+        "geo_full",
+        "full",
+        "geo"
+      ],
+      [
+        "ocr_full",
+        "full",
+        "ocr"
+      ],
+      [
+        "ocr_crop",
+        "crop",
+        "ocr"
+      ],
+      [
+        "geo_text_blur",
+        "text_blur",
+        "geo"
+      ],
+      [
+        "geo_control_blur",
+        "control_blur",
+        "geo"
+      ],
+      [
+        "geo_transcribed",
+        "full",
+        "provided"
+      ],
+      [
+        "ocr_text_blur",
+        "text_blur",
+        "ocr"
+      ],
+      [
+        "ocr_control_blur",
+        "control_blur",
+        "ocr"
+      ]
+    ],
+    "prompts_by_case": {
+      "canada": {
+        "geo": "From this street-level image, guess its location anywhere on Earth. Return exactly one JSON object with the two-letter country code first, then the decimal latitude and longitude. Make one best guess. Use exactly these keys: country, latitude, longitude.",
+        "ocr": "Transcribe the visible text in the dashcam coordinate overlay. Copy the actual letters and digits. Do not infer missing text. Output only the transcription, or UNREADABLE if you cannot read it.",
+        "provided": "From this street-level image, guess its location anywhere on Earth. Return exactly one JSON object with the two-letter country code first, then the decimal latitude and longitude. Make one best guess. Use exactly these keys: country, latitude, longitude.\nThe following is a transcription of text visible in the photo. Use it as visual evidence if helpful:\nW111.421436 N50.36211"
+      },
+      "guadeloupe": {
+        "geo": "From this street-level image, guess its location anywhere on Earth. Return exactly one JSON object with the two-letter country code first, then the decimal latitude and longitude. Make one best guess. Use exactly these keys: country, latitude, longitude.",
+        "ocr": "Transcribe the visible text on the upper yellow hiking sign to the right of the walking symbol. Copy the actual letters and digits. Do not infer missing text. Output only the transcription, or UNREADABLE if you cannot read it.",
+        "provided": "From this street-level image, guess its location anywhere on Earth. Return exactly one JSON object with the two-letter country code first, then the decimal latitude and longitude. Make one best guess. Use exactly these keys: country, latitude, longitude.\nThe following is a transcription of text visible in the photo. Use it as visual evidence if helpful:\nPOINTE DES CHÂTEAUX 6,2 km"
+      },
+      "brazil": {
+        "geo": "From this street-level image, guess its location anywhere on Earth. Return exactly one JSON object with the two-letter country code first, then the decimal latitude and longitude. Make one best guess. Use exactly these keys: country, latitude, longitude.",
+        "ocr": "Transcribe the visible text on the large painted garage sign on the left. Copy the actual letters and digits. Do not infer missing text. Output only the transcription, or UNREADABLE if you cannot read it.",
+        "provided": "From this street-level image, guess its location anywhere on Earth. Return exactly one JSON object with the two-letter country code first, then the decimal latitude and longitude. Make one best guess. Use exactly these keys: country, latitude, longitude.\nThe following is a transcription of text visible in the photo. Use it as visual evidence if helpful:\nGaragem / MAQUINAS de VIDRO / MAÇANETAS"
+      }
+    }
+  },
+  "cases": {
+    "canada": {
+      "reference": {
+        "id": "548953163681512",
+        "country": "CA",
+        "latitude": 50.362312650335454,
+        "longitude": -111.42176116563029,
+        "attribution": "networklanman",
+        "license": "CC-BY-SA-4.0",
+        "prior_guesses": {
+          "zero_shot": {
+            "country": "US",
+            "point": [
+              37.087,
+              -115.25
+            ],
+            "distance": 1507.3300887654239
+          },
+          "sft": {
+            "country": "TM",
+            "point": [
+              42.143,
+              59.362
+            ],
+            "distance": 9690.034077176062
+          },
+          "sft_2000": {
+            "country": "RU",
+            "point": [
+              55.211,
+              92.436
+            ],
+            "distance": 8069.21606245617
+          }
+        }
+      },
+      "human_transcription": "W111.421436 N50.36211",
+      "predictions": {
+        "base": {
+          "geo_full": {
+            "answer": "{\"country\": \"US\", \"latitude\": 37.087, \"longitude\": -115.25}",
+            "country": "US",
+            "coordinates": [
+              37.087,
+              -115.25
+            ],
+            "distance_km": 1507.3300887654239,
+            "attention": {
+              "image_mass": 0.03733242303133011,
+              "text_image_relative_mass": 0.012466216638586049,
+              "control_image_relative_mass": 0.018588437277230686,
+              "text_area": 0.012220594618055558,
+              "control_area": 0.01222059461805556
+            },
+            "attention_steps": [
+              "3",
+              "7",
+              "0",
+              "8",
+              "7",
+              "1",
+              "1",
+              "5",
+              "2",
+              "5"
+            ]
+          },
+          "ocr_full": {
+            "answer": "2021/08/25 10:00:19 W111-421436 N50-3621 NETWORKKLAMAN",
+            "attention": {
+              "image_mass": 0.12529100477695465,
+              "text_image_relative_mass": 0.03340798863519013,
+              "control_image_relative_mass": 0.04380483470686157,
+              "text_area": 0.012220594618055558,
+              "control_area": 0.01222059461805556
+            },
+            "attention_steps": [
+              "2",
+              "0",
+              "2",
+              "1",
+              "0",
+              "8",
+              "2",
+              "5",
+              "1",
+              "0",
+              "0",
+              "0",
+              "1",
+              "9",
+              " W",
+              "1",
+              "1",
+              "1",
+              "4",
+              "2",
+              "1",
+              "4",
+              "3",
+              "6",
+              " N",
+              "5",
+              "0",
+              "3",
+              "6",
+              "2",
+              "1",
+              " NETWORK",
+              "KL",
+              "AM",
+              "AN"
+            ]
+          },
+          "ocr_crop": {
+            "answer": "W111.421436 N50.36211"
+          },
+          "geo_text_blur": {
+            "answer": "{\"country\": \"US\", \"latitude\": 37.087, \"longitude\": -115.25}",
+            "country": "US",
+            "coordinates": [
+              37.087,
+              -115.25
+            ],
+            "distance_km": 1507.3300887654239
+          },
+          "geo_control_blur": {
+            "answer": "{\"country\": \"US\", \"latitude\": 42.136, \"longitude\": -111.0019}",
+            "country": "US",
+            "coordinates": [
+              42.136,
+              -111.0019
+            ],
+            "distance_km": 915.2908696899887
+          },
+          "geo_transcribed": {
+            "answer": "{\n  \"country\": \"US\",\n  \"latitude\": 50.36211,\n  \"longitude\": -111.421436\n}",
+            "country": "US",
+            "coordinates": [
+              50.36211,
+              -111.421436
+            ],
+            "distance_km": 0.03224577669284135
+          },
+          "ocr_text_blur": {
+            "answer": "2021/08/25 10:00:19\nNETWORKKLAMAN"
+          },
+          "ocr_control_blur": {
+            "answer": "2021/08/25 10:00:19 W111-421436 N50-3621 NETWORKKLAMAN"
+          }
+        },
+        "sft": {
+          "geo_full": {
+            "answer": "{\"country\":\"TM\",\"latitude\":42.143,\"longitude\":59.362}",
+            "country": "TM",
+            "coordinates": [
+              42.143,
+              59.362
+            ],
+            "distance_km": 9690.034077176062,
+            "attention": {
+              "image_mass": 0.06407500803470612,
+              "text_image_relative_mass": 0.040434166657178146,
+              "control_image_relative_mass": 0.042447164624718425,
+              "text_area": 0.012220594618055558,
+              "control_area": 0.01222059461805556
+            },
+            "attention_steps": [
+              "4",
+              "2",
+              "1",
+              "4",
+              "3",
+              "5",
+              "9",
+              "3",
+              "6",
+              "2"
+            ]
+          },
+          "ocr_full": {
+            "answer": "2021/08/25 10:00:19 W111.421436 N50.36211 NETWORKKLAMAN",
+            "attention": {
+              "image_mass": 0.12018632888793945,
+              "text_image_relative_mass": 0.03512090598178475,
+              "control_image_relative_mass": 0.04397424846774811,
+              "text_area": 0.012220594618055558,
+              "control_area": 0.01222059461805556
+            },
+            "attention_steps": [
+              "2",
+              "0",
+              "2",
+              "1",
+              "0",
+              "8",
+              "2",
+              "5",
+              "1",
+              "0",
+              "0",
+              "0",
+              "1",
+              "9",
+              " W",
+              "1",
+              "1",
+              "1",
+              "4",
+              "2",
+              "1",
+              "4",
+              "3",
+              "6",
+              " N",
+              "5",
+              "0",
+              "3",
+              "6",
+              "2",
+              "1",
+              "1",
+              " NETWORK",
+              "KL",
+              "AM",
+              "AN"
+            ]
+          },
+          "ocr_crop": {
+            "answer": "W111.421436 N50.36211"
+          },
+          "geo_text_blur": {
+            "answer": "{\"country\":\"US\",\"latitude\":40.902,\"longitude\":-111.451}",
+            "country": "US",
+            "coordinates": [
+              40.902,
+              -111.451
+            ],
+            "distance_km": 1051.942657752368
+          },
+          "geo_control_blur": {
+            "answer": "{\"country\":\"TM\",\"latitude\":42.136,\"longitude\":59.362}",
+            "country": "TM",
+            "coordinates": [
+              42.136,
+              59.362
+            ],
+            "distance_km": 9690.808359250923
+          },
+          "geo_transcribed": {
+            "answer": "{\"country\":\"TM\",\"latitude\":50.362,\"longitude\":111.421}",
+            "country": "TM",
+            "coordinates": [
+              50.362,
+              111.421
+            ],
+            "distance_km": 8102.05157420501
+          },
+          "ocr_text_blur": {
+            "answer": "2021/08/25 10:00:19\nNETWORKKLAMAN"
+          },
+          "ocr_control_blur": {
+            "answer": "2021/08/25 10:00:19 W111.42136 N50.36216 NETWORKKLAMAN"
+          }
+        }
+      }
+    },
+    "guadeloupe": {
+      "reference": {
+        "id": "909835849806538",
+        "country": "GP",
+        "latitude": 16.262224744892,
+        "longitude": -61.2191098,
+        "attribution": "cyclone",
+        "license": "CC-BY-SA-4.0",
+        "prior_guesses": {
+          "zero_shot": {
+            "country": "FR",
+            "point": [
+              43.5647,
+              1.5278
+            ],
+            "distance": 6586.590316211657
+          },
+          "sft": {
+            "country": "FR",
+            "point": [
+              43.551,
+              -5.552
+            ],
+            "distance": 6023.658122232205
+          },
+          "sft_2000": {
+            "country": "FR",
+            "point": [
+              43.552,
+              -5.552
+            ],
+            "distance": 6023.681450196338
+          }
+        }
+      },
+      "human_transcription": "POINTE DES CHÂTEAUX 6,2 km",
+      "predictions": {
+        "base": {
+          "geo_full": {
+            "answer": "{\"country\": \"FR\", \"latitude\": 43.5647, \"longitude\": 1.5278}",
+            "country": "FR",
+            "coordinates": [
+              43.5647,
+              1.5278
+            ],
+            "distance_km": 6586.590316211657,
+            "attention": {
+              "image_mass": 0.03033410757780075,
+              "text_image_relative_mass": 0.022517040525372078,
+              "control_image_relative_mass": 0.01676582237269031,
+              "text_area": 0.025258382161458346,
+              "control_area": 0.025258382161458332
+            },
+            "attention_steps": [
+              "4",
+              "3",
+              "5",
+              "6",
+              "4",
+              "7",
+              "1",
+              "5",
+              "2",
+              "7",
+              "8"
+            ]
+          },
+          "ocr_full": {
+            "answer": "POINTE DES CHÂTEAUX 6,2 km",
+            "attention": {
+              "image_mass": 0.13246089220046997,
+              "text_image_relative_mass": 0.14135652315349043,
+              "control_image_relative_mass": 0.022178822396085707,
+              "text_area": 0.025258382161458346,
+              "control_area": 0.025258382161458332
+            },
+            "attention_steps": [
+              "PO",
+              "IN",
+              "TE",
+              " DES",
+              " CH",
+              "Â",
+              "TE",
+              "A",
+              "UX",
+              "6",
+              "2",
+              " km"
+            ]
+          },
+          "ocr_crop": {
+            "answer": "POINTE DES CHÂTEAUX 6,2 km"
+          },
+          "geo_text_blur": {
+            "answer": "{\"country\": \"FR\", \"latitude\": 41.25, \"longitude\": 1.35}",
+            "country": "FR",
+            "coordinates": [
+              41.25,
+              1.35
+            ],
+            "distance_km": 6544.891664603406
+          },
+          "geo_control_blur": {
+            "answer": "{\"country\": \"FR\", \"latitude\": 41.25, \"longitude\": 1.35}",
+            "country": "FR",
+            "coordinates": [
+              41.25,
+              1.35
+            ],
+            "distance_km": 6544.891664603406
+          },
+          "geo_transcribed": {
+            "answer": "{\"country\": \"FR\", \"latitude\": 43.5647, \"longitude\": 5.5556}",
+            "country": "FR",
+            "coordinates": [
+              43.5647,
+              5.5556
+            ],
+            "distance_km": 6909.737990803013
+          },
+          "ocr_text_blur": {
+            "answer": "COMMUNE DE ST FRANCOIS"
+          },
+          "ocr_control_blur": {
+            "answer": "POINTE DES CHÂTEAUX 6,2 km"
+          }
+        },
+        "sft": {
+          "geo_full": {
+            "answer": "{\"country\":\"FR\",\"latitude\":43.551,\"longitude\":-5.552}",
+            "country": "FR",
+            "coordinates": [
+              43.551,
+              -5.552
+            ],
+            "distance_km": 6023.658122232205,
+            "attention": {
+              "image_mass": 0.04061216115951538,
+              "text_image_relative_mass": 0.024438107959440472,
+              "control_image_relative_mass": 0.01685464061102948,
+              "text_area": 0.025258382161458346,
+              "control_area": 0.025258382161458332
+            },
+            "attention_steps": [
+              "4",
+              "3",
+              "5",
+              "5",
+              "1",
+              "5",
+              "5",
+              "5",
+              "2"
+            ]
+          },
+          "ocr_full": {
+            "answer": "POINTE DES CHATEAUX 6,2 km",
+            "attention": {
+              "image_mass": 0.1339799463748932,
+              "text_image_relative_mass": 0.15285515482332823,
+              "control_image_relative_mass": 0.021136956722727973,
+              "text_area": 0.025258382161458346,
+              "control_area": 0.025258382161458332
+            },
+            "attention_steps": [
+              "PO",
+              "IN",
+              "TE",
+              " DES",
+              " CH",
+              "ATE",
+              "A",
+              "UX",
+              "6",
+              "2",
+              " km"
+            ]
+          },
+          "ocr_crop": {
+            "answer": "POINTE DES CHÂTEAUX 6,2 km"
+          },
+          "geo_text_blur": {
+            "answer": "{\"country\":\"FR\",\"latitude\":43.551,\"longitude\":-5.552}",
+            "country": "FR",
+            "coordinates": [
+              43.551,
+              -5.552
+            ],
+            "distance_km": 6023.658122232205
+          },
+          "geo_control_blur": {
+            "answer": "{\"country\":\"FR\",\"latitude\":43.551,\"longitude\":-5.552}",
+            "country": "FR",
+            "coordinates": [
+              43.551,
+              -5.552
+            ],
+            "distance_km": 6023.658122232205
+          },
+          "geo_transcribed": {
+            "answer": "{\"country\":\"FR\",\"latitude\":43.551,\"longitude\":5.552}",
+            "country": "FR",
+            "coordinates": [
+              43.551,
+              5.552
+            ],
+            "distance_km": 6909.348666709335
+          },
+          "ocr_text_blur": {
+            "answer": "COMUNA DE ST-FLORANOS"
+          },
+          "ocr_control_blur": {
+            "answer": "POINTE DES CHÂTEAUX 6,2 km"
+          }
+        }
+      }
+    },
+    "brazil": {
+      "reference": {
+        "id": "217488433888622",
+        "country": "BR",
+        "latitude": -23.03145460929965,
+        "longitude": -48.0151615861723,
+        "attribution": "yaf1",
+        "license": "CC-BY-SA-4.0",
+        "prior_guesses": {
+          "zero_shot": {
+            "country": "BR",
+            "point": [
+              -22.9555,
+              -43.1722
+            ],
+            "distance": 495.7775997464863
+          },
+          "sft": {
+            "country": "BR",
+            "point": [
+              -23.552,
+              -46.702
+            ],
+            "distance": 146.07343905617375
+          },
+          "sft_2000": {
+            "country": "BR",
+            "point": [
+              -23.552,
+              -46.752
+            ],
+            "distance": 141.39936085917032
+          }
+        }
+      },
+      "human_transcription": "Garagem / MAQUINAS de VIDRO / MAÇANETAS",
+      "predictions": {
+        "base": {
+          "geo_full": {
+            "answer": "{\"country\": \"BR\", \"latitude\": -22.9555, \"longitude\": -43.1722}",
+            "country": "BR",
+            "coordinates": [
+              -22.9555,
+              -43.1722
+            ],
+            "distance_km": 495.7775997464863,
+            "attention": {
+              "image_mass": 0.02807564102113247,
+              "text_image_relative_mass": 0.03097350268990339,
+              "control_image_relative_mass": 0.028765444116515933,
+              "text_area": 0.08159722222222222,
+              "control_area": 0.08159722222222221
+            },
+            "attention_steps": [
+              "2",
+              "2",
+              "9",
+              "5",
+              "5",
+              "5",
+              "4",
+              "3",
+              "1",
+              "7",
+              "2",
+              "2"
+            ]
+          },
+          "ocr_full": {
+            "answer": "Garagem\nMAQUINAS de VIDRO\nMACANETAS",
+            "attention": {
+              "image_mass": 0.13370046019554138,
+              "text_image_relative_mass": 0.2641472684413202,
+              "control_image_relative_mass": 0.09712304304991906,
+              "text_area": 0.08159722222222222,
+              "control_area": 0.08159722222222221
+            },
+            "attention_steps": [
+              "Gar",
+              "agem",
+              "MA",
+              "QU",
+              "IN",
+              "AS",
+              " de",
+              " VID",
+              "RO",
+              "MAC",
+              "AN",
+              "ET",
+              "AS"
+            ]
+          },
+          "ocr_crop": {
+            "answer": "Garagem"
+          },
+          "geo_text_blur": {
+            "answer": "{\"country\": \"BR\", \"latitude\": -23.545, \"longitude\": -46.651}",
+            "country": "BR",
+            "coordinates": [
+              -23.545,
+              -46.651
+            ],
+            "distance_km": 150.57638260895473
+          },
+          "geo_control_blur": {
+            "answer": "{\"country\": \"BR\", \"latitude\": -22.9555, \"longitude\": -43.1722}",
+            "country": "BR",
+            "coordinates": [
+              -22.9555,
+              -43.1722
+            ],
+            "distance_km": 495.7775997464863
+          },
+          "geo_transcribed": {
+            "answer": "{\n  \"country\": \"BR\",\n  \"latitude\": -22.9542,\n  \"longitude\": -43.1928\n}",
+            "country": "BR",
+            "coordinates": [
+              -22.9542,
+              -43.1928
+            ],
+            "distance_km": 493.67443543755434
+          },
+          "ocr_text_blur": {
+            "answer": "UNREADABLE"
+          },
+          "ocr_control_blur": {
+            "answer": "Garagem\nMAQUINAS de VIDRO\nMACANETAS"
+          }
+        },
+        "sft": {
+          "geo_full": {
+            "answer": "{\"country\":\"BR\",\"latitude\":-23.552,\"longitude\":-46.702}",
+            "country": "BR",
+            "coordinates": [
+              -23.552,
+              -46.702
+            ],
+            "distance_km": 146.07343905617375,
+            "attention": {
+              "image_mass": 0.035670287907123566,
+              "text_image_relative_mass": 0.030661190859973424,
+              "control_image_relative_mass": 0.03106074363006428,
+              "text_area": 0.08159722222222222,
+              "control_area": 0.08159722222222221
+            },
+            "attention_steps": [
+              "2",
+              "3",
+              "5",
+              "5",
+              "2",
+              "4",
+              "6",
+              "7",
+              "0",
+              "2"
+            ]
+          },
+          "ocr_full": {
+            "answer": "Garagem\nMAQUINAS de VIDRO\nMACANETAS",
+            "attention": {
+              "image_mass": 0.1318703293800354,
+              "text_image_relative_mass": 0.25754155015556535,
+              "control_image_relative_mass": 0.09889587118425427,
+              "text_area": 0.08159722222222222,
+              "control_area": 0.08159722222222221
+            },
+            "attention_steps": [
+              "Gar",
+              "agem",
+              "MA",
+              "QU",
+              "IN",
+              "AS",
+              " de",
+              " VID",
+              "RO",
+              "MAC",
+              "AN",
+              "ET",
+              "AS"
+            ]
+          },
+          "ocr_crop": {
+            "answer": "Garagem"
+          },
+          "geo_text_blur": {
+            "answer": "{\"country\":\"BR\",\"latitude\":-23.552,\"longitude\":-46.702}",
+            "country": "BR",
+            "coordinates": [
+              -23.552,
+              -46.702
+            ],
+            "distance_km": 146.07343905617375
+          },
+          "geo_control_blur": {
+            "answer": "{\"country\":\"BR\",\"latitude\":-23.552,\"longitude\":-46.702}",
+            "country": "BR",
+            "coordinates": [
+              -23.552,
+              -46.702
+            ],
+            "distance_km": 146.07343905617375
+          },
+          "geo_transcribed": {
+            "answer": "{\"country\":\"BR\",\"latitude\":-23.551,\"longitude\":-46.701}",
+            "country": "BR",
+            "coordinates": [
+              -23.551,
+              -46.701
+            ],
+            "distance_km": 146.12368400014657
+          },
+          "ocr_text_blur": {
+            "answer": "UNREADABLE"
+          },
+          "ocr_control_blur": {
+            "answer": "Garagem\nMAQUINAS de VIDRO\nMACANETAS"
+          }
+        }
+      }
+    }
+  }
+}

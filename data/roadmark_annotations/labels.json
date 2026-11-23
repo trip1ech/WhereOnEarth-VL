@@ -1,0 +1,492 @@
+{
+  "522009262408270": {
+    "image_id": "522009262408270",
+    "dataset": "train",
+    "image_sha256": "e68360d64e778de1ddee7e961d1afed4be300ae3bcfbb5e11c6a47bb651c24ec",
+    "label": "single",
+    "updated_at": "2026-11-21T00:40:00+00:00"
+  },
+  "1204220873343962": {
+    "image_id": "1204220873343962",
+    "dataset": "train",
+    "image_sha256": "4e5dc91208482359986b6f79d24bacc6f43b6727952082865a0650c432239746",
+    "label": "single",
+    "updated_at": "2026-11-21T00:40:09+00:00"
+  },
+  "1166219800551226": {
+    "image_id": "1166219800551226",
+    "dataset": "train",
+    "image_sha256": "d51c01bb4e8361650b4c65954e9ce5eeab43291a5e54a72e6b548c253bf6c64a",
+    "label": "none",
+    "updated_at": "2026-11-21T00:40:13+00:00"
+  },
+  "814819829441637": {
+    "image_id": "814819829441637",
+    "dataset": "train",
+    "image_sha256": "696673fc0a8168e346789f54dfe0c8c698fce90c92db58da61cf3d0dc9d8275e",
+    "label": "single",
+    "updated_at": "2026-11-21T00:40:20+00:00"
+  },
+  "921802928654461": {
+    "image_id": "921802928654461",
+    "dataset": "train",
+    "image_sha256": "644e034433c2b4c831428d7f7579b983321ff38d81123b16155342004fbd32d5",
+    "label": "none",
+    "updated_at": "2026-11-21T00:40:28+00:00"
+  },
+  "225420235592441": {
+    "image_id": "225420235592441",
+    "dataset": "train",
+    "image_sha256": "433e37775369943e09f48fabc54289c10ba8a8005a0c4f3c40564d77556601d3",
+    "label": "none",
+    "updated_at": "2026-11-21T00:40:30+00:00"
+  },
+  "1043656249904756": {
+    "image_id": "1043656249904756",
+    "dataset": "train",
+    "image_sha256": "0c9f382ffca92bbbc508023f72f2b7afb13e8d2f1c8f7227c5c28088e2a6f0e9",
+    "label": "single",
+    "updated_at": "2026-11-21T00:40:31+00:00"
+  },
+  "313553817013338": {
+    "image_id": "313553817013338",
+    "dataset": "train",
+    "image_sha256": "518cc289be401f725794d276690182e905ffc6473725d655997dab95ee262021",
+    "label": "none",
+    "updated_at": "2026-11-21T00:40:46+00:00"
+  },
+  "1201350447145142": {
+    "image_id": "1201350447145142",
+    "dataset": "train",
+    "image_sha256": "e18f31244a1430b5ae9f16a51d0f26ea8ab28fd4f056c51a25933185b264cd44",
+    "label": "single",
+    "updated_at": "2026-11-21T00:40:48+00:00"
+  },
+  "137294871769269": {
+    "image_id": "137294871769269",
+    "dataset": "train",
+    "image_sha256": "d438cbf24ef93749bb6a35b92a472ec2a049d7c9c199c0114f2fc3962861b3a8",
+    "label": "single",
+    "updated_at": "2026-11-21T00:40:48+00:00"
+  },
+  "208138511138424": {
+    "image_id": "208138511138424",
+    "dataset": "train",
+    "image_sha256": "e4f2dfbdc7b7d23c70302196767b6edf03c6968760d73fec35f9d991ecd6ee19",
+    "label": "unclear",
+    "updated_at": "2026-11-21T00:40:51+00:00"
+  },
+  "562857444862196": {
+    "image_id": "562857444862196",
+    "dataset": "train",
+    "image_sha256": "81539159d31663d5aa784a434e5c43a257d416e70a8612eb4dc35ea5c984c163",
+    "label": "unclear",
+    "updated_at": "2026-11-21T00:40:54+00:00"
+  },
+  "267334101837376": {
+    "image_id": "267334101837376",
+    "dataset": "train",
+    "image_sha256": "9564512ee0b1a3bd1585a37192b089c1759d472625be1e76a7f52ee52745c57b",
+    "label": "none",
+    "updated_at": "2026-11-21T00:40:57+00:00"
+  },
+  "490041078783862": {
+    "image_id": "490041078783862",
+    "dataset": "train",
+    "image_sha256": "3b48a71466abe1f142d1cfbff7276aa2c4ff76a5d7e0a971f9ff7224e0ca6439",
+    "label": "none",
+    "updated_at": "2026-11-21T00:40:58+00:00"
+  },
+  "127617219357064": {
+    "image_id": "127617219357064",
+    "dataset": "train",
+    "image_sha256": "b0dec9aaf4f1403cfe9dec4b4990a93e1be8ccbb10f671afa38614bb9dcd376f",
+    "label": "none",
+    "updated_at": "2026-11-21T00:40:59+00:00"
+  },
+  "167430999382790": {
+    "image_id": "167430999382790",
+    "dataset": "train",
+    "image_sha256": "ad320a5b470ae16034ba31e2430a8e716db7cbced886efe4a6d57c9be96e6623",
+    "label": "unclear",
+    "updated_at": "2026-11-21T00:41:12+00:00"
+  },
+  "1138337589967010": {
+    "image_id": "1138337589967010",
+    "dataset": "train",
+    "image_sha256": "fbe372b855b1a33605e9841557afe73716560a1fde321a12725eed57b7e0171c",
+    "label": "unclear",
+    "updated_at": "2026-11-21T00:41:06+00:00"
+  },
+  "515348609647442": {
+    "image_id": "515348609647442",
+    "dataset": "train",
+    "image_sha256": "7f608ae323383af7bab88b00864edd80d07c66b94bd5c281057b31f1ec6d3da9",
+    "label": "single",
+    "updated_at": "2026-11-21T00:41:15+00:00"
+  },
+  "217649583194464": {
+    "image_id": "217649583194464",
+    "dataset": "train",
+    "image_sha256": "1fb682f446596dc3a7203c8a03d4a6aec4a789a5eefb37151544540d425bc8e2",
+    "label": "none",
+    "updated_at": "2026-11-21T00:41:17+00:00"
+  },
+  "1039021169962877": {
+    "image_id": "1039021169962877",
+    "dataset": "train",
+    "image_sha256": "3e23e06bf5fd2091663dd7ccfd9e1b2b736296ad1b364107961bb016ccb06f88",
+    "label": "none",
+    "updated_at": "2026-11-21T00:41:18+00:00"
+  },
+  "830415694254882": {
+    "image_id": "830415694254882",
+    "dataset": "train",
+    "image_sha256": "ded5f84f6730047b514e0268162e02e7ee94bf3f6cc9cb9ecbfb9cd08fd2c9c9",
+    "label": "unclear",
+    "updated_at": "2026-11-21T00:41:19+00:00"
+  },
+  "1341069226275373": {
+    "image_id": "1341069226275373",
+    "dataset": "train",
+    "image_sha256": "8803352ead4a25718a93799e64260e8621cc854947a84e403e95bbd4c7190dff",
+    "label": "double",
+    "updated_at": "2026-11-21T00:41:21+00:00"
+  },
+  "2789981434587163": {
+    "image_id": "2789981434587163",
+    "dataset": "train",
+    "image_sha256": "e45b28b6df826a642f72f02ec3883b3e26c28c7eda7246d498b49802405d8860",
+    "label": "single",
+    "updated_at": "2026-11-21T00:41:23+00:00"
+  },
+  "736826897242788": {
+    "image_id": "736826897242788",
+    "dataset": "train",
+    "image_sha256": "219449ab329425d68f63a8e8c5ac76247fcd21dab6c82d42c9b53f4bd4c88c67",
+    "label": "none",
+    "updated_at": "2026-11-21T00:41:29+00:00"
+  },
+  "155263723268811": {
+    "image_id": "155263723268811",
+    "dataset": "train",
+    "image_sha256": "4ef175cbef52d685639ad31d79136a798e09add67522ac8183a9f30b587a0132",
+    "label": "none",
+    "updated_at": "2026-11-21T00:41:30+00:00"
+  },
+  "501261297684207": {
+    "image_id": "501261297684207",
+    "dataset": "train",
+    "image_sha256": "ed43cdaf45e246af3f06d614a1f01e6c76dce041cd91ea7eca1b1cd250d20d03",
+    "label": "unclear",
+    "updated_at": "2026-11-21T00:41:32+00:00"
+  },
+  "871821286735501": {
+    "image_id": "871821286735501",
+    "dataset": "train",
+    "image_sha256": "6956468a0b7953b638d5492c4b6f71cd3afa1565916bdf909910f480bec4dfe2",
+    "label": "none",
+    "updated_at": "2026-11-21T00:41:34+00:00"
+  },
+  "468448017590379": {
+    "image_id": "468448017590379",
+    "dataset": "train",
+    "image_sha256": "4119936aec62e80bf2faeb4348bfd33399d99dc3a5230ba3e4a3d26ec4bcd39d",
+    "label": "single",
+    "updated_at": "2026-11-21T00:41:35+00:00"
+  },
+  "558198272638929": {
+    "image_id": "558198272638929",
+    "dataset": "train",
+    "image_sha256": "df0cb1eb38ec5efbcebc9bef04475be64f2b8fecfc613dda8d18ad480dbb19b8",
+    "label": "unclear",
+    "updated_at": "2026-11-21T00:41:39+00:00"
+  },
+  "319198026365150": {
+    "image_id": "319198026365150",
+    "dataset": "train",
+    "image_sha256": "5a87144cda2e4bbe5dd7ca8b197425f394587af2bc6a4ad7620ebcb0a7f7c69f",
+    "label": "double",
+    "updated_at": "2026-11-21T00:41:41+00:00"
+  },
+  "189994292965870": {
+    "image_id": "189994292965870",
+    "dataset": "train",
+    "image_sha256": "4c006032f6c407691d34a69144c16b908606887ca5f01f909ecb11e16e37b46e",
+    "label": "unclear",
+    "updated_at": "2026-11-21T00:41:43+00:00"
+  },
+  "496409081772482": {
+    "image_id": "496409081772482",
+    "dataset": "train",
+    "image_sha256": "dd9f2e4599a2252af8ecdd3cbf15ea162e74a7ac4e5d1e1c440762399800f03b",
+    "label": "single",
+    "updated_at": "2026-11-21T00:41:45+00:00"
+  },
+  "539742547017781": {
+    "image_id": "539742547017781",
+    "dataset": "train",
+    "image_sha256": "233d95af21d7b81c762019420b2e0744009a9f9668f10fccc3f24001244f60a2",
+    "label": "none",
+    "updated_at": "2026-11-21T00:41:46+00:00"
+  },
+  "1744796315699497": {
+    "image_id": "1744796315699497",
+    "dataset": "train",
+    "image_sha256": "a11505e67598d062634e71758b90fc34da7463eaa1dcdabc339a11d14c5f9037",
+    "label": "unclear",
+    "updated_at": "2026-11-21T00:41:50+00:00"
+  },
+  "603444404307839": {
+    "image_id": "603444404307839",
+    "dataset": "train",
+    "image_sha256": "8587b2ad6cb726447c0de9d431a0a27bed36eb195ab124d7ba9cc98d9377aa9c",
+    "label": "unclear",
+    "updated_at": "2026-11-21T00:41:51+00:00"
+  },
+  "167002335427145": {
+    "image_id": "167002335427145",
+    "dataset": "train",
+    "image_sha256": "c83823e768658af139cbf2a9ef04bf9c06aadb2b64b9173ebf7e48ac313ccf15",
+    "label": "unclear",
+    "updated_at": "2026-11-21T00:41:52+00:00"
+  },
+  "827240048145565": {
+    "image_id": "827240048145565",
+    "dataset": "train",
+    "image_sha256": "3fc7d32a3d4b1e3ca0be439e1ae739f423674a4a3624ff76832331e3704e6dfe",
+    "label": "none",
+    "updated_at": "2026-11-21T00:41:53+00:00"
+  },
+  "195723635719477": {
+    "image_id": "195723635719477",
+    "dataset": "train",
+    "image_sha256": "f3de5244517d8c928529e0bf8af26ed1df9cdb45251c685a644f987892a86300",
+    "label": "none",
+    "updated_at": "2026-11-21T00:41:55+00:00"
+  },
+  "262744502204545": {
+    "image_id": "262744502204545",
+    "dataset": "train",
+    "image_sha256": "5596a5db8a02d00f1a90c0938c9fbccccd06ef6789ff402031687b9df4ca887e",
+    "label": "none",
+    "updated_at": "2026-11-21T00:41:56+00:00"
+  },
+  "495800034958067": {
+    "image_id": "495800034958067",
+    "dataset": "train",
+    "image_sha256": "f5d005983da952f6f0dba973b36625c1948dadd935c4344d8bc55e15012fe909",
+    "label": "single",
+    "updated_at": "2026-11-21T00:41:58+00:00"
+  },
+  "524527566215015": {
+    "image_id": "524527566215015",
+    "dataset": "train",
+    "image_sha256": "4700cf2f625d62981f96124cda3bce48911646eb59d5b82f6c0e5742f42c01ac",
+    "label": "single",
+    "updated_at": "2026-11-21T00:47:04+00:00"
+  },
+  "423752349436605": {
+    "image_id": "423752349436605",
+    "dataset": "train",
+    "image_sha256": "88c012a21cd346714a052d194c8fd87f2626c19867f917cd2fbc4754afc050dc",
+    "label": "double",
+    "updated_at": "2026-11-21T00:47:11+00:00"
+  },
+  "3967126560029825": {
+    "image_id": "3967126560029825",
+    "dataset": "train",
+    "image_sha256": "f0e9ac2b15b56cc6415ac875aaccfbad22e7befa37763c2d38a3c342eb4a8e2b",
+    "label": "single",
+    "updated_at": "2026-11-21T00:47:12+00:00"
+  },
+  "761880321196618": {
+    "image_id": "761880321196618",
+    "dataset": "train",
+    "image_sha256": "af33fe51824846b652f48ac2df8d3240ab98f7502021749c25db8573c88b5afb",
+    "label": "single",
+    "updated_at": "2026-11-21T00:47:13+00:00"
+  },
+  "1062347254473266": {
+    "image_id": "1062347254473266",
+    "dataset": "train",
+    "image_sha256": "9f092e715d0cb0a25690cf0a6c0ae5340c9466122a3f2d53495364632cff915d",
+    "label": "single",
+    "updated_at": "2026-11-21T00:47:14+00:00"
+  },
+  "326967888929599": {
+    "image_id": "326967888929599",
+    "dataset": "train",
+    "image_sha256": "ab2b6bb0795ce1def9d086f9d93e650ac4124d830aae030be86fcfd5b314a02f",
+    "label": "single",
+    "updated_at": "2026-11-21T00:47:15+00:00"
+  },
+  "2569715476670950": {
+    "image_id": "2569715476670950",
+    "dataset": "train",
+    "image_sha256": "535035ff91429672f5a73aaee4eb4ca35fabfc838056e6ff9e19a5fbf05ad48a",
+    "label": "double",
+    "updated_at": "2026-11-21T00:47:16+00:00"
+  },
+  "1212145929242560": {
+    "image_id": "1212145929242560",
+    "dataset": "train",
+    "image_sha256": "105db038d7b785e6d69164314396e531992a51f0ed9a1fb32dfc6cd58feadad7",
+    "label": "double",
+    "updated_at": "2026-11-21T00:47:19+00:00"
+  },
+  "138714041578549": {
+    "image_id": "138714041578549",
+    "dataset": "train",
+    "image_sha256": "8253b460762d21fd3e4a4afe706362fe38ee5c8ce2a58fe455c0e0444a43ffb9",
+    "label": "double",
+    "updated_at": "2026-11-21T00:47:20+00:00"
+  },
+  "899701950761265": {
+    "image_id": "899701950761265",
+    "dataset": "train",
+    "image_sha256": "4841926f35dc7ebd16be434847ffb9ed0ff6fd7390bb72e0bf3f1e96e5e46c93",
+    "label": "double",
+    "updated_at": "2026-11-21T00:47:20+00:00"
+  },
+  "172642221309076": {
+    "image_id": "172642221309076",
+    "dataset": "train",
+    "image_sha256": "ea53f4d9a0df13e6cc40ec460eebb67699fa2655949007bf877a8107351206c4",
+    "label": "double",
+    "updated_at": "2026-11-21T00:47:21+00:00"
+  },
+  "301133488220981": {
+    "image_id": "301133488220981",
+    "dataset": "train",
+    "image_sha256": "1af145741487426cc39b342c9a133e5fc205fb78d2bf2fa3f1d5c7bfe573e24c",
+    "label": "double",
+    "updated_at": "2026-11-21T00:47:22+00:00"
+  },
+  "450730583872952": {
+    "image_id": "450730583872952",
+    "dataset": "train",
+    "image_sha256": "2ac331428e16614b9ac91b109268de7231bd9b61263debcf13f38ddb25df5431",
+    "label": "double",
+    "updated_at": "2026-11-21T00:47:23+00:00"
+  },
+  "1069927146873984": {
+    "image_id": "1069927146873984",
+    "dataset": "train",
+    "image_sha256": "c601ec7462b457376f0bdb309b5f157244eaa81663364ad6f6d3f092c1a9a3f3",
+    "label": "double",
+    "updated_at": "2026-11-21T00:47:24+00:00"
+  },
+  "468565351113137": {
+    "image_id": "468565351113137",
+    "dataset": "train",
+    "image_sha256": "a837df8f401cdd684074e6d55852797304c0546e1dc499f65434bf0214bd3242",
+    "label": "double",
+    "updated_at": "2026-11-21T00:47:24+00:00"
+  },
+  "940338356716443": {
+    "image_id": "940338356716443",
+    "dataset": "train",
+    "image_sha256": "14ca383674229e566787778c73f9148cb847030758193b7f2d751f8bb029bbc2",
+    "label": "double",
+    "updated_at": "2026-11-21T00:47:25+00:00"
+  },
+  "215443046804022": {
+    "image_id": "215443046804022",
+    "dataset": "train",
+    "image_sha256": "ba6fb86712864b05eb4b84399f9fbc1452b57d9d01fbb6cc3197d8c87e934a7f",
+    "label": "single",
+    "updated_at": "2026-11-21T00:47:30+00:00"
+  },
+  "809754973285749": {
+    "image_id": "809754973285749",
+    "dataset": "train",
+    "image_sha256": "c4494b578df03f6c38bc47df81d24eaf238fef2399845d0386dd4f45831e0b41",
+    "label": "single",
+    "updated_at": "2026-11-21T00:47:31+00:00"
+  },
+  "1386739581697239": {
+    "image_id": "1386739581697239",
+    "dataset": "train",
+    "image_sha256": "9c5321b128b0d67f6ad5ee0c55eae4a046bd84b8aa010e88e71cda280a6f0cc7",
+    "label": "double",
+    "updated_at": "2026-11-21T00:47:32+00:00"
+  },
+  "200056905290006": {
+    "image_id": "200056905290006",
+    "dataset": "train",
+    "image_sha256": "1543ad3bebb6063d25211b7e08e23b3af2c93d0a2daa0fac7019daa95f3133d5",
+    "label": "single",
+    "updated_at": "2026-11-21T00:47:33+00:00"
+  },
+  "4813025322082240": {
+    "image_id": "4813025322082240",
+    "dataset": "train",
+    "image_sha256": "b713782792c1cf409cb6f8e6d6de3cbe31b3aad88295071782b8755e20916525",
+    "label": "single",
+    "updated_at": "2026-11-21T00:47:34+00:00"
+  },
+  "3165981590285181": {
+    "image_id": "3165981590285181",
+    "dataset": "train",
+    "image_sha256": "699cf11c575d1c883cd4735e3b4c89ed6237d7bff70d197e1802dd5d6992d616",
+    "label": "double",
+    "updated_at": "2026-11-21T00:47:42+00:00"
+  },
+  "214025490363489": {
+    "image_id": "214025490363489",
+    "dataset": "train",
+    "image_sha256": "d55d50c554dd32e31e165c2b2f8347cc36c08eb51018466839d53b9cae52698f",
+    "label": "double",
+    "updated_at": "2026-11-21T00:47:43+00:00"
+  },
+  "200169655275789": {
+    "image_id": "200169655275789",
+    "dataset": "train",
+    "image_sha256": "5b697b359d293c4d82a0878eae1d579865940e785e1b0a67e639f6935e9ae122",
+    "label": "double",
+    "updated_at": "2026-11-21T00:47:44+00:00"
+  },
+  "2918408071772147": {
+    "image_id": "2918408071772147",
+    "dataset": "train",
+    "image_sha256": "70db76ccbddfc3003c05f7b07a07c1f4cd14ab935ff673a103b731d973cb533e",
+    "label": "single",
+    "updated_at": "2026-11-21T00:47:49+00:00"
+  },
+  "1260801737648470": {
+    "image_id": "1260801737648470",
+    "dataset": "train",
+    "image_sha256": "80e4ee891c29d7baba7a41ecc6c18bab4dab0e831bd7472897962d136117a77e",
+    "label": "double",
+    "updated_at": "2026-11-21T00:47:50+00:00"
+  },
+  "202035325085945": {
+    "image_id": "202035325085945",
+    "dataset": "train",
+    "image_sha256": "306e15d610b57ea4d0f7ca49241eddb7f645214a7b7201026a965ed742f9e495",
+    "label": "double",
+    "updated_at": "2026-11-21T00:47:51+00:00"
+  },
+  "1103989746679970": {
+    "image_id": "1103989746679970",
+    "dataset": "train",
+    "image_sha256": "588b610614ca2b985f1e73ed5a25ed7d4b34ad6a121688eec9047bd2caf21974",
+    "label": "single",
+    "updated_at": "2026-11-21T00:47:52+00:00"
+  },
+  "293997682375843": {
+    "image_id": "293997682375843",
+    "dataset": "train",
+    "image_sha256": "13fc2a5b4361c17d32fe0bcbb2a70c556913bd4a7242d858651f8a8665d8aeae",
+    "label": "single",
+    "updated_at": "2026-11-21T00:47:53+00:00"
+  },
+  "1437322729948049": {
+    "image_id": "1437322729948049",
+    "dataset": "train",
+    "image_sha256": "bea56fb17e053fe98b41cb7fb3197fd36103f09763ded9f3ba2b1ac1424404d9",
+    "label": "double",
+    "updated_at": "2026-11-21T00:47:56+00:00"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "model": "Qwen/Qwen3-VL-2B-Instruct",
+  "revision": "89644892e4d85e24eaac8bacfd4f463576704203",
+  "gpu": "Tesla T4",
+  "precision": "torch.float16",
+  "objective": "mean answer-token cross-entropy",
+  "dataset_hash": "1273a0396aaa058a621fae198e4782de9c1439505308a429ebf7c8978c2a8af1",
+  "prompt": "From this street-level image, guess its location anywhere on Earth. Return exactly one JSON object with the two-letter country code first, then the decimal latitude and longitude. Make one best guess. Use exactly these keys: country, latitude, longitude.",
+  "train_n": 6000,
+  "eval_n": 300,
+  "epochs": 1,
+  "rank": 8,
+  "alpha": 16,
+  "accumulation": 8,
+  "seed": 7818
+}

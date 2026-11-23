@@ -1,0 +1,88 @@
+{
+  "revision": "cff33609b56b54d8743b7ee7a416eb8433e9a681",
+  "train_rows": 4894684,
+  "min_capture_year": 2018,
+  "eligible_rows": 3328305,
+  "train_capture_years": {
+    "2011": 6496,
+    "2012": 73,
+    "2013": 27057,
+    "2014": 97135,
+    "2015": 415076,
+    "2016": 508365,
+    "2017": 512177,
+    "2018": 1058786,
+    "2019": 911831,
+    "2020": 598541,
+    "2021": 423387,
+    "2022": 335756,
+    "2023": 4
+  },
+  "query_counts": {
+    "coverage": 6000,
+    "train": 12000,
+    "validation": 2000
+  },
+  "curve": [
+    {
+      "gallery_n": 10000,
+      "n": 6000,
+      "hits": 5486,
+      "coverage": 0.9143333333333333,
+      "macro_coarse_tile_coverage": 0.9061701750236518,
+      "countries": 205,
+      "random_sequence": {
+        "n": 6000,
+        "hits": 3472,
+        "coverage": 0.5786666666666667,
+        "macro_coarse_tile_coverage": 0.4495496294544308,
+        "countries": 156
+      }
+    },
+    {
+      "gallery_n": 25000,
+      "n": 6000,
+      "hits": 5839,
+      "coverage": 0.9731666666666666,
+      "macro_coarse_tile_coverage": 0.9555631110059917,
+      "countries": 208,
+      "random_sequence": {
+        "n": 6000,
+        "hits": 4438,
+        "coverage": 0.7396666666666667,
+        "macro_coarse_tile_coverage": 0.6120555424156418,
+        "countries": 173
+      }
+    },
+    {
+      "gallery_n": 50000,
+      "n": 6000,
+      "hits": 5898,
+      "coverage": 0.983,
+      "macro_coarse_tile_coverage": 0.9653392068748028,
+      "countries": 210,
+      "random_sequence": {
+        "n": 6000,
+        "hits": 5048,
+        "coverage": 0.8413333333333334,
+        "macro_coarse_tile_coverage": 0.7344154052349416,
+        "countries": 184
+      }
+    },
+    {
+      "gallery_n": 100000,
+      "n": 6000,
+      "hits": 5934,
+      "coverage": 0.989,
+      "macro_coarse_tile_coverage": 0.9726407284768213,
+      "countries": 214,
+      "random_sequence": {
+        "n": 6000,
+        "hits": 5463,
+        "coverage": 0.9105,
+        "macro_coarse_tile_coverage": 0.8348263560391044,
+        "countries": 192
+      }
+    }
+  ]
+}

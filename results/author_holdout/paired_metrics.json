@@ -1,0 +1,8 @@
+{
+  "valid_in_both": 65,
+  "zero_shot_median_km": 945.1947796222223,
+  "sft_median_km": 588.9592929007051,
+  "sft_closer": 42,
+  "sft_farther": 23,
+  "unchanged": 0
+}

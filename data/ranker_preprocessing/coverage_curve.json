@@ -1,0 +1,71 @@
+{
+  "revision": "cff33609b56b54d8743b7ee7a416eb8433e9a681",
+  "train_rows": 4894684,
+  "query_counts": {
+    "coverage": 6000,
+    "train": 12000,
+    "validation": 2000
+  },
+  "curve": [
+    {
+      "gallery_n": 10000,
+      "n": 6000,
+      "hits": 5287,
+      "coverage": 0.8811666666666667,
+      "macro_coarse_tile_coverage": 0.8771121351766512,
+      "countries": 210,
+      "random_sequence": {
+        "n": 6000,
+        "hits": 3065,
+        "coverage": 0.5108333333333334,
+        "macro_coarse_tile_coverage": 0.4111925708699902,
+        "countries": 162
+      }
+    },
+    {
+      "gallery_n": 25000,
+      "n": 6000,
+      "hits": 5839,
+      "coverage": 0.9731666666666666,
+      "macro_coarse_tile_coverage": 0.958387445887446,
+      "countries": 215,
+      "random_sequence": {
+        "n": 6000,
+        "hits": 4085,
+        "coverage": 0.6808333333333333,
+        "macro_coarse_tile_coverage": 0.5715315598380115,
+        "countries": 176
+      }
+    },
+    {
+      "gallery_n": 50000,
+      "n": 6000,
+      "hits": 5889,
+      "coverage": 0.9815,
+      "macro_coarse_tile_coverage": 0.9667888563049853,
+      "countries": 218,
+      "random_sequence": {
+        "n": 6000,
+        "hits": 4776,
+        "coverage": 0.796,
+        "macro_coarse_tile_coverage": 0.6969557324396034,
+        "countries": 189
+      }
+    },
+    {
+      "gallery_n": 100000,
+      "n": 6000,
+      "hits": 5931,
+      "coverage": 0.9885,
+      "macro_coarse_tile_coverage": 0.9761852394916912,
+      "countries": 218,
+      "random_sequence": {
+        "n": 6000,
+        "hits": 5272,
+        "coverage": 0.8786666666666667,
+        "macro_coarse_tile_coverage": 0.8032397709817065,
+        "countries": 203
+      }
+    }
+  ]
+}

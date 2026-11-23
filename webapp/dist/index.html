@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f6fa">
+  <title>街景定位比較 · GeoGuessr Recognition</title>
+  <link rel="stylesheet" href="assets/leaflet.css">
+  <link rel="stylesheet" href="assets/app.css">
+  <script defer src="assets/leaflet.js"></script>
+  <script defer src="assets/basemap.js"></script>
+  <script defer src="assets/data.js"></script>
+  <script defer src="assets/app.js"></script>
+</head>
+<body>
+  <main class="workspace">
+    <header class="masthead">
+      <div>
+        <p class="project-name">GeoGuessr Recognition</p>
+        <h1>街景定位比較</h1>
+      </div>
+      <label class="control">
+        <span>比較版本</span>
+        <select id="version">
+          <option value="sft">微調 6,000 張</option>
+          <option value="sft_2000">微調 2,000 張</option>
+        </select>
+      </label>
+    </header>
+
+    <section class="sample" aria-label="評估照片">
+      <div class="sample-toolbar">
+        <nav class="navigation" aria-label="切換照片">
+          <button id="previous" type="button" class="arrow" aria-label="上一張" title="上一張">←</button>
+          <label class="control picture-picker">
+            <span class="visually-hidden">照片</span>
+            <select id="picture"></select>
+          </label>
+          <button id="next" type="button" class="arrow" aria-label="下一張" title="下一張">→</button>
+        </nav>
+        <label class="control">
+          <span>篩選</span>
+          <select id="filter">
+            <option value="all">全部照片</option>
+            <option value="better">微調後更近</option>
+            <option value="worse">微調後更遠</option>
+            <option value="missing">缺少可用座標</option>
+          </select>
+        </label>
+      </div>
+      <figure>
+        <div class="photo-frame">
+          <img id="photo" alt="用於兩個模型評估的同一張街景照片">
+          <p id="photo-error" hidden>無法載入街景照片</p>
+        </div>
+        <figcaption>
+          <span><span class="truth-dot"></span> 真值 <strong id="truth"></strong></span>
+          <span id="credit"></span>
+        </figcaption>
+      </figure>
+    </section>
+
+    <section class="comparison" aria-label="預測地圖">
+      <div class="comparison-toolbar">
+        <span id="comparison-result" class="comparison-result" aria-live="polite"></span>
+        <div class="map-controls">
+          <label class="sync-control"><input id="sync" type="checkbox" checked> 同步地圖</label>
+          <button type="button" id="reset">重設視角</button>
+        </div>
+      </div>
+      <div class="map-grid">
+        <article class="map-card zero">
+          <header class="model-heading">
+            <div>
+              <h2>Zero-shot</h2>
+              <p id="country-zero"></p>
+            </div>
+            <strong class="distance" id="distance-zero"></strong>
+          </header>
+          <div id="map-zero" class="map" role="region" aria-label="Zero-shot 預測地圖"></div>
+          <p class="metrics" id="metrics-zero"></p>
+        </article>
+        <article class="map-card fine">
+          <header class="model-heading">
+            <div>
+              <h2 id="fine-title">微調 6,000 張</h2>
+              <p id="country-fine"></p>
+            </div>
+            <strong class="distance" id="distance-fine"></strong>
+          </header>
+          <div id="map-fine" class="map" role="region" aria-label="微調版本預測地圖"></div>
+          <p class="metrics" id="metrics-fine"></p>
+        </article>
+      </div>
+      <footer class="comparison-footer">
+        <div class="legend" aria-label="地圖圖例">
+          <span><i class="truth-dot"></i> 真值</span>
+          <span><i class="zero-dot"></i> Zero-shot</span>
+          <span><i class="fine-dot"></i> 微調</span>
+        </div>
+        <p>統計涵蓋相同的 <span id="total"></span> 張照片。距離中位數以有效座標計算。</p>
+      </footer>
+    </section>
+  </main>
+</body>
+</html>

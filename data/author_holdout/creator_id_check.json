@@ -1,0 +1,13 @@
+{
+  "metadata_ids_found": 6366,
+  "expected_images": 6366,
+  "images_with_creator_id": {
+    "train": 6000,
+    "eval": 300,
+    "new": 66
+  },
+  "distinct_creator_ids_in_new_test": 66,
+  "creator_ids_overlapping_training": 0,
+  "creator_ids_overlapping_prior_evaluation": 0,
+  "new_test_images_with_overlapping_creator_ids": []
+}

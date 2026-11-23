@@ -1,0 +1,15 @@
+{
+  "scanned": 340,
+  "flagged_hud": 1,
+  "clean_remaining": 339,
+  "flagged": [
+    {
+      "id": "798364104121004",
+      "country": "JP",
+      "attribution": "junito",
+      "hits": [
+        "GARM4M 2•18-01.15 11:21:03 38.41452 141.23285 (y=0.97-1.00)"
+      ]
+    }
+  ]
+}

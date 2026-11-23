@@ -1,0 +1,7445 @@
+{
+  "training": {
+    "model": "Qwen/Qwen3-VL-2B-Instruct",
+    "revision": "89644892e4d85e24eaac8bacfd4f463576704203",
+    "gpu": "NVIDIA L4",
+    "precision": "torch.bfloat16",
+    "training_manifest_sha256": "13de5a54510ff1b0457584e70a8f95722e0ab082419eb028488e3679c4c82b91",
+    "input_adapter_sha256": "cae8acb2f31bf9d94ab9ffef612c1f1e76faa1ae27e03603bf4b36736e3126ad",
+    "unique_training_images": 104,
+    "counts": {
+      "ocr_evidence": 31,
+      "ocr_empty": 69,
+      "visual": 70,
+      "geo_direct": 54,
+      "geo_visual": 34
+    },
+    "passes": {
+      "ocr_evidence": 3,
+      "ocr_empty": 2,
+      "visual": 2,
+      "geo_direct": 2,
+      "geo_visual": 2
+    },
+    "number_of_examples_seen": 547,
+    "learning_rate": 6e-05,
+    "accumulation": 8,
+    "seed": 52711,
+    "trainable_parameters": 3211264
+  },
+  "steps": 69,
+  "first_logged_loss": 0.9894492626190186,
+  "last_logged_loss": 0.5771052241325378,
+  "mean_first_10_loss": 0.6925810754299164,
+  "mean_last_10_loss": 0.3817733958363533,
+  "geo": {
+    "direct": {
+      "n": 66,
+      "valid_coordinates": 66,
+      "country_correct": 33,
+      "within_25km": 1,
+      "within_200km": 14,
+      "median_km": 600.3413218125864
+    },
+    "before_text": {
+      "n": 66,
+      "valid_coordinates": 66,
+      "country_correct": 30,
+      "within_25km": 1,
+      "within_200km": 11,
+      "median_km": 615.6838372744463
+    },
+    "before_visual": {
+      "n": 66,
+      "valid_coordinates": 66,
+      "country_correct": 33,
+      "within_25km": 1,
+      "within_200km": 14,
+      "median_km": 600.3413218125864
+    },
+    "repaired_text": {
+      "n": 66,
+      "valid_coordinates": 66,
+      "country_correct": 29,
+      "within_25km": 1,
+      "within_200km": 8,
+      "median_km": 665.4023859038361
+    },
+    "repaired_visual": {
+      "n": 66,
+      "valid_coordinates": 66,
+      "country_correct": 31,
+      "within_25km": 1,
+      "within_200km": 12,
+      "median_km": 658.3753143800989
+    },
+    "after_direct": {
+      "n": 66,
+      "valid_coordinates": 65,
+      "country_correct": 30,
+      "within_25km": 2,
+      "within_200km": 10,
+      "median_km": 591.92475876024
+    },
+    "after_text": {
+      "n": 66,
+      "valid_coordinates": 65,
+      "country_correct": 29,
+      "within_25km": 2,
+      "within_200km": 9,
+      "median_km": 591.92475876024
+    },
+    "after_visual": {
+      "n": 66,
+      "valid_coordinates": 64,
+      "country_correct": 29,
+      "within_25km": 1,
+      "within_200km": 10,
+      "median_km": 623.2379083603292
+    },
+    "after_both": {
+      "n": 66,
+      "valid_coordinates": 64,
+      "country_correct": 29,
+      "within_25km": 1,
+      "within_200km": 10,
+      "median_km": 623.2379083603292
+    }
+  },
+  "paired_geo": {
+    "before_text": {
+      "valid_in_both": 66,
+      "direct_median_km": 600.3413218125864,
+      "candidate_median_km": 615.6838372744463,
+      "median_per_photo_change_km": 0.0,
+      "closer_by_over_1_km": 8,
+      "farther_by_over_1_km": 13,
+      "within_1_km_change": 45,
+      "country_gained": 1,
+      "country_lost": 4
+    },
+    "before_visual": {
+      "valid_in_both": 66,
+      "direct_median_km": 600.3413218125864,
+      "candidate_median_km": 600.3413218125864,
+      "median_per_photo_change_km": 0.0,
+      "closer_by_over_1_km": 0,
+      "farther_by_over_1_km": 0,
+      "within_1_km_change": 66,
+      "country_gained": 0,
+      "country_lost": 0
+    },
+    "repaired_text": {
+      "valid_in_both": 66,
+      "direct_median_km": 600.3413218125864,
+      "candidate_median_km": 665.4023859038361,
+      "median_per_photo_change_km": 0.0,
+      "closer_by_over_1_km": 11,
+      "farther_by_over_1_km": 18,
+      "within_1_km_change": 37,
+      "country_gained": 2,
+      "country_lost": 6
+    },
+    "repaired_visual": {
+      "valid_in_both": 66,
+      "direct_median_km": 600.3413218125864,
+      "candidate_median_km": 658.3753143800989,
+      "median_per_photo_change_km": 0.0,
+      "closer_by_over_1_km": 19,
+      "farther_by_over_1_km": 23,
+      "within_1_km_change": 24,
+      "country_gained": 0,
+      "country_lost": 2
+    },
+    "after_direct": {
+      "valid_in_both": 65,
+      "direct_median_km": 588.9592929007051,
+      "candidate_median_km": 591.92475876024,
+      "median_per_photo_change_km": 0.1368956403129573,
+      "closer_by_over_1_km": 23,
+      "farther_by_over_1_km": 29,
+      "within_1_km_change": 13,
+      "country_gained": 1,
+      "country_lost": 4
+    },
+    "after_text": {
+      "valid_in_both": 65,
+      "direct_median_km": 588.9592929007051,
+      "candidate_median_km": 591.92475876024,
+      "median_per_photo_change_km": 0.1368956403129573,
+      "closer_by_over_1_km": 24,
+      "farther_by_over_1_km": 30,
+      "within_1_km_change": 11,
+      "country_gained": 1,
+      "country_lost": 5
+    },
+    "after_visual": {
+      "valid_in_both": 64,
+      "direct_median_km": 586.8656769594894,
+      "candidate_median_km": 623.2379083603292,
+      "median_per_photo_change_km": 0.27819862975789533,
+      "closer_by_over_1_km": 26,
+      "farther_by_over_1_km": 31,
+      "within_1_km_change": 7,
+      "country_gained": 1,
+      "country_lost": 5
+    },
+    "after_both": {
+      "valid_in_both": 64,
+      "direct_median_km": 586.8656769594894,
+      "candidate_median_km": 623.2379083603292,
+      "median_per_photo_change_km": 0.7282963909339628,
+      "closer_by_over_1_km": 25,
+      "farther_by_over_1_km": 32,
+      "within_1_km_change": 7,
+      "country_gained": 1,
+      "country_lost": 5
+    }
+  },
+  "visual_read": {
+    "before": {
+      "n": 29,
+      "parsed": 0,
+      "surface": [
+        0,
+        29
+      ],
+      "centerline": [
+        0,
+        25
+      ],
+      "roadside_exact": 0,
+      "roadside_micro_f1": 0.0
+    },
+    "repaired": {
+      "n": 29,
+      "parsed": 29,
+      "surface": [
+        28,
+        29
+      ],
+      "centerline": [
+        20,
+        25
+      ],
+      "roadside_exact": 7,
+      "roadside_micro_f1": 0.5614035087719298
+    },
+    "after": {
+      "n": 29,
+      "parsed": 29,
+      "surface": [
+        28,
+        29
+      ],
+      "centerline": [
+        21,
+        25
+      ],
+      "roadside_exact": 27,
+      "roadside_micro_f1": 0.9375
+    }
+  },
+  "text_read": {
+    "before": {
+      "read_status": {
+        "invalid": 21,
+        "nonempty": 24,
+        "empty": 21
+      },
+      "no_readable_subset": {
+        "invalid": 5,
+        "nonempty": 5,
+        "empty": 11
+      },
+      "readable_anchor_hit": {
+        "22": false,
+        "24": false,
+        "31": true,
+        "36": false,
+        "45": false
+      },
+      "readable_anchor_total": 1
+    },
+    "repaired": {
+      "read_status": {
+        "invalid": 12,
+        "nonempty": 33,
+        "empty": 21
+      },
+      "no_readable_subset": {
+        "invalid": 3,
+        "nonempty": 7,
+        "empty": 11
+      },
+      "readable_anchor_hit": {
+        "22": false,
+        "24": false,
+        "31": true,
+        "36": false,
+        "45": false
+      },
+      "readable_anchor_total": 1
+    },
+    "after": {
+      "read_status": {
+        "empty": 59,
+        "nonempty": 7
+      },
+      "no_readable_subset": {
+        "empty": 21
+      },
+      "readable_anchor_hit": {
+        "22": false,
+        "24": false,
+        "31": false,
+        "36": false,
+        "45": true
+      },
+      "readable_anchor_total": 1
+    }
+  },
+  "format_control": {
+    "manifest_sha256": "d8bb04154ccedc743a33cd40a060db8ae4a9cc5e48f6655683b3fe12e2ecb359",
+    "adapter_sha256": "cae8acb2f31bf9d94ab9ffef612c1f1e76faa1ae27e03603bf4b36736e3126ad",
+    "road_parsed": 63,
+    "additional_text_cases": 9
+  },
+  "original_and_final_adapter": [
+    "cae8acb2f31bf9d94ab9ffef612c1f1e76faa1ae27e03603bf4b36736e3126ad",
+    "f80608c003f8c8c847364e6b2cc44e9a02ac09178aed9795cb488ad9be27b140"
+  ],
+  "rows": [
+    {
+      "ordinal": 1,
+      "id": "489113365567707",
+      "country": "US",
+      "before_read_status": "invalid",
+      "after_read_status": "empty",
+      "repaired_read_status": "invalid",
+      "repaired_strings": [],
+      "before_strings": [],
+      "after_strings": [],
+      "before_observations": null,
+      "repaired_observations": {
+        "surface": "paved",
+        "centerline": "yellow",
+        "roadside": [
+          "bollards",
+          "utility_poles"
+        ]
+      },
+      "after_observations": {
+        "surface": "paved",
+        "centerline": "none",
+        "roadside": [
+          "utility_poles"
+        ]
+      },
+      "direct": {
+        "country": "US",
+        "guess_country": "US",
+        "guess_coordinates": [
+          34.08,
+          -118.251
+        ],
+        "distance_km": 539.6178395864919
+      },
+      "before_text": {
+        "country": "US",
+        "guess_country": "US",
+        "guess_coordinates": [
+          34.08,
+          -118.251
+        ],
+        "distance_km": 539.6178395864919
+      },
+      "before_visual": {
+        "country": "US",
+        "guess_country": "US",
+        "guess_coordinates": [
+          34.08,
+          -118.251
+        ],
+        "distance_km": 539.6178395864919
+      },
+      "repaired_text": {
+        "country": "US",
+        "guess_country": "US",
+        "guess_coordinates": [
+          34.08,
+          -118.251
+        ],
+        "distance_km": 539.6178395864919
+      },
+      "repaired_visual": {
+        "country": "US",
+        "guess_country": "US",
+        "guess_coordinates": [
+          34.08,
+          -118.241
+        ],
+        "distance_km": 540.2079731026503
+      },
+      "after_direct": {
+        "country": "US",
+        "guess_country": "US",
+        "guess_coordinates": [
+          34.082,
+          -118.251
+        ],
+        "distance_km": 539.4470354211523
+      },
+      "after_text": {
+        "country": "US",
+        "guess_country": "US",
+        "guess_coordinates": [
+          34.082,
+          -118.251
+        ],
+        "distance_km": 539.4470354211523
+      },
+      "after_visual": {
+        "country": "US",
+        "guess_country": "US",
+        "guess_coordinates": [
+          34.082,
+          -118.241
+        ],
+        "distance_km": 540.0373412056947
+      },
+      "after_both": {
+        "country": "US",
+        "guess_country": "US",
+        "guess_coordinates": [
+          34.082,
+          -118.241
+        ],
+        "distance_km": 540.0373412056947
+      }
+    },
+    {
+      "ordinal": 2,
+      "id": "764727120884988",
+      "country": "BR",
+      "before_read_status": "nonempty",
+      "after_read_status": "empty",
+      "repaired_read_status": "nonempty",
+      "repaired_strings": [
+        "200"
+      ],
+      "before_strings": [
+        "200"
+      ],
+      "after_strings": [],
+      "before_observations": null,
+      "repaired_observations": {
+        "surface": "paved",
+        "centerline": "yellow",
+        "roadside": [
+          "utility_poles"
+        ]
+      },
+      "after_observations": {
+        "surface": "paved",
+        "centerline": "yellow",
+        "roadside": []
+      },
+      "direct": {
+        "country": "BR",
+        "guess_country": "US",
+        "guess_coordinates": [
+          37.1,
+          -80.0
+        ],
+        "distance_km": 7534.919629383402
+      },
+      "before_text": {
+        "country": "BR",
+        "guess_country": "US",
+        "guess_coordinates": [
+          37.102,
+          -80.0
+        ],
+        "distance_km": 7535.110812611565
+      },
+      "before_visual": {
+        "country": "BR",
+        "guess_country": "US",
+        "guess_coordinates": [
+          37.1,
+          -80.0
+        ],
+        "distance_km": 7534.919629383402
+      },
+      "repaired_text": {
+        "country": "BR",
+        "guess_country": "US",
+        "guess_coordinates": [
+          37.102,
+          -80.0
+        ],
+        "distance_km": 7535.110812611565
+      },
+      "repaired_visual": {
+        "country": "BR",
+        "guess_country": "US",
+        "guess_coordinates": [
+          37.0,
+          -80.0
+        ],
+        "distance_km": 7525.361525890875
+      },
+      "after_direct": {
+        "country": "BR",
+        "guess_country": "US",
+        "guess_coordinates": [
+          37.024,
+          -80.0
+        ],
+        "distance_km": 7527.655281277881
+      },
+      "after_text": {
+        "country": "BR",
+        "guess_country": "US",
+        "guess_coordinates": [
+          37.024,
+          -80.0
+        ],
+        "distance_km": 7527.655281277881
+      },
+      "after_visual": {
+        "country": "BR",
+        "guess_country": "US",
+        "guess_coordinates": [
+          37.024,
+          -80.0
+        ],
+        "distance_km": 7527.655281277881
+      },
+      "after_both": {
+        "country": "BR",
+        "guess_country": "US",
+        "guess_coordinates": [
+          37.024,
+          -80.0
+        ],
+        "distance_km": 7527.655281277881
+      }
+    },
+    {
+      "ordinal": 3,
+      "id": "464476304820312",
+      "country": "AU",
+      "before_read_status": "invalid",
+      "after_read_status": "empty",
+      "repaired_read_status": "invalid",
+      "repaired_strings": [],
+      "before_strings": [],
+      "after_strings": [],
+      "before_observations": null,
+      "repaired_observations": {
+        "surface": "paved",
+        "centerline": "white",
+        "roadside": [
+          "guardrail",
+          "utility_poles"
+        ]
+      },
+      "after_observations": {
+        "surface": "paved",
+        "centerline": "white",
+        "roadside": [
+          "utility_poles"
+        ]
+      },
+      "direct": {
+        "country": "AU",
+        "guess_country": "AU",
+        "guess_coordinates": [
+          -27.454,
+          151.701
+        ],
+        "distance_km": 169.76698804207234
+      },
+      "before_text": {
+        "country": "AU",
+        "guess_country": "AU",
+        "guess_coordinates": [
+          -27.454,
+          151.701
+        ],
+        "distance_km": 169.76698804207234
+      },
+      "before_visual": {
+        "country": "AU",
+        "guess_country": "AU",
+        "guess_coordinates": [
+          -27.454,
+          151.701
+        ],
+        "distance_km": 169.76698804207234
+      },
+      "repaired_text": {
+        "country": "AU",
+        "guess_country": "AU",
+        "guess_coordinates": [
+          -27.454,
+          151.701
+        ],
+        "distance_km": 169.76698804207234
+      },
+      "repaired_visual": {
+        "country": "AU",
+        "guess_country": "AU",
+        "guess_coordinates": [
+          -27.454,
+          151.301
+        ],
+        "distance_km": 203.17225686293668
+      },
+      "after_direct": {
+        "country": "AU",
+        "guess_country": "AU",
+        "guess_coordinates": [
+          -27.494,
+          151.144
+        ],
+        "distance_km": 218.90790845296928
+      },
+      "after_text": {
+        "country": "AU",
+        "guess_country": "AU",
+        "guess_coordinates": [
+          -27.494,
+          151.144
+        ],
+        "distance_km": 218.90790845296928
+      },
+      "after_visual": {
+        "country": "AU",
+        "guess_country": "AU",
+        "guess_coordinates": [
+          -27.454,
+          151.254
+        ],
+        "distance_km": 207.24134390276183
+      },
+      "after_both": {
+        "country": "AU",
+        "guess_country": "AU",
+        "guess_coordinates": [
+          -27.454,
+          151.254
+        ],
+        "distance_km": 207.24134390276183
+      }
+    },
+    {
+      "ordinal": 4,
+      "id": "237962241451337",
+      "country": "MX",
+      "before_read_status": "empty",
+      "after_read_status": "empty",
+      "repaired_read_status": "empty",
+      "repaired_strings": [],
+      "before_strings": [],
+      "after_strings": [],
+      "before_observations": null,
+      "repaired_observations": {
+        "surface": "unpaved",
+        "centerline": "none",
+        "roadside": [
+          "bollards",
+          "utility_poles"
+        ]
+      },
+      "after_observations": {
+        "surface": "unpaved",
+        "centerline": "none",
+        "roadside": [
+          "utility_poles"
+        ]
+      },
+      "direct": {
+        "country": "MX",
+        "guess_country": "MX",
+        "guess_coordinates": [
+          20.952,
+          -89.7
+        ],
+        "distance_km": 281.2784001372625
+      },
+      "before_text": {
+        "country": "MX",
+        "guess_country": "MX",
+        "guess_coordinates": [
+          20.952,
+          -89.7
+        ],
+        "distance_km": 281.2784001372625
+      },
+      "before_visual": {
+        "country": "MX",
+        "guess_country": "MX",
+        "guess_coordinates": [
+          20.952,
+          -89.7
+        ],
+        "distance_km": 281.2784001372625
+      },
+      "repaired_text": {
+        "country": "MX",
+        "guess_country": "MX",
+        "guess_coordinates": [
+          20.952,
+          -89.7
+        ],
+        "distance_km": 281.2784001372625
+      },
+      "repaired_visual": {
+        "country": "MX",
+        "guess_country": "MX",
+        "guess_coordinates": [
+          20.952,
+          -89.6
+        ],
+        "distance_km": 279.9340611517535
+      },
+      "after_direct": {
+        "country": "MX",
+        "guess_country": "MX",
+        "guess_coordinates": [
+          20.144,
+          -89.6
+        ],
+        "distance_km": 190.90302590229513
+      },
+      "after_text": {
+        "country": "MX",
+        "guess_country": "MX",
+        "guess_coordinates": [
+          20.144,
+          -89.6
+        ],
+        "distance_km": 190.90302590229513
+      },
+      "after_visual": {
+        "country": "MX",
+        "guess_country": "MX",
+        "guess_coordinates": [
+          20.2,
+          -89.6
+        ],
+        "distance_km": 197.04965660335276
+      },
+      "after_both": {
+        "country": "MX",
+        "guess_country": "MX",
+        "guess_coordinates": [
+          20.2,
+          -89.6
+        ],
+        "distance_km": 197.04965660335276
+      }
+    },
+    {
+      "ordinal": 5,
+      "id": "295487235586077",
+      "country": "RU",
+      "before_read_status": "invalid",
+      "after_read_status": "empty",
+      "repaired_read_status": "nonempty",
+      "repaired_strings": [
+        "Kolosovskaya"
+      ],
+      "before_strings": [],
+      "after_strings": [],
+      "before_observations": null,
+      "repaired_observations": {
+        "surface": "paved",
+        "centerline": "white",
+        "roadside": [
+          "utility_poles"
+        ]
+      },
+      "after_observations": {
+        "surface": "paved",
+        "centerline": "none",
+        "roadside": []
+      },
+      "direct": {
+        "country": "RU",
+        "guess_country": "RU",
+        "guess_coordinates": [
+          55.291,
+          30.412
+        ],
+        "distance_km": 1655.8959542901914
+      },
+      "before_text": {
+        "country": "RU",
+        "guess_country": "RU",
+        "guess_coordinates": [
+          55.291,
+          30.412
+        ],
+        "distance_km": 1655.8959542901914
+      },
+      "before_visual": {
+        "country": "RU",
+        "guess_country": "RU",
+        "guess_coordinates": [
+          55.291,
+          30.412
+        ],
+        "distance_km": 1655.8959542901914
+      },
+      "repaired_text": {
+        "country": "RU",
+        "guess_country": "RU",
+        "guess_coordinates": [
+          50.251,
+          38.101
+        ],
+        "distance_km": 1339.74782959628
+      },
+      "repaired_visual": {
+        "country": "RU",
+        "guess_country": "RU",
+        "guess_coordinates": [
+          50.251,
+          37.102
+        ],
+        "distance_km": 1402.0049353831869
+      },
+      "after_direct": {
+        "country": "RU",
+        "guess_country": "RU",
+        "guess_coordinates": [
+          55.291,
+          30.412
+        ],
+        "distance_km": 1655.8959542901914
+      },
+      "after_text": {
+        "country": "RU",
+        "guess_country": "RU",
+        "guess_coordinates": [
+          55.291,
+          30.412
+        ],
+        "distance_km": 1655.8959542901914
+      },
+      "after_visual": {
+        "country": "RU",
+        "guess_country": "RU",
+        "guess_coordinates": null,
+        "distance_km": null
+      },
+      "after_both": {
+        "country": "RU",
+        "guess_country": "RU",
+        "guess_coordinates": null,
+        "distance_km": null
+      }
+    },
+    {
+      "ordinal": 6,
+      "id": "2950924581810518",
+      "country": "IN",
+      "before_read_status": "nonempty",
+      "after_read_status": "empty",
+      "repaired_read_status": "nonempty",
+      "repaired_strings": [
+        "Sri Lanka"
+      ],
+      "before_strings": [
+        "Sri Lanka"
+      ],
+      "after_strings": [],
+      "before_observations": null,
+      "repaired_observations": {
+        "surface": "paved",
+        "centerline": "white",
+        "roadside": [
+          "traffic_sign",
+          "utility_poles"
+        ]
+      },
+      "after_observations": {
+        "surface": "paved",
+        "centerline": "white",
+        "roadside": [
+          "traffic_sign"
+        ]
+      },
+      "direct": {
+        "country": "IN",
+        "guess_country": "IN",
+        "guess_coordinates": [
+          12.93,
+          80.521
+        ],
+        "distance_km": 555.1389111895639
+      },
+      "before_text": {
+        "country": "IN",
+        "guess_country": "LK",
+        "guess_coordinates": [
+          8.0,
+          79.999
+        ],
+        "distance_km": 379.7956706455491
+      },
+      "before_visual": {
+        "country": "IN",
+        "guess_country": "IN",
+        "guess_coordinates": [
+          12.93,
+          80.521
+        ],
+        "distance_km": 555.1389111895639
+      },
+      "repaired_text": {
+        "country": "IN",
+        "guess_country": "LK",
+        "guess_coordinates": [
+          8.0,
+          79.999
+        ],
+        "distance_km": 379.7956706455491
+      },
+      "repaired_visual": {
+        "country": "IN",
+        "guess_country": "IN",
+        "guess_coordinates": [
+          12.9,
+          80.72
+        ],
+        "distance_km": 568.665638519551
+      },
+      "after_direct": {
+        "country": "IN",
+        "guess_country": "IN",
+        "guess_coordinates": [
+          12.932,
+          80.522
+        ],
+        "distance_km": 555.3710721661284
+      },
+      "after_text": {
+        "country": "IN",
+        "guess_country": "IN",
+        "guess_coordinates": [
+          12.932,
+          80.522
+        ],
+        "distance_km": 555.3710721661284
+      },
+      "after_visual": {
+        "country": "IN",
+        "guess_country": "IN",
+        "guess_coordinates": [
+          12.912,
+          80.512
+        ],
+        "distance_km": 553.0500118833579
+      },
+      "after_both": {
+        "country": "IN",
+        "guess_country": "IN",
+        "guess_coordinates": [
+          12.912,
+          80.512
+        ],
+        "distance_km": 553.0500118833579
+      }
+    },
+    {
+      "ordinal": 7,
+      "id": "1147079779552167",
+      "country": "JP",
+      "before_read_status": "nonempty",
+      "after_read_status": "empty",
+      "repaired_read_status": "nonempty",
+      "repaired_strings": [
+        "TUNNEL"
+      ],
+      "before_strings": [
+        "TUNNEL"
+      ],
+      "after_strings": [],
+      "before_observations": null,
+      "repaired_observations": {
+        "surface": "paved",
+        "centerline": "white",
+        "roadside": [
+          "guardrail",
+          "utility_poles"
+        ]
+      },
+      "after_observations": {
+        "surface": "paved",
+        "centerline": "none",
+        "roadside": [
+          "guardrail"
+        ]
+      },
+      "direct": {
+        "country": "JP",
+        "guess_country": "IT",
+        "guess_coordinates": [
+          41.952,
+          12.222
+        ],
+        "distance_km": 9355.416969265272
+      },
+      "before_text": {
+        "country": "JP",
+        "guess_country": "IT",
+        "guess_coordinates": [
+          41.1,
+          12.251
+        ],
+        "distance_km": 9434.476537866221
+      },
+      "before_visual": {
+        "country": "JP",
+        "guess_country": "IT",
+        "guess_coordinates": [
+          41.952,
+          12.222
+        ],
+        "distance_km": 9355.416969265272
+      },
+      "repaired_text": {
+        "country": "JP",
+        "guess_country": "IT",
+        "guess_coordinates": [
+          41.1,
+          12.251
+        ],
+        "distance_km": 9434.476537866221
+      },
+      "repaired_visual": {
+        "country": "JP",
+        "guess_country": "IT",
+        "guess_coordinates": [
+          41.951,
+          12.221
+        ],
+        "distance_km": 9355.555094140236
+      },
+      "after_direct": {
+        "country": "JP",
+        "guess_country": "IT",
+        "guess_coordinates": [
+          41.941,
+          12.222
+        ],
+        "distance_km": 9356.454060427937
+      },
+      "after_text": {
+        "country": "JP",
+        "guess_country": "IT",
+        "guess_coordinates": [
+          41.941,
+          12.222
+        ],
+        "distance_km": 9356.454060427937
+      },
+      "after_visual": {
+        "country": "JP",
+        "guess_country": "IT",
+        "guess_coordinates": [
+          41.941,
+          12.222
+        ],
+        "distance_km": 9356.454060427937
+      },
+      "after_both": {
+        "country": "JP",
+        "guess_country": "IT",
+        "guess_coordinates": [
+          41.941,
+          12.222
+        ],
+        "distance_km": 9356.454060427937
+      }
+    },
+    {
+      "ordinal": 8,
+      "id": "3691897527605021",
+      "country": "CA",
+      "before_read_status": "empty",
+      "after_read_status": "empty",
+      "repaired_read_status": "empty",
+      "repaired_strings": [],
+      "before_strings": [],
+      "after_strings": [],
+      "before_observations": null,
+      "repaired_observations": {
+        "surface": "paved",
+        "centerline": "none",
+        "roadside": [
+          "guardrail"
+        ]
+      },
+      "after_observations": {
+        "surface": "paved",
+        "centerline": "none",
+        "roadside": []
+      },
+      "direct": {
+        "country": "CA",
+        "guess_country": "US",
+        "guess_coordinates": [
+          47.622,
+          -122.352
+        ],
+        "distance_km": 183.8893062467646
+      },
+      "before_text": {
+        "country": "CA",
+        "guess_country": "US",
+        "guess_coordinates": [
+          47.622,
+          -122.352
+        ],
+        "distance_km": 183.8893062467646
+      },
+      "before_visual": {
+        "country": "CA",
+        "guess_country": "US",
+        "guess_coordinates": [
+          47.622,
+          -122.352
+        ],
+        "distance_km": 183.8893062467646
+      },
+      "repaired_text": {
+        "country": "CA",
+        "guess_country": "US",
+        "guess_coordinates": [
+          47.622,
+          -122.352
+        ],
+        "distance_km": 183.8893062467646
+      },
+      "repaired_visual": {
+        "country": "CA",
+        "guess_country": "US",
+        "guess_coordinates": [
+          47.622,
+          -122.351
+        ],
+        "distance_km": 183.91265233945137
+      },
+      "after_direct": {
+        "country": "CA",
+        "guess_country": "US",
+        "guess_coordinates": [
+          47.612,
+          -122.341
+        ],
+        "distance_km": 185.20316880940416
+      },
+      "after_text": {
+        "country": "CA",
+        "guess_country": "US",
+        "guess_coordinates": [
+          47.612,
+          -122.341
+        ],
+        "distance_km": 185.20316880940416
+      },
+      "after_visual": {
+        "country": "CA",
+        "guess_country": "US",
+        "guess_coordinates": [
+          47.622,
+          -122.352
+        ],
+        "distance_km": 183.8893062467646
+      },
+      "after_both": {
+        "country": "CA",
+        "guess_country": "US",
+        "guess_coordinates": [
+          47.622,
+          -122.352
+        ],
+        "distance_km": 183.8893062467646
+      }
+    },
+    {
+      "ordinal": 9,
+      "id": "294790745594327",
+      "country": "ES",
+      "before_read_status": "empty",
+      "after_read_status": "empty",
+      "repaired_read_status": "empty",
+      "repaired_strings": [],
+      "before_strings": [],
+      "after_strings": [],
+      "before_observations": null,
+      "repaired_observations": {
+        "surface": "paved",
+        "centerline": "white",
+        "roadside": [
+          "guardrail"
+        ]
+      },
+      "after_observations": {
+        "surface": "paved",
+        "centerline": "none",
+        "roadside": [
+          "guardrail"
+        ]
+      },
+      "direct": {
+        "country": "ES",
+        "guess_country": "IT",
+        "guess_coordinates": [
+          42.841,
+          13.122
+        ],
+        "distance_km": 1386.418454083756
+      },
+      "before_text": {
+        "country": "ES",
+        "guess_country": "IT",
+        "guess_coordinates": [
+          42.841,
+          13.122
+        ],
+        "distance_km": 1386.418454083756
+      },
+      "before_visual": {
+        "country": "ES",
+        "guess_country": "IT",
+        "guess_coordinates": [
+          42.841,
+          13.122
+        ],
+        "distance_km": 1386.418454083756
+      },
+      "repaired_text": {
+        "country": "ES",
+        "guess_country": "IT",
+        "guess_coordinates": [
+          42.841,
+          13.122
+        ],
+        "distance_km": 1386.418454083756
+      },
+      "repaired_visual": {
+        "country": "ES",
+        "guess_country": "IT",
+        "guess_coordinates": [
+          42.801,
+          13.122
+        ],
+        "distance_km": 1386.8811570126884
+      },
+      "after_direct": {
+        "country": "ES",
+        "guess_country": "IT",
+        "guess_coordinates": [
+          41.941,
+          12.222
+        ],
+        "distance_km": 1326.8188558845059
+      },
+      "after_text": {
+        "country": "ES",
+        "guess_country": "IT",
+        "guess_coordinates": [
+          41.941,
+          12.222
+        ],
+        "distance_km": 1326.8188558845059
+      },
+      "after_visual": {
+        "country": "ES",
+        "guess_country": "IT",
+        "guess_coordinates": [
+          41.941,
+          12.212
+        ],
+        "distance_km": 1326.0038652181022
+      },
+      "after_both": {
+        "country": "ES",
+        "guess_country": "IT",
+        "guess_coordinates": [
+          41.941,
+          12.212
+        ],
+        "distance_km": 1326.0038652181022
+      }
+    },
+    {
+      "ordinal": 10,
+      "id": "293442282420347",
+      "country": "GB",
+      "before_read_status": "invalid",
+      "after_read_status": "empty",
+      "repaired_read_status": "invalid",
+      "repaired_strings": [],
+      "before_strings": [],
+      "after_strings": [],
+      "before_observations": null,
+      "repaired_observations": {
+        "surface": "paved",
+        "centerline": "white",
+        "roadside": [
+          "bollards",
+          "utility_poles"
+        ]
+      },
+      "after_observations": {
+        "surface": "paved",
+        "centerline": "none",
+        "roadside": []
+      },
+      "direct": {
+        "country": "GB",
+        "guess_country": "GB",
+        "guess_coordinates": [
+          56.1,
+          -4.02
+        ],
+        "distance_km": 259.1513993207168
+      },
+      "before_text": {
+        "country": "GB",
+        "guess_country": "GB",
+        "guess_coordinates": [
+          56.1,
+          -4.02
+        ],
+        "distance_km": 259.1513993207168
+      },
+      "before_visual": {
+        "country": "GB",
+        "guess_country": "GB",
+        "guess_coordinates": [
+          56.1,
+          -4.02
+        ],
+        "distance_km": 259.1513993207168
+      },
+      "repaired_text": {
+        "country": "GB",
+        "guess_country": "GB",
+        "guess_coordinates": [
+          56.1,
+          -4.02
+        ],
+        "distance_km": 259.1513993207168
+      },
+      "repaired_visual": {
+        "country": "GB",
+        "guess_country": "GB",
+        "guess_coordinates": [
+          56.141,
+          -4.021
+        ],
+        "distance_km": 262.8457706381243
+      },
+      "after_direct": {
+        "country": "GB",
+        "guess_country": "GB",
+        "guess_coordinates": [
+          56.402,
+          -4.344
+        ],
+        "distance_km": 277.3278321727083
+      },
+      "after_text": {
+        "country": "GB",
+        "guess_country": "GB",
+        "guess_coordinates": [
+          56.402,
+          -4.344
+        ],
+        "distance_km": 277.3278321727083
+      },
+      "after_visual": {
+        "country": "GB",
+        "guess_country": "GB",
+        "guess_coordinates": [
+          56.402,
+          -4.302
+        ],
+        "distance_km": 278.5402436965659
+      },
+      "after_both": {
+        "country": "GB",
+        "guess_country": "GB",
+        "guess_coordinates": [
+          56.402,
+          -4.302
+        ],
+        "distance_km": 278.5402436965659
+      }
+    },
+    {
+      "ordinal": 11,
+      "id": "3021891311469197",
+      "country": "PT",
+      "before_read_status": "empty",
+      "after_read_status": "empty",
+      "repaired_read_status": "empty",
+      "repaired_strings": [],
+      "before_strings": [],
+      "after_strings": [],
+      "before_observations": null,
+      "repaired_observations": {
+        "surface": "paved",
+        "centerline": "white",
+        "roadside": [
+          "utility_poles"
+        ]
+      },
+      "after_observations": {
+        "surface": "paved",
+        "centerline": "unclear",
+        "roadside": []
+      },
+      "direct": {
+        "country": "PT",
+        "guess_country": "US",
+        "guess_coordinates": [
+          34.052,
+          -118.251
+        ],
+        "distance_km": 9041.021861025722
+      },
+      "before_text": {
+        "country": "PT",
+        "guess_country": "US",
+        "guess_coordinates": [
+          34.052,
+          -118.251
+        ],
+        "distance_km": 9041.021861025722
+      },
+      "before_visual": {
+        "country": "PT",
+        "guess_country": "US",
+        "guess_coordinates": [
+          34.052,
+          -118.251
+        ],
+        "distance_km": 9041.021861025722
+      },
+      "repaired_text": {
+        "country": "PT",
+        "guess_country": "US",
+        "guess_coordinates": [
+          34.052,
+          -118.251
+        ],
+        "distance_km": 9041.021861025722
+      },
+      "repaired_visual": {
+        "country": "PT",
+        "guess_country": "US",
+        "guess_coordinates": [
+          34.052,
+          -118.211
+        ],
+        "distance_km": 9038.35766421668
+      },
+      "after_direct": {
+        "country": "PT",
+        "guess_country": "US",
+        "guess_coordinates": [
+          37.412,
+          -122.801
+        ],
+        "distance_km": 9070.686878507233
+      },
+      "after_text": {
+        "country": "PT",
+        "guess_country": "US",
+        "guess_coordinates": [
+          37.412,
+          -122.801
+        ],
+        "distance_km": 9070.686878507233
+      },
+      "after_visual": {
+        "country": "PT",
+        "guess_country": "US",
+        "guess_coordinates": [
+          37.414,
+          -122.402
+        ],
+        "distance_km": 9045.83482483199
+      },
+      "after_both": {
+        "country": "PT",
+        "guess_country": "US",
+        "guess_coordinates": [
+          37.414,
+          -122.402
+        ],
+        "distance_km": 9045.83482483199
+      }
+    },
+    {
+      "ordinal": 12,
+      "id": "1034556280409841",
+      "country": "TR",
+      "before_read_status": "invalid",
+      "after_read_status": "empty",
+      "repaired_read_status": "invalid",
+      "repaired_strings": [],
+      "before_strings": [],
+      "after_strings": [],
+      "before_observations": null,
+      "repaired_observations": {
+        "surface": "paved",
+        "centerline": "white",
+        "roadside": [
+          "traffic_sign",
+          "utility_poles"
+        ]
+      },
+      "after_observations": {
+        "surface": "paved",
+        "centerline": "none",
+        "roadside": [
+          "traffic_sign"
+        ]
+      },
+      "direct": {
+        "country": "TR",
+        "guess_country": "TR",
+        "guess_coordinates": [
+          38.0,
+          35.15
+        ],
+        "distance_km": 464.8309671848578
+      },
+      "before_text": {
+        "country": "TR",
+        "guess_country": "TR",
+        "guess_coordinates": [
+          38.0,
+          35.15
+        ],
+        "distance_km": 464.8309671848578
+      },
+      "before_visual": {
+        "country": "TR",
+        "guess_country": "TR",
+        "guess_coordinates": [
+          38.0,
+          35.15
+        ],
+        "distance_km": 464.8309671848578
+      },
+      "repaired_text": {
+        "country": "TR",
+        "guess_country": "TR",
+        "guess_coordinates": [
+          38.0,
+          35.15
+        ],
+        "distance_km": 464.8309671848578
+      },
+      "repaired_visual": {
+        "country": "TR",
+        "guess_country": "TR",
+        "guess_coordinates": [
+          38.0,
+          35.25
+        ],
+        "distance_km": 471.18128334213804
+      },
+      "after_direct": {
+        "country": "TR",
+        "guess_country": "TR",
+        "guess_coordinates": [
+          38.952,
+          29.001
+        ],
+        "distance_km": 279.13375478852765
+      },
+      "after_text": {
+        "country": "TR",
+        "guess_country": "TR",
+        "guess_coordinates": [
+          38.952,
+          29.001
+        ],
+        "distance_km": 279.13375478852765
+      },
+      "after_visual": {
+        "country": "TR",
+        "guess_country": "TR",
+        "guess_coordinates": [
+          38.0,
+          36.0
+        ],
+        "distance_km": 520.852958570444
+      },
+      "after_both": {
+        "country": "TR",
+        "guess_country": "TR",
+        "guess_coordinates": [
+          38.0,
+          36.0
+        ],
+        "distance_km": 520.852958570444
+      }
+    },
+    {
+      "ordinal": 13,
+      "id": "305594951240743",
+      "country": "AR",
+      "before_read_status": "invalid",
+      "after_read_status": "empty",
+      "repaired_read_status": "nonempty",
+      "repaired_strings": [
+        "CALLE 10"
+      ],
+      "before_strings": [],
+      "after_strings": [],
+      "before_observations": null,
+      "repaired_observations": {
+        "surface": "paved",
+        "centerline": "none",
+        "roadside": [
+          "traffic_sign",
+          "utility_poles"
+        ]
+      },
+      "after_observations": {
+        "surface": "paved",
+        "centerline": "none",
+        "roadside": [
+          "utility_poles"
+        ]
+      },
+      "direct": {
+        "country": "AR",
+        "guess_country": "AR",
+        "guess_coordinates": [
+          -34.902,
+          -67.0
+        ],
+        "distance_km": 753.5332503473842
+      },
+      "before_text": {
+        "country": "AR",
+        "guess_country": "AR",
+        "guess_coordinates": [
+          -34.902,
+          -67.0
+        ],
+        "distance_km": 753.5332503473842
+      },
+      "before_visual": {
+        "country": "AR",
+        "guess_country": "AR",
+        "guess_coordinates": [
+          -34.902,
+          -67.0
+        ],
+        "distance_km": 753.5332503473842
+      },
+      "repaired_text": {
+        "country": "AR",
+        "guess_country": "AR",
+        "guess_coordinates": [
+          -34.902,
+          -67.0
+        ],
+        "distance_km": 753.5332503473842
+      },
+      "repaired_visual": {
+        "country": "AR",
+        "guess_country": "AR",
+        "guess_coordinates": [
+          -34.9,
+          -67.0
+        ],
+        "distance_km": 753.620524828228
+      },
+      "after_direct": {
+        "country": "AR",
+        "guess_country": "AR",
+        "guess_coordinates": [
+          -34.904,
+          -58.141
+        ],
+        "distance_km": 282.7800940783472
+      },
+      "after_text": {
+        "country": "AR",
+        "guess_country": "AR",
+        "guess_coordinates": [
+          -34.904,
+          -58.141
+        ],
+        "distance_km": 282.7800940783472
+      },
+      "after_visual": {
+        "country": "AR",
+        "guess_country": "AR",
+        "guess_coordinates": [
+          -34.904,
+          -67.0
+        ],
+        "distance_km": 753.4460311395659
+      },
+      "after_both": {
+        "country": "AR",
+        "guess_country": "AR",
+        "guess_coordinates": [
+          -34.904,
+          -67.0
+        ],
+        "distance_km": 753.4460311395659
+      }
+    },
+    {
+      "ordinal": 14,
+      "id": "172488994793740",
+      "country": "CL",
+      "before_read_status": "empty",
+      "after_read_status": "empty",
+      "repaired_read_status": "empty",
+      "repaired_strings": [],
+      "before_strings": [],
+      "after_strings": [],
+      "before_observations": null,
+      "repaired_observations": {
+        "surface": "paved",
+        "centerline": "none",
+        "roadside": [
+          "bollards",
+          "utility_poles"
+        ]
+      },
+      "after_observations": {
+        "surface": "paved",
+        "centerline": "none",
+        "roadside": [
+          "utility_poles"
+        ]
+      },
+      "direct": {
+        "country": "CL",
+        "guess_country": "MX",
+        "guess_coordinates": [
+          19.452,
+          -99.154
+        ],
+        "distance_km": 6628.278315659524
+      },
+      "before_text": {
+        "country": "CL",
+        "guess_country": "MX",
+        "guess_coordinates": [
+          19.452,
+          -99.154
+        ],
+        "distance_km": 6628.278315659524
+      },
+      "before_visual": {
+        "country": "CL",
+        "guess_country": "MX",
+        "guess_coordinates": [
+          19.452,
+          -99.154
+        ],
+        "distance_km": 6628.278315659524
+      },
+      "repaired_text": {
+        "country": "CL",
+        "guess_country": "MX",
+        "guess_coordinates": [
+          19.452,
+          -99.154
+        ],
+        "distance_km": 6628.278315659524
+      },
+      "repaired_visual": {
+        "country": "CL",
+        "guess_country": "MX",
+        "guess_coordinates": [
+          19.452,
+          -99.154
+        ],
+        "distance_km": 6628.278315659524
+      },
+      "after_direct": {
+        "country": "CL",
+        "guess_country": "MX",
+        "guess_coordinates": [
+          19.434,
+          -99.182
+        ],
+        "distance_km": 6627.860757080818
+      },
+      "after_text": {
+        "country": "CL",
+        "guess_country": "MX",
+        "guess_coordinates": [
+          19.434,
+          -99.182
+        ],
+        "distance_km": 6627.860757080818
+      },
+      "after_visual": {
+        "country": "CL",
+        "guess_country": "MX",
+        "guess_coordinates": [
+          19.434,
+          -99.152
+        ],
+        "distance_km": 6626.406411965707
+      },
+      "after_both": {
+        "country": "CL",
+        "guess_country": "MX",
+        "guess_coordinates": [
+          19.434,
+          -99.152
+        ],
+        "distance_km": 6626.406411965707
+      }
+    },
+    {
+      "ordinal": 15,
+      "id": "846094272651580",
+      "country": "NO",
+      "before_read_status": "nonempty",
+      "after_read_status": "empty",
+      "repaired_read_status": "nonempty",
+      "repaired_strings": [
+        "Sjöviken"
+      ],
+      "before_strings": [
+        "Sjöviken"
+      ],
+      "after_strings": [],
+      "before_observations": null,
+      "repaired_observations": {
+        "surface": "paved",
+        "centerline": "white",
+        "roadside": [
+          "bollards",
+          "traffic_sign",
+          "utility_poles"
+        ]
+      },
+      "after_observations": {
+        "surface": "paved",
+        "centerline": "none",
+        "roadside": [
+          "traffic_sign"
+        ]
+      },
+      "direct": {
+        "country": "NO",
+        "guess_country": "SE",
+        "guess_coordinates": [
+          56.941,
+          14.901
+        ],
+        "distance_km": 588.9592929007051
+      },
+      "before_text": {
+        "country": "NO",
+        "guess_country": "SE",
+        "guess_coordinates": [
+          56.191,
+          14.901
+        ],
+        "distance_km": 630.0200661950382
+      },
+      "before_visual": {
+        "country": "NO",
+        "guess_country": "SE",
+        "guess_coordinates": [
+          56.941,
+          14.901
+        ],
+        "distance_km": 588.9592929007051
+      },
+      "repaired_text": {
+        "country": "NO",
+        "guess_country": "SE",
+        "guess_coordinates": [
+          56.191,
+          14.901
+        ],
+        "distance_km": 630.0200661950382
+      },
+      "repaired_visual": {
+        "country": "NO",
+        "guess_country": "SE",
+        "guess_coordinates": [
+          56.941,
+          14.101
+        ],
+        "distance_km": 545.6378683043445
+      },
+      "after_direct": {
+        "country": "NO",
+        "guess_country": "SE",
+        "guess_coordinates": [
+          56.144,
+          14.102
+        ],
+        "distance_km": 591.92475876024
+      },
+      "after_text": {
+        "country": "NO",
+        "guess_country": "SE",
+        "guess_coordinates": [
+          56.144,
+          14.102
+        ],
+        "distance_km": 591.92475876024
+      },
+      "after_visual": {
+        "country": "NO",
+        "guess_country": "SE",
+        "guess_coordinates": [
+          56.194,
+          14.912
+        ],
+        "distance_km": 630.4112084280098
+      },
+      "after_both": {
+        "country": "NO",
+        "guess_country": "SE",
+        "guess_coordinates": [
+          56.194,
+          14.912
+        ],
+        "distance_km": 630.4112084280098
+      }
+    },
+    {
+      "ordinal": 16,
+      "id": "668998831379607",
+      "country": "NZ",
+      "before_read_status": "empty",
+      "after_read_status": "empty",
+      "repaired_read_status": "empty",
+      "repaired_strings": [],
+      "before_strings": [],
+      "after_strings": [],
+      "before_observations": null,
+      "repaired_observations": {
+        "surface": "unpaved",
+        "centerline": "none",
+        "roadside": [
+          "guardrail"
+        ]
+      },
+      "after_observations": {
+        "surface": "unpaved",
+        "centerline": "none",
+        "roadside": []
+      },
+      "direct": {
+        "country": "NZ",
+        "guess_country": "NZ",
+        "guess_coordinates": [
+          -41.414,
+          174.814
+        ],
+        "distance_km": 584.7720610182737
+      },
+      "before_text": {
+        "country": "NZ",
+        "guess_country": "NZ",
+        "guess_coordinates": [
+          -41.414,
+          174.814
+        ],
+        "distance_km": 584.7720610182737
+      },
+      "before_visual": {
+        "country": "NZ",
+        "guess_country": "NZ",
+        "guess_coordinates": [
+          -41.414,
+          174.814
+        ],
+        "distance_km": 584.7720610182737
+      },
+      "repaired_text": {
+        "country": "NZ",
+        "guess_country": "NZ",
+        "guess_coordinates": [
+          -41.414,
+          174.814
+        ],
+        "distance_km": 584.7720610182737
+      },
+      "repaired_visual": {
+        "country": "NZ",
+        "guess_country": "AU",
+        "guess_coordinates": [
+          -34.944,
+          148.141
+        ],
+        "distance_km": 2383.8524047465676
+      },
+      "after_direct": {
+        "country": "NZ",
+        "guess_country": "AU",
+        "guess_coordinates": [
+          -34.944,
+          148.102
+        ],
+        "distance_km": 2387.342457956783
+      },
+      "after_text": {
+        "country": "NZ",
+        "guess_country": "AU",
+        "guess_coordinates": [
+          -34.944,
+          148.102
+        ],
+        "distance_km": 2387.342457956783
+      },
+      "after_visual": {
+        "country": "NZ",
+        "guess_country": "AU",
+        "guess_coordinates": [
+          -34.944,
+          148.102
+        ],
+        "distance_km": 2387.342457956783
+      },
+      "after_both": {
+        "country": "NZ",
+        "guess_country": "AU",
+        "guess_coordinates": [
+          -34.944,
+          148.102
+        ],
+        "distance_km": 2387.342457956783
+      }
+    },
+    {
+      "ordinal": 17,
+      "id": "218775719698365",
+      "country": "TH",
+      "before_read_status": "empty",
+      "after_read_status": "empty",
+      "repaired_read_status": "empty",
+      "repaired_strings": [],
+      "before_strings": [],
+      "after_strings": [],
+      "before_observations": null,
+      "repaired_observations": {
+        "surface": "paved",
+        "centerline": "white",
+        "roadside": [
+          "traffic_sign",
+          "utility_poles"
+        ]
+      },
+      "after_observations": {
+        "surface": "paved",
+        "centerline": "none",
+        "roadside": []
+      },
+      "direct": {
+        "country": "TH",
+        "guess_country": "TH",
+        "guess_coordinates": [
+          18.781,
+          100.541
+        ],
+        "distance_km": 264.57834401411975
+      },
+      "before_text": {
+        "country": "TH",
+        "guess_country": "TH",
+        "guess_coordinates": [
+          18.781,
+          100.541
+        ],
+        "distance_km": 264.57834401411975
+      },
+      "before_visual": {
+        "country": "TH",
+        "guess_country": "TH",
+        "guess_coordinates": [
+          18.781,
+          100.541
+        ],
+        "distance_km": 264.57834401411975
+      },
+      "repaired_text": {
+        "country": "TH",
+        "guess_country": "TH",
+        "guess_coordinates": [
+          18.781,
+          100.541
+        ],
+        "distance_km": 264.57834401411975
+      },
+      "repaired_visual": {
+        "country": "TH",
+        "guess_country": "TH",
+        "guess_coordinates": [
+          18.101,
+          99.221
+        ],
+        "distance_km": 273.8599157651976
+      },
+      "after_direct": {
+        "country": "TH",
+        "guess_country": "MM",
+        "guess_coordinates": [
+          18.301,
+          99.792
+        ],
+        "distance_km": 249.47518275025968
+      },
+      "after_text": {
+        "country": "TH",
+        "guess_country": "MM",
+        "guess_coordinates": [
+          18.301,
+          99.792
+        ],
+        "distance_km": 249.47518275025968
+      },
+      "after_visual": {
+        "country": "TH",
+        "guess_country": "MM",
+        "guess_coordinates": [
+          18.3,
+          99.84
+        ],
+        "distance_km": 246.45736614759537
+      },
+      "after_both": {
+        "country": "TH",
+        "guess_country": "MM",
+        "guess_coordinates": [
+          18.3,
+          99.84
+        ],
+        "distance_km": 246.45736614759537
+      }
+    },
+    {
+      "ordinal": 18,
+      "id": "211893897190281",
+      "country": "BG",
+      "before_read_status": "invalid",
+      "after_read_status": "empty",
+      "repaired_read_status": "nonempty",
+      "repaired_strings": [
+        "Sofia",
+        "Bulgaria"
+      ],
+      "before_strings": [],
+      "after_strings": [],
+      "before_observations": null,
+      "repaired_observations": null,
+      "after_observations": {
+        "surface": "paved",
+        "centerline": "none",
+        "roadside": []
+      },
+      "direct": {
+        "country": "BG",
+        "guess_country": "RO",
+        "guess_coordinates": [
+          44.394,
+          26.191
+        ],
+        "distance_km": 190.66180547095476
+      },
+      "before_text": {
+        "country": "BG",
+        "guess_country": "RO",
+        "guess_coordinates": [
+          44.394,
+          26.191
+        ],
+        "distance_km": 190.66180547095476
+      },
+      "before_visual": {
+        "country": "BG",
+        "guess_country": "RO",
+        "guess_coordinates": [
+          44.394,
+          26.191
+        ],
+        "distance_km": 190.66180547095476
+      },
+      "repaired_text": {
+        "country": "BG",
+        "guess_country": "BG",
+        "guess_coordinates": [
+          42.694,
+          23.341
+        ],
+        "distance_km": 376.71462542311974
+      },
+      "repaired_visual": {
+        "country": "BG",
+        "guess_country": "RO",
+        "guess_coordinates": [
+          44.394,
+          26.191
+        ],
+        "distance_km": 190.66180547095476
+      },
+      "after_direct": {
+        "country": "BG",
+        "guess_country": "RO",
+        "guess_coordinates": [
+          44.364,
+          26.124
+        ],
+        "distance_km": 192.3938289946489
+      },
+      "after_text": {
+        "country": "BG",
+        "guess_country": "RO",
+        "guess_coordinates": [
+          44.364,
+          26.124
+        ],
+        "distance_km": 192.3938289946489
+      },
+      "after_visual": {
+        "country": "BG",
+        "guess_country": "RO",
+        "guess_coordinates": [
+          44.344,
+          26.192
+        ],
+        "distance_km": 186.86485652824888
+      },
+      "after_both": {
+        "country": "BG",
+        "guess_country": "RO",
+        "guess_coordinates": [
+          44.344,
+          26.192
+        ],
+        "distance_km": 186.86485652824888
+      }
+    },
+    {
+      "ordinal": 19,
+      "id": "2992791674299282",
+      "country": "EG",
+      "before_read_status": "invalid",
+      "after_read_status": "empty",
+      "repaired_read_status": "invalid",
+      "repaired_strings": [],
+      "before_strings": [],
+      "after_strings": [],
+      "before_observations": null,
+      "repaired_observations": {
+        "surface": "paved",
+        "centerline": "white",
+        "roadside": [
+          "guardrail",
+          "traffic_sign",
+          "utility_poles"
+        ]
+      },
+      "after_observations": {
+        "surface": "paved",
+        "centerline": "none",
+        "roadside": [
+          "guardrail"
+        ]
+      },
+      "direct": {
+        "country": "EG",
+        "guess_country": "EG",
+        "guess_coordinates": [
+          30.041,
+          31.221
+        ],
+        "distance_km": 16.253361615416146
+      },
+      "before_text": {
+        "country": "EG",
+        "guess_country": "EG",
+        "guess_coordinates": [
+          30.041,
+          31.221
+        ],
+        "distance_km": 16.253361615416146
+      },
+      "before_visual": {
+        "country": "EG",
+        "guess_country": "EG",
+        "guess_coordinates": [
+          30.041,
+          31.221
+        ],
+        "distance_km": 16.253361615416146
+      },
+      "repaired_text": {
+        "country": "EG",
+        "guess_country": "EG",
+        "guess_coordinates": [
+          30.041,
+          31.221
+        ],
+        "distance_km": 16.253361615416146
+      },
+      "repaired_visual": {
+        "country": "EG",
+        "guess_country": "EG",
+        "guess_coordinates": [
+          29.999,
+          31.299
+        ],
+        "distance_km": 14.240219123547318
+      },
+      "after_direct": {
+        "country": "EG",
+        "guess_country": "EG",
+        "guess_coordinates": [
+          30.052,
+          31.222
+        ],
+        "distance_km": 15.608060018352898
+      },
+      "after_text": {
+        "country": "EG",
+        "guess_country": "EG",
+        "guess_coordinates": [
+          30.052,
+          31.222
+        ],
+        "distance_km": 15.608060018352898
+      },
+      "after_visual": {
+        "country": "EG",
+        "guess_country": "DZ",
+        "guess_coordinates": [
+          30.341,
+          -1.321
+        ],
+        "distance_km": 3129.7789621705465
+      },
+      "after_both": {
+        "country": "EG",
+        "guess_country": "DZ",
+        "guess_coordinates": [
+          30.341,
+          -1.321
+        ],
+        "distance_km": 3129.7789621705465
+      }
+    },
+    {
+      "ordinal": 20,
+      "id": "472933560683535",
+      "country": "ET",
+      "before_read_status": "nonempty",
+      "after_read_status": "empty",
+      "repaired_read_status": "nonempty",
+      "repaired_strings": [
+        "Saray"
+      ],
+      "before_strings": [
+        "Saray"
+      ],
+      "after_strings": [],
+      "before_observations": null,
+      "repaired_observations": {
+        "surface": "unpaved",
+        "centerline": "none",
+        "roadside": [
+          "utility_poles"
+        ]
+      },
+      "after_observations": {
+        "surface": "unpaved",
+        "centerline": "none",
+        "roadside": []
+      },
+      "direct": {
+        "country": "ET",
+        "guess_country": "ET",
+        "guess_coordinates": [
+          11.9,
+          39.24
+        ],
+        "distance_km": 49.85041138302912
+      },
+      "before_text": {
+        "country": "ET",
+        "guess_country": "TM",
+        "guess_coordinates": [
+          39.155,
+          65.0
+        ],
+        "distance_km": 4003.122342034264
+      },
+      "before_visual": {
+        "country": "ET",
+        "guess_country": "ET",
+        "guess_coordinates": [
+          11.9,
+          39.24
+        ],
+        "distance_km": 49.85041138302912
+      },
+      "repaired_text": {
+        "country": "ET",
+        "guess_country": "TM",
+        "guess_coordinates": [
+          39.155,
+          65.0
+        ],
+        "distance_km": 4003.122342034264
+      },
+      "repaired_visual": {
+        "country": "ET",
+        "guess_country": "ET",
+        "guess_coordinates": [
+          11.9,
+          39.2
+        ],
+        "distance_km": 47.719350547034715
+      },
+      "after_direct": {
+        "country": "ET",
+        "guess_country": "ET",
+        "guess_coordinates": [
+          8.722,
+          39.902
+        ],
+        "distance_km": 326.149552961676
+      },
+      "after_text": {
+        "country": "ET",
+        "guess_country": "ET",
+        "guess_coordinates": [
+          8.722,
+          39.902
+        ],
+        "distance_km": 326.149552961676
+      },
+      "after_visual": {
+        "country": "ET",
+        "guess_country": "ET",
+        "guess_coordinates": [
+          11.911,
+          39.811
+        ],
+        "distance_km": 98.46009383201256
+      },
+      "after_both": {
+        "country": "ET",
+        "guess_country": "ET",
+        "guess_coordinates": [
+          11.911,
+          39.811
+        ],
+        "distance_km": 98.46009383201256
+      }
+    },
+    {
+      "ordinal": 21,
+      "id": "309831067185068",
+      "country": "FR",
+      "before_read_status": "invalid",
+      "after_read_status": "empty",
+      "repaired_read_status": "invalid",
+      "repaired_strings": [],
+      "before_strings": [],
+      "after_strings": [],
+      "before_observations": null,
+      "repaired_observations": {
+        "surface": "paved",
+        "centerline": "white",
+        "roadside": [
+          "utility_poles"
+        ]
+      },
+      "after_observations": {
+        "surface": "paved",
+        "centerline": "none",
+        "roadside": []
+      },
+      "direct": {
+        "country": "FR",
+        "guess_country": "AU",
+        "guess_coordinates": [
+          -34.954,
+          144.951
+        ],
+        "distance_km": 16648.918732497772
+      },
+      "before_text": {
+        "country": "FR",
+        "guess_country": "AU",
+        "guess_coordinates": [
+          -34.954,
+          144.951
+        ],
+        "distance_km": 16648.918732497772
+      },
+      "before_visual": {
+        "country": "FR",
+        "guess_country": "AU",
+        "guess_coordinates": [
+          -34.954,
+          144.951
+        ],
+        "distance_km": 16648.918732497772
+      },
+      "repaired_text": {
+        "country": "FR",
+        "guess_country": "AU",
+        "guess_coordinates": [
+          -34.954,
+          144.951
+        ],
+        "distance_km": 16648.918732497772
+      },
+      "repaired_visual": {
+        "country": "FR",
+        "guess_country": "AU",
+        "guess_coordinates": [
+          -34.044,
+          149.151
+        ],
+        "distance_km": 16943.900809944244
+      },
+      "after_direct": {
+        "country": "FR",
+        "guess_country": "ZA",
+        "guess_coordinates": [
+          -33.854,
+          18.511
+        ],
+        "distance_km": 8668.586911756758
+      },
+      "after_text": {
+        "country": "FR",
+        "guess_country": "ZA",
+        "guess_coordinates": [
+          -33.854,
+          18.511
+        ],
+        "distance_km": 8668.586911756758
+      },
+      "after_visual": {
+        "country": "FR",
+        "guess_country": "AU",
+        "guess_coordinates": [
+          -33.854,
+          151.254
+        ],
+        "distance_km": 17103.575567635748
+      },
+      "after_both": {
+        "country": "FR",
+        "guess_country": "AU",
+        "guess_coordinates": [
+          -33.854,
+          151.254
+        ],
+        "distance_km": 17103.575567635748
+      }
+    },
+    {
+      "ordinal": 22,
+      "id": "470533114018261",
+      "country": "GR",
+      "before_read_status": "invalid",
+      "after_read_status": "nonempty",
+      "repaired_read_status": "nonempty",
+      "repaired_strings": [
+        "Boskos Vos"
+      ],
+      "before_strings": [],
+      "after_strings": [
+        "Boskos Voskova"
+      ],
+      "before_observations": null,
+      "repaired_observations": {
+        "surface": "paved",
+        "centerline": "white",
+        "roadside": [
+          "traffic_sign",
+          "utility_poles"
+        ]
+      },
+      "after_observations": {
+        "surface": "paved",
+        "centerline": "white",
+        "roadside": [
+          "traffic_sign"
+        ]
+      },
+      "direct": {
+        "country": "GR",
+        "guess_country": "GR",
+        "guess_coordinates": [
+          39.811,
+          22.811
+        ],
+        "distance_km": 47.26096863962531
+      },
+      "before_text": {
+        "country": "GR",
+        "guess_country": "GR",
+        "guess_coordinates": [
+          39.811,
+          22.811
+        ],
+        "distance_km": 47.26096863962531
+      },
+      "before_visual": {
+        "country": "GR",
+        "guess_country": "GR",
+        "guess_coordinates": [
+          39.811,
+          22.811
+        ],
+        "distance_km": 47.26096863962531
+      },
+      "repaired_text": {
+        "country": "GR",
+        "guess_country": "HR",
+        "guess_coordinates": [
+          43.901,
+          16.901
+        ],
+        "distance_km": 700.7847056126342
+      },
+      "repaired_visual": {
+        "country": "GR",
+        "guess_country": "GR",
+        "guess_coordinates": [
+          39.811,
+          22.811
+        ],
+        "distance_km": 47.26096863962531
+      },
+      "after_direct": {
+        "country": "GR",
+        "guess_country": "GR",
+        "guess_coordinates": [
+          39.811,
+          22.722
+        ],
+        "distance_km": 47.60594084921783
+      },
+      "after_text": {
+        "country": "GR",
+        "guess_country": "MK",
+        "guess_coordinates": [
+          41.991,
+          21.102
+        ],
+        "distance_km": 322.75515218995105
+      },
+      "after_visual": {
+        "country": "GR",
+        "guess_country": "GR",
+        "guess_coordinates": [
+          39.802,
+          22.522
+        ],
+        "distance_km": 51.678833908111876
+      },
+      "after_both": {
+        "country": "GR",
+        "guess_country": "GR",
+        "guess_coordinates": [
+          40.521,
+          21.211
+        ],
+        "distance_km": 184.57885071908768
+      }
+    },
+    {
+      "ordinal": 23,
+      "id": "2547101302258650",
+      "country": "IR",
+      "before_read_status": "empty",
+      "after_read_status": "empty",
+      "repaired_read_status": "empty",
+      "repaired_strings": [],
+      "before_strings": [],
+      "after_strings": [],
+      "before_observations": null,
+      "repaired_observations": {
+        "surface": "paved",
+        "centerline": "white",
+        "roadside": [
+          "traffic_sign",
+          "utility_poles"
+        ]
+      },
+      "after_observations": {
+        "surface": "paved",
+        "centerline": "none",
+        "roadside": [
+          "utility_poles"
+        ]
+      },
+      "direct": {
+        "country": "IR",
+        "guess_country": "AZ",
+        "guess_coordinates": [
+          40.314,
+          49.721
+        ],
+        "distance_km": 449.44634023445656
+      },
+      "before_text": {
+        "country": "IR",
+        "guess_country": "AZ",
+        "guess_coordinates": [
+          40.314,
+          49.721
+        ],
+        "distance_km": 449.44634023445656
+      },
+      "before_visual": {
+        "country": "IR",
+        "guess_country": "AZ",
+        "guess_coordinates": [
+          40.314,
+          49.721
+        ],
+        "distance_km": 449.44634023445656
+      },
+      "repaired_text": {
+        "country": "IR",
+        "guess_country": "AZ",
+        "guess_coordinates": [
+          40.314,
+          49.721
+        ],
+        "distance_km": 449.44634023445656
+      },
+      "repaired_visual": {
+        "country": "IR",
+        "guess_country": "AZ",
+        "guess_coordinates": [
+          40.211,
+          49.702
+        ],
+        "distance_km": 438.097278151516
+      },
+      "after_direct": {
+        "country": "IR",
+        "guess_country": "AZ",
+        "guess_coordinates": [
+          40.302,
+          49.841
+        ],
+        "distance_km": 447.7099800837048
+      },
+      "after_text": {
+        "country": "IR",
+        "guess_country": "AZ",
+        "guess_coordinates": [
+          40.302,
+          49.841
+        ],
+        "distance_km": 447.7099800837048
+      },
+      "after_visual": {
+        "country": "IR",
+        "guess_country": "TM",
+        "guess_coordinates": [
+          38.811,
+          65.0
+        ],
+        "distance_km": 1352.280622117304
+      },
+      "after_both": {
+        "country": "IR",
+        "guess_country": "TM",
+        "guess_coordinates": [
+          38.811,
+          65.0
+        ],
+        "distance_km": 1352.280622117304
+      }
+    },
+    {
+      "ordinal": 24,
+      "id": "953888611819687",
+      "country": "IT",
+      "before_read_status": "nonempty",
+      "after_read_status": "nonempty",
+      "repaired_read_status": "nonempty",
+      "repaired_strings": [
+        "SANT'ANNA"
+      ],
+      "before_strings": [
+        "SANT'ANNA"
+      ],
+      "after_strings": [
+        "NO"
+      ],
+      "before_observations": null,
+      "repaired_observations": {
+        "surface": "paved",
+        "centerline": "white",
+        "roadside": [
+          "traffic_sign",
+          "utility_poles"
+        ]
+      },
+      "after_observations": {
+        "surface": "paved",
+        "centerline": "none",
+        "roadside": [
+          "traffic_sign"
+        ]
+      },
+      "direct": {
+        "country": "IT",
+        "guess_country": "IT",
+        "guess_coordinates": [
+          43.811,
+          11.222
+        ],
+        "distance_km": 320.5009784531301
+      },
+      "before_text": {
+        "country": "IT",
+        "guess_country": "IT",
+        "guess_coordinates": [
+          43.811,
+          10.202
+        ],
+        "distance_km": 250.8866930718932
+      },
+      "before_visual": {
+        "country": "IT",
+        "guess_country": "IT",
+        "guess_coordinates": [
+          43.811,
+          11.222
+        ],
+        "distance_km": 320.5009784531301
+      },
+      "repaired_text": {
+        "country": "IT",
+        "guess_country": "IT",
+        "guess_coordinates": [
+          43.811,
+          10.202
+        ],
+        "distance_km": 250.8866930718932
+      },
+      "repaired_visual": {
+        "country": "IT",
+        "guess_country": "IT",
+        "guess_coordinates": [
+          43.022,
+          11.222
+        ],
+        "distance_km": 369.88162456408645
+      },
+      "after_direct": {
+        "country": "IT",
+        "guess_country": "IT",
+        "guess_coordinates": [
+          43.022,
+          11.222
+        ],
+        "distance_km": 369.88162456408645
+      },
+      "after_text": {
+        "country": "IT",
+        "guess_country": "IT",
+        "guess_coordinates": [
+          41.941,
+          12.202
+        ],
+        "distance_km": 510.5146760883375
+      },
+      "after_visual": {
+        "country": "IT",
+        "guess_country": "IT",
+        "guess_coordinates": [
+          43.022,
+          11.222
+        ],
+        "distance_km": 369.88162456408645
+      },
+      "after_both": {
+        "country": "IT",
+        "guess_country": "IT",
+        "guess_coordinates": [
+          43.022,
+          11.222
+        ],
+        "distance_km": 369.88162456408645
+      }
+    },
+    {
+      "ordinal": 25,
+      "id": "580491622939421",
+      "country": "MG",
+      "before_read_status": "empty",
+      "after_read_status": "empty",
+      "repaired_read_status": "empty",
+      "repaired_strings": [],
+      "before_strings": [],
+      "after_strings": [],
+      "before_observations": null,
+      "repaired_observations": {
+        "surface": "unpaved",
+        "centerline": "none",
+        "roadside": []
+      },
+      "after_observations": {
+        "surface": "unpaved",
+        "centerline": "none",
+        "roadside": []
+      },
+      "direct": {
+        "country": "MG",
+        "guess_country": "PG",
+        "guess_coordinates": [
+          -11.911,
+          167.101
+        ],
+        "distance_km": 12341.215612277365
+      },
+      "before_text": {
+        "country": "MG",
+        "guess_country": "PG",
+        "guess_coordinates": [
+          -11.911,
+          167.101
+        ],
+        "distance_km": 12341.215612277365
+      },
+      "before_visual": {
+        "country": "MG",
+        "guess_country": "PG",
+        "guess_coordinates": [
+          -11.911,
+          167.101
+        ],
+        "distance_km": 12341.215612277365
+      },
+      "repaired_text": {
+        "country": "MG",
+        "guess_country": "PG",
+        "guess_coordinates": [
+          -11.911,
+          167.101
+        ],
+        "distance_km": 12341.215612277365
+      },
+      "repaired_visual": {
+        "country": "MG",
+        "guess_country": "PG",
+        "guess_coordinates": [
+          -11.911,
+          169.0
+        ],
+        "distance_km": 12515.245718993396
+      },
+      "after_direct": {
+        "country": "MG",
+        "guess_country": "PG",
+        "guess_coordinates": [
+          -11.711,
+          147.102
+        ],
+        "distance_km": 10445.09057756646
+      },
+      "after_text": {
+        "country": "MG",
+        "guess_country": "PG",
+        "guess_coordinates": [
+          -11.711,
+          147.102
+        ],
+        "distance_km": 10445.09057756646
+      },
+      "after_visual": {
+        "country": "MG",
+        "guess_country": "PG",
+        "guess_coordinates": [
+          -11.911,
+          147.102
+        ],
+        "distance_km": 10435.364617431178
+      },
+      "after_both": {
+        "country": "MG",
+        "guess_country": "PG",
+        "guess_coordinates": [
+          -11.911,
+          147.102
+        ],
+        "distance_km": 10435.364617431178
+      }
+    },
+    {
+      "ordinal": 26,
+      "id": "185675826709169",
+      "country": "MM",
+      "before_read_status": "empty",
+      "after_read_status": "empty",
+      "repaired_read_status": "empty",
+      "repaired_strings": [],
+      "before_strings": [],
+      "after_strings": [],
+      "before_observations": null,
+      "repaired_observations": {
+        "surface": "paved",
+        "centerline": "white",
+        "roadside": [
+          "traffic_sign",
+          "utility_poles"
+        ]
+      },
+      "after_observations": {
+        "surface": "paved",
+        "centerline": "white",
+        "roadside": []
+      },
+      "direct": {
+        "country": "MM",
+        "guess_country": "TH",
+        "guess_coordinates": [
+          12.9,
+          100.55
+        ],
+        "distance_km": 1113.8865294121915
+      },
+      "before_text": {
+        "country": "MM",
+        "guess_country": "TH",
+        "guess_coordinates": [
+          12.9,
+          100.55
+        ],
+        "distance_km": 1113.8865294121915
+      },
+      "before_visual": {
+        "country": "MM",
+        "guess_country": "TH",
+        "guess_coordinates": [
+          12.9,
+          100.55
+        ],
+        "distance_km": 1113.8865294121915
+      },
+      "repaired_text": {
+        "country": "MM",
+        "guess_country": "TH",
+        "guess_coordinates": [
+          12.9,
+          100.55
+        ],
+        "distance_km": 1113.8865294121915
+      },
+      "repaired_visual": {
+        "country": "MM",
+        "guess_country": "TH",
+        "guess_coordinates": [
+          12.1,
+          101.7
+        ],
+        "distance_km": 1248.6828975835442
+      },
+      "after_direct": {
+        "country": "MM",
+        "guess_country": "MM",
+        "guess_coordinates": [
+          18.3,
+          99.79
+        ],
+        "distance_km": 561.4819726698072
+      },
+      "after_text": {
+        "country": "MM",
+        "guess_country": "MM",
+        "guess_coordinates": [
+          18.3,
+          99.79
+        ],
+        "distance_km": 561.4819726698072
+      },
+      "after_visual": {
+        "country": "MM",
+        "guess_country": "MM",
+        "guess_coordinates": [
+          18.231,
+          99.999
+        ],
+        "distance_km": 582.17402025926
+      },
+      "after_both": {
+        "country": "MM",
+        "guess_country": "MM",
+        "guess_coordinates": [
+          18.231,
+          99.999
+        ],
+        "distance_km": 582.17402025926
+      }
+    },
+    {
+      "ordinal": 27,
+      "id": "158575053454798",
+      "country": "PE",
+      "before_read_status": "invalid",
+      "after_read_status": "empty",
+      "repaired_read_status": "invalid",
+      "repaired_strings": [],
+      "before_strings": [],
+      "after_strings": [],
+      "before_observations": null,
+      "repaired_observations": {
+        "surface": "unpaved",
+        "centerline": "none",
+        "roadside": [
+          "bollards",
+          "utility_poles"
+        ]
+      },
+      "after_observations": {
+        "surface": "unpaved",
+        "centerline": "none",
+        "roadside": []
+      },
+      "direct": {
+        "country": "PE",
+        "guess_country": "PE",
+        "guess_coordinates": [
+          -11.941,
+          -78.902
+        ],
+        "distance_km": 428.87152114704105
+      },
+      "before_text": {
+        "country": "PE",
+        "guess_country": "PE",
+        "guess_coordinates": [
+          -11.941,
+          -78.902
+        ],
+        "distance_km": 428.87152114704105
+      },
+      "before_visual": {
+        "country": "PE",
+        "guess_country": "PE",
+        "guess_coordinates": [
+          -11.941,
+          -78.902
+        ],
+        "distance_km": 428.87152114704105
+      },
+      "repaired_text": {
+        "country": "PE",
+        "guess_country": "PE",
+        "guess_coordinates": [
+          -11.941,
+          -78.902
+        ],
+        "distance_km": 428.87152114704105
+      },
+      "repaired_visual": {
+        "country": "PE",
+        "guess_country": "PE",
+        "guess_coordinates": [
+          -10.1,
+          -77.0
+        ],
+        "distance_km": 317.4416232024238
+      },
+      "after_direct": {
+        "country": "PE",
+        "guess_country": "PE",
+        "guess_coordinates": [
+          -13.124,
+          -70.522
+        ],
+        "distance_km": 1087.111605574272
+      },
+      "after_text": {
+        "country": "PE",
+        "guess_country": "PE",
+        "guess_coordinates": [
+          -13.124,
+          -70.522
+        ],
+        "distance_km": 1087.111605574272
+      },
+      "after_visual": {
+        "country": "PE",
+        "guess_country": "PE",
+        "guess_coordinates": [
+          -10.1,
+          -78.5
+        ],
+        "distance_km": 231.8569772453107
+      },
+      "after_both": {
+        "country": "PE",
+        "guess_country": "PE",
+        "guess_coordinates": [
+          -10.1,
+          -78.5
+        ],
+        "distance_km": 231.8569772453107
+      }
+    },
+    {
+      "ordinal": 28,
+      "id": "217489886804893",
+      "country": "PK",
+      "before_read_status": "empty",
+      "after_read_status": "empty",
+      "repaired_read_status": "empty",
+      "repaired_strings": [],
+      "before_strings": [],
+      "after_strings": [],
+      "before_observations": null,
+      "repaired_observations": {
+        "surface": "paved",
+        "centerline": "none",
+        "roadside": [
+          "bollards",
+          "utility_poles"
+        ]
+      },
+      "after_observations": {
+        "surface": "paved",
+        "centerline": "none",
+        "roadside": [
+          "utility_poles"
+        ]
+      },
+      "direct": {
+        "country": "PK",
+        "guess_country": "IN",
+        "guess_coordinates": [
+          22.024,
+          80.311
+        ],
+        "distance_km": 1473.8203744961647
+      },
+      "before_text": {
+        "country": "PK",
+        "guess_country": "IN",
+        "guess_coordinates": [
+          22.024,
+          80.311
+        ],
+        "distance_km": 1473.8203744961647
+      },
+      "before_visual": {
+        "country": "PK",
+        "guess_country": "IN",
+        "guess_coordinates": [
+          22.024,
+          80.311
+        ],
+        "distance_km": 1473.8203744961647
+      },
+      "repaired_text": {
+        "country": "PK",
+        "guess_country": "IN",
+        "guess_coordinates": [
+          22.024,
+          80.311
+        ],
+        "distance_km": 1473.8203744961647
+      },
+      "repaired_visual": {
+        "country": "PK",
+        "guess_country": "IN",
+        "guess_coordinates": [
+          22.021,
+          80.311
+        ],
+        "distance_km": 1474.1177617174296
+      },
+      "after_direct": {
+        "country": "PK",
+        "guess_country": "LK",
+        "guess_coordinates": [
+          8.411,
+          80.0
+        ],
+        "distance_km": 2895.9569077041733
+      },
+      "after_text": {
+        "country": "PK",
+        "guess_country": "LK",
+        "guess_coordinates": [
+          8.411,
+          80.0
+        ],
+        "distance_km": 2895.9569077041733
+      },
+      "after_visual": {
+        "country": "PK",
+        "guess_country": "IN",
+        "guess_coordinates": [
+          22.0,
+          80.55
+        ],
+        "distance_km": 1487.4889340004793
+      },
+      "after_both": {
+        "country": "PK",
+        "guess_country": "IN",
+        "guess_coordinates": [
+          22.0,
+          80.55
+        ],
+        "distance_km": 1487.4889340004793
+      }
+    },
+    {
+      "ordinal": 29,
+      "id": "545774006616625",
+      "country": "SE",
+      "before_read_status": "nonempty",
+      "after_read_status": "empty",
+      "repaired_read_status": "nonempty",
+      "repaired_strings": [
+        "Svartjörn",
+        "Svartjörn 10"
+      ],
+      "before_strings": [
+        "Svartjörn",
+        "Svartjörn 10"
+      ],
+      "after_strings": [],
+      "before_observations": null,
+      "repaired_observations": {
+        "surface": "unpaved",
+        "centerline": "none",
+        "roadside": []
+      },
+      "after_observations": {
+        "surface": "unpaved",
+        "centerline": "none",
+        "roadside": []
+      },
+      "direct": {
+        "country": "SE",
+        "guess_country": "FI",
+        "guess_coordinates": [
+          60.801,
+          25.121
+        ],
+        "distance_km": 768.3089657382857
+      },
+      "before_text": {
+        "country": "SE",
+        "guess_country": "SE",
+        "guess_coordinates": [
+          60.0,
+          18.0
+        ],
+        "distance_km": 410.0207801937265
+      },
+      "before_visual": {
+        "country": "SE",
+        "guess_country": "FI",
+        "guess_coordinates": [
+          60.801,
+          25.121
+        ],
+        "distance_km": 768.3089657382857
+      },
+      "repaired_text": {
+        "country": "SE",
+        "guess_country": "SE",
+        "guess_coordinates": [
+          60.0,
+          18.0
+        ],
+        "distance_km": 410.0207801937265
+      },
+      "repaired_visual": {
+        "country": "SE",
+        "guess_country": "FI",
+        "guess_coordinates": [
+          60.902,
+          25.101
+        ],
+        "distance_km": 772.8077501792162
+      },
+      "after_direct": {
+        "country": "SE",
+        "guess_country": "FI",
+        "guess_coordinates": [
+          60.512,
+          24.722
+        ],
+        "distance_km": 733.9907207362236
+      },
+      "after_text": {
+        "country": "SE",
+        "guess_country": "FI",
+        "guess_coordinates": [
+          60.512,
+          24.722
+        ],
+        "distance_km": 733.9907207362236
+      },
+      "after_visual": {
+        "country": "SE",
+        "guess_country": "FI",
+        "guess_coordinates": [
+          60.702,
+          24.722
+        ],
+        "distance_km": 744.0098105859989
+      },
+      "after_both": {
+        "country": "SE",
+        "guess_country": "FI",
+        "guess_coordinates": [
+          60.702,
+          24.722
+        ],
+        "distance_km": 744.0098105859989
+      }
+    },
+    {
+      "ordinal": 30,
+      "id": "116003954472737",
+      "country": "BY",
+      "before_read_status": "nonempty",
+      "after_read_status": "nonempty",
+      "repaired_read_status": "nonempty",
+      "repaired_strings": [
+        "5050"
+      ],
+      "before_strings": [
+        "5050"
+      ],
+      "after_strings": [
+        "5050"
+      ],
+      "before_observations": null,
+      "repaired_observations": {
+        "surface": "unpaved",
+        "centerline": "none",
+        "roadside": [
+          "utility_poles"
+        ]
+      },
+      "after_observations": {
+        "surface": "unpaved",
+        "centerline": "none",
+        "roadside": [
+          "utility_poles"
+        ]
+      },
+      "direct": {
+        "country": "BY",
+        "guess_country": "BY",
+        "guess_coordinates": [
+          54.551,
+          27.101
+        ],
+        "distance_km": 235.1430935528923
+      },
+      "before_text": {
+        "country": "BY",
+        "guess_country": "BY",
+        "guess_coordinates": [
+          51.0,
+          27.0
+        ],
+        "distance_km": 376.36293699824853
+      },
+      "before_visual": {
+        "country": "BY",
+        "guess_country": "BY",
+        "guess_coordinates": [
+          54.551,
+          27.101
+        ],
+        "distance_km": 235.1430935528923
+      },
+      "repaired_text": {
+        "country": "BY",
+        "guess_country": "BY",
+        "guess_coordinates": [
+          51.0,
+          27.0
+        ],
+        "distance_km": 376.36293699824853
+      },
+      "repaired_visual": {
+        "country": "BY",
+        "guess_country": "BY",
+        "guess_coordinates": [
+          53.952,
+          27.101
+        ],
+        "distance_km": 217.89993684285727
+      },
+      "after_direct": {
+        "country": "BY",
+        "guess_country": "BY",
+        "guess_coordinates": [
+          53.952,
+          27.102
+        ],
+        "distance_km": 217.8349472683422
+      },
+      "after_text": {
+        "country": "BY",
+        "guess_country": "BY",
+        "guess_coordinates": [
+          50.505,
+          27.05
+        ],
+        "distance_km": 420.08808537151106
+      },
+      "after_visual": {
+        "country": "BY",
+        "guess_country": "BY",
+        "guess_coordinates": [
+          53.902,
+          27.102
+        ],
+        "distance_km": 217.2579600964375
+      },
+      "after_both": {
+        "country": "BY",
+        "guess_country": "BY",
+        "guess_coordinates": [
+          51.0,
+          27.0
+        ],
+        "distance_km": 376.36293699824853
+      }
+    },
+    {
+      "ordinal": 31,
+      "id": "3287267538187519",
+      "country": "CN",
+      "before_read_status": "nonempty",
+      "after_read_status": "nonempty",
+      "repaired_read_status": "nonempty",
+      "repaired_strings": [
+        "Lllumar",
+        "合老堂",
+        "汽车钥匙"
+      ],
+      "before_strings": [
+        "Lllumar",
+        "合老堂",
+        "汽车钥匙"
+      ],
+      "after_strings": [
+        "Lllumar"
+      ],
+      "before_observations": null,
+      "repaired_observations": {
+        "surface": "paved",
+        "centerline": "white",
+        "roadside": [
+          "bollards",
+          "guardrail",
+          "utility_poles"
+        ]
+      },
+      "after_observations": {
+        "surface": "paved",
+        "centerline": "none",
+        "roadside": [
+          "guardrail"
+        ]
+      },
+      "direct": {
+        "country": "CN",
+        "guess_country": "CN",
+        "guess_coordinates": [
+          39.152,
+          116.601
+        ],
+        "distance_km": 455.32903964683754
+      },
+      "before_text": {
+        "country": "CN",
+        "guess_country": "CN",
+        "guess_coordinates": [
+          36.151,
+          119.301
+        ],
+        "distance_km": 240.23577394567303
+      },
+      "before_visual": {
+        "country": "CN",
+        "guess_country": "CN",
+        "guess_coordinates": [
+          39.152,
+          116.601
+        ],
+        "distance_km": 455.32903964683754
+      },
+      "repaired_text": {
+        "country": "CN",
+        "guess_country": "CN",
+        "guess_coordinates": [
+          36.151,
+          119.301
+        ],
+        "distance_km": 240.23577394567303
+      },
+      "repaired_visual": {
+        "country": "CN",
+        "guess_country": "CN",
+        "guess_coordinates": [
+          39.152,
+          117.141
+        ],
+        "distance_km": 412.578087567704
+      },
+      "after_direct": {
+        "country": "CN",
+        "guess_country": "CN",
+        "guess_coordinates": [
+          39.152,
+          116.601
+        ],
+        "distance_km": 455.32903964683754
+      },
+      "after_text": {
+        "country": "CN",
+        "guess_country": "CN",
+        "guess_coordinates": [
+          39.152,
+          117.152
+        ],
+        "distance_km": 411.7170208347243
+      },
+      "after_visual": {
+        "country": "CN",
+        "guess_country": "CN",
+        "guess_coordinates": [
+          39.152,
+          117.152
+        ],
+        "distance_km": 411.7170208347243
+      },
+      "after_both": {
+        "country": "CN",
+        "guess_country": "CN",
+        "guess_coordinates": [
+          39.152,
+          117.142
+        ],
+        "distance_km": 412.4997909524099
+      }
+    },
+    {
+      "ordinal": 32,
+      "id": "764896447530805",
+      "country": "CY",
+      "before_read_status": "nonempty",
+      "after_read_status": "empty",
+      "repaired_read_status": "nonempty",
+      "repaired_strings": [
+        "Kanakia"
+      ],
+      "before_strings": [
+        "Kanakia"
+      ],
+      "after_strings": [],
+      "before_observations": null,
+      "repaired_observations": {
+        "surface": "paved",
+        "centerline": "white",
+        "roadside": [
+          "bollards",
+          "utility_poles"
+        ]
+      },
+      "after_observations": {
+        "surface": "paved",
+        "centerline": "none",
+        "roadside": [
+          "utility_poles"
+        ]
+      },
+      "direct": {
+        "country": "CY",
+        "guess_country": "GR",
+        "guess_coordinates": [
+          36.801,
+          25.511
+        ],
+        "distance_km": 724.1839558797384
+      },
+      "before_text": {
+        "country": "CY",
+        "guess_country": "GR",
+        "guess_coordinates": [
+          35.291,
+          25.0
+        ],
+        "distance_km": 752.9169359218912
+      },
+      "before_visual": {
+        "country": "CY",
+        "guess_country": "GR",
+        "guess_coordinates": [
+          36.801,
+          25.511
+        ],
+        "distance_km": 724.1839558797384
+      },
+      "repaired_text": {
+        "country": "CY",
+        "guess_country": "GR",
+        "guess_coordinates": [
+          35.291,
+          25.0
+        ],
+        "distance_km": 752.9169359218912
+      },
+      "repaired_visual": {
+        "country": "CY",
+        "guess_country": "GR",
+        "guess_coordinates": [
+          36.801,
+          25.511
+        ],
+        "distance_km": 724.1839558797384
+      },
+      "after_direct": {
+        "country": "CY",
+        "guess_country": "GR",
+        "guess_coordinates": [
+          36.841,
+          27.221
+        ],
+        "distance_km": 578.3077367593351
+      },
+      "after_text": {
+        "country": "CY",
+        "guess_country": "GR",
+        "guess_coordinates": [
+          36.841,
+          27.221
+        ],
+        "distance_km": 578.3077367593351
+      },
+      "after_visual": {
+        "country": "CY",
+        "guess_country": "GR",
+        "guess_coordinates": [
+          36.801,
+          27.221
+        ],
+        "distance_km": 576.9825659208252
+      },
+      "after_both": {
+        "country": "CY",
+        "guess_country": "GR",
+        "guess_coordinates": [
+          36.801,
+          27.221
+        ],
+        "distance_km": 576.9825659208252
+      }
+    },
+    {
+      "ordinal": 33,
+      "id": "360270872953286",
+      "country": "FI",
+      "before_read_status": "invalid",
+      "after_read_status": "empty",
+      "repaired_read_status": "nonempty",
+      "repaired_strings": [
+        "2000"
+      ],
+      "before_strings": [],
+      "after_strings": [],
+      "before_observations": null,
+      "repaired_observations": {
+        "surface": "paved",
+        "centerline": "yellow",
+        "roadside": [
+          "utility_poles"
+        ]
+      },
+      "after_observations": {
+        "surface": "paved",
+        "centerline": "yellow",
+        "roadside": []
+      },
+      "direct": {
+        "country": "FI",
+        "guess_country": "RU",
+        "guess_coordinates": [
+          64.021,
+          102.0
+        ],
+        "distance_km": 3624.791913770138
+      },
+      "before_text": {
+        "country": "FI",
+        "guess_country": "RU",
+        "guess_coordinates": [
+          64.021,
+          102.0
+        ],
+        "distance_km": 3624.791913770138
+      },
+      "before_visual": {
+        "country": "FI",
+        "guess_country": "RU",
+        "guess_coordinates": [
+          64.021,
+          102.0
+        ],
+        "distance_km": 3624.791913770138
+      },
+      "repaired_text": {
+        "country": "FI",
+        "guess_country": "RU",
+        "guess_coordinates": [
+          63.021,
+          100.0
+        ],
+        "distance_km": 3605.2824783928804
+      },
+      "repaired_visual": {
+        "country": "FI",
+        "guess_country": "RU",
+        "guess_coordinates": [
+          63.021,
+          102.0
+        ],
+        "distance_km": 3688.0873206345277
+      },
+      "after_direct": {
+        "country": "FI",
+        "guess_country": "RU",
+        "guess_coordinates": [
+          64.024,
+          102.0
+        ],
+        "distance_km": 3624.6051076463596
+      },
+      "after_text": {
+        "country": "FI",
+        "guess_country": "RU",
+        "guess_coordinates": [
+          64.024,
+          102.0
+        ],
+        "distance_km": 3624.6051076463596
+      },
+      "after_visual": {
+        "country": "FI",
+        "guess_country": "RU",
+        "guess_coordinates": [
+          64.104,
+          102.0
+        ],
+        "distance_km": 3619.630536924686
+      },
+      "after_both": {
+        "country": "FI",
+        "guess_country": "RU",
+        "guess_coordinates": [
+          64.104,
+          102.0
+        ],
+        "distance_km": 3619.630536924686
+      }
+    },
+    {
+      "ordinal": 34,
+      "id": "480826559825677",
+      "country": "GF",
+      "before_read_status": "empty",
+      "after_read_status": "empty",
+      "repaired_read_status": "empty",
+      "repaired_strings": [],
+      "before_strings": [],
+      "after_strings": [],
+      "before_observations": null,
+      "repaired_observations": {
+        "surface": "paved",
+        "centerline": "white",
+        "roadside": [
+          "utility_poles"
+        ]
+      },
+      "after_observations": {
+        "surface": "paved",
+        "centerline": "none",
+        "roadside": []
+      },
+      "direct": {
+        "country": "GF",
+        "guess_country": "BR",
+        "guess_coordinates": [
+          -14.124,
+          -50.152
+        ],
+        "distance_km": 2237.5816769924613
+      },
+      "before_text": {
+        "country": "GF",
+        "guess_country": "BR",
+        "guess_coordinates": [
+          -14.124,
+          -50.152
+        ],
+        "distance_km": 2237.5816769924613
+      },
+      "before_visual": {
+        "country": "GF",
+        "guess_country": "BR",
+        "guess_coordinates": [
+          -14.124,
+          -50.152
+        ],
+        "distance_km": 2237.5816769924613
+      },
+      "repaired_text": {
+        "country": "GF",
+        "guess_country": "BR",
+        "guess_coordinates": [
+          -14.124,
+          -50.152
+        ],
+        "distance_km": 2237.5816769924613
+      },
+      "repaired_visual": {
+        "country": "GF",
+        "guess_country": "BR",
+        "guess_coordinates": [
+          -14.121,
+          -50.452
+        ],
+        "distance_km": 2231.5532848108696
+      },
+      "after_direct": {
+        "country": "GF",
+        "guess_country": "BR",
+        "guess_coordinates": [
+          -14.552,
+          -51.152
+        ],
+        "distance_km": 2267.6158189588455
+      },
+      "after_text": {
+        "country": "GF",
+        "guess_country": "BR",
+        "guess_coordinates": [
+          -14.552,
+          -51.152
+        ],
+        "distance_km": 2267.6158189588455
+      },
+      "after_visual": {
+        "country": "GF",
+        "guess_country": "BR",
+        "guess_coordinates": [
+          -14.554,
+          -51.152
+        ],
+        "distance_km": 2267.8362801062613
+      },
+      "after_both": {
+        "country": "GF",
+        "guess_country": "BR",
+        "guess_coordinates": [
+          -14.554,
+          -51.152
+        ],
+        "distance_km": 2267.8362801062613
+      }
+    },
+    {
+      "ordinal": 35,
+      "id": "247212563851961",
+      "country": "GH",
+      "before_read_status": "empty",
+      "after_read_status": "empty",
+      "repaired_read_status": "empty",
+      "repaired_strings": [],
+      "before_strings": [],
+      "after_strings": [],
+      "before_observations": null,
+      "repaired_observations": {
+        "surface": "paved",
+        "centerline": "white",
+        "roadside": [
+          "utility_poles"
+        ]
+      },
+      "after_observations": {
+        "surface": "paved",
+        "centerline": "white",
+        "roadside": []
+      },
+      "direct": {
+        "country": "GH",
+        "guess_country": "GB",
+        "guess_coordinates": [
+          50.124,
+          -3.234
+        ],
+        "distance_km": 5007.0841787248055
+      },
+      "before_text": {
+        "country": "GH",
+        "guess_country": "GB",
+        "guess_coordinates": [
+          50.124,
+          -3.234
+        ],
+        "distance_km": 5007.0841787248055
+      },
+      "before_visual": {
+        "country": "GH",
+        "guess_country": "GB",
+        "guess_coordinates": [
+          50.124,
+          -3.234
+        ],
+        "distance_km": 5007.0841787248055
+      },
+      "repaired_text": {
+        "country": "GH",
+        "guess_country": "GB",
+        "guess_coordinates": [
+          50.124,
+          -3.234
+        ],
+        "distance_km": 5007.0841787248055
+      },
+      "repaired_visual": {
+        "country": "GH",
+        "guess_country": "GB",
+        "guess_coordinates": [
+          50.121,
+          -3.234
+        ],
+        "distance_km": 5006.750992893233
+      },
+      "after_direct": {
+        "country": "GH",
+        "guess_country": "GB",
+        "guess_coordinates": [
+          50.094,
+          -3.234
+        ],
+        "distance_km": 5003.7523222895215
+      },
+      "after_text": {
+        "country": "GH",
+        "guess_country": "GB",
+        "guess_coordinates": [
+          50.094,
+          -3.234
+        ],
+        "distance_km": 5003.7523222895215
+      },
+      "after_visual": {
+        "country": "GH",
+        "guess_country": "GB",
+        "guess_coordinates": [
+          50.841,
+          -3.334
+        ],
+        "distance_km": 5087.064562141033
+      },
+      "after_both": {
+        "country": "GH",
+        "guess_country": "GB",
+        "guess_coordinates": [
+          50.841,
+          -3.334
+        ],
+        "distance_km": 5087.064562141033
+      }
+    },
+    {
+      "ordinal": 36,
+      "id": "520458562734779",
+      "country": "KR",
+      "before_read_status": "invalid",
+      "after_read_status": "nonempty",
+      "repaired_read_status": "invalid",
+      "repaired_strings": [],
+      "before_strings": [],
+      "after_strings": [
+        "6-4"
+      ],
+      "before_observations": null,
+      "repaired_observations": {
+        "surface": "paved",
+        "centerline": "none",
+        "roadside": [
+          "bollards",
+          "utility_poles"
+        ]
+      },
+      "after_observations": {
+        "surface": "paved",
+        "centerline": "none",
+        "roadside": []
+      },
+      "direct": {
+        "country": "KR",
+        "guess_country": "KR",
+        "guess_coordinates": [
+          37.552,
+          127.0
+        ],
+        "distance_km": 454.56382807373257
+      },
+      "before_text": {
+        "country": "KR",
+        "guess_country": "KR",
+        "guess_coordinates": [
+          37.552,
+          127.0
+        ],
+        "distance_km": 454.56382807373257
+      },
+      "before_visual": {
+        "country": "KR",
+        "guess_country": "KR",
+        "guess_coordinates": [
+          37.552,
+          127.0
+        ],
+        "distance_km": 454.56382807373257
+      },
+      "repaired_text": {
+        "country": "KR",
+        "guess_country": "KR",
+        "guess_coordinates": [
+          37.552,
+          127.0
+        ],
+        "distance_km": 454.56382807373257
+      },
+      "repaired_visual": {
+        "country": "KR",
+        "guess_country": "KR",
+        "guess_coordinates": [
+          37.552,
+          126.981
+        ],
+        "distance_km": 454.391761531965
+      },
+      "after_direct": {
+        "country": "KR",
+        "guess_country": "KR",
+        "guess_coordinates": [
+          37.552,
+          126.984
+        ],
+        "distance_km": 454.418502119953
+      },
+      "after_text": {
+        "country": "KR",
+        "guess_country": "KR",
+        "guess_coordinates": [
+          37.552,
+          126.982
+        ],
+        "distance_km": 454.4006572293854
+      },
+      "after_visual": {
+        "country": "KR",
+        "guess_country": "KR",
+        "guess_coordinates": [
+          37.552,
+          126.984
+        ],
+        "distance_km": 454.418502119953
+      },
+      "after_both": {
+        "country": "KR",
+        "guess_country": "KR",
+        "guess_coordinates": [
+          37.552,
+          127.0
+        ],
+        "distance_km": 454.56382807373257
+      }
+    },
+    {
+      "ordinal": 37,
+      "id": "821322645150025",
+      "country": "NG",
+      "before_read_status": "nonempty",
+      "after_read_status": "empty",
+      "repaired_read_status": "nonempty",
+      "repaired_strings": [
+        "Nkwo"
+      ],
+      "before_strings": [
+        "Nkwo"
+      ],
+      "after_strings": [],
+      "before_observations": null,
+      "repaired_observations": {
+        "surface": "unpaved",
+        "centerline": "none",
+        "roadside": [
+          "bollards",
+          "utility_poles"
+        ]
+      },
+      "after_observations": {
+        "surface": "unpaved",
+        "centerline": "none",
+        "roadside": [
+          "utility_poles"
+        ]
+      },
+      "direct": {
+        "country": "NG",
+        "guess_country": "GH",
+        "guess_coordinates": [
+          5.881,
+          -0.155
+        ],
+        "distance_km": 611.7233507244678
+      },
+      "before_text": {
+        "country": "NG",
+        "guess_country": "GH",
+        "guess_coordinates": [
+          6.3,
+          -0.15
+        ],
+        "distance_km": 601.3476083538544
+      },
+      "before_visual": {
+        "country": "NG",
+        "guess_country": "GH",
+        "guess_coordinates": [
+          5.881,
+          -0.155
+        ],
+        "distance_km": 611.7233507244678
+      },
+      "repaired_text": {
+        "country": "NG",
+        "guess_country": "GH",
+        "guess_coordinates": [
+          6.3,
+          -0.15
+        ],
+        "distance_km": 601.3476083538544
+      },
+      "repaired_visual": {
+        "country": "NG",
+        "guess_country": "GH",
+        "guess_coordinates": [
+          6.3,
+          -0.15
+        ],
+        "distance_km": 601.3476083538544
+      },
+      "after_direct": {
+        "country": "NG",
+        "guess_country": "GH",
+        "guess_coordinates": [
+          5.734,
+          -0.152
+        ],
+        "distance_km": 615.6492006263263
+      },
+      "after_text": {
+        "country": "NG",
+        "guess_country": "GH",
+        "guess_coordinates": [
+          5.734,
+          -0.152
+        ],
+        "distance_km": 615.6492006263263
+      },
+      "after_visual": {
+        "country": "NG",
+        "guess_country": "GH",
+        "guess_coordinates": [
+          6.121,
+          -0.251
+        ],
+        "distance_km": 616.0646082926487
+      },
+      "after_both": {
+        "country": "NG",
+        "guess_country": "GH",
+        "guess_coordinates": [
+          6.121,
+          -0.251
+        ],
+        "distance_km": 616.0646082926487
+      }
+    },
+    {
+      "ordinal": 38,
+      "id": "8636953276322496",
+      "country": "NP",
+      "before_read_status": "nonempty",
+      "after_read_status": "empty",
+      "repaired_read_status": "nonempty",
+      "repaired_strings": [
+        "N",
+        "R"
+      ],
+      "before_strings": [
+        "N",
+        "R"
+      ],
+      "after_strings": [],
+      "before_observations": null,
+      "repaired_observations": {
+        "surface": "paved",
+        "centerline": "yellow",
+        "roadside": [
+          "bollards",
+          "traffic_sign",
+          "utility_poles"
+        ]
+      },
+      "after_observations": {
+        "surface": "paved",
+        "centerline": "none",
+        "roadside": [
+          "utility_poles"
+        ]
+      },
+      "direct": {
+        "country": "NP",
+        "guess_country": "NP",
+        "guess_coordinates": [
+          27.702,
+          85.791
+        ],
+        "distance_km": 44.83049115045746
+      },
+      "before_text": {
+        "country": "NP",
+        "guess_country": "NP",
+        "guess_coordinates": [
+          27.702,
+          85.791
+        ],
+        "distance_km": 44.83049115045746
+      },
+      "before_visual": {
+        "country": "NP",
+        "guess_country": "NP",
+        "guess_coordinates": [
+          27.702,
+          85.791
+        ],
+        "distance_km": 44.83049115045746
+      },
+      "repaired_text": {
+        "country": "NP",
+        "guess_country": "NP",
+        "guess_coordinates": [
+          27.702,
+          85.791
+        ],
+        "distance_km": 44.83049115045746
+      },
+      "repaired_visual": {
+        "country": "NP",
+        "guess_country": "NP",
+        "guess_coordinates": [
+          27.702,
+          85.791
+        ],
+        "distance_km": 44.83049115045746
+      },
+      "after_direct": {
+        "country": "NP",
+        "guess_country": "NP",
+        "guess_coordinates": [
+          27.702,
+          85.512
+        ],
+        "distance_km": 17.394504910656998
+      },
+      "after_text": {
+        "country": "NP",
+        "guess_country": "NP",
+        "guess_coordinates": [
+          27.702,
+          85.512
+        ],
+        "distance_km": 17.394504910656998
+      },
+      "after_visual": {
+        "country": "NP",
+        "guess_country": "NP",
+        "guess_coordinates": [
+          27.702,
+          85.312
+        ],
+        "distance_km": 2.7192760887721916
+      },
+      "after_both": {
+        "country": "NP",
+        "guess_country": "NP",
+        "guess_coordinates": [
+          27.702,
+          85.312
+        ],
+        "distance_km": 2.7192760887721916
+      }
+    },
+    {
+      "ordinal": 39,
+      "id": "754839602247324",
+      "country": "PL",
+      "before_read_status": "invalid",
+      "after_read_status": "empty",
+      "repaired_read_status": "nonempty",
+      "repaired_strings": [
+        "10"
+      ],
+      "before_strings": [],
+      "after_strings": [],
+      "before_observations": null,
+      "repaired_observations": null,
+      "after_observations": {
+        "surface": "paved",
+        "centerline": "none",
+        "roadside": []
+      },
+      "direct": {
+        "country": "PL",
+        "guess_country": "PL",
+        "guess_coordinates": [
+          53.091,
+          17.102
+        ],
+        "distance_km": 288.6420241952477
+      },
+      "before_text": {
+        "country": "PL",
+        "guess_country": "PL",
+        "guess_coordinates": [
+          53.091,
+          17.102
+        ],
+        "distance_km": 288.6420241952477
+      },
+      "before_visual": {
+        "country": "PL",
+        "guess_country": "PL",
+        "guess_coordinates": [
+          53.091,
+          17.102
+        ],
+        "distance_km": 288.6420241952477
+      },
+      "repaired_text": {
+        "country": "PL",
+        "guess_country": "PL",
+        "guess_coordinates": [
+          53.052,
+          17.102
+        ],
+        "distance_km": 286.64511417026233
+      },
+      "repaired_visual": {
+        "country": "PL",
+        "guess_country": "PL",
+        "guess_coordinates": [
+          53.091,
+          17.102
+        ],
+        "distance_km": 288.6420241952477
+      },
+      "after_direct": {
+        "country": "PL",
+        "guess_country": "PL",
+        "guess_coordinates": [
+          53.052,
+          17.102
+        ],
+        "distance_km": 286.64511417026233
+      },
+      "after_text": {
+        "country": "PL",
+        "guess_country": "PL",
+        "guess_coordinates": [
+          53.052,
+          17.102
+        ],
+        "distance_km": 286.64511417026233
+      },
+      "after_visual": {
+        "country": "PL",
+        "guess_country": "PL",
+        "guess_coordinates": [
+          54.024,
+          17.212
+        ],
+        "distance_km": 344.0761119474927
+      },
+      "after_both": {
+        "country": "PL",
+        "guess_country": "PL",
+        "guess_coordinates": [
+          54.024,
+          17.212
+        ],
+        "distance_km": 344.0761119474927
+      }
+    },
+    {
+      "ordinal": 40,
+      "id": "317729019823265",
+      "country": "SL",
+      "before_read_status": "empty",
+      "after_read_status": "empty",
+      "repaired_read_status": "empty",
+      "repaired_strings": [],
+      "before_strings": [],
+      "after_strings": [],
+      "before_observations": null,
+      "repaired_observations": {
+        "surface": "unpaved",
+        "centerline": "none",
+        "roadside": [
+          "guardrail"
+        ]
+      },
+      "after_observations": {
+        "surface": "unpaved",
+        "centerline": "unclear",
+        "roadside": []
+      },
+      "direct": {
+        "country": "SL",
+        "guess_country": "TZ",
+        "guess_coordinates": [
+          -6.999,
+          37.999
+        ],
+        "distance_km": 5911.182025287853
+      },
+      "before_text": {
+        "country": "SL",
+        "guess_country": "TZ",
+        "guess_coordinates": [
+          -6.999,
+          37.999
+        ],
+        "distance_km": 5911.182025287853
+      },
+      "before_visual": {
+        "country": "SL",
+        "guess_country": "TZ",
+        "guess_coordinates": [
+          -6.999,
+          37.999
+        ],
+        "distance_km": 5911.182025287853
+      },
+      "repaired_text": {
+        "country": "SL",
+        "guess_country": "TZ",
+        "guess_coordinates": [
+          -6.999,
+          37.999
+        ],
+        "distance_km": 5911.182025287853
+      },
+      "repaired_visual": {
+        "country": "SL",
+        "guess_country": "SN",
+        "guess_coordinates": [
+          14.121,
+          -15.901
+        ],
+        "distance_km": 715.4030204063433
+      },
+      "after_direct": {
+        "country": "SL",
+        "guess_country": "ET",
+        "guess_coordinates": [
+          8.621,
+          39.851
+        ],
+        "distance_km": 5815.008996647087
+      },
+      "after_text": {
+        "country": "SL",
+        "guess_country": "ET",
+        "guess_coordinates": [
+          8.621,
+          39.851
+        ],
+        "distance_km": 5815.008996647087
+      },
+      "after_visual": {
+        "country": "SL",
+        "guess_country": "SN",
+        "guess_coordinates": [
+          12.011,
+          -15.011
+        ],
+        "distance_km": 462.46910204075886
+      },
+      "after_both": {
+        "country": "SL",
+        "guess_country": "SN",
+        "guess_coordinates": [
+          12.011,
+          -15.011
+        ],
+        "distance_km": 462.46910204075886
+      }
+    },
+    {
+      "ordinal": 41,
+      "id": "810870836214719",
+      "country": "UG",
+      "before_read_status": "nonempty",
+      "after_read_status": "empty",
+      "repaired_read_status": "nonempty",
+      "repaired_strings": [
+        "Kabaka"
+      ],
+      "before_strings": [
+        "Kabaka"
+      ],
+      "after_strings": [],
+      "before_observations": null,
+      "repaired_observations": null,
+      "after_observations": {
+        "surface": "unpaved",
+        "centerline": "unclear",
+        "roadside": []
+      },
+      "direct": {
+        "country": "UG",
+        "guess_country": "UG",
+        "guess_coordinates": [
+          0.51,
+          31.0
+        ],
+        "distance_km": 170.37057625505778
+      },
+      "before_text": {
+        "country": "UG",
+        "guess_country": "UG",
+        "guess_coordinates": [
+          0.3,
+          31.0
+        ],
+        "distance_km": 171.22291858823607
+      },
+      "before_visual": {
+        "country": "UG",
+        "guess_country": "UG",
+        "guess_coordinates": [
+          0.51,
+          31.0
+        ],
+        "distance_km": 170.37057625505778
+      },
+      "repaired_text": {
+        "country": "UG",
+        "guess_country": "UG",
+        "guess_coordinates": [
+          0.3,
+          31.0
+        ],
+        "distance_km": 171.22291858823607
+      },
+      "repaired_visual": {
+        "country": "UG",
+        "guess_country": "UG",
+        "guess_coordinates": [
+          0.51,
+          31.0
+        ],
+        "distance_km": 170.37057625505778
+      },
+      "after_direct": {
+        "country": "UG",
+        "guess_country": "UG",
+        "guess_coordinates": [
+          -3.024,
+          31.942
+        ],
+        "distance_km": 393.00499024085616
+      },
+      "after_text": {
+        "country": "UG",
+        "guess_country": "UG",
+        "guess_coordinates": [
+          -3.024,
+          31.942
+        ],
+        "distance_km": 393.00499024085616
+      },
+      "after_visual": {
+        "country": "UG",
+        "guess_country": "UG",
+        "guess_coordinates": [
+          -3.024,
+          31.922
+        ],
+        "distance_km": 393.3816884383021
+      },
+      "after_both": {
+        "country": "UG",
+        "guess_country": "UG",
+        "guess_coordinates": [
+          -3.024,
+          31.922
+        ],
+        "distance_km": 393.3816884383021
+      }
+    },
+    {
+      "ordinal": 42,
+      "id": "215286497344871",
+      "country": "ZM",
+      "before_read_status": "empty",
+      "after_read_status": "empty",
+      "repaired_read_status": "empty",
+      "repaired_strings": [],
+      "before_strings": [],
+      "after_strings": [],
+      "before_observations": null,
+      "repaired_observations": {
+        "surface": "unpaved",
+        "centerline": "none",
+        "roadside": []
+      },
+      "after_observations": {
+        "surface": "unpaved",
+        "centerline": "none",
+        "roadside": []
+      },
+      "direct": {
+        "country": "ZM",
+        "guess_country": "BR",
+        "guess_coordinates": [
+          -14.124,
+          -50.152
+        ],
+        "distance_km": 8801.177162915223
+      },
+      "before_text": {
+        "country": "ZM",
+        "guess_country": "BR",
+        "guess_coordinates": [
+          -14.124,
+          -50.152
+        ],
+        "distance_km": 8801.177162915223
+      },
+      "before_visual": {
+        "country": "ZM",
+        "guess_country": "BR",
+        "guess_coordinates": [
+          -14.124,
+          -50.152
+        ],
+        "distance_km": 8801.177162915223
+      },
+      "repaired_text": {
+        "country": "ZM",
+        "guess_country": "BR",
+        "guess_coordinates": [
+          -14.124,
+          -50.152
+        ],
+        "distance_km": 8801.177162915223
+      },
+      "repaired_visual": {
+        "country": "ZM",
+        "guess_country": "BR",
+        "guess_coordinates": [
+          -14.102,
+          -50.452
+        ],
+        "distance_km": 8833.484517248107
+      },
+      "after_direct": {
+        "country": "ZM",
+        "guess_country": "BR",
+        "guess_coordinates": [
+          -14.124,
+          -50.152
+        ],
+        "distance_km": 8801.177162915223
+      },
+      "after_text": {
+        "country": "ZM",
+        "guess_country": "BR",
+        "guess_coordinates": [
+          -14.124,
+          -50.152
+        ],
+        "distance_km": 8801.177162915223
+      },
+      "after_visual": {
+        "country": "ZM",
+        "guess_country": "BR",
+        "guess_coordinates": [
+          -14.124,
+          -50.152
+        ],
+        "distance_km": 8801.177162915223
+      },
+      "after_both": {
+        "country": "ZM",
+        "guess_country": "BR",
+        "guess_coordinates": [
+          -14.124,
+          -50.152
+        ],
+        "distance_km": 8801.177162915223
+      }
+    },
+    {
+      "ordinal": 43,
+      "id": "484293909726906",
+      "country": "BD",
+      "before_read_status": "invalid",
+      "after_read_status": "empty",
+      "repaired_read_status": "nonempty",
+      "repaired_strings": [
+        "Bhagirathi"
+      ],
+      "before_strings": [],
+      "after_strings": [],
+      "before_observations": null,
+      "repaired_observations": {
+        "surface": "paved",
+        "centerline": "white",
+        "roadside": [
+          "traffic_sign"
+        ]
+      },
+      "after_observations": {
+        "surface": "paved",
+        "centerline": "white",
+        "roadside": []
+      },
+      "direct": {
+        "country": "BD",
+        "guess_country": "BD",
+        "guess_coordinates": [
+          24.514,
+          91.321
+        ],
+        "distance_km": 65.62277022189862
+      },
+      "before_text": {
+        "country": "BD",
+        "guess_country": "BD",
+        "guess_coordinates": [
+          24.514,
+          91.321
+        ],
+        "distance_km": 65.62277022189862
+      },
+      "before_visual": {
+        "country": "BD",
+        "guess_country": "BD",
+        "guess_coordinates": [
+          24.514,
+          91.321
+        ],
+        "distance_km": 65.62277022189862
+      },
+      "repaired_text": {
+        "country": "BD",
+        "guess_country": "IN",
+        "guess_coordinates": [
+          26.141,
+          88.211
+        ],
+        "distance_km": 343.4012037721045
+      },
+      "repaired_visual": {
+        "country": "BD",
+        "guess_country": "BD",
+        "guess_coordinates": [
+          24.511,
+          91.321
+        ],
+        "distance_km": 65.41551538141188
+      },
+      "after_direct": {
+        "country": "BD",
+        "guess_country": "BD",
+        "guess_coordinates": [
+          24.092,
+          91.302
+        ],
+        "distance_km": 49.779075326119674
+      },
+      "after_text": {
+        "country": "BD",
+        "guess_country": "BD",
+        "guess_coordinates": [
+          24.092,
+          91.302
+        ],
+        "distance_km": 49.779075326119674
+      },
+      "after_visual": {
+        "country": "BD",
+        "guess_country": "BD",
+        "guess_coordinates": [
+          24.091,
+          91.301
+        ],
+        "distance_km": 49.69196633992085
+      },
+      "after_both": {
+        "country": "BD",
+        "guess_country": "BD",
+        "guess_coordinates": [
+          24.091,
+          91.301
+        ],
+        "distance_km": 49.69196633992085
+      }
+    },
+    {
+      "ordinal": 44,
+      "id": "788096422148572",
+      "country": "BO",
+      "before_read_status": "nonempty",
+      "after_read_status": "empty",
+      "repaired_read_status": "nonempty",
+      "repaired_strings": [
+        "Calle de la Candelaria"
+      ],
+      "before_strings": [
+        "Calle de la Candelaria"
+      ],
+      "after_strings": [],
+      "before_observations": null,
+      "repaired_observations": {
+        "surface": "paved",
+        "centerline": "white",
+        "roadside": [
+          "traffic_sign",
+          "utility_poles"
+        ]
+      },
+      "after_observations": {
+        "surface": "paved",
+        "centerline": "none",
+        "roadside": [
+          "utility_poles"
+        ]
+      },
+      "direct": {
+        "country": "BO",
+        "guess_country": "AR",
+        "guess_coordinates": [
+          -34.8,
+          -55.85
+        ],
+        "distance_km": 2375.577407295632
+      },
+      "before_text": {
+        "country": "BO",
+        "guess_country": "ES",
+        "guess_coordinates": [
+          40.412,
+          -4.0
+        ],
+        "distance_km": 9149.102001247616
+      },
+      "before_visual": {
+        "country": "BO",
+        "guess_country": "AR",
+        "guess_coordinates": [
+          -34.8,
+          -55.85
+        ],
+        "distance_km": 2375.577407295632
+      },
+      "repaired_text": {
+        "country": "BO",
+        "guess_country": "ES",
+        "guess_coordinates": [
+          40.412,
+          -4.0
+        ],
+        "distance_km": 9149.102001247616
+      },
+      "repaired_visual": {
+        "country": "BO",
+        "guess_country": "AR",
+        "guess_coordinates": [
+          -34.8,
+          -55.85
+        ],
+        "distance_km": 2375.577407295632
+      },
+      "after_direct": {
+        "country": "BO",
+        "guess_country": "AR",
+        "guess_coordinates": [
+          -34.594,
+          -58.192
+        ],
+        "distance_km": 2244.3404134765606
+      },
+      "after_text": {
+        "country": "BO",
+        "guess_country": "AR",
+        "guess_coordinates": [
+          -34.594,
+          -58.192
+        ],
+        "distance_km": 2244.3404134765606
+      },
+      "after_visual": {
+        "country": "BO",
+        "guess_country": "AR",
+        "guess_coordinates": [
+          -34.8,
+          -55.8
+        ],
+        "distance_km": 2378.141256186331
+      },
+      "after_both": {
+        "country": "BO",
+        "guess_country": "AR",
+        "guess_coordinates": [
+          -34.8,
+          -55.8
+        ],
+        "distance_km": 2378.141256186331
+      }
+    },
+    {
+      "ordinal": 45,
+      "id": "284811506679249",
+      "country": "CI",
+      "before_read_status": "nonempty",
+      "after_read_status": "nonempty",
+      "repaired_read_status": "nonempty",
+      "repaired_strings": [
+        "CENTRE DIOCESAIN",
+        "SAINT JOSEPH",
+        "BOUAKA"
+      ],
+      "before_strings": [
+        "CENTRE DIOCESAIN",
+        "SAINT JOSEPH",
+        "BOUAKA"
+      ],
+      "after_strings": [
+        "CENTRE DIOCESAIN",
+        "SAINT JOSEPH",
+        "BOUAKÉ"
+      ],
+      "before_observations": null,
+      "repaired_observations": {
+        "surface": "paved",
+        "centerline": "white",
+        "roadside": [
+          "traffic_sign"
+        ]
+      },
+      "after_observations": {
+        "surface": "paved",
+        "centerline": "none",
+        "roadside": [
+          "traffic_sign"
+        ]
+      },
+      "direct": {
+        "country": "CI",
+        "guess_country": "SN",
+        "guess_coordinates": [
+          14.101,
+          -15.9
+        ],
+        "distance_km": 1388.8416887210146
+      },
+      "before_text": {
+        "country": "CI",
+        "guess_country": "SN",
+        "guess_coordinates": [
+          12.101,
+          -14.9
+        ],
+        "distance_km": 1192.317781617902
+      },
+      "before_visual": {
+        "country": "CI",
+        "guess_country": "SN",
+        "guess_coordinates": [
+          14.101,
+          -15.9
+        ],
+        "distance_km": 1388.8416887210146
+      },
+      "repaired_text": {
+        "country": "CI",
+        "guess_country": "SN",
+        "guess_coordinates": [
+          12.101,
+          -14.9
+        ],
+        "distance_km": 1192.317781617902
+      },
+      "repaired_visual": {
+        "country": "CI",
+        "guess_country": "SN",
+        "guess_coordinates": [
+          14.101,
+          -15.9
+        ],
+        "distance_km": 1388.8416887210146
+      },
+      "after_direct": {
+        "country": "CI",
+        "guess_country": "AO",
+        "guess_coordinates": [
+          -11.114,
+          13.112
+        ],
+        "distance_km": 2894.6353840345137
+      },
+      "after_text": {
+        "country": "CI",
+        "guess_country": "GN",
+        "guess_coordinates": [
+          12.0,
+          -13.8
+        ],
+        "distance_km": 1078.7400192372022
+      },
+      "after_visual": {
+        "country": "CI",
+        "guess_country": "SN",
+        "guess_coordinates": [
+          12.011,
+          -15.011
+        ],
+        "distance_km": 1199.522234673735
+      },
+      "after_both": {
+        "country": "CI",
+        "guess_country": "GM",
+        "guess_coordinates": [
+          11.0,
+          -13.0
+        ],
+        "distance_km": 954.1255321284741
+      }
+    },
+    {
+      "ordinal": 46,
+      "id": "628752751556395",
+      "country": "DE",
+      "before_read_status": "empty",
+      "after_read_status": "empty",
+      "repaired_read_status": "empty",
+      "repaired_strings": [],
+      "before_strings": [],
+      "after_strings": [],
+      "before_observations": null,
+      "repaired_observations": {
+        "surface": "paved",
+        "centerline": "white",
+        "roadside": [
+          "guardrail"
+        ]
+      },
+      "after_observations": {
+        "surface": "paved",
+        "centerline": "unclear",
+        "roadside": [
+          "guardrail"
+        ]
+      },
+      "direct": {
+        "country": "DE",
+        "guess_country": "AT",
+        "guess_coordinates": [
+          46.891,
+          14.902
+        ],
+        "distance_km": 355.40920029183496
+      },
+      "before_text": {
+        "country": "DE",
+        "guess_country": "AT",
+        "guess_coordinates": [
+          46.891,
+          14.902
+        ],
+        "distance_km": 355.40920029183496
+      },
+      "before_visual": {
+        "country": "DE",
+        "guess_country": "AT",
+        "guess_coordinates": [
+          46.891,
+          14.902
+        ],
+        "distance_km": 355.40920029183496
+      },
+      "repaired_text": {
+        "country": "DE",
+        "guess_country": "AT",
+        "guess_coordinates": [
+          46.891,
+          14.902
+        ],
+        "distance_km": 355.40920029183496
+      },
+      "repaired_visual": {
+        "country": "DE",
+        "guess_country": "AT",
+        "guess_coordinates": [
+          46.901,
+          14.201
+        ],
+        "distance_km": 303.14975289924047
+      },
+      "after_direct": {
+        "country": "DE",
+        "guess_country": "AT",
+        "guess_coordinates": [
+          46.841,
+          14.202
+        ],
+        "distance_km": 304.80306600247064
+      },
+      "after_text": {
+        "country": "DE",
+        "guess_country": "AT",
+        "guess_coordinates": [
+          46.841,
+          14.202
+        ],
+        "distance_km": 304.80306600247064
+      },
+      "after_visual": {
+        "country": "DE",
+        "guess_country": "CH",
+        "guess_coordinates": [
+          46.994,
+          7.732
+        ],
+        "distance_km": 198.46438897488045
+      },
+      "after_both": {
+        "country": "DE",
+        "guess_country": "CH",
+        "guess_coordinates": [
+          46.994,
+          7.732
+        ],
+        "distance_km": 198.46438897488045
+      }
+    },
+    {
+      "ordinal": 47,
+      "id": "213927817328762",
+      "country": "DK",
+      "before_read_status": "nonempty",
+      "after_read_status": "empty",
+      "repaired_read_status": "nonempty",
+      "repaired_strings": [
+        "Hauptstraße"
+      ],
+      "before_strings": [
+        "Hauptstraße"
+      ],
+      "after_strings": [],
+      "before_observations": null,
+      "repaired_observations": {
+        "surface": "paved",
+        "centerline": "none",
+        "roadside": [
+          "bollards",
+          "utility_poles"
+        ]
+      },
+      "after_observations": {
+        "surface": "paved",
+        "centerline": "none",
+        "roadside": []
+      },
+      "direct": {
+        "country": "DK",
+        "guess_country": "DK",
+        "guess_coordinates": [
+          55.711,
+          10.102
+        ],
+        "distance_km": 161.05346938546907
+      },
+      "before_text": {
+        "country": "DK",
+        "guess_country": "DE",
+        "guess_coordinates": [
+          53.151,
+          8.721
+        ],
+        "distance_km": 407.36600896587254
+      },
+      "before_visual": {
+        "country": "DK",
+        "guess_country": "DK",
+        "guess_coordinates": [
+          55.711,
+          10.102
+        ],
+        "distance_km": 161.05346938546907
+      },
+      "repaired_text": {
+        "country": "DK",
+        "guess_country": "DE",
+        "guess_coordinates": [
+          53.151,
+          8.721
+        ],
+        "distance_km": 407.36600896587254
+      },
+      "repaired_visual": {
+        "country": "DK",
+        "guess_country": "DK",
+        "guess_coordinates": [
+          55.711,
+          10.101
+        ],
+        "distance_km": 161.01325636256874
+      },
+      "after_direct": {
+        "country": "DK",
+        "guess_country": "DK",
+        "guess_coordinates": [
+          55.711,
+          10.102
+        ],
+        "distance_km": 161.05346938546907
+      },
+      "after_text": {
+        "country": "DK",
+        "guess_country": "DK",
+        "guess_coordinates": [
+          55.711,
+          10.102
+        ],
+        "distance_km": 161.05346938546907
+      },
+      "after_visual": {
+        "country": "DK",
+        "guess_country": "DK",
+        "guess_coordinates": [
+          55.711,
+          10.102
+        ],
+        "distance_km": 161.05346938546907
+      },
+      "after_both": {
+        "country": "DK",
+        "guess_country": "DK",
+        "guess_coordinates": [
+          55.711,
+          10.102
+        ],
+        "distance_km": 161.05346938546907
+      }
+    },
+    {
+      "ordinal": 48,
+      "id": "1103570836822240",
+      "country": "EC",
+      "before_read_status": "nonempty",
+      "after_read_status": "empty",
+      "repaired_read_status": "nonempty",
+      "repaired_strings": [
+        "BDH318"
+      ],
+      "before_strings": [
+        "BDH318"
+      ],
+      "after_strings": [],
+      "before_observations": null,
+      "repaired_observations": {
+        "surface": "unpaved",
+        "centerline": "yellow",
+        "roadside": [
+          "traffic_sign"
+        ]
+      },
+      "after_observations": {
+        "surface": "unpaved",
+        "centerline": "unclear",
+        "roadside": []
+      },
+      "direct": {
+        "country": "EC",
+        "guess_country": "BR",
+        "guess_coordinates": [
+          -10.0,
+          -44.0
+        ],
+        "distance_km": 3739.089193315382
+      },
+      "before_text": {
+        "country": "EC",
+        "guess_country": "BO",
+        "guess_coordinates": [
+          -15.991,
+          -67.921
+        ],
+        "distance_km": 1950.527821886937
+      },
+      "before_visual": {
+        "country": "EC",
+        "guess_country": "BR",
+        "guess_coordinates": [
+          -10.0,
+          -44.0
+        ],
+        "distance_km": 3739.089193315382
+      },
+      "repaired_text": {
+        "country": "EC",
+        "guess_country": "BO",
+        "guess_coordinates": [
+          -15.991,
+          -67.921
+        ],
+        "distance_km": 1950.527821886937
+      },
+      "repaired_visual": {
+        "country": "EC",
+        "guess_country": "BR",
+        "guess_coordinates": [
+          -10.0,
+          -44.0
+        ],
+        "distance_km": 3739.089193315382
+      },
+      "after_direct": {
+        "country": "EC",
+        "guess_country": "BR",
+        "guess_coordinates": [
+          -10.0,
+          -43.0
+        ],
+        "distance_km": 3845.361852622563
+      },
+      "after_text": {
+        "country": "EC",
+        "guess_country": "BR",
+        "guess_coordinates": [
+          -10.0,
+          -43.0
+        ],
+        "distance_km": 3845.361852622563
+      },
+      "after_visual": {
+        "country": "EC",
+        "guess_country": "BR",
+        "guess_coordinates": [
+          -10.0,
+          -43.0
+        ],
+        "distance_km": 3845.361852622563
+      },
+      "after_both": {
+        "country": "EC",
+        "guess_country": "BR",
+        "guess_coordinates": [
+          -10.0,
+          -43.0
+        ],
+        "distance_km": 3845.361852622563
+      }
+    },
+    {
+      "ordinal": 49,
+      "id": "526065675505659",
+      "country": "IE",
+      "before_read_status": "nonempty",
+      "after_read_status": "empty",
+      "repaired_read_status": "nonempty",
+      "repaired_strings": [
+        "Dunmore"
+      ],
+      "before_strings": [
+        "Dunmore"
+      ],
+      "after_strings": [],
+      "before_observations": null,
+      "repaired_observations": {
+        "surface": "paved",
+        "centerline": "white",
+        "roadside": [
+          "guardrail",
+          "utility_poles"
+        ]
+      },
+      "after_observations": {
+        "surface": "paved",
+        "centerline": "unclear",
+        "roadside": [
+          "utility_poles"
+        ]
+      },
+      "direct": {
+        "country": "IE",
+        "guess_country": "IE",
+        "guess_coordinates": [
+          53.211,
+          -8.102
+        ],
+        "distance_km": 145.40035860111942
+      },
+      "before_text": {
+        "country": "IE",
+        "guess_country": "IE",
+        "guess_coordinates": [
+          53.211,
+          -6.452
+        ],
+        "distance_km": 199.13533061523853
+      },
+      "before_visual": {
+        "country": "IE",
+        "guess_country": "IE",
+        "guess_coordinates": [
+          53.211,
+          -8.102
+        ],
+        "distance_km": 145.40035860111942
+      },
+      "repaired_text": {
+        "country": "IE",
+        "guess_country": "IE",
+        "guess_coordinates": [
+          53.211,
+          -6.452
+        ],
+        "distance_km": 199.13533061523853
+      },
+      "repaired_visual": {
+        "country": "IE",
+        "guess_country": "IE",
+        "guess_coordinates": [
+          53.211,
+          -6.452
+        ],
+        "distance_km": 199.13533061523853
+      },
+      "after_direct": {
+        "country": "IE",
+        "guess_country": "IE",
+        "guess_coordinates": [
+          53.211,
+          -6.444
+        ],
+        "distance_km": 199.51240614752268
+      },
+      "after_text": {
+        "country": "IE",
+        "guess_country": "IE",
+        "guess_coordinates": [
+          53.211,
+          -6.444
+        ],
+        "distance_km": 199.51240614752268
+      },
+      "after_visual": {
+        "country": "IE",
+        "guess_country": "IE",
+        "guess_coordinates": [
+          53.211,
+          -6.412
+        ],
+        "distance_km": 201.02816788283428
+      },
+      "after_both": {
+        "country": "IE",
+        "guess_country": "IE",
+        "guess_coordinates": [
+          53.211,
+          -6.412
+        ],
+        "distance_km": 201.02816788283428
+      }
+    },
+    {
+      "ordinal": 50,
+      "id": "1930640880449352",
+      "country": "KZ",
+      "before_read_status": "empty",
+      "after_read_status": "empty",
+      "repaired_read_status": "empty",
+      "repaired_strings": [],
+      "before_strings": [],
+      "after_strings": [],
+      "before_observations": null,
+      "repaired_observations": {
+        "surface": "unpaved",
+        "centerline": "none",
+        "roadside": []
+      },
+      "after_observations": {
+        "surface": "unpaved",
+        "centerline": "unclear",
+        "roadside": []
+      },
+      "direct": {
+        "country": "KZ",
+        "guess_country": "RU",
+        "guess_coordinates": [
+          48.881,
+          32.152
+        ],
+        "distance_km": 3466.5519445403593
+      },
+      "before_text": {
+        "country": "KZ",
+        "guess_country": "RU",
+        "guess_coordinates": [
+          48.881,
+          32.152
+        ],
+        "distance_km": 3466.5519445403593
+      },
+      "before_visual": {
+        "country": "KZ",
+        "guess_country": "RU",
+        "guess_coordinates": [
+          48.881,
+          32.152
+        ],
+        "distance_km": 3466.5519445403593
+      },
+      "repaired_text": {
+        "country": "KZ",
+        "guess_country": "RU",
+        "guess_coordinates": [
+          48.881,
+          32.152
+        ],
+        "distance_km": 3466.5519445403593
+      },
+      "repaired_visual": {
+        "country": "KZ",
+        "guess_country": "RU",
+        "guess_coordinates": [
+          48.141,
+          32.241
+        ],
+        "distance_km": 3470.252740820945
+      },
+      "after_direct": {
+        "country": "KZ",
+        "guess_country": "RU",
+        "guess_coordinates": [
+          50.241,
+          126.844
+        ],
+        "distance_km": 3814.750492066764
+      },
+      "after_text": {
+        "country": "KZ",
+        "guess_country": "RU",
+        "guess_coordinates": [
+          50.241,
+          126.844
+        ],
+        "distance_km": 3814.750492066764
+      },
+      "after_visual": {
+        "country": "KZ",
+        "guess_country": "RU",
+        "guess_coordinates": [
+          50.231,
+          37.122
+        ],
+        "distance_km": 3099.2270447189417
+      },
+      "after_both": {
+        "country": "KZ",
+        "guess_country": "RU",
+        "guess_coordinates": [
+          50.231,
+          37.122
+        ],
+        "distance_km": 3099.2270447189417
+      }
+    },
+    {
+      "ordinal": 51,
+      "id": "230346985565595",
+      "country": "MD",
+      "before_read_status": "invalid",
+      "after_read_status": "empty",
+      "repaired_read_status": "invalid",
+      "repaired_strings": [],
+      "before_strings": [],
+      "after_strings": [],
+      "before_observations": null,
+      "repaired_observations": {
+        "surface": "unpaved",
+        "centerline": "none",
+        "roadside": [
+          "utility_poles"
+        ]
+      },
+      "after_observations": {
+        "surface": "unpaved",
+        "centerline": "none",
+        "roadside": []
+      },
+      "direct": {
+        "country": "MD",
+        "guess_country": "RU",
+        "guess_coordinates": [
+          55.295,
+          44.0
+        ],
+        "distance_km": 1396.947428033719
+      },
+      "before_text": {
+        "country": "MD",
+        "guess_country": "RU",
+        "guess_coordinates": [
+          55.295,
+          44.0
+        ],
+        "distance_km": 1396.947428033719
+      },
+      "before_visual": {
+        "country": "MD",
+        "guess_country": "RU",
+        "guess_coordinates": [
+          55.295,
+          44.0
+        ],
+        "distance_km": 1396.947428033719
+      },
+      "repaired_text": {
+        "country": "MD",
+        "guess_country": "RU",
+        "guess_coordinates": [
+          55.295,
+          44.0
+        ],
+        "distance_km": 1396.947428033719
+      },
+      "repaired_visual": {
+        "country": "MD",
+        "guess_country": "RU",
+        "guess_coordinates": [
+          55.251,
+          30.251
+        ],
+        "distance_km": 925.0417352233587
+      },
+      "after_direct": {
+        "country": "MD",
+        "guess_country": "RU",
+        "guess_coordinates": [
+          55.024,
+          30.302
+        ],
+        "distance_km": 900.3411152880833
+      },
+      "after_text": {
+        "country": "MD",
+        "guess_country": "RU",
+        "guess_coordinates": [
+          55.024,
+          30.302
+        ],
+        "distance_km": 900.3411152880833
+      },
+      "after_visual": {
+        "country": "MD",
+        "guess_country": "RU",
+        "guess_coordinates": [
+          55.024,
+          30.302
+        ],
+        "distance_km": 900.3411152880833
+      },
+      "after_both": {
+        "country": "MD",
+        "guess_country": "RU",
+        "guess_coordinates": [
+          55.024,
+          30.302
+        ],
+        "distance_km": 900.3411152880833
+      }
+    },
+    {
+      "ordinal": 52,
+      "id": "258207150106429",
+      "country": "ML",
+      "before_read_status": "empty",
+      "after_read_status": "empty",
+      "repaired_read_status": "empty",
+      "repaired_strings": [],
+      "before_strings": [],
+      "after_strings": [],
+      "before_observations": null,
+      "repaired_observations": {
+        "surface": "unpaved",
+        "centerline": "none",
+        "roadside": []
+      },
+      "after_observations": {
+        "surface": "unpaved",
+        "centerline": "none",
+        "roadside": []
+      },
+      "direct": {
+        "country": "ML",
+        "guess_country": "ZM",
+        "guess_coordinates": [
+          -14.999,
+          29.0
+        ],
+        "distance_km": 4989.019419603646
+      },
+      "before_text": {
+        "country": "ML",
+        "guess_country": "ZM",
+        "guess_coordinates": [
+          -14.999,
+          29.0
+        ],
+        "distance_km": 4989.019419603646
+      },
+      "before_visual": {
+        "country": "ML",
+        "guess_country": "ZM",
+        "guess_coordinates": [
+          -14.999,
+          29.0
+        ],
+        "distance_km": 4989.019419603646
+      },
+      "repaired_text": {
+        "country": "ML",
+        "guess_country": "ZM",
+        "guess_coordinates": [
+          -14.999,
+          29.0
+        ],
+        "distance_km": 4989.019419603646
+      },
+      "repaired_visual": {
+        "country": "ML",
+        "guess_country": "ZM",
+        "guess_coordinates": [
+          -14.999,
+          29.0
+        ],
+        "distance_km": 4989.019419603646
+      },
+      "after_direct": {
+        "country": "ML",
+        "guess_country": "BW",
+        "guess_coordinates": [
+          -24.114,
+          25.011
+        ],
+        "distance_km": 5356.404349678271
+      },
+      "after_text": {
+        "country": "ML",
+        "guess_country": "BW",
+        "guess_coordinates": [
+          -24.114,
+          25.011
+        ],
+        "distance_km": 5356.404349678271
+      },
+      "after_visual": {
+        "country": "ML",
+        "guess_country": "BW",
+        "guess_coordinates": [
+          -24.194,
+          25.011
+        ],
+        "distance_km": 5362.913787540451
+      },
+      "after_both": {
+        "country": "ML",
+        "guess_country": "BW",
+        "guess_coordinates": [
+          -24.194,
+          25.011
+        ],
+        "distance_km": 5362.913787540451
+      }
+    },
+    {
+      "ordinal": 53,
+      "id": "941759176612137",
+      "country": "MN",
+      "before_read_status": "empty",
+      "after_read_status": "empty",
+      "repaired_read_status": "empty",
+      "repaired_strings": [],
+      "before_strings": [],
+      "after_strings": [],
+      "before_observations": null,
+      "repaired_observations": {
+        "surface": "paved",
+        "centerline": "white",
+        "roadside": [
+          "utility_poles"
+        ]
+      },
+      "after_observations": {
+        "surface": "paved",
+        "centerline": "unclear",
+        "roadside": []
+      },
+      "direct": {
+        "country": "MN",
+        "guess_country": "RU",
+        "guess_coordinates": [
+          54.244,
+          102.102
+        ],
+        "distance_km": 784.9666304029572
+      },
+      "before_text": {
+        "country": "MN",
+        "guess_country": "RU",
+        "guess_coordinates": [
+          54.244,
+          102.102
+        ],
+        "distance_km": 784.9666304029572
+      },
+      "before_visual": {
+        "country": "MN",
+        "guess_country": "RU",
+        "guess_coordinates": [
+          54.244,
+          102.102
+        ],
+        "distance_km": 784.9666304029572
+      },
+      "repaired_text": {
+        "country": "MN",
+        "guess_country": "RU",
+        "guess_coordinates": [
+          54.244,
+          102.102
+        ],
+        "distance_km": 784.9666304029572
+      },
+      "repaired_visual": {
+        "country": "MN",
+        "guess_country": "RU",
+        "guess_coordinates": [
+          50.0,
+          48.0
+        ],
+        "distance_km": 4188.981762050087
+      },
+      "after_direct": {
+        "country": "MN",
+        "guess_country": "TM",
+        "guess_coordinates": [
+          38.941,
+          56.102
+        ],
+        "distance_km": 4132.892906226474
+      },
+      "after_text": {
+        "country": "MN",
+        "guess_country": "TM",
+        "guess_coordinates": [
+          38.941,
+          56.102
+        ],
+        "distance_km": 4132.892906226474
+      },
+      "after_visual": {
+        "country": "MN",
+        "guess_country": "TM",
+        "guess_coordinates": [
+          39.041,
+          57.0
+        ],
+        "distance_km": 4060.4461102709106
+      },
+      "after_both": {
+        "country": "MN",
+        "guess_country": "TM",
+        "guess_coordinates": [
+          39.041,
+          57.0
+        ],
+        "distance_km": 4060.4461102709106
+      }
+    },
+    {
+      "ordinal": 54,
+      "id": "164478408862531",
+      "country": "MY",
+      "before_read_status": "invalid",
+      "after_read_status": "empty",
+      "repaired_read_status": "invalid",
+      "repaired_strings": [],
+      "before_strings": [],
+      "after_strings": [],
+      "before_observations": null,
+      "repaired_observations": {
+        "surface": "paved",
+        "centerline": "white",
+        "roadside": [
+          "bollards",
+          "utility_poles"
+        ]
+      },
+      "after_observations": {
+        "surface": "paved",
+        "centerline": "none",
+        "roadside": []
+      },
+      "direct": {
+        "country": "MY",
+        "guess_country": "MY",
+        "guess_coordinates": [
+          3.124,
+          101.751
+        ],
+        "distance_km": 108.28457326005167
+      },
+      "before_text": {
+        "country": "MY",
+        "guess_country": "MY",
+        "guess_coordinates": [
+          3.124,
+          101.751
+        ],
+        "distance_km": 108.28457326005167
+      },
+      "before_visual": {
+        "country": "MY",
+        "guess_country": "MY",
+        "guess_coordinates": [
+          3.124,
+          101.751
+        ],
+        "distance_km": 108.28457326005167
+      },
+      "repaired_text": {
+        "country": "MY",
+        "guess_country": "MY",
+        "guess_coordinates": [
+          3.124,
+          101.751
+        ],
+        "distance_km": 108.28457326005167
+      },
+      "repaired_visual": {
+        "country": "MY",
+        "guess_country": "MY",
+        "guess_coordinates": [
+          4.612,
+          114.401
+        ],
+        "distance_km": 1377.102275798771
+      },
+      "after_direct": {
+        "country": "MY",
+        "guess_country": "MY",
+        "guess_coordinates": [
+          4.841,
+          114.401
+        ],
+        "distance_km": 1381.9649639946556
+      },
+      "after_text": {
+        "country": "MY",
+        "guess_country": "MY",
+        "guess_coordinates": [
+          4.841,
+          114.401
+        ],
+        "distance_km": 1381.9649639946556
+      },
+      "after_visual": {
+        "country": "MY",
+        "guess_country": "MY",
+        "guess_coordinates": [
+          4.841,
+          114.502
+        ],
+        "distance_km": 1392.9321136621231
+      },
+      "after_both": {
+        "country": "MY",
+        "guess_country": "MY",
+        "guess_coordinates": [
+          4.841,
+          114.502
+        ],
+        "distance_km": 1392.9321136621231
+      }
+    },
+    {
+      "ordinal": 55,
+      "id": "703184410550403",
+      "country": "MZ",
+      "before_read_status": "empty",
+      "after_read_status": "empty",
+      "repaired_read_status": "empty",
+      "repaired_strings": [],
+      "before_strings": [],
+      "after_strings": [],
+      "before_observations": null,
+      "repaired_observations": {
+        "surface": "unpaved",
+        "centerline": "none",
+        "roadside": []
+      },
+      "after_observations": {
+        "surface": "unpaved",
+        "centerline": "none",
+        "roadside": []
+      },
+      "direct": {
+        "country": "MZ",
+        "guess_country": "ZM",
+        "guess_coordinates": [
+          -13.014,
+          29.021
+        ],
+        "distance_km": 972.4597159259603
+      },
+      "before_text": {
+        "country": "MZ",
+        "guess_country": "ZM",
+        "guess_coordinates": [
+          -13.014,
+          29.021
+        ],
+        "distance_km": 972.4597159259603
+      },
+      "before_visual": {
+        "country": "MZ",
+        "guess_country": "ZM",
+        "guess_coordinates": [
+          -13.014,
+          29.021
+        ],
+        "distance_km": 972.4597159259603
+      },
+      "repaired_text": {
+        "country": "MZ",
+        "guess_country": "ZM",
+        "guess_coordinates": [
+          -13.014,
+          29.021
+        ],
+        "distance_km": 972.4597159259603
+      },
+      "repaired_visual": {
+        "country": "MZ",
+        "guess_country": "ZM",
+        "guess_coordinates": [
+          -13.021,
+          29.0
+        ],
+        "distance_km": 973.9884334715495
+      },
+      "after_direct": {
+        "country": "MZ",
+        "guess_country": "ZM",
+        "guess_coordinates": [
+          -13.014,
+          29.011
+        ],
+        "distance_km": 973.3817456102531
+      },
+      "after_text": {
+        "country": "MZ",
+        "guess_country": "ZM",
+        "guess_coordinates": [
+          -13.014,
+          29.011
+        ],
+        "distance_km": 973.3817456102531
+      },
+      "after_visual": {
+        "country": "MZ",
+        "guess_country": "ZM",
+        "guess_coordinates": [
+          -13.011,
+          25.041
+        ],
+        "distance_km": 1357.081046822268
+      },
+      "after_both": {
+        "country": "MZ",
+        "guess_country": "ZM",
+        "guess_coordinates": [
+          -13.011,
+          25.041
+        ],
+        "distance_km": 1357.081046822268
+      }
+    },
+    {
+      "ordinal": 56,
+      "id": "203550248262507",
+      "country": "PH",
+      "before_read_status": "invalid",
+      "after_read_status": "empty",
+      "repaired_read_status": "nonempty",
+      "repaired_strings": [
+        "Panglalag"
+      ],
+      "before_strings": [],
+      "after_strings": [],
+      "before_observations": null,
+      "repaired_observations": {
+        "surface": "paved",
+        "centerline": "yellow",
+        "roadside": [
+          "traffic_sign",
+          "utility_poles"
+        ]
+      },
+      "after_observations": {
+        "surface": "paved",
+        "centerline": "yellow",
+        "roadside": [
+          "traffic_sign"
+        ]
+      },
+      "direct": {
+        "country": "PH",
+        "guess_country": "PH",
+        "guess_coordinates": [
+          10.2,
+          124.4
+        ],
+        "distance_km": 120.98537669783764
+      },
+      "before_text": {
+        "country": "PH",
+        "guess_country": "PH",
+        "guess_coordinates": [
+          10.2,
+          124.4
+        ],
+        "distance_km": 120.98537669783764
+      },
+      "before_visual": {
+        "country": "PH",
+        "guess_country": "PH",
+        "guess_coordinates": [
+          10.2,
+          124.4
+        ],
+        "distance_km": 120.98537669783764
+      },
+      "repaired_text": {
+        "country": "PH",
+        "guess_country": "PH",
+        "guess_coordinates": [
+          10.0,
+          124.999
+        ],
+        "distance_km": 187.86114558498937
+      },
+      "repaired_visual": {
+        "country": "PH",
+        "guess_country": "PH",
+        "guess_coordinates": [
+          10.0,
+          124.999
+        ],
+        "distance_km": 187.86114558498937
+      },
+      "after_direct": {
+        "country": "PH",
+        "guess_country": "PH",
+        "guess_coordinates": [
+          10.1,
+          124.412
+        ],
+        "distance_km": 122.77919653626253
+      },
+      "after_text": {
+        "country": "PH",
+        "guess_country": "PH",
+        "guess_coordinates": [
+          10.1,
+          124.412
+        ],
+        "distance_km": 122.77919653626253
+      },
+      "after_visual": {
+        "country": "PH",
+        "guess_country": "PH",
+        "guess_coordinates": [
+          10.1,
+          124.3
+        ],
+        "distance_km": 110.57146213301694
+      },
+      "after_both": {
+        "country": "PH",
+        "guess_country": "PH",
+        "guess_coordinates": [
+          10.1,
+          124.3
+        ],
+        "distance_km": 110.57146213301694
+      }
+    },
+    {
+      "ordinal": 57,
+      "id": "1440746926286227",
+      "country": "RO",
+      "before_read_status": "nonempty",
+      "after_read_status": "empty",
+      "repaired_read_status": "nonempty",
+      "repaired_strings": [
+        "Vrak"
+      ],
+      "before_strings": [
+        "Vrak"
+      ],
+      "after_strings": [],
+      "before_observations": null,
+      "repaired_observations": {
+        "surface": "paved",
+        "centerline": "white",
+        "roadside": [
+          "bollards",
+          "utility_poles"
+        ]
+      },
+      "after_observations": {
+        "surface": "paved",
+        "centerline": "none",
+        "roadside": []
+      },
+      "direct": {
+        "country": "RO",
+        "guess_country": "RO",
+        "guess_coordinates": [
+          45.5,
+          24.7
+        ],
+        "distance_km": 103.93576490330418
+      },
+      "before_text": {
+        "country": "RO",
+        "guess_country": "RS",
+        "guess_coordinates": [
+          43.901,
+          20.901
+        ],
+        "distance_km": 259.60401367854143
+      },
+      "before_visual": {
+        "country": "RO",
+        "guess_country": "RO",
+        "guess_coordinates": [
+          45.5,
+          24.7
+        ],
+        "distance_km": 103.93576490330418
+      },
+      "repaired_text": {
+        "country": "RO",
+        "guess_country": "RS",
+        "guess_coordinates": [
+          43.901,
+          20.901
+        ],
+        "distance_km": 259.60401367854143
+      },
+      "repaired_visual": {
+        "country": "RO",
+        "guess_country": "RO",
+        "guess_coordinates": [
+          45.411,
+          24.711
+        ],
+        "distance_km": 104.7130120795209
+      },
+      "after_direct": {
+        "country": "RO",
+        "guess_country": "RS",
+        "guess_coordinates": [
+          43.631,
+          21.412
+        ],
+        "distance_km": 254.05042410750858
+      },
+      "after_text": {
+        "country": "RO",
+        "guess_country": "RS",
+        "guess_coordinates": [
+          43.631,
+          21.412
+        ],
+        "distance_km": 254.05042410750858
+      },
+      "after_visual": {
+        "country": "RO",
+        "guess_country": "RS",
+        "guess_coordinates": [
+          43.691,
+          21.411
+        ],
+        "distance_km": 248.8013488797916
+      },
+      "after_both": {
+        "country": "RO",
+        "guess_country": "RS",
+        "guess_coordinates": [
+          43.691,
+          21.411
+        ],
+        "distance_km": 248.8013488797916
+      }
+    },
+    {
+      "ordinal": 58,
+      "id": "914655639092075",
+      "country": "SN",
+      "before_read_status": "nonempty",
+      "after_read_status": "empty",
+      "repaired_read_status": "nonempty",
+      "repaired_strings": [
+        "TOYOTA"
+      ],
+      "before_strings": [
+        "TOYOTA"
+      ],
+      "after_strings": [],
+      "before_observations": null,
+      "repaired_observations": {
+        "surface": "paved",
+        "centerline": "white",
+        "roadside": [
+          "traffic_sign"
+        ]
+      },
+      "after_observations": {
+        "surface": "paved",
+        "centerline": "none",
+        "roadside": []
+      },
+      "direct": {
+        "country": "SN",
+        "guess_country": "MA",
+        "guess_coordinates": [
+          33.891,
+          -1.191
+        ],
+        "distance_km": 2687.9111301933863
+      },
+      "before_text": {
+        "country": "SN",
+        "guess_country": "DZ",
+        "guess_coordinates": [
+          36.3,
+          1.3
+        ],
+        "distance_km": 3038.5891464213883
+      },
+      "before_visual": {
+        "country": "SN",
+        "guess_country": "MA",
+        "guess_coordinates": [
+          33.891,
+          -1.191
+        ],
+        "distance_km": 2687.9111301933863
+      },
+      "repaired_text": {
+        "country": "SN",
+        "guess_country": "DZ",
+        "guess_coordinates": [
+          36.3,
+          1.3
+        ],
+        "distance_km": 3038.5891464213883
+      },
+      "repaired_visual": {
+        "country": "SN",
+        "guess_country": "DZ",
+        "guess_coordinates": [
+          35.59,
+          1.301
+        ],
+        "distance_km": 2981.010623784849
+      },
+      "after_direct": {
+        "country": "SN",
+        "guess_country": "MA",
+        "guess_coordinates": [
+          33.891,
+          -1.152
+        ],
+        "distance_km": 2690.29364785977
+      },
+      "after_text": {
+        "country": "SN",
+        "guess_country": "MA",
+        "guess_coordinates": [
+          33.891,
+          -1.152
+        ],
+        "distance_km": 2690.29364785977
+      },
+      "after_visual": {
+        "country": "SN",
+        "guess_country": "MA",
+        "guess_coordinates": [
+          33.694,
+          -7.302
+        ],
+        "distance_km": 2346.086731768675
+      },
+      "after_both": {
+        "country": "SN",
+        "guess_country": "MA",
+        "guess_coordinates": [
+          33.694,
+          -7.302
+        ],
+        "distance_km": 2346.086731768675
+      }
+    },
+    {
+      "ordinal": 59,
+      "id": "1234929926997580",
+      "country": "TW",
+      "before_read_status": "nonempty",
+      "after_read_status": "empty",
+      "repaired_read_status": "nonempty",
+      "repaired_strings": [
+        "Sao Bao"
+      ],
+      "before_strings": [
+        "Sao Bao"
+      ],
+      "after_strings": [],
+      "before_observations": null,
+      "repaired_observations": {
+        "surface": "paved",
+        "centerline": "none",
+        "roadside": [
+          "guardrail",
+          "traffic_sign",
+          "utility_poles"
+        ]
+      },
+      "after_observations": {
+        "surface": "paved",
+        "centerline": "none",
+        "roadside": [
+          "guardrail"
+        ]
+      },
+      "direct": {
+        "country": "TW",
+        "guess_country": "CN",
+        "guess_coordinates": [
+          24.881,
+          110.411
+        ],
+        "distance_km": 1121.4892541116324
+      },
+      "before_text": {
+        "country": "TW",
+        "guess_country": "VN",
+        "guess_coordinates": [
+          16.052,
+          108.211
+        ],
+        "distance_km": 1715.176443878117
+      },
+      "before_visual": {
+        "country": "TW",
+        "guess_country": "CN",
+        "guess_coordinates": [
+          24.881,
+          110.411
+        ],
+        "distance_km": 1121.4892541116324
+      },
+      "repaired_text": {
+        "country": "TW",
+        "guess_country": "VN",
+        "guess_coordinates": [
+          16.052,
+          108.211
+        ],
+        "distance_km": 1715.176443878117
+      },
+      "repaired_visual": {
+        "country": "TW",
+        "guess_country": "CN",
+        "guess_coordinates": [
+          24.881,
+          118.181
+        ],
+        "distance_km": 339.8037484045378
+      },
+      "after_direct": {
+        "country": "TW",
+        "guess_country": "VN",
+        "guess_coordinates": [
+          10.752,
+          106.892
+        ],
+        "distance_km": 2224.186708171343
+      },
+      "after_text": {
+        "country": "TW",
+        "guess_country": "VN",
+        "guess_coordinates": [
+          10.752,
+          106.892
+        ],
+        "distance_km": 2224.186708171343
+      },
+      "after_visual": {
+        "country": "TW",
+        "guess_country": "VN",
+        "guess_coordinates": [
+          10.8,
+          106.59
+        ],
+        "distance_km": 2242.451077017654
+      },
+      "after_both": {
+        "country": "TW",
+        "guess_country": "VN",
+        "guess_coordinates": [
+          10.8,
+          106.59
+        ],
+        "distance_km": 2242.451077017654
+      }
+    },
+    {
+      "ordinal": 60,
+      "id": "775335703170591",
+      "country": "TZ",
+      "before_read_status": "empty",
+      "after_read_status": "empty",
+      "repaired_read_status": "empty",
+      "repaired_strings": [],
+      "before_strings": [],
+      "after_strings": [],
+      "before_observations": null,
+      "repaired_observations": {
+        "surface": "paved",
+        "centerline": "white",
+        "roadside": [
+          "traffic_sign",
+          "utility_poles"
+        ]
+      },
+      "after_observations": {
+        "surface": "paved",
+        "centerline": "none",
+        "roadside": [
+          "utility_poles"
+        ]
+      },
+      "direct": {
+        "country": "TZ",
+        "guess_country": "ZM",
+        "guess_coordinates": [
+          -14.714,
+          29.041
+        ],
+        "distance_km": 1098.1633744849642
+      },
+      "before_text": {
+        "country": "TZ",
+        "guess_country": "ZM",
+        "guess_coordinates": [
+          -14.714,
+          29.041
+        ],
+        "distance_km": 1098.1633744849642
+      },
+      "before_visual": {
+        "country": "TZ",
+        "guess_country": "ZM",
+        "guess_coordinates": [
+          -14.714,
+          29.041
+        ],
+        "distance_km": 1098.1633744849642
+      },
+      "repaired_text": {
+        "country": "TZ",
+        "guess_country": "ZM",
+        "guess_coordinates": [
+          -14.714,
+          29.041
+        ],
+        "distance_km": 1098.1633744849642
+      },
+      "repaired_visual": {
+        "country": "TZ",
+        "guess_country": "ZM",
+        "guess_coordinates": [
+          -13.014,
+          29.021
+        ],
+        "distance_km": 909.7233775316109
+      },
+      "after_direct": {
+        "country": "TZ",
+        "guess_country": "ZM",
+        "guess_coordinates": [
+          -13.014,
+          29.0
+        ],
+        "distance_km": 909.8999830937837
+      },
+      "after_text": {
+        "country": "TZ",
+        "guess_country": "ZM",
+        "guess_coordinates": [
+          -13.014,
+          29.0
+        ],
+        "distance_km": 909.8999830937837
+      },
+      "after_visual": {
+        "country": "TZ",
+        "guess_country": "ZM",
+        "guess_coordinates": [
+          -13.011,
+          25.041
+        ],
+        "distance_km": 1038.1104005198217
+      },
+      "after_both": {
+        "country": "TZ",
+        "guess_country": "ZM",
+        "guess_coordinates": [
+          -13.011,
+          25.041
+        ],
+        "distance_km": 1038.1104005198217
+      }
+    },
+    {
+      "ordinal": 61,
+      "id": "439339721064451",
+      "country": "US",
+      "before_read_status": "invalid",
+      "after_read_status": "empty",
+      "repaired_read_status": "invalid",
+      "repaired_strings": [],
+      "before_strings": [],
+      "after_strings": [],
+      "before_observations": null,
+      "repaired_observations": {
+        "surface": "paved",
+        "centerline": "white",
+        "roadside": [
+          "bollards",
+          "traffic_sign",
+          "utility_poles"
+        ]
+      },
+      "after_observations": {
+        "surface": "paved",
+        "centerline": "none",
+        "roadside": [
+          "traffic_sign"
+        ]
+      },
+      "direct": {
+        "country": "US",
+        "guess_country": "US",
+        "guess_coordinates": [
+          33.452,
+          -111.654
+        ],
+        "distance_km": 441.03662934709234
+      },
+      "before_text": {
+        "country": "US",
+        "guess_country": "US",
+        "guess_coordinates": [
+          33.452,
+          -111.654
+        ],
+        "distance_km": 441.03662934709234
+      },
+      "before_visual": {
+        "country": "US",
+        "guess_country": "US",
+        "guess_coordinates": [
+          33.452,
+          -111.654
+        ],
+        "distance_km": 441.03662934709234
+      },
+      "repaired_text": {
+        "country": "US",
+        "guess_country": "US",
+        "guess_coordinates": [
+          33.452,
+          -111.654
+        ],
+        "distance_km": 441.03662934709234
+      },
+      "repaired_visual": {
+        "country": "US",
+        "guess_country": "US",
+        "guess_coordinates": [
+          33.452,
+          -111.654
+        ],
+        "distance_km": 441.03662934709234
+      },
+      "after_direct": {
+        "country": "US",
+        "guess_country": "US",
+        "guess_coordinates": [
+          33.452,
+          -111.652
+        ],
+        "distance_km": 441.1735249874053
+      },
+      "after_text": {
+        "country": "US",
+        "guess_country": "US",
+        "guess_coordinates": [
+          33.452,
+          -111.652
+        ],
+        "distance_km": 441.1735249874053
+      },
+      "after_visual": {
+        "country": "US",
+        "guess_country": "US",
+        "guess_coordinates": [
+          33.452,
+          -111.652
+        ],
+        "distance_km": 441.1735249874053
+      },
+      "after_both": {
+        "country": "US",
+        "guess_country": "US",
+        "guess_coordinates": [
+          33.452,
+          -111.652
+        ],
+        "distance_km": 441.1735249874053
+      }
+    },
+    {
+      "ordinal": 62,
+      "id": "423366602894787",
+      "country": "BR",
+      "before_read_status": "invalid",
+      "after_read_status": "empty",
+      "repaired_read_status": "nonempty",
+      "repaired_strings": [
+        "MOTOMOTR"
+      ],
+      "before_strings": [],
+      "after_strings": [],
+      "before_observations": null,
+      "repaired_observations": {
+        "surface": "paved",
+        "centerline": "white",
+        "roadside": [
+          "guardrail",
+          "utility_poles"
+        ]
+      },
+      "after_observations": {
+        "surface": "paved",
+        "centerline": "none",
+        "roadside": []
+      },
+      "direct": {
+        "country": "BR",
+        "guess_country": "BR",
+        "guess_coordinates": [
+          -14.999,
+          -50.0
+        ],
+        "distance_km": 813.2055547116245
+      },
+      "before_text": {
+        "country": "BR",
+        "guess_country": "BR",
+        "guess_coordinates": [
+          -14.999,
+          -50.0
+        ],
+        "distance_km": 813.2055547116245
+      },
+      "before_visual": {
+        "country": "BR",
+        "guess_country": "BR",
+        "guess_coordinates": [
+          -14.999,
+          -50.0
+        ],
+        "distance_km": 813.2055547116245
+      },
+      "repaired_text": {
+        "country": "BR",
+        "guess_country": "BR",
+        "guess_coordinates": [
+          -14.952,
+          -50.0
+        ],
+        "distance_km": 818.0569538829919
+      },
+      "repaired_visual": {
+        "country": "BR",
+        "guess_country": "BR",
+        "guess_coordinates": [
+          -14.999,
+          -50.0
+        ],
+        "distance_km": 813.2055547116245
+      },
+      "after_direct": {
+        "country": "BR",
+        "guess_country": "BR",
+        "guess_coordinates": [
+          -14.544,
+          -52.144
+        ],
+        "distance_km": 965.1169106053558
+      },
+      "after_text": {
+        "country": "BR",
+        "guess_country": "BR",
+        "guess_coordinates": [
+          -14.544,
+          -52.144
+        ],
+        "distance_km": 965.1169106053558
+      },
+      "after_visual": {
+        "country": "BR",
+        "guess_country": "BR",
+        "guess_coordinates": [
+          -14.544,
+          -52.102
+        ],
+        "distance_km": 962.6633550914486
+      },
+      "after_both": {
+        "country": "BR",
+        "guess_country": "BR",
+        "guess_coordinates": [
+          -14.544,
+          -52.102
+        ],
+        "distance_km": 962.6633550914486
+      }
+    },
+    {
+      "ordinal": 63,
+      "id": "868412567050235",
+      "country": "AU",
+      "before_read_status": "nonempty",
+      "after_read_status": "empty",
+      "repaired_read_status": "nonempty",
+      "repaired_strings": [
+        "Eucalyptus",
+        "Barnes"
+      ],
+      "before_strings": [
+        "Eucalyptus",
+        "Barnes"
+      ],
+      "after_strings": [],
+      "before_observations": null,
+      "repaired_observations": {
+        "surface": "paved",
+        "centerline": "white",
+        "roadside": [
+          "bollards",
+          "utility_poles"
+        ]
+      },
+      "after_observations": {
+        "surface": "paved",
+        "centerline": "none",
+        "roadside": []
+      },
+      "direct": {
+        "country": "AU",
+        "guess_country": "AU",
+        "guess_coordinates": [
+          -34.944,
+          148.141
+        ],
+        "distance_km": 432.10510120976863
+      },
+      "before_text": {
+        "country": "AU",
+        "guess_country": "AU",
+        "guess_coordinates": [
+          -34.944,
+          148.101
+        ],
+        "distance_km": 429.9036234828846
+      },
+      "before_visual": {
+        "country": "AU",
+        "guess_country": "AU",
+        "guess_coordinates": [
+          -34.944,
+          148.141
+        ],
+        "distance_km": 432.10510120976863
+      },
+      "repaired_text": {
+        "country": "AU",
+        "guess_country": "AU",
+        "guess_coordinates": [
+          -34.944,
+          148.101
+        ],
+        "distance_km": 429.9036234828846
+      },
+      "repaired_visual": {
+        "country": "AU",
+        "guess_country": "AU",
+        "guess_coordinates": [
+          -34.944,
+          148.101
+        ],
+        "distance_km": 429.9036234828846
+      },
+      "after_direct": {
+        "country": "AU",
+        "guess_country": "AU",
+        "guess_coordinates": [
+          -34.944,
+          148.102
+        ],
+        "distance_km": 429.9584355739201
+      },
+      "after_text": {
+        "country": "AU",
+        "guess_country": "AU",
+        "guess_coordinates": [
+          -34.944,
+          148.102
+        ],
+        "distance_km": 429.9584355739201
+      },
+      "after_visual": {
+        "country": "AU",
+        "guess_country": "AU",
+        "guess_coordinates": [
+          -34.944,
+          148.102
+        ],
+        "distance_km": 429.9584355739201
+      },
+      "after_both": {
+        "country": "AU",
+        "guess_country": "AU",
+        "guess_coordinates": [
+          -34.944,
+          148.102
+        ],
+        "distance_km": 429.9584355739201
+      }
+    },
+    {
+      "ordinal": 64,
+      "id": "3811902805544775",
+      "country": "MX",
+      "before_read_status": "invalid",
+      "after_read_status": "empty",
+      "repaired_read_status": "invalid",
+      "repaired_strings": [],
+      "before_strings": [],
+      "after_strings": [],
+      "before_observations": null,
+      "repaired_observations": {
+        "surface": "paved",
+        "centerline": "white",
+        "roadside": [
+          "bollards",
+          "utility_poles"
+        ]
+      },
+      "after_observations": {
+        "surface": "paved",
+        "centerline": "none",
+        "roadside": []
+      },
+      "direct": {
+        "country": "MX",
+        "guess_country": "MX",
+        "guess_coordinates": [
+          19.434,
+          -99.154
+        ],
+        "distance_km": 897.2742334421727
+      },
+      "before_text": {
+        "country": "MX",
+        "guess_country": "MX",
+        "guess_coordinates": [
+          19.434,
+          -99.154
+        ],
+        "distance_km": 897.2742334421727
+      },
+      "before_visual": {
+        "country": "MX",
+        "guess_country": "MX",
+        "guess_coordinates": [
+          19.434,
+          -99.154
+        ],
+        "distance_km": 897.2742334421727
+      },
+      "repaired_text": {
+        "country": "MX",
+        "guess_country": "MX",
+        "guess_coordinates": [
+          19.434,
+          -99.154
+        ],
+        "distance_km": 897.2742334421727
+      },
+      "repaired_visual": {
+        "country": "MX",
+        "guess_country": "CO",
+        "guess_coordinates": [
+          6.251,
+          -75.022
+        ],
+        "distance_km": 3850.402714259732
+      },
+      "after_direct": {
+        "country": "MX",
+        "guess_country": "BO",
+        "guess_coordinates": [
+          -15.722,
+          -68.352
+        ],
+        "distance_km": 6056.968098236186
+      },
+      "after_text": {
+        "country": "MX",
+        "guess_country": "BO",
+        "guess_coordinates": [
+          -15.722,
+          -68.352
+        ],
+        "distance_km": 6056.968098236186
+      },
+      "after_visual": {
+        "country": "MX",
+        "guess_country": "BO",
+        "guess_coordinates": [
+          -15.722,
+          -68.352
+        ],
+        "distance_km": 6056.968098236186
+      },
+      "after_both": {
+        "country": "MX",
+        "guess_country": "BO",
+        "guess_coordinates": [
+          -15.722,
+          -68.352
+        ],
+        "distance_km": 6056.968098236186
+      }
+    },
+    {
+      "ordinal": 65,
+      "id": "606749490391404",
+      "country": "RU",
+      "before_read_status": "nonempty",
+      "after_read_status": "empty",
+      "repaired_read_status": "nonempty",
+      "repaired_strings": [
+        "Sokolnicheskaya"
+      ],
+      "before_strings": [
+        "Sokolnicheskaya"
+      ],
+      "after_strings": [],
+      "before_observations": null,
+      "repaired_observations": {
+        "surface": "paved",
+        "centerline": "white",
+        "roadside": [
+          "bollards",
+          "guardrail",
+          "utility_poles"
+        ]
+      },
+      "after_observations": {
+        "surface": "paved",
+        "centerline": "none",
+        "roadside": [
+          "utility_poles"
+        ]
+      },
+      "direct": {
+        "country": "RU",
+        "guess_country": "RU",
+        "guess_coordinates": [
+          55.754,
+          37.652
+        ],
+        "distance_km": 1488.0566228190137
+      },
+      "before_text": {
+        "country": "RU",
+        "guess_country": "RU",
+        "guess_coordinates": [
+          55.052,
+          37.002
+        ],
+        "distance_km": 1561.0216386201078
+      },
+      "before_visual": {
+        "country": "RU",
+        "guess_country": "RU",
+        "guess_coordinates": [
+          55.754,
+          37.652
+        ],
+        "distance_km": 1488.0566228190137
+      },
+      "repaired_text": {
+        "country": "RU",
+        "guess_country": "RU",
+        "guess_coordinates": [
+          55.052,
+          37.002
+        ],
+        "distance_km": 1561.0216386201078
+      },
+      "repaired_visual": {
+        "country": "RU",
+        "guess_country": "RU",
+        "guess_coordinates": [
+          55.052,
+          37.0
+        ],
+        "distance_km": 1561.0087631075871
+      },
+      "after_direct": {
+        "country": "RU",
+        "guess_country": "RU",
+        "guess_coordinates": null,
+        "distance_km": null
+      },
+      "after_text": {
+        "country": "RU",
+        "guess_country": "RU",
+        "guess_coordinates": null,
+        "distance_km": null
+      },
+      "after_visual": {
+        "country": "RU",
+        "guess_country": "RU",
+        "guess_coordinates": null,
+        "distance_km": null
+      },
+      "after_both": {
+        "country": "RU",
+        "guess_country": "RU",
+        "guess_coordinates": null,
+        "distance_km": null
+      }
+    },
+    {
+      "ordinal": 66,
+      "id": "525991088399205",
+      "country": "US",
+      "before_read_status": "nonempty",
+      "after_read_status": "nonempty",
+      "repaired_read_status": "nonempty",
+      "repaired_strings": [
+        "40"
+      ],
+      "before_strings": [
+        "40"
+      ],
+      "after_strings": [
+        "40"
+      ],
+      "before_observations": null,
+      "repaired_observations": {
+        "surface": "paved",
+        "centerline": "yellow",
+        "roadside": [
+          "traffic_sign",
+          "utility_poles"
+        ]
+      },
+      "after_observations": {
+        "surface": "paved",
+        "centerline": "yellow",
+        "roadside": [
+          "traffic_sign"
+        ]
+      },
+      "direct": {
+        "country": "US",
+        "guess_country": "US",
+        "guess_coordinates": [
+          40.0,
+          -94.0
+        ],
+        "distance_km": 453.53246147438324
+      },
+      "before_text": {
+        "country": "US",
+        "guess_country": "US",
+        "guess_coordinates": [
+          40.044,
+          -96.144
+        ],
+        "distance_km": 482.4692632715007
+      },
+      "before_visual": {
+        "country": "US",
+        "guess_country": "US",
+        "guess_coordinates": [
+          40.0,
+          -94.0
+        ],
+        "distance_km": 453.53246147438324
+      },
+      "repaired_text": {
+        "country": "US",
+        "guess_country": "US",
+        "guess_coordinates": [
+          40.044,
+          -96.144
+        ],
+        "distance_km": 482.4692632715007
+      },
+      "repaired_visual": {
+        "country": "US",
+        "guess_country": "US",
+        "guess_coordinates": [
+          40.081,
+          -94.021
+        ],
+        "distance_km": 462.3835781973835
+      },
+      "after_direct": {
+        "country": "US",
+        "guess_country": "US",
+        "guess_coordinates": [
+          40.0,
+          -96.0
+        ],
+        "distance_km": 473.9305270518659
+      },
+      "after_text": {
+        "country": "US",
+        "guess_country": "US",
+        "guess_coordinates": [
+          40.0,
+          -96.0
+        ],
+        "distance_km": 473.9305270518659
+      },
+      "after_visual": {
+        "country": "US",
+        "guess_country": "US",
+        "guess_coordinates": [
+          40.0,
+          -96.0
+        ],
+        "distance_km": 473.9305270518659
+      },
+      "after_both": {
+        "country": "US",
+        "guess_country": "US",
+        "guess_coordinates": [
+          40.0,
+          -96.0
+        ],
+        "distance_km": 473.9305270518659
+      }
+    }
+  ]
+}

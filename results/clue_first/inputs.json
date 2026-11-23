@@ -1,0 +1,381 @@
+[
+  {
+    "id": "489113365567707",
+    "sha256": "909237d02715478c192d7f74eb52b3e06d815c2e67fc9585b59e6ae50f581f84",
+    "image": "images/489113365567707.jpg"
+  },
+  {
+    "id": "764727120884988",
+    "sha256": "cbc9c61b028854e369c799cd873124de285ad856d268d6296d626b72a8c24133",
+    "image": "images/764727120884988.jpg"
+  },
+  {
+    "id": "464476304820312",
+    "sha256": "13099e2a6be13cea83aa433809ec2547d1498c4bc54d2d2e8543a36f13403c48",
+    "image": "images/464476304820312.jpg"
+  },
+  {
+    "id": "237962241451337",
+    "sha256": "d6fd6343d533b5a3b114be972eeb3da6951153cf2e6a5f9e5707c17c32bb3cfa",
+    "image": "images/237962241451337.jpg"
+  },
+  {
+    "id": "295487235586077",
+    "sha256": "f7e7e80139ba016a2c2f7627f02a0f5f4fdc4f55daffb45ac5b8e77741192f7b",
+    "image": "images/295487235586077.jpg"
+  },
+  {
+    "id": "2950924581810518",
+    "sha256": "1697c019531c1dab2fd0f72940c5a504ea105a10f5a12bd3ace1e44783f8668d",
+    "image": "images/2950924581810518.jpg"
+  },
+  {
+    "id": "1147079779552167",
+    "sha256": "5d1ef8fc60f7da9ad83bcc2fd02272c5b6714089f6e1832f57e300bbe965ae64",
+    "image": "images/1147079779552167.jpg"
+  },
+  {
+    "id": "3691897527605021",
+    "sha256": "9965019d4c0b39cf0282e4ff5715d3da797854a130715cb40f9479188bd8dbbb",
+    "image": "images/3691897527605021.jpg"
+  },
+  {
+    "id": "294790745594327",
+    "sha256": "2b5f11605936b424ce4b4dce47d05b0b63ed1df54ee4f4806ca2c55f298c5626",
+    "image": "images/294790745594327.jpg"
+  },
+  {
+    "id": "293442282420347",
+    "sha256": "35f6f9cf62a4df77db06028bba82bf741e8ea944a67f29b51f9f6024b15b1ef5",
+    "image": "images/293442282420347.jpg"
+  },
+  {
+    "id": "3021891311469197",
+    "sha256": "deb4f11beb61e0ae143dd5291286dde2135b13d1152fe4dd6d269a282c77d186",
+    "image": "images/3021891311469197.jpg"
+  },
+  {
+    "id": "1034556280409841",
+    "sha256": "90c3283f4bfb135c8bc276d5f51b784d8a474bdce1db92256401d58cf114f81f",
+    "image": "images/1034556280409841.jpg"
+  },
+  {
+    "id": "305594951240743",
+    "sha256": "bf228e41a8f014154eb539d2733ffb993ecb5d98815e90fc3e033386b9ba5d0f",
+    "image": "images/305594951240743.jpg"
+  },
+  {
+    "id": "172488994793740",
+    "sha256": "833a171ddff4e9138fe8e49eec53bf49cb3fd9beab95520d3baf3cb700c3fbd0",
+    "image": "images/172488994793740.jpg"
+  },
+  {
+    "id": "846094272651580",
+    "sha256": "efab392a1584ed7d4aa3eb169795117b03918da720aac5768ac1f017f0a3ee11",
+    "image": "images/846094272651580.jpg"
+  },
+  {
+    "id": "668998831379607",
+    "sha256": "9e8672da859ae09e27405790bcb8581adfd9863f700bac67acedbcd1a476c9b4",
+    "image": "images/668998831379607.jpg"
+  },
+  {
+    "id": "218775719698365",
+    "sha256": "cba5a03fc23c59a1b09867c698012c4f4d2ae053655d4d67bfbc94a07cd3c066",
+    "image": "images/218775719698365.jpg"
+  },
+  {
+    "id": "211893897190281",
+    "sha256": "d48966bc2cf7dac66050de8be7620bcad110bdae189d5f387dc0efe530b0cc84",
+    "image": "images/211893897190281.jpg"
+  },
+  {
+    "id": "2992791674299282",
+    "sha256": "442b683fccd483a87c292bad3b4c1869554e81bb44ba5a5f6a34288e3a43b2f8",
+    "image": "images/2992791674299282.jpg"
+  },
+  {
+    "id": "472933560683535",
+    "sha256": "118d216751194ab9b7c214736335b9e99771bdbd8090e1f3b3343fe3cfd7ffad",
+    "image": "images/472933560683535.jpg"
+  },
+  {
+    "id": "309831067185068",
+    "sha256": "0a7c428a380f519843d5113614b12e96de2898140847352bcbaa32cb11e628fa",
+    "image": "images/309831067185068.jpg"
+  },
+  {
+    "id": "470533114018261",
+    "sha256": "210929f99c2a8c712f2569ac1cb377616f2e70775751af4d11fb6b794daeb8e2",
+    "image": "images/470533114018261.jpg",
+    "verified_text": [
+      "Βόλος",
+      "Volos"
+    ],
+    "crop_pixels": [
+      340,
+      190,
+      421,
+      244
+    ]
+  },
+  {
+    "id": "2547101302258650",
+    "sha256": "63e4ee79b88cb78358892e8b5aa7b87dfd6dd7b7b21488f3e230f2f74269cede",
+    "image": "images/2547101302258650.jpg"
+  },
+  {
+    "id": "953888611819687",
+    "sha256": "062b4424026aeaf47930e0ca5984fbcffeb8bfc1f365bcb0b435fbc2d0900a34",
+    "image": "images/953888611819687.jpg",
+    "verified_text": [
+      "eccetto",
+      "veicoli dei residenti"
+    ],
+    "crop_pixels": [
+      398,
+      91,
+      477,
+      175
+    ]
+  },
+  {
+    "id": "580491622939421",
+    "sha256": "c14d09660623d85ab87e63ceaad78f73c10a2a10639dd549569431c645366bfd",
+    "image": "images/580491622939421.jpg"
+  },
+  {
+    "id": "185675826709169",
+    "sha256": "b6ab18c852824f98aa79f892a9df7367bf76bf118b81b5509373ebed5ded0fa5",
+    "image": "images/185675826709169.jpg"
+  },
+  {
+    "id": "158575053454798",
+    "sha256": "0c7d406e7ea1a6296e0bf959e595e231ebbc679331942f9a60157a4c63a08d20",
+    "image": "images/158575053454798.jpg"
+  },
+  {
+    "id": "217489886804893",
+    "sha256": "665345b150f99793ec35b426edb113c6c5806cd58e70aadd7068717a1fe0ba28",
+    "image": "images/217489886804893.jpg"
+  },
+  {
+    "id": "545774006616625",
+    "sha256": "fd3d5e87b76ad884038b902876e1a9bd28d2fffc82ab00811650111259849c0c",
+    "image": "images/545774006616625.jpg"
+  },
+  {
+    "id": "116003954472737",
+    "sha256": "2291eb3a03709916acbcd5fced90c10287fcae5b085728d05e1cd0e315e5d234",
+    "image": "images/116003954472737.jpg"
+  },
+  {
+    "id": "3287267538187519",
+    "sha256": "b154c4a82e8f7986298ed69235b317b0da7147f18ec40acdb796d06d94c4920e",
+    "image": "images/3287267538187519.jpg",
+    "verified_text": [
+      "汽车钥匙"
+    ],
+    "crop_pixels": [
+      397,
+      137,
+      512,
+      180
+    ]
+  },
+  {
+    "id": "764896447530805",
+    "sha256": "d388ecb166a2608b98e45f22d08b4ae8a8e685de5e0e276647905be0797a07ef",
+    "image": "images/764896447530805.jpg"
+  },
+  {
+    "id": "360270872953286",
+    "sha256": "52d31b0fcffe5a6214e6eafc690105f40555d3bde16ba8a53f304c0b62e4890a",
+    "image": "images/360270872953286.jpg"
+  },
+  {
+    "id": "480826559825677",
+    "sha256": "8a5765384f6641ca89cdfc669bcb4e24e7c2932324e37395152840d557587f0c",
+    "image": "images/480826559825677.jpg"
+  },
+  {
+    "id": "247212563851961",
+    "sha256": "afdc59e551931fa0eb7ccf767b2fd4ee65bd6002683af290b996e52b174c82ca",
+    "image": "images/247212563851961.jpg"
+  },
+  {
+    "id": "520458562734779",
+    "sha256": "06da38d72ab5148b5143da171a1bb8f63e1cb38bee02c2b47513f0d134e90e00",
+    "image": "images/520458562734779.jpg",
+    "verified_text": [
+      "대아갈비"
+    ],
+    "crop_pixels": [
+      103,
+      15,
+      202,
+      183
+    ]
+  },
+  {
+    "id": "821322645150025",
+    "sha256": "a0618e28f7f6de997bb6d4ad178d5984d0ac1dc5850d287b825aae67056c506d",
+    "image": "images/821322645150025.jpg"
+  },
+  {
+    "id": "8636953276322496",
+    "sha256": "b823bbafaf3aabfd3dcb1a19c360a658b8d96b00c0f030a533096d58bcdaa8b2",
+    "image": "images/8636953276322496.jpg"
+  },
+  {
+    "id": "754839602247324",
+    "sha256": "eb3f0d5e0a5f890659fff82528c307b9e5f247e0a9a3ecb0b91c46823062c329",
+    "image": "images/754839602247324.jpg"
+  },
+  {
+    "id": "317729019823265",
+    "sha256": "5e055b24a8ef4ffee8ed9f6b2496994d7b3a9300df02e7a420e244eca3736b1c",
+    "image": "images/317729019823265.jpg"
+  },
+  {
+    "id": "810870836214719",
+    "sha256": "f8b8d7c3c4d96683b728c9b69a5461a2720688a1ffeb0a43e37c790145c2921d",
+    "image": "images/810870836214719.jpg"
+  },
+  {
+    "id": "215286497344871",
+    "sha256": "1ac74e194a03bf155dda74a3a789d1325e4a96680fda96f46ca7080a7b6e949b",
+    "image": "images/215286497344871.jpg"
+  },
+  {
+    "id": "484293909726906",
+    "sha256": "e766d0df4a6607327cc2453f1527e13d72f22da182f876c91f7821f31abaf43b",
+    "image": "images/484293909726906.jpg"
+  },
+  {
+    "id": "788096422148572",
+    "sha256": "71af05e63024812c9e99140fe969846ab1cb40630a78f28c3f1cac8cd1440e33",
+    "image": "images/788096422148572.jpg"
+  },
+  {
+    "id": "284811506679249",
+    "sha256": "53adfea3a735aa826f6a11043edccf7aee72495bfaa838b7a04b5597063b9439",
+    "image": "images/284811506679249.jpg",
+    "verified_text": [
+      "CENTRE DIOCESAIN",
+      "SAINT JOSEPH",
+      "BOUAKE"
+    ],
+    "crop_pixels": [
+      164,
+      43,
+      267,
+      118
+    ]
+  },
+  {
+    "id": "628752751556395",
+    "sha256": "c2747c335696c7ad9a20f454bcacf8da144678dd3abf5f8005b1482747105e0d",
+    "image": "images/628752751556395.jpg"
+  },
+  {
+    "id": "213927817328762",
+    "sha256": "6cb267c3581a768e5ced62b7927d4c790eb10a691e9f7a19befb89b6926ac8f0",
+    "image": "images/213927817328762.jpg"
+  },
+  {
+    "id": "1103570836822240",
+    "sha256": "ecab37a4afcbc8911dd0cbb34dfe82be803221710ed0f833a17f58b145c29fff",
+    "image": "images/1103570836822240.jpg"
+  },
+  {
+    "id": "526065675505659",
+    "sha256": "3349ff256a598a38256f7129ae081200e5dbfc903ca2af08ad5770186a60c14b",
+    "image": "images/526065675505659.jpg"
+  },
+  {
+    "id": "1930640880449352",
+    "sha256": "53def8cc00a7282f3781676aa0f82c491cc94bfc8ea38b1dd6fa5b8b0de7f617",
+    "image": "images/1930640880449352.jpg"
+  },
+  {
+    "id": "230346985565595",
+    "sha256": "e348e16a62b76fcd576deffe235434fc50031098f8ceaa2f612022089aa4915f",
+    "image": "images/230346985565595.jpg"
+  },
+  {
+    "id": "258207150106429",
+    "sha256": "4c64304af381c94091608d62bf416bf78e33f6b78b3e0fe2d22854343dcc65f7",
+    "image": "images/258207150106429.jpg"
+  },
+  {
+    "id": "941759176612137",
+    "sha256": "3a32b601e009c683d15528a8a28763269c950ee812d6ecf439c74f287ccf44b6",
+    "image": "images/941759176612137.jpg"
+  },
+  {
+    "id": "164478408862531",
+    "sha256": "490dc3ca3516699b4e18f23714cb6fd06691f7ab13b0115ffb706465ba491276",
+    "image": "images/164478408862531.jpg"
+  },
+  {
+    "id": "703184410550403",
+    "sha256": "288b4da60e09cf04d2de2eb8a3a022f545e59d67ca642801c786388d29f4ccb8",
+    "image": "images/703184410550403.jpg"
+  },
+  {
+    "id": "203550248262507",
+    "sha256": "47f3452e1f65d03ee62cec9adce8f0ec4b38a7861815aac78c6a32e443fb2c68",
+    "image": "images/203550248262507.jpg"
+  },
+  {
+    "id": "1440746926286227",
+    "sha256": "ac77076aec9f2f99110facbcbac2314049857f89a12eaba3ede12b6698a5a5bc",
+    "image": "images/1440746926286227.jpg"
+  },
+  {
+    "id": "914655639092075",
+    "sha256": "df511f3b52245ab8e70fc97144f9e25b15c91fa5952353eeafda97528baa2536",
+    "image": "images/914655639092075.jpg"
+  },
+  {
+    "id": "1234929926997580",
+    "sha256": "7ca14cdc6d9cff6989f6d99ce3249d89fa4e7bd3fc7bff0c644c272f9ddd4450",
+    "image": "images/1234929926997580.jpg"
+  },
+  {
+    "id": "775335703170591",
+    "sha256": "8fa40cf7924b868fcf5ca214485733b9e51d34c0e8361f0ff131fb7f94e78cfd",
+    "image": "images/775335703170591.jpg"
+  },
+  {
+    "id": "439339721064451",
+    "sha256": "158af4cf74eba5745ead9425f874c75fb75079b2fc82420881436f795acb1063",
+    "image": "images/439339721064451.jpg"
+  },
+  {
+    "id": "423366602894787",
+    "sha256": "c7f7ba716f090adb9b9e1c53cf5f9b44a4f8fc475d5f83d826413b2795c76ac2",
+    "image": "images/423366602894787.jpg"
+  },
+  {
+    "id": "868412567050235",
+    "sha256": "a20d96855311740b78f158267b49bd6254e158e784988641ad2c77f4f997071f",
+    "image": "images/868412567050235.jpg"
+  },
+  {
+    "id": "3811902805544775",
+    "sha256": "5b1d3665adfa643989c561790eb68a8d4a11c41487d42e443eb8085c817247d5",
+    "image": "images/3811902805544775.jpg"
+  },
+  {
+    "id": "606749490391404",
+    "sha256": "f00694c9433cd7da3e170acc6fa3968a1478f302bb20e52636b5a6c102433e31",
+    "image": "images/606749490391404.jpg"
+  },
+  {
+    "id": "525991088399205",
+    "sha256": "a754caea06a4a6b7117a7b21ac0d44bf13d93245b5f8cccadb937cd111671e5d",
+    "image": "images/525991088399205.jpg"
+  }
+]

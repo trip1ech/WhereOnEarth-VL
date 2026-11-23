@@ -1,0 +1,4 @@
+model,n,valid_coordinates,country_correct,within_25km,within_200km,median_km
+zero_shot,300,294,132,4,32,1141.0633300665763
+sft_2000,300,300,154,9,44,861.2498694060389
+sft,300,300,156,8,44,831.6312567754911

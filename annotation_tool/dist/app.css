@@ -1,0 +1,117 @@
+:root {
+  color-scheme: light;
+  --paper: #f0f3f7;
+  --panel: #fff;
+  --ink: #192638;
+  --steel: #465b73;
+  --line: #dbe3ed;
+  --accent: #176e60;
+  --tint: #e4f4ef;
+  font: 16px/1.45 system-ui, "PingFang TC", sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+}
+* { box-sizing: border-box; }
+body { margin: 0; }
+h1, h2, p { margin: 0; }
+button, select, a { font: inherit; color: inherit; }
+button, select, .export {
+  min-height: 40px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  padding: 6px 12px;
+}
+button, select, .export[href] { cursor: pointer; }
+button:disabled, select:disabled, .export[aria-disabled="true"] { opacity: .55; cursor: default; }
+button:not(:disabled):hover, .export[href]:hover { border-color: var(--accent); }
+:focus-visible { outline: 3px solid #306baa; outline-offset: 2px; }
+.workspace { width: min(1210px, 100%); margin: 0 auto; padding: 26px 24px 30px; }
+.header, .header-actions, .photo-header, .navigation {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+.header { justify-content: space-between; gap: 14px; margin-bottom: 18px; }
+.project { color: var(--steel); font-size: .82rem; font-weight: 650; }
+h1 { font-size: clamp(1.8rem, 3.6vw, 2.35rem); letter-spacing: -.025em; }
+.header-actions label, .image-size, .instructions, small, #count, #class-counts { color: var(--steel); }
+.header-actions label, .export, select { font-size: .9rem; }
+.export { text-decoration: none; display: inline-flex; align-items: center; }
+select {
+  appearance: none;
+  padding-right: 26px;
+  background-image: linear-gradient(45deg, transparent 50%, #465b73 50%),
+                    linear-gradient(135deg, #465b73 50%, transparent 50%);
+  background-position: right 13px center, right 8px center;
+  background-size: 5px 5px;
+  background-repeat: no-repeat;
+}
+.layout { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 16px; align-items: start; }
+.photo-card, .label-panel {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--panel);
+  overflow: hidden;
+}
+.photo-header { justify-content: space-between; min-height: 45px; padding: 7px 14px; font-size: .88rem; }
+#sample { font-weight: 650; }
+.viewer {
+  height: clamp(220px, calc(100vh - 235px), 540px);
+  display: grid;
+  place-items: center;
+  background: #182535;
+  color: white;
+}
+.viewer img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  object-fit: contain;
+}
+.viewer .photo-error { padding: 20px; }
+.navigation { justify-content: space-between; padding: 10px 14px; }
+.navigation button { font-size: .9rem; }
+.label-panel { padding: 16px; }
+h2 { font-size: 1.2rem; }
+.instructions { font-size: .9rem; margin: 5px 0 13px; }
+.options { display: grid; gap: 7px; }
+.label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 59px;
+  padding: 7px 10px;
+  text-align: start;
+}
+.label[aria-pressed="true"] { background: var(--tint); border-color: var(--accent); }
+.label small { display: block; font-size: .87rem; }
+kbd {
+  display: grid;
+  place-items: center;
+  flex: 0 0 28px;
+  min-height: 28px;
+  border-radius: 6px;
+  background: var(--paper);
+  font: .85rem ui-monospace, monospace;
+}
+.quiet { font-size: .88rem; margin-top: 10px; }
+.progress-area { margin-top: 14px; border-top: 1px solid var(--line); padding-top: 12px; }
+progress { width: 100%; height: 8px; accent-color: var(--accent); }
+#count, #class-counts, #status { font-size: .87rem; }
+#status { color: var(--accent); min-height: 1.4em; margin-top: 3px; }
+#status[data-error="true"] { color: #982f24; }
+@media (max-width: 830px) {
+  .workspace { padding: 16px 12px; }
+  .layout { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+  .viewer { height: clamp(170px, 37vh, 420px); }
+  .options { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 430px) {
+  .options { grid-template-columns: minmax(0, 1fr); }
+  .navigation { padding: 8px; gap: 4px; }
+  .navigation button { padding-inline: 7px; }
+}

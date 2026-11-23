@@ -1,0 +1,40 @@
+{
+  "osv_revision": "cff33609b56b54d8743b7ee7a416eb8433e9a681",
+  "manifests": {
+    "gallery": {
+      "file": "gallery_25000.jsonl",
+      "n": 25000,
+      "sha256": "a54f0ca754eb7be55c98b8eee93f98f937c168d89fd1a53c477b1c928f5fb207"
+    },
+    "train": {
+      "file": "query_train.jsonl",
+      "n": 12000,
+      "sha256": "c7c61287de66b420614adb4229bd55786d0f04495714a5c50bb817b7912f35b7"
+    },
+    "validation": {
+      "file": "query_validation.jsonl",
+      "n": 2000,
+      "sha256": "bf09b2a32d8de25f7376ea1035469144a304c8d33e03e12c8f0fc1c36d9d1c0c"
+    },
+    "coverage": {
+      "file": "query_coverage.jsonl",
+      "n": 6000,
+      "sha256": "7c9c5764ce38bfceb0d69b1ec193600e0e870ff22fb8a32a0271d41722aa7fb9"
+    }
+  },
+  "gallery_coverage": {
+    "gallery_n": 25000,
+    "n": 6000,
+    "hits": 5839,
+    "coverage": 0.9731666666666666,
+    "macro_coarse_tile_coverage": 0.958387445887446,
+    "countries": 215,
+    "random_sequence": {
+      "n": 6000,
+      "hits": 4085,
+      "coverage": 0.6808333333333333,
+      "macro_coarse_tile_coverage": 0.5715315598380115,
+      "countries": 176
+    }
+  }
+}

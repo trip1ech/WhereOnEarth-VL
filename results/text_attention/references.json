@@ -1,0 +1,104 @@
+{
+  "canada": {
+    "id": "548953163681512",
+    "country": "CA",
+    "latitude": 50.362312650335454,
+    "longitude": -111.42176116563029,
+    "attribution": "networklanman",
+    "license": "CC-BY-SA-4.0",
+    "prior_guesses": {
+      "zero_shot": {
+        "country": "US",
+        "point": [
+          37.087,
+          -115.25
+        ],
+        "distance": 1507.3300887654239
+      },
+      "sft": {
+        "country": "TM",
+        "point": [
+          42.143,
+          59.362
+        ],
+        "distance": 9690.034077176062
+      },
+      "sft_2000": {
+        "country": "RU",
+        "point": [
+          55.211,
+          92.436
+        ],
+        "distance": 8069.21606245617
+      }
+    }
+  },
+  "guadeloupe": {
+    "id": "909835849806538",
+    "country": "GP",
+    "latitude": 16.262224744892,
+    "longitude": -61.2191098,
+    "attribution": "cyclone",
+    "license": "CC-BY-SA-4.0",
+    "prior_guesses": {
+      "zero_shot": {
+        "country": "FR",
+        "point": [
+          43.5647,
+          1.5278
+        ],
+        "distance": 6586.590316211657
+      },
+      "sft": {
+        "country": "FR",
+        "point": [
+          43.551,
+          -5.552
+        ],
+        "distance": 6023.658122232205
+      },
+      "sft_2000": {
+        "country": "FR",
+        "point": [
+          43.552,
+          -5.552
+        ],
+        "distance": 6023.681450196338
+      }
+    }
+  },
+  "brazil": {
+    "id": "217488433888622",
+    "country": "BR",
+    "latitude": -23.03145460929965,
+    "longitude": -48.0151615861723,
+    "attribution": "yaf1",
+    "license": "CC-BY-SA-4.0",
+    "prior_guesses": {
+      "zero_shot": {
+        "country": "BR",
+        "point": [
+          -22.9555,
+          -43.1722
+        ],
+        "distance": 495.7775997464863
+      },
+      "sft": {
+        "country": "BR",
+        "point": [
+          -23.552,
+          -46.702
+        ],
+        "distance": 146.07343905617375
+      },
+      "sft_2000": {
+        "country": "BR",
+        "point": [
+          -23.552,
+          -46.752
+        ],
+        "distance": 141.39936085917032
+      }
+    }
+  }
+}
