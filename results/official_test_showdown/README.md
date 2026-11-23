@@ -1,12 +1,12 @@
 # 25k StreetCLIP Geo-Ranker vs. 5M OSV-5M Official Baseline (`official_test_300`)
 
 **Date:** 2026-11-23. This stage delivered two major milestones:
-1. **Scaled `geolocal/StreetCLIP` to all 39,000 post-2018 images** (25,000 gallery + 12,000 train + 2,000 val) and trained a leak-free 25k Geo-Metric Projection (`Stage 1`) and Listwise Geo-Ranker (`Stage 2`).
-2. **Constructed and locked `official_test_300`** — a brand-new, zero-leakage benchmark from the OSV-5M official `test` split (300 unseen photographers across 147 countries) — enabling the first fair, head-to-head evaluation against the 5-million-image official **`osv5m/baseline`**, `Qwen3-VL-2B` (zero-shot and 6k QLoRA), and `dinov2-small`.
+1. **Scaled `geolocal/StreetCLIP` to all 39,000 post-2018 images** (25,000 gallery + 12,000 train + 2,000 val) and trained a creator-disjoint 25k Geo-Metric Projection (`Stage 1`) and Listwise Geo-Ranker (`Stage 2`).
+2. **Constructed `official_test_300`** — a held-out benchmark from the OSV-5M official `test` split (300 unseen photographers across 147 countries) — for head-to-head evaluation against the 5-million-image official **`osv5m/baseline`**, `Qwen3-VL-2B` (zero-shot and 6k QLoRA), and `dinov2-small`.
 
 ---
 
-## 1. Constructing `official_test_300` & Anti-Leakage Guarantees
+## 1. Constructing `official_test_300` & Split Partitioning
 
 Build script: [`scripts/prepare_official_test.py`](../../scripts/prepare_official_test.py). Local archive (git-ignored): `data/official_test_300/official-test-300.zip` (14.99 MB). Audit log: [`data/official_test_300/hud_audit.json`](../../data/official_test_300/hud_audit.json).
 
@@ -18,12 +18,12 @@ Build script: [`scripts/prepare_official_test.py`](../../scripts/prepare_officia
 
 ---
 
-## 2. Zero-429 Streaming Encoding & 25k Leak-Free Training (Phase B)
+## 2. Streaming Encoding & 25k Two-Stage Training (Phase B)
 
 Script: [`scripts/encode_and_train_streetclip_25k.py`](../../scripts/encode_and_train_streetclip_25k.py) (executed on Colab NVIDIA L4, runtime terminated upon download).
 
 - **High-throughput zero-429 encoding:** Reused 6,366 embeddings cached in Step 1D; streamed the remaining 32,634 images using a two-thread prefetch pipeline that downloads each OSV-5M shard ZIP in a single HTTP request, extracts only the ~340 target JPEGs with SHA-256 verification, and immediately deletes the temporary shard. Completed all 32,634 `StreetCLIP` ViT-L/14 encodings in **18.4 minutes** across 98 requests with **zero HTTP 429 stalls**, caching all 39,300 768-D vectors locally (`results/streetclip_25k/streetclip_39k_plus_test300.npz`, 58.0 MB).
-- **Leak-free two-stage training:**
+- **Creator-disjoint two-stage training:**
   - Excluded all `author_holdout_66` creators from training, then split remaining queries by disjoint creators into `opt_train` (9,980 images) and `tune` (1,978 images).
   - **Stage 1 (`GeoProjector`):** 768→768 residual projection + auxiliary country classification head trained with multi-scale diff-creator geographic soft targets over the full 25,000-image gallery. **Masks same-creator gallery photos ≤ 300 km while retaining same-creator photos > 300 km as hard negatives** to purge camera/watermark fingerprints (`best_epoch=18`; `tune` score rose from `2,717.9 → 3,068.4`).
   - **Stage 2 (`ListwiseGeoRanker`):** Re-retrieves diff-creator Top-100 in projected space and combines 24 features (projected/raw cosine, multi-scale KDE, gallery-density debiasing, Top-100 country consensus, multi-template `StreetCLIP` zero-shot country text probes, and auxiliary country log-probs) under Listwise Softmax KL (`best_epoch=1`).

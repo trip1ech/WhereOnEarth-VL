@@ -1,4 +1,4 @@
-# Anti-Leakage Retrieval v2: Shortcut Forensics, Geo-Projection Re-Ranking & StreetCLIP × VLM Hybrid
+# Retrieval v2: Creator-Disjoint Evaluation, Geo-Projection Re-Ranking & StreetCLIP × VLM Hybrid
 
 **Date:** 2026-11-23. Before training a new ranker, we manually inspected 15 matched query–gallery pairs and the contributor distribution of the 25k retrieval dataset — uncovering a massive same-creator shortcut leak. After enforcing a strict diff-creator protocol, we progressed through **Step 1A (Spatial KDE voting)**, **Step 1B (full-gallery Geo-Metric Projection + Listwise Ranker)**, **Step 1C (exact 211-country `Qwen3-VL` 6k log-prob fusion)**, and **Step 1D (swapping to `geolocal/StreetCLIP` + HUD-crop multi-view ablation)**.
 
@@ -31,7 +31,7 @@ Auditing `attribution` (photographer) and inspecting actual image pairs in the 2
 4. **Bottom-edge dashcam GPS watermarks on prolific accounts:**
    - Motivated the bottom-12% crop (`crop88`) and multi-view fusion ablation in Step 1D.
 
-> **Anti-Leakage Iron Rule:** Every experiment in Steps 1A–1D **strictly masks gallery images sharing the query's `attribution`**. Step 1B training explicitly removes all `author_holdout_66` creators (42 rows excluded) and splits `opt_train` / `tune` by disjoint creators. Fusion weights in Steps 1C–1D are chosen solely via 5-fold OOF on `qlora_eval_300` and evaluated **zero-touch** on `author_holdout_66`.
+> **Evaluation Protocol:** All experiments in Steps 1A–1D exclude gallery images sharing the query's `attribution`. Step 1B training excludes all `author_holdout_66` creators (42 rows) and splits `opt_train` / `tune` by disjoint creators. Fusion weights in Steps 1C–1D are chosen via 5-fold OOF on `qlora_eval_300` and applied unchanged to `author_holdout_66`.
 
 ---
 
@@ -107,7 +107,7 @@ To test how much a geo-pretrained backbone raises the ceiling, we compared froze
 ## 5. Next Steps Leading to Stage 11
 
 These 6k proof-of-concept results directly motivated Stage 11 ([`official_test_showdown/README.md`](../official_test_showdown/README.md)):
-1. Scale `StreetCLIP` from 6k to the full **25k coverage-first gallery** with leak-free Geo-Projection + Listwise Ranker.
+1. Scale `StreetCLIP` from 6k to the full **25k coverage-first gallery** with creator-disjoint Geo-Projection + Listwise Ranker.
 2. Lock **`official_test_300`** from OSV-5M official `test` for a fair head-to-head comparison against `osv5m/baseline`.
 3. Connect **OCR-gated sign crops + offline GeoNames gazetteer lookup** as a future follow-up to cross-check top candidate regions against readable signage.
 
