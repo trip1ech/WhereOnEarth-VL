@@ -66,6 +66,7 @@ venv/
 /results/**/format_transfer/
 /results/**/review/
 /results/**/selection/
+/results/vlm_kde_rerank/**/kde_distributions.jsonl
 
 # Webapp generated assets (rebuilt via webapp/build_data.py)
 /webapp/dist/assets/photos/
