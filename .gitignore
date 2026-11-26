@@ -67,6 +67,14 @@ venv/
 /results/**/review/
 /results/**/selection/
 /results/vlm_kde_rerank/**/kde_distributions.jsonl
+/results/vlm_multiscale_cot/*.jsonl
+/results/vlm_cue_grounding_step0/
+/results/vlm_mil_attention_step1/
+/results/vlm_local_cue_dir2/
+/results/vlm_hier_fovea/
+/results/vlm_test300_fovea_showdown/*.jsonl
+/results/**/ep1_archive/
+/results/**/ckpt_*/
 
 # Webapp generated assets (rebuilt via webapp/build_data.py)
 /webapp/dist/assets/photos/

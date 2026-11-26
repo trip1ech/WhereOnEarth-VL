@@ -1,0 +1,153 @@
+{
+  "eval_report": {
+    "model_id": "Qwen/Qwen3-VL-8B-Instruct",
+    "model_revision": "0c351dd01ed87e9c1b53cbc748cba10e6187ff3b",
+    "adapter_label": "qwen8b_cot_sft_top8",
+    "max_edge": 896,
+    "gpu": "NVIDIA L4",
+    "locked_finetuned": {
+      "label": "qwen8b_cot_sft_top8",
+      "n": 300,
+      "parsed": 300,
+      "country_correct": 144,
+      "country_acc_pct": 48.0,
+      "le_25km": 11,
+      "le_200km": 71,
+      "median_km": 594.6,
+      "geoscore": 2912.0,
+      "sel_top1": 186,
+      "sel_2_to_8": 112,
+      "sel_override": 2
+    },
+    "base_untrained_top8": {
+      "label": "base_8b_top8",
+      "n": 300,
+      "parsed": 300,
+      "country_correct": 145,
+      "country_acc_pct": 48.33,
+      "le_25km": 10,
+      "le_200km": 70,
+      "median_km": 609.3,
+      "geoscore": 2885.7,
+      "sel_top1": 224,
+      "sel_2_to_8": 75,
+      "sel_override": 1
+    }
+  },
+  "metrics": {
+    "pure_25k_top1": {
+      "label": "Pure 25k StreetCLIP Top-1",
+      "n": 300,
+      "country_correct": 144,
+      "country_acc_pct": 48.0,
+      "le_25km": 8,
+      "le_200km": 73,
+      "le_750km": 174,
+      "median_km": 570.3,
+      "geoscore": 2907.5,
+      "helped": 0,
+      "hurt": 0,
+      "same_cc_delta_km": 0.0,
+      "sel": {
+        "#1": 300
+      }
+    },
+    "base_8b_top8_single": {
+      "label": "Base Qwen3-VL-8B (Top-8, 1-pass)",
+      "n": 300,
+      "country_correct": 145,
+      "country_acc_pct": 48.33,
+      "le_25km": 10,
+      "le_200km": 70,
+      "le_750km": 166,
+      "median_km": 609.3,
+      "geoscore": 2885.7,
+      "helped": 16,
+      "hurt": 15,
+      "same_cc_delta_km": 0.9,
+      "sel": {
+        "#1": 224,
+        "#2..8": 75,
+        "#0": 1
+      }
+    },
+    "locked_sft_8b_top8_single": {
+      "label": "Locked QLoRA CoT SFT (Top-8, 1-pass)",
+      "n": 300,
+      "country_correct": 144,
+      "country_acc_pct": 48.0,
+      "le_25km": 11,
+      "le_200km": 71,
+      "le_750km": 171,
+      "median_km": 594.6,
+      "geoscore": 2912.0,
+      "helped": 16,
+      "hurt": 16,
+      "same_cc_delta_km": 8.7,
+      "sel": {
+        "#2..8": 112,
+        "#1": 186,
+        "#0": 2
+      }
+    },
+    "two_stage_base_8b_top8": {
+      "label": "2-Stage: zs_hi + Base 8B (Top-8)",
+      "n": 300,
+      "country_correct": 144,
+      "country_acc_pct": 48.0,
+      "le_25km": 11,
+      "le_200km": 72,
+      "le_750km": 169,
+      "median_km": 570.6,
+      "geoscore": 2915.1,
+      "helped": 16,
+      "hurt": 16,
+      "same_cc_delta_km": 19.3,
+      "sel": {
+        "#1": 214,
+        "#2..8": 73,
+        "zs_hi": 13
+      }
+    },
+    "two_stage_locked_sft_8b_top8": {
+      "label": "2-Stage: zs_hi + CoT SFT (Top-8)",
+      "n": 300,
+      "country_correct": 143,
+      "country_acc_pct": 47.67,
+      "le_25km": 11,
+      "le_200km": 72,
+      "le_750km": 173,
+      "median_km": 561.2,
+      "geoscore": 2931.1,
+      "helped": 16,
+      "hurt": 17,
+      "same_cc_delta_km": 25.6,
+      "sel": {
+        "#2..8": 106,
+        "#1": 180,
+        "zs_hi": 13,
+        "#0": 1
+      }
+    },
+    "two_stage_locked_sft_8b_top8_narrow": {
+      "label": "2-Stage: zs_hi + CoT SFT (narrow KDE)",
+      "n": 300,
+      "country_correct": 143,
+      "country_acc_pct": 47.67,
+      "le_25km": 12,
+      "le_200km": 60,
+      "le_750km": 171,
+      "median_km": 584.9,
+      "geoscore": 2898.8,
+      "helped": 16,
+      "hurt": 17,
+      "same_cc_delta_km": 8.0,
+      "sel": {
+        "#2..8": 106,
+        "#1": 180,
+        "zs_hi": 13,
+        "#0": 1
+      }
+    }
+  }
+}

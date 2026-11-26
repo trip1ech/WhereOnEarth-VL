@@ -14,8 +14,11 @@ Evaluated on [`official_test_300`](results/official_test_showdown/README.md) —
 
 | Model | Training / Gallery Scale | ≤ 25 km | ≤ 200 km | ≤ 750 km | Country Acc. | Median Error | GeoGuessr Score |
 |---|---|---:|---:|---:|---:|---:|---:|
-| **`WhereOnEarth-VL` (`StreetCLIP` 25k KDE → `Qwen3-VL-8B`, Ours)** | **25k gallery + 10k proj. + 8B VLM** | 3.3% (10) | 25.3% (76) | **58.0% (174)** | **48.0% (144)** | **556.7 km** | **2,945.8** |
-| `StreetCLIP` 25k GeoProj + KDE + Text-Probe (Retrieval Only) | 25k gallery + 10k proj. | 2.7% (8) | 24.3% (73) | **58.0% (174)** | **48.0% (144)** | 570.2 km | 2,907.5 |
+| **`WhereOnEarth-VL v2` (`StreetCLIP` 25k KDE → Hybrid Visual Fovea + `Hier-Fovea` LoRA, 2-Stage)** | **25k gallery + 820 Fovea LoRA** | 2.7% (8) | **25.7% (77)** | **60.0% (180)** | 48.7% (146) | **514.5 km** | **2,991.7** |
+| **`WhereOnEarth-VL v2` (`Hier-Fovea` LoRA, Single-Pass Only)** | **25k gallery + 820 Fovea LoRA** | 2.3% (7) | 25.0% (75) | 59.7% (179) | 48.7% (146) | 534.6 km | **2,971.8** |
+| `WhereOnEarth-VL v1` (`StreetCLIP` 25k Top-6 KDE → `Qwen3-VL-8B`, 2-Stage) | 25k gallery + 10k proj. + 8B VLM | 3.3% (10) | 25.3% (76) | 58.0% (174) | 48.0% (144) | 556.7 km | 2,945.8 |
+| `WhereOnEarth-VL` Zero-Train Hybrid Visual Fovea (CoT, 2-Stage) | 25k gallery + 8B VLM (zero-train) | 3.3% (10) | 25.0% (75) | 58.0% (174) | **49.7% (149)** | 560.5 km | 2,938.7 |
+| `StreetCLIP` 25k GeoProj + KDE + Text-Probe (Retrieval Only) | 25k gallery + 10k proj. | 2.7% (8) | 24.3% (73) | 58.0% (174) | 48.0% (144) | 570.3 km | 2,907.5 |
 | `StreetCLIP` 25k raw + KDE + Text-Probe | 25k gallery (frozen) | 3.7% (11) | 24.3% (73) | 54.0% (162) | 43.3% (130) | 650.8 km | 2,740.0 |
 | `osv5m/baseline` (Official Reference) | **4.89M train images** | **11.0% (33)** | **27.3% (82)** | 49.0% (147) | 41.3% (124) | 804.4 km | 2,590.1 |
 | `Qwen3-VL-8B-Instruct` Zero-Shot (No Retrieval) | — | 2.0% (6) | 12.7% (38) | 41.3% (124) | 28.0% (84) | 1,088.4 km | 2,212.8 |
@@ -23,9 +26,9 @@ Evaluated on [`official_test_300`](results/official_test_showdown/README.md) —
 | `Qwen3-VL-2B` Zero-Shot | — | 0.3% (1) | 6.7% (20) | 31.3% (94) | 23.0% (69) | 1,421.9 km | 1,984.9 |
 | `dinov2-small` 25k raw Top-1 | 25k gallery (frozen) | 0.3% (1) | 5.7% (17) | 17.3% (52) | 11.0% (33) | 4,603.5 km | 1,186.5 |
 
-- **Head-to-head vs. 5M `osv5m/baseline`:** **`WhereOnEarth-VL`** lands closer on **170 of 300 images** (126 losses, 4 ties ≤ 1 km), outperforming the 5M-image official baseline by **+6.7% country accuracy**, **−247.7 km median error**, and **+355.7 GeoGuessr points**.
-- **Value of Retrieval-Augmented VLM Reasoning:** Passing the 25k spatial KDE distribution to `Qwen3-VL-8B-Instruct` lifts standalone 8B zero-shot by **+733.0 points** (`2,212.8 → 2,945.8`) and beats pure 25k retrieval by **+38.3 points** (`2,907.5 → 2,945.8`), cutting median error by **13.5 km** and boosting ≤ 25 km (`8 → 10`) and ≤ 200 km (`73 → 76`) hits.
-- **On the 66-photographer unseen holdout (`author_holdout_66`):** **`WhereOnEarth-VL`** reaches **68.2% country accuracy (45/66)**, **313.6 km median error**, **34.8% ≤ 200 km**, and **3,494.9 GeoGuessr points** (beating pure 25k retrieval's `3,446.6` and standalone 8B zero-shot's `2,437.3`).
+- **Head-to-head vs. 5M `osv5m/baseline`:** **`WhereOnEarth-VL v2`** lands closer on **174 of 300 images** (123 losses, 3 ties ≤ 1 km), outperforming the 5M-image official baseline by **+7.4% country accuracy**, **−289.9 km median error**, **+11.0% ≤ 750 km**, and **+401.6 GeoGuessr points** (`2,991.7` vs. `2,590.1`).
+- **Statistically Significant Gain Over Retrieval & Full-Image VLM:** Single-pass **`Hier-Fovea` LoRA (`2,971.8`)** beats pure 25k `StreetCLIP` retrieval (`2,907.5`) by **+64.3 points** (10k paired bootstrap **`p = 0.0058`**), full-image Base 8B (`2,885.7`) by **+86.2 points (`p = 0.0166`)**, and identical-crop Zero-Train Hybrid Fovea Direct (`2,892.6`) by **+79.2 points (`p = 0.0256`)** — cutting median error by **35.7 km** single-pass (**55.8 km** two-stage).
+- **On the 66-photographer unseen holdout (`author_holdout_66`):** Zero-Training **Hybrid Visual Fovea (CoT)** reaches **69.7% country accuracy (46/66)**, **285.1 km median error**, and **3,612.3 single-pass / 3,627.5 two-stage GeoGuessr points** (+180.9 pts over pure 25k retrieval).
 - **On the OSV-5M validation distribution (`qlora_eval_300`, 5-fold OOF):** Fusing 25k `StreetCLIP` Stage 2 Listwise Ranker with `Qwen3-VL-2B` 6k country priors reaches **74.3% country accuracy (223/300)**, **461.2 km median error**, and **3,327.0 GeoGuessr points**.
 
 ---
@@ -123,9 +126,25 @@ Development on `author_holdout_66` revealed an important VLM calibration effect:
 
 #### Three Key Technical Takeaways
 
-1. **Global Score vs. Pinpoint (≤ 25 km) Tradeoff:** `WhereOnEarth-VL` beats 5M `osv5m/baseline` globally (+356 GeoGuessr pts, −248 km median, 170–126 wins), while `osv5m/baseline` maintains a lead at ≤ 25 km (`11.0%` vs. `3.3–4.3%`) due to 200× higher training density. Scaling the gallery (25k → 100k+) and pairing coarse-to-fine KDE with high-resolution sign crops is the clearest path to closing the ≤ 25 km gap.
+1. **Global Score vs. Pinpoint (≤ 25 km) Tradeoff:** `WhereOnEarth-VL v2` beats 5M `osv5m/baseline` globally (+401.6 GeoGuessr pts, −289.9 km median, 174–123 wins), while `osv5m/baseline` maintains a lead at ≤ 25 km (`11.0%` vs. `2.7–4.3%`) due to 200× higher training density. Scaling the gallery (25k → 100k+) and pairing coarse-to-fine KDE with high-resolution sign crops is the clearest path to closing the ≤ 25 km gap.
 2. **Prior-Free Stage 1 Generalizes Best Across Distribution Shift:** Stage 2 `ListwiseGeoRanker` leverages OSV-5M country-frequency features and dominates on OSV-5M's US/RU/EU-heavy `val_2000` (71.9%) and `qlora_eval_300` (74.3%). On uniformly stratified 147-country `official_test_300`, prior-free **Stage 1 GeoProj + KDE + Text-Probe** generalizes strongest and provides the cleanest candidate distribution for the VLM.
-3. **Selective VLM Reasoning Beats Fixed-Weight Blending:** Fixed-weight fusion with `Qwen3-VL-2B` hurt on 147-country `official_test_300` (`2,907.5 → 2,814.3`), whereas **confidence-gated two-stage `Qwen3-VL-8B` reasoning over the KDE distribution** added **+38.3 pts** on `official_test_300` and **+48.3 pts** on `author_holdout_66`. The natural next step is RLVR (GRPO / DPO) training of the 8B reranker directly on continuous GeoGuessr distance rewards.
+3. **Selective VLM Reasoning Beats Fixed-Weight Blending:** Fixed-weight fusion with `Qwen3-VL-2B` hurt on 147-country `official_test_300` (`2,907.5 → 2,814.3`), whereas **confidence-gated two-stage `Qwen3-VL-8B` reasoning over the KDE distribution** added **+38.3 pts** in v1 (`2,945.8`) and **+84.2 pts** with Hybrid Visual Fovea + Hierarchical Geographic Loss in v2 (`2,991.7`).
+
+---
+
+### 6 · Visual Fovea, Mechanistic Attention Diagnostics & Hierarchical Geographic Loss
+
+Holding the **25k `StreetCLIP` + `Qwen3-VL-8B-Instruct`** backbone fixed, we investigated why standard CoT SFT (`2,931.1`) and Offline DPO (`3,456.7` on holdout) failed to break past the Stage 12 ceiling ([`results/vlm_test300_fovea_showdown/README.md`](results/vlm_test300_fovea_showdown/README.md)):
+
+1. **7.9× Cross-Attention Collapse & Sky Sink:** Extracting layer-averaged LM visual cross-attention revealed that once the Top-8 KDE table enters context, total visual attention collapses **7.9×** (`6.87% → 0.87%`) with `23.5%` trapped on top-left corner pixel `[0,0]` and `< 0.6×` concentration inside detected poles, bollards, and signs. Both `Image-Last` prompting (`-19.6` pts) and frozen ViT Patch-MIL cropping (hijacked by sky register tokens) failed to fix this collapse.
+2. **Hybrid Self-Zoom Visual Fovea (Zero Training):** Asking `Qwen3-VL-8B` in Pass 1 to natively localize 6 high-precision infrastructure classes (`text sign`, `road sign`, `license plate`, `utility pole`, `bollard`, `road marking`) — falling back to zero-sky Open-Ended grounding when none are detected (`95.0%` coverage on `official_test_300`) — and placing up to 2 high-res crops **before** the KDE table immediately lifted `author_holdout_66` to **`3,612.3` 1-pass / `3,627.5` 2-stage (`69.7%` country acc.)**.
+3. **Unfrozen Merger Forensics vs. Frozen-Vision Hierarchical Geographic Loss (`Hier-Fovea` LoRA):**
+   - Unfreezing `160.5M` visual merger parameters (`lr=6e-5`) on isolated cue MCQs caused catastrophic OCR forgetting (`64.7% → 29.4%`), exposed a distractor-prior confounder, and amplified the `[0,0]` Attention Sink **2.57×** (`23.5% → 60.3%`).
+   - Instead, **freezing Vision + Mergers (`0%` forgetting on isolated MCQ: `48.82%`, non-text `+2.15%`)** and training lightweight LM LoRA (`43.65M`) on 820 creator-disjoint Visual Fovea scenes with a **4-scale differentiable Hierarchical Geographic Loss** (`2500 km` macro KL + `750 km` country KL + `200 km` fine KL + direct `Expected GeoScore Regret` + true GPS coordinate SFT) achieved a decisive breakthrough on locked **`official_test_300`**:
+     - **`2,971.8` single-pass** (`+64.3` over pure retrieval, **`p = 0.0058`**; `+86.2` over Base Full-Only, **`p = 0.0166`**; `+79.2` over identical-crop Zero-Train Direct, **`p = 0.0256`**) and **`2,991.7` two-stage** (`514.5 km` median error, **174–123** over 5M `osv5m/baseline`).
+     - Exact gain decomposition vs. retrieval: **`+34.2` pts** from disciplined cluster flipping (`31/300` flips at `58.1%` win rate vs. zero-training's `61–73` flips at `42.5%`) + **`+30.2` pts** from sub-cluster coordinate refinement (moving off cluster centroids to true cities/islands such as Canary Islands `+3,117` and Jakarta `+2,127`).
+
+![Locked official_test_300 Final Showdown Charts](results/vlm_test300_fovea_showdown/test300_final_showdown_charts.png)
 
 ---
 
@@ -149,7 +168,7 @@ All models receive identical EXIF-oriented RGB pixels; GPS coordinates, country 
 ```text
 WhereOnEarth-VL/
 ├── README.md                            # Project overview & research story (this file)
-├── EXPERIMENTS.md                       # Full 11-stage experiment index, metrics & bottlenecks
+├── EXPERIMENTS.md                       # Full 16-stage experiment index, metrics & bottlenecks
 ├── requirements-colab.txt               # Pinned Colab dependencies
 ├── notebooks/                           # 7 Colab notebooks (GPU check through QLoRA SFT)
 │   ├── 00_colab_gpu.ipynb
@@ -159,7 +178,7 @@ WhereOnEarth-VL/
 │   ├── 04_ranker_preprocessing.ipynb
 │   ├── 05_ranker_colab.ipynb
 │   └── 06_sft_colab.ipynb
-├── scripts/                             # 50 end-to-end data prep, training, probe & eval scripts
+├── scripts/                             # End-to-end data prep, training, probe & eval scripts
 ├── results/                             # Metrics, figures & per-stage technical reports
 │   ├── distribution_audit/              # OSV-5M 4.89M global distribution tables & plots
 │   ├── roadmark_probe/README.md         # Frozen ViT / Projector / DeepStack center-line probe
@@ -169,7 +188,8 @@ WhereOnEarth-VL/
 │   ├── clue_first_training/README.md    # Multi-task clue-extraction LM LoRA training report
 │   ├── retrieval_v2/README.md           # Creator-disjoint retrieval v2 & StreetCLIP 6k PoC
 │   ├── official_test_showdown/README.md # 25k StreetCLIP vs. 5M osv5m/baseline showdown
-│   └── vlm_kde_rerank/README.md         # Spatial KDE → Qwen3-VL-8B rerank & coordinate refinement
+│   ├── vlm_kde_rerank/README.md         # Spatial KDE → Qwen3-VL-8B rerank & coordinate refinement
+│   └── vlm_test300_fovea_showdown/README.md # Stages 13–16: Visual Fovea, attention diagnostics & Hier-Fovea LoRA
 ├── data/                                # Small docs, audit records & manual labels (media ignored)
 │   ├── author_holdout/README.md         # 66-creator holdout report & visual review log
 │   ├── official_test_300/hud_audit.json
@@ -191,6 +211,7 @@ WhereOnEarth-VL/
   - *Visual/text probes & clue-first SFT:* `scripts/extract_roadmark_features.py`, `scripts/analyze_roadmark_probe.py`, `scripts/probe_text_attention.py`, `scripts/render_text_attention.py`, `scripts/train_clue_first.py`, `scripts/analyze_clue_training.py`
   - *Retrieval v2 & 25k StreetCLIP official showdown:* `scripts/eval_spatial_kde.py`, `scripts/train_geo_ranker.py`, `scripts/extract_vlm_country_priors.py`, `scripts/prepare_official_test.py`, `scripts/encode_and_train_streetclip_25k.py`, `scripts/evaluate_official_test_models.py`, `scripts/evaluate_official_test_showdown.py`
   - *Spatial KDE → `Qwen3-VL-8B-Instruct` reranking & refinement:* `scripts/kde_vlm_utils.py`, `scripts/run_qwen8b_kde_rerank.py`, `scripts/prepare_vlm_rerank_bundle.py`, `scripts/evaluate_vlm_rerank.py`
+  - *Visual Fovea, Attention Diagnostics & Hierarchical Geographic Loss:* `scripts/multiscale_vlm_utils.py`, `scripts/run_step0_grounding_attention.py`, `scripts/run_step1_mil_and_sink.py`, `scripts/run_dir2_harvest_crops.py`, `scripts/train_dir2_unfrozen_merger.py`, `scripts/prepare_hier_fovea_bundle.py`, `scripts/train_hier_fovea_lora.py`, `scripts/prepare_test300_fovea_bundle.py`, `scripts/run_locked_test300_fovea_showdown.py`
 - **Interactive Prediction Viewer:** See [`webapp/README.md`](webapp/README.md) to rebuild data from local evaluation archives and inspect Zero-shot vs. 2k vs. 6k QLoRA guesses side-by-side on synchronized Leaflet maps.
 - **Blind Road-Marking Annotator:** See [`annotation_tool/README.md`](annotation_tool/README.md) to run the local keyboard-driven annotator at `http://127.0.0.1:8766/`.
 
